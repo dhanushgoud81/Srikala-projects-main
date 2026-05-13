@@ -14,9 +14,9 @@ import { ArrowRight } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 const PROJECTS = [
-  { id: 1, title: 'Omega Facility', type: 'PEB Structure', image: '/src/images/pre-Engineered.png' },
-  { id: 2, title: 'Nova Logistics Park', type: 'Roofing Systems', image: '/src/images/Roofing System.png' },
-  { id: 3, title: 'Zenith Tech Hub', type: 'Structural Glazing', image: '/src/images/Structural Glazing.png' }
+  { id: 1, title: 'Omega Facility', type: 'PEB Structure', image: '/images/pre-engineered.png' },
+  { id: 2, title: 'Nova Logistics Park', type: 'Roofing Systems', image: '/images/roofing-system.png' },
+  { id: 3, title: 'Zenith Tech Hub', type: 'Structural Glazing', image: '/images/structural-glazing.png' }
 ];
 
 export const ProjectCarousel = () => {

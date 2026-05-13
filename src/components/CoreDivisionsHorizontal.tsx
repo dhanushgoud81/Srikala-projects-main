@@ -15,35 +15,35 @@ const SERVICES = [
     icon: Factory,
     title: 'Pre-Engineered Buildings',
     desc: 'Optimized PEB structural frames for maximum internal space utilization.',
-    image: '/src/images/pre-Engineered.png',
+    image: '/images/pre-engineered.png',
     color: 'bg-slate-800'
   },
   {
     icon: Box,
     title: 'Roofing Systems',
     desc: 'Advanced industrial roofing solutions with superior thermal insulation.',
-    image: '/src/images/Roofing System.png',
+    image: '/images/roofing-system.png',
     color: 'bg-slate-900'
   },
   {
     icon: Factory,
     title: 'Heavy Fabrication',
     desc: 'Precision steel fabrication for critical infrastructure components.',
-    image: '/src/images/heavy fabrication.png',
+    image: '/images/heavy-fabrication.png',
     color: 'bg-slate-800'
   },
   {
     icon: Layers,
     title: 'ACP Cladding',
     desc: 'High-grade aluminum composite panels for exterior environmental protection.',
-    image: '/src/images/acp .png',
+    image: '/images/acp.png',
     color: 'bg-slate-900'
   },
   {
     icon: Grid3X3,
     title: 'Structural Glazing',
     desc: 'Sophisticated glass facade solutions that combine integrity with transparency.',
-    image: '/src/images/Structural Glazing.png',
+    image: '/images/structural-glazing.png',
     color: 'bg-slate-800'
   },
 ];

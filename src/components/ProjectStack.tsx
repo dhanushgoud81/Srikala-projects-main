@@ -4,9 +4,9 @@ import { useTransform, motion, useScroll, MotionValue } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 
 const PROJECTS = [
-  { id: 1, title: 'Omega Facility', type: 'PEB Structure', image: '/src/images/pre-Engineered.png', color: '#1e293b' },
-  { id: 2, title: 'Nova Logistics Park', type: 'Roofing Systems', image: '/src/images/Roofing System.png', color: '#0f172a' },
-  { id: 3, title: 'Zenith Tech Hub', type: 'Structural Glazing', image: '/src/images/Structural Glazing.png', color: '#020617' }
+  { id: 1, title: 'Omega Facility', type: 'PEB Structure', image: '/images/pre-engineered.png', color: '#1e293b' },
+  { id: 2, title: 'Nova Logistics Park', type: 'Roofing Systems', image: '/images/roofing-system.png', color: '#0f172a' },
+  { id: 3, title: 'Zenith Tech Hub', type: 'Structural Glazing', image: '/images/structural-glazing.png', color: '#020617' }
 ];
 
 export const ProjectStack = () => {
