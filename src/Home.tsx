@@ -17,7 +17,7 @@ const SERVICES = [
     icon: Square,
     title: 'UPVC Solutions',
     desc: 'Energy-efficient window systems for modern architectural aesthetics.',
-    image: '/images/acp.png',
+    image: '/images/structural-glazing.png', // closest match available
   },
   {
     icon: Factory,
