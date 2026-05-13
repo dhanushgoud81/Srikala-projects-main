@@ -17,37 +17,37 @@ const SERVICES = [
     icon: Square,
     title: 'UPVC Solutions',
     desc: 'Energy-efficient window systems for modern architectural aesthetics.',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+    image: '/images/acp.png',
   },
   {
     icon: Factory,
     title: 'Pre-Engineered Buildings',
     desc: 'Optimized PEB structural frames for maximum internal space utilization.',
-    image: '/src/images/pre-Engineered.png',
+    image: '/images/pre-engineered.png',
   },
   {
     icon: Box,
     title: 'Roofing Systems',
     desc: 'Advanced industrial roofing solutions with superior thermal insulation.',
-    image: '/src/images/Roofing System.png',
+    image: '/images/roofing-system.png',
   },
   {
     icon: Factory,
     title: 'Heavy Fabrication',
     desc: 'Precision steel fabrication for critical infrastructure components.',
-    image: '/src/images/heavy fabrication.png',
+    image: '/images/heavy-fabrication.png',
   },
   {
     icon: Layers,
     title: 'ACP Cladding',
     desc: 'High-grade aluminum composite panels for exterior environmental protection.',
-    image: '/src/images/acp .png',
+    image: '/images/acp.png',
   },
   {
     icon: Grid3X3,
     title: 'Structural Glazing',
     desc: 'Sophisticated glass facade solutions that combine integrity with transparency.',
-    image: '/src/images/Structural Glazing.png',
+    image: '/images/structural-glazing.png',
   },
 ];
 
@@ -151,7 +151,7 @@ export default function Home() {
         <img
           ref={heroImageRef}
           className="absolute inset-0 w-full h-full object-cover will-change-transform"
-          src="/src/lib/images/home/home.jpeg"
+          src="/images/home.jpeg"
           alt="Industrial Facility"
           loading="eager"
         />
