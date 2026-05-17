@@ -163,32 +163,37 @@ export default function Home() {
             </span>
             <h1
               ref={heroTitleRef}
-              className="text-5xl md:text-7xl font-bold text-white mb-6 uppercase tracking-tighter leading-none"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 md:mb-6 uppercase tracking-tighter leading-none"
             >
               Engineering Strength. Building Future.
             </h1>
-            <p className="hero-animate text-lg text-slate-300 mb-10 max-w-lg">
+            <p className="hero-animate text-base md:text-lg text-slate-300 mb-8 md:mb-10 max-w-lg">
               Precision-engineered solutions for the modern industrial landscape. We specialize in
               high-performance structures designed to withstand the test of time.
             </p>
-            <div className="hero-animate flex flex-wrap gap-4">
+            <div className="hero-animate flex flex-wrap gap-3 md:gap-4">
               <button
                 ref={heroCTARef}
                 onClick={() => navigate('/contact')}
-                className="relative bg-electric-blue text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-200 overflow-hidden"
+                className="relative bg-electric-blue text-white px-7 md:px-10 py-3 md:py-4 text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-200 overflow-hidden"
               >
                 GET QUOTE
               </button>
               <button
                 onClick={() => navigate('/solutions')}
-                className="border-2 border-white/50 backdrop-blur-sm text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-200"
+                className="border-2 border-white/50 backdrop-blur-sm text-white px-7 md:px-10 py-3 md:py-4 text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-200"
               >
                 EXPLORE SERVICES
               </button>
             </div>
           </div>
         </div>
-      </section>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
+          <span className="text-[10px] uppercase tracking-widest">Scroll</span>
+          <div className="w-px h-10 bg-white/20 animate-pulse" />
+        </div>
 
       {/* ── Core Divisions ───────────────────────────────────────────────── */}
       <CoreDivisionsHorizontal />
@@ -196,11 +201,11 @@ export default function Home() {
       {/* ── Stats ────────────────────────────────────────────────────────── */}
       <section className="py-24 bg-slate-950 text-white overflow-hidden" id="stats">
         <div className="max-w-7xl mx-auto px-6 md:px-12" ref={statsRef}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
             {STATS.map((stat, idx) => (
               <div key={idx} className="stat-item border-l-2 border-electric-blue pl-6">
                 <div
-                  className="stat-number text-6xl font-bold mb-2"
+                  className="stat-number text-5xl md:text-6xl font-bold mb-2"
                   data-value={stat.val}
                 >
                   {stat.val}+
@@ -218,19 +223,19 @@ export default function Home() {
       {/* ── Precision Pillars ────────────────────────────────────────────── */}
       <section className="py-24 bg-white" id="pillars">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div ref={pillarsTitleRef} className="text-center mb-16">
-            <h2 className="text-3xl font-bold uppercase tracking-widest mb-4">Precision Pillars</h2>
+          <div ref={pillarsTitleRef} className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-widest mb-4">Precision Pillars</h2>
             <div className="w-16 h-1 bg-electric-blue mx-auto" />
           </div>
-          <div ref={pillarsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div ref={pillarsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {PILLARS.map((pillar, idx) => (
               <div
                 key={idx}
-                className="pillar-card p-8 border border-slate-100 hover:border-electric-blue transition-all duration-500 will-change-transform"
+                className="pillar-card p-6 md:p-8 border border-slate-100 hover:border-electric-blue transition-all duration-500 will-change-transform"
                 style={{ transformStyle: 'preserve-3d' }}
               >
-                <pillar.icon className="w-8 h-8 text-electric-blue mb-6" />
-                <h4 className="text-lg font-bold mb-2 uppercase">{pillar.title}</h4>
+                <pillar.icon className="w-7 h-7 md:w-8 md:h-8 text-electric-blue mb-5 md:mb-6" />
+                <h4 className="text-base md:text-lg font-bold mb-2 uppercase">{pillar.title}</h4>
                 <p className="text-sm text-slate-500">{pillar.desc}</p>
               </div>
             ))}
@@ -242,22 +247,22 @@ export default function Home() {
       <section className="py-24 px-6" id="home-cta">
         <div
           ref={ctaRef}
-          className="max-w-7xl mx-auto bg-slate-950 text-white p-12 md:p-20 relative overflow-hidden rounded-sm shadow-2xl"
+          className="max-w-7xl mx-auto bg-slate-950 text-white p-8 md:p-20 relative overflow-hidden rounded-sm shadow-2xl"
         >
           <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none bg-[radial-gradient(circle_at_center,_#2180ff_0%,transparent_70%)]" />
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10">
             <div className="max-w-xl text-center md:text-left">
-              <h2 className="text-4xl md:text-5xl font-bold uppercase mb-6 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-bold uppercase mb-4 md:mb-6 leading-tight">
                 Let's Build Something <br />
                 <span className="text-electric-blue">Strong Together</span>
               </h2>
-              <ScrollReadingText className="text-xl leading-relaxed md:text-2xl mt-4">
+              <ScrollReadingText className="text-base md:text-2xl leading-relaxed mt-3 md:mt-4">
                 Consult with our engineering experts to turn your industrial vision into a structural reality.
               </ScrollReadingText>
             </div>
             <button
               onClick={() => navigate('/contact')}
-              className="bg-white text-slate-950 px-12 py-5 text-sm font-bold hover:bg-electric-blue hover:text-white hover:scale-105 transition-all duration-300 uppercase tracking-widest whitespace-nowrap"
+              className="w-full md:w-auto bg-white text-slate-950 px-8 md:px-12 py-4 md:py-5 text-sm font-bold hover:bg-electric-blue hover:text-white hover:scale-105 transition-all duration-300 uppercase tracking-widest whitespace-nowrap"
             >
               CONTACT US <ArrowRight className="inline-block ml-2 w-4 h-4" />
             </button>

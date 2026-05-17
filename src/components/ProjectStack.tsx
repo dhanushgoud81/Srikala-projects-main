@@ -18,14 +18,13 @@ export const ProjectStack = () => {
 
   return (
     <section className='bg-slate-950 relative' ref={container} id="projects">
-        <div className='text-white h-[70vh] w-full grid place-content-center pt-24'>
+        <div className='text-white h-auto md:h-[70vh] w-full grid place-content-center py-16 md:pt-24'>
           <div className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>
-          
           <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase mb-4 tracking-tighter">Featured Projects</h2>
-            <div className="w-20 h-1 bg-electric-blue mx-auto mb-8" />
-            <p className='text-xl text-slate-400 font-medium text-center max-w-2xl mx-auto leading-relaxed'>
-              Stacking Cards Using Motion. Scroll down to view our engineered solutions! 👇
+            <h2 className="text-3xl md:text-5xl font-bold uppercase mb-4 tracking-tighter">Featured Projects</h2>
+            <div className="w-20 h-1 bg-electric-blue mx-auto mb-6 md:mb-8" />
+            <p className='text-base md:text-xl text-slate-400 font-medium text-center max-w-2xl mx-auto leading-relaxed'>
+              Scroll down to view our engineered solutions! 👇
             </p>
           </div>
         </div>
@@ -93,30 +92,25 @@ const Card: React.FC<CardProps> = ({
           scale,
           top: `calc(-5vh + ${i * 25}px)`,
         }}
-        className={`flex flex-col relative -top-[20%] h-[450px] w-full max-w-5xl rounded-md lg:p-10 sm:p-4 p-4 origin-top border border-white/10 shadow-2xl`}
+        className={`flex flex-col relative -top-[20%] h-auto min-h-[420px] md:h-[450px] w-full max-w-5xl rounded-md p-5 md:p-10 origin-top border border-white/10 shadow-2xl`}
       >
-        <h2 className='text-3xl md:text-4xl uppercase font-black tracking-tighter mb-4'>{title}</h2>
-        <div className={`flex flex-col md:flex-row h-full gap-6 md:gap-10`}>
+        <h2 className='text-2xl md:text-4xl uppercase font-black tracking-tighter mb-3 md:mb-4'>{title}</h2>
+        <div className={`flex flex-col md:flex-row h-full gap-5 md:gap-10`}>
           <div className={`w-full md:w-[40%] flex flex-col justify-center`}>
-            <p className='text-electric-blue uppercase tracking-[0.2em] text-sm font-bold mb-4'>{description}</p>
-            <p className='text-slate-300 text-sm md:text-base leading-relaxed mb-6'>
+            <p className='text-electric-blue uppercase tracking-[0.2em] text-xs md:text-sm font-bold mb-3 md:mb-4'>{description}</p>
+            <p className='text-slate-300 text-sm leading-relaxed mb-4 md:mb-6'>
               Engineered with precision and built to last. Our {description.toLowerCase()} solutions set the standard for industrial excellence.
             </p>
             <span className='flex items-center gap-2 pt-2 group cursor-pointer w-fit'>
-              <span className='text-sm font-bold uppercase tracking-widest group-hover:text-electric-blue transition-colors'>
+              <span className='text-xs md:text-sm font-bold uppercase tracking-widest group-hover:text-electric-blue transition-colors'>
                 View Case Study
               </span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-2 group-hover:text-electric-blue transition-all" />
             </span>
           </div>
 
-          <div
-            className={`relative w-full md:w-[60%] h-48 md:h-full rounded-lg overflow-hidden`}
-          >
-            <motion.div
-              className={`w-full h-full`}
-              style={{ scale: imageScale }}
-            >
+          <div className={`relative w-full md:w-[60%] h-44 md:h-full rounded-lg overflow-hidden`}>
+            <motion.div className={`w-full h-full`} style={{ scale: imageScale }}>
               <img src={url} alt={title} className='w-full h-full object-cover' />
             </motion.div>
           </div>

@@ -86,47 +86,70 @@ export const CoreDivisionsHorizontal = () => {
 
   return (
     <div className="bg-white">
-      <header className='text-slate-950 relative w-full bg-white grid place-content-center py-24 border-b border-slate-100'>
+      <header className='text-slate-950 relative w-full bg-white grid place-content-center py-16 md:py-24 border-b border-slate-100'>
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase mb-4 tracking-tighter">Our Core Divisions</h2>
-            <div className="w-20 h-1 bg-electric-blue mx-auto mb-8" />
-            <p className='text-xl text-slate-500 font-medium text-center max-w-2xl mx-auto leading-relaxed'>
-              Specialized engineering divisions delivering turnkey solutions for complex structural requirements. Scroll to explore! 👇
+            <h2 className="text-3xl md:text-5xl font-bold uppercase mb-4 tracking-tighter">Our Core Divisions</h2>
+            <div className="w-20 h-1 bg-electric-blue mx-auto mb-6 md:mb-8" />
+            <p className='text-base md:text-xl text-slate-500 font-medium text-center max-w-2xl mx-auto leading-relaxed'>
+              Specialized engineering divisions delivering turnkey solutions for complex structural requirements.
+              <span className="hidden md:inline"> Scroll to explore! 👇</span>
             </p>
         </div>
       </header>
-      
-      {/* 600vh height because we have 6 items */}
-      <section ref={sectionRef} className='h-[600vh] relative'>
+
+      {/* ── Mobile: vertical card grid ──────────────────────────────────── */}
+      <div className="md:hidden bg-white">
+        {SERVICES.map((service, index) => {
+          const Icon = service.icon;
+          return (
+            <div key={index} className={`${service.color} px-6 py-10 flex flex-col gap-6`}>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
+                  <Icon className="w-6 h-6 text-electric-blue" />
+                </div>
+                <h3 className="text-2xl font-bold uppercase tracking-tighter text-white">{service.title}</h3>
+              </div>
+              <div className="w-full h-48 rounded-lg overflow-hidden shadow-xl">
+                <img src={service.image} alt={service.title} className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <p className="text-slate-300 text-sm leading-relaxed">{service.desc}</p>
+              <button
+                onClick={() => navigate(service.title === 'UPVC Solutions' ? '/upvc' : '/solutions')}
+                className="w-fit bg-electric-blue text-white px-6 py-3 text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform"
+              >
+                Learn More
+              </button>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* ── Desktop: horizontal scroll ──────────────────────────────────── */}
+      <section ref={sectionRef} className='hidden md:block h-[600vh] relative'>
         <ul ref={ulRef} className='flex sticky top-0'>
           {SERVICES.map((service, index) => {
             const Icon = service.icon;
             return (
               <li key={index} className={`h-screen w-screen ${service.color} flex flex-col justify-center overflow-hidden items-center shrink-0 relative`}>
-                <h2 className='bg-text text-[10vw] md:text-[8vw] font-black tracking-tighter uppercase whitespace-nowrap text-white/5 absolute top-1/4 select-none pointer-events-none'>
+                <h2 className='bg-text text-[8vw] font-black tracking-tighter uppercase whitespace-nowrap text-white/5 absolute top-1/4 select-none pointer-events-none'>
                   {service.title}
                 </h2>
-                
-                <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-12 mt-20">
-                  <div className="flex-1 text-white text-center md:text-left">
-                    <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-8 mx-auto md:mx-0">
+                <div className="relative z-10 w-full max-w-7xl mx-auto px-12 flex flex-row items-center gap-12 mt-20">
+                  <div className="flex-1 text-white text-left">
+                    <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-8">
                       <Icon className="w-8 h-8 text-electric-blue" />
                     </div>
-                    <h3 className="text-4xl md:text-5xl font-bold uppercase mb-6 tracking-tighter">{service.title}</h3>
-                    <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-lg mx-auto md:mx-0">{service.desc}</p>
-                    <button 
+                    <h3 className="text-5xl font-bold uppercase mb-6 tracking-tighter">{service.title}</h3>
+                    <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-lg">{service.desc}</p>
+                    <button
                       onClick={() => navigate(service.title === 'UPVC Solutions' ? '/upvc' : '/solutions')}
                       className="bg-electric-blue text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:scale-105 transition-transform"
                     >
                       Learn More
                     </button>
                   </div>
-                  <div className="flex-1 w-full relative h-[40vh] md:h-[60vh] rounded-lg overflow-hidden shadow-2xl">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className='w-full h-full object-cover hover:scale-105 transition-transform duration-700'
-                    />
+                  <div className="flex-1 w-full relative h-[60vh] rounded-lg overflow-hidden shadow-2xl">
+                    <img src={service.image} alt={service.title} className='w-full h-full object-cover hover:scale-105 transition-transform duration-700' />
                     <div className="absolute inset-0 bg-slate-950/30 mix-blend-multiply pointer-events-none" />
                   </div>
                 </div>
