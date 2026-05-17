@@ -194,6 +194,7 @@ export default function Home() {
           <span className="text-[10px] uppercase tracking-widest">Scroll</span>
           <div className="w-px h-10 bg-white/20 animate-pulse" />
         </div>
+      </section>
 
       {/* ── Core Divisions ───────────────────────────────────────────────── */}
       <CoreDivisionsHorizontal />
