@@ -109,6 +109,41 @@ const CAPABILITIES = [
   },
 ];
 
+// ─── Lamination Options ───────────────────────────────────────────────────────
+const LAMINATIONS = [
+  {
+    name: 'Walnut',
+    color: '#7B3F1E',
+    gradient: 'linear-gradient(135deg, #8B4513 0%, #6B3410 40%, #7B3F1E 70%, #9B5523 100%)',
+    texture: 'repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.02) 4px)',
+  },
+  {
+    name: 'Dark Oak',
+    color: '#3B1F0E',
+    gradient: 'linear-gradient(135deg, #2C1503 0%, #3B1F0E 40%, #4A2810 70%, #2C1503 100%)',
+    texture: 'repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0px, rgba(0,0,0,0) 2px, rgba(255,255,255,0.01) 4px)',
+  },
+  {
+    name: 'Mahogany',
+    color: '#4A1C2C',
+    gradient: 'linear-gradient(135deg, #5C1F2E 0%, #4A1C2C 40%, #3D1525 70%, #5C1F2E 100%)',
+    texture: 'repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0) 3px, rgba(0,0,0,0.02) 5px)',
+  },
+  {
+    name: 'Golden Oak',
+    color: '#B8732A',
+    gradient: 'linear-gradient(135deg, #C8832A 0%, #B8732A 40%, #A86320 70%, #C8832A 100%)',
+    texture: 'repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,0.02) 4px)',
+  },
+  {
+    name: 'Asian Ivory White',
+    color: '#F5F0E8',
+    gradient: 'linear-gradient(135deg, #FAF7F2 0%, #F5F0E8 50%, #EDE8E0 100%)',
+    texture: '',
+  },
+];
+// ─────────────────────────────────────────────────────────────────────────────
+
 // ─── Window Types Grid ────────────────────────────────────────────────────────
 const WINDOW_TYPES = [
   {
@@ -499,6 +534,48 @@ export default function UPVC() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Lamination Options ────────────────────────────────────────────── */}
+      <section className="py-24 bg-white" id="upvc-lamination">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-16">
+            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Surface Finishes</span>
+            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-widest mb-4">Lamination</h2>
+            <div className="w-16 h-1 bg-electric-blue mx-auto mb-6" />
+            <p className="text-slate-500 max-w-2xl mx-auto text-base leading-relaxed">
+              We offer a range of lamination &amp; texture options, including natural wood finish in
+              Golden Oak, Walnut, Dark Oak or Mahogany — or simply an Asian Ivory White.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-10 md:gap-16">
+            {LAMINATIONS.map((lam, idx) => (
+              <div key={idx} className="flex flex-col items-center gap-4 group">
+                {/* Swatch */}
+                <div
+                  className="w-36 h-36 md:w-44 md:h-44 rounded-lg shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 border border-black/10"
+                  style={{ background: lam.gradient }}
+                >
+                  {/* Wood grain texture overlay */}
+                  <div
+                    className="w-full h-full rounded-lg opacity-60"
+                    style={{ background: lam.texture }}
+                  />
+                </div>
+                {/* Label */}
+                <span className="text-sm font-bold text-slate-800 uppercase tracking-widest text-center">
+                  {lam.name}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Note */}
+          <p className="text-center text-slate-400 text-xs uppercase tracking-widest mt-12">
+            Custom lamination options available on request · Contact us for samples
+          </p>
         </div>
       </section>
 
