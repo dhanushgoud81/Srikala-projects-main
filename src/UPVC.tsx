@@ -109,6 +109,65 @@ const CAPABILITIES = [
   },
 ];
 
+// ─── Window Types Grid ────────────────────────────────────────────────────────
+const WINDOW_TYPES = [
+  {
+    num: '01',
+    title: 'uPVC Casement Windows',
+    desc: 'Reliable, energy-efficient, and versatile, casement windows offer maximum ventilation and superior security.',
+    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',
+  },
+  {
+    num: '02',
+    title: 'uPVC French Windows',
+    desc: 'Elegant and timeless, French windows bring natural light and a classic touch to your home\'s design.',
+    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+  },
+  {
+    num: '03',
+    title: 'uPVC Sliding Windows',
+    desc: 'Sleek and space-saving, sliding windows provide smooth operation and modern aesthetics for any room.',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3pBe9jBFlkTEdFU2gFCqYYZqyhCQ7jahlbJH1vCC9pjTFsPbUFft2mPKx_6ArATke7P3ar8YCFWcjR1SKONNb4HCFp0CXGKtDD-P6vIl8bU40eTTMcICvs4eUGF3sx7uhJXc6Tn-T3aoMevSxcIkahhFxdin3C5E6BWnfeI87H1tMJl3Zt4viRzp1KUXh3m4zfHz5HpBOycAJB4KSrN12uWmQecLiRiZWcM3jQX1VDBFj_ep1Ffx7GH0B1s3TBh-tJsz3mcvYxdc',
+  },
+  {
+    num: '04',
+    title: 'uPVC Fixed Windows',
+    desc: 'Perfect for framing views, fixed windows provide natural light and modern aesthetic without compromising insulation.',
+    img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80',
+  },
+  {
+    num: '05',
+    title: 'uPVC Bay Windows',
+    desc: 'Add elegance and extra space to your home with our stylish and functional bay windows.',
+    img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80',
+  },
+  {
+    num: '06',
+    title: "uPVC Tilt 'n' Turn Windows",
+    desc: "Innovative and flexible, tilt-and-turn windows offer easy ventilation control and enhanced security.",
+    img: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80',
+  },
+  {
+    num: '07',
+    title: 'uPVC Arched Windows',
+    desc: 'Elevate your home\'s aesthetic with beautifully designed arch windows that bring timeless charm.',
+    img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80',
+  },
+  {
+    num: '08',
+    title: 'uPVC Awning Windows',
+    desc: 'Ideal for ventilation, our awning windows offer protection from rain while allowing fresh air.',
+    img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80',
+  },
+  {
+    num: '09',
+    title: 'uPVC Ventilator Windows',
+    desc: 'Ensure continuous airflow with our durable and efficient ventilators designed for modern homes.',
+    img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80',
+  },
+];
+// ─────────────────────────────────────────────────────────────────────────────
+
 // ─── Gallery slides ────────────────────────────────────────────────────────────
 const GALLERY = [
   {
@@ -390,6 +449,57 @@ export default function UPVC() {
           </div>
         </div>
         <ImageSlider />
+      </section>
+
+      {/* ── Window Types Grid ─────────────────────────────────────────────── */}
+      <section className="py-24 bg-slate-50" id="upvc-types">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-16">
+            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Our Range</span>
+            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-widest mb-4">
+              We Manufacture All Types of uPVC Windows
+            </h2>
+            <div className="w-16 h-1 bg-electric-blue mx-auto mb-6" />
+            <p className="text-slate-500 max-w-2xl mx-auto text-base leading-relaxed">
+              uPVC windows come in a variety of styles to suit different needs, from maximizing ventilation
+              to enhancing aesthetics. Each type is designed with unique features that combine durability,
+              energy efficiency, and modern design.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {WINDOW_TYPES.map((w, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg border border-slate-100 hover:border-electric-blue/30 transition-all duration-300 group"
+              >
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={w.img}
+                    alt={w.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <span className="text-slate-400 text-sm font-bold block mb-2">{w.num}</span>
+                  <h3 className="text-base font-bold text-slate-900 mb-3 uppercase tracking-tight">{w.title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed mb-5">{w.desc}</p>
+                  <button
+                    onClick={() => navigate('/contact')}
+                    className="bg-electric-blue text-white px-5 py-2 text-xs font-bold uppercase tracking-widest rounded hover:bg-blue-700 transition-colors duration-200"
+                  >
+                    Know More
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ── Core Capabilities ─────────────────────────────────────────────── */}
