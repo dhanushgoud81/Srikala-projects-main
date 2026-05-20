@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ArrowRight, CheckCircle2, Thermometer, Shield, Wind, Layers,
-  ChevronLeft, ChevronRight, ExternalLink, Maximize2, Ruler, Volume2
+  ChevronLeft, ChevronRight, Maximize2, Ruler, Volume2
 } from 'lucide-react';
 import { PageWrapper } from './components/Shared';
 import { useGSAP } from './lib/useGSAP';
@@ -13,17 +13,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── Product Lines (from aluplast documents) ──────────────────────────────────
+// ─── Product Lines ────────────────────────────────────────────────────────────
 const PRODUCTS = [
   {
     id: 'prima-slide',
     name: 'prima-slide',
     tagline: 'Robust Sliding Series',
-    badge: 'Made in India',
-    desc: 'The Aluplast Prima Sliding Series is designed for residential and commercial applications requiring robust sliding window solutions. It offers reliable performance under wind loads while maintaining ease of operation and aesthetic appeal.',
+    desc: 'Our prima-slide uPVC system is built for residential and commercial projects that demand smooth operation, strong wind resistance, and long-term durability. Available in 2-track and 3-track configurations to suit any opening.',
     specs: [
       { label: 'Construction Depth', value: '54 mm' },
-      { label: 'Wind Pressure Resistance', value: 'Up to 2 kPa' },
+      { label: 'Wind Resistance', value: 'Up to 2 kPa' },
       { label: 'Max Width', value: '2.2 m' },
       { label: 'Max Height', value: '2.1 m' },
       { label: 'Glazing Thickness', value: 'Up to 11 mm' },
@@ -31,21 +30,19 @@ const PRODUCTS = [
     ],
     features: [
       'Suitable for both windows and doors',
-      'Available in 2-track and 3-track with additional track option',
-      'Additional static bar support for enhanced rigidity',
-      'High-quality uPVC profiles — durable, thermally efficient, low maintenance',
-      '2 mm thick reinforced steel static bar for structural support',
+      '2-track and 3-track with additional track option',
+      'Static bar support for enhanced rigidity under load',
+      'High-quality uPVC — durable, thermally efficient, low maintenance',
+      '2 mm thick reinforced steel bar for structural support',
       'Good resistance to wind load',
     ],
     img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3pBe9jBFlkTEdFU2gFCqYYZqyhCQ7jahlbJH1vCC9pjTFsPbUFft2mPKx_6ArATke7P3ar8YCFWcjR1SKONNb4HCFp0CXGKtDD-P6vIl8bU40eTTMcICvs4eUGF3sx7uhJXc6Tn-T3aoMevSxcIkahhFxdin3C5E6BWnfeI87H1tMJl3Zt4viRzp1KUXh3m4zfHz5HpBOycAJB4KSrN12uWmQecLiRiZWcM3jQX1VDBFj_ep1Ffx7GH0B1s3TBh-tJsz3mcvYxdc',
-    color: 'bg-slate-950',
   },
   {
     id: 'ideal-1000',
     name: 'IDEAL 1000',
     tagline: 'Outward Open Window System',
-    badge: 'Made in India',
-    desc: 'The IDEAL 1000 is a 54 mm 3-chamber profile system engineered for outward open windows. Designed and manufactured in India for Indian climatic conditions, it delivers durability, minimal maintenance, and energy efficiency.',
+    desc: 'The IDEAL 1000 is our go-to profile for outward open casement windows. Its 3-chamber system delivers excellent thermal performance and accommodates glazing up to 24 mm — ideal for Indian climatic conditions.',
     specs: [
       { label: 'Construction Depth', value: '54 mm' },
       { label: 'Profile System', value: '3-Chamber' },
@@ -55,23 +52,22 @@ const PRODUCTS = [
       { label: 'Finish', value: 'Tropical White' },
     ],
     features: [
-      '3-chamber profile system for superior thermal performance',
-      'Good choice for outward open windows',
+      '3-chamber profile for superior thermal performance',
+      'Best suited for outward open casement windows',
       'Accommodates glass up to 24 mm thickness',
-      'Suitable with existing glazing beads',
-      'Engineered for diverse Indian climatic conditions',
+      'Compatible with existing glazing beads',
+      'Engineered for India\'s diverse climatic conditions',
       'Compatible with Mivan Construction technology',
     ],
     img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80',
-    color: 'bg-white',
   },
 ];
 
-// ─── Why aluplast (partner info from brochure) ────────────────────────────────
-const PARTNER_FACTS = [
-  { value: '1982', label: 'Founded' },
-  { value: '24+', label: 'Production Sites Worldwide' },
-  { value: 'Made in India', label: 'For Indian Market' },
+// ─── Why Srikala Projects ─────────────────────────────────────────────────────
+const COMPANY_STATS = [
+  { value: '500+', label: 'Projects Completed' },
+  { value: '10+', label: 'Years Experience' },
+  { value: 'Pan India', label: 'Service Coverage' },
   { value: 'ISO', label: 'Quality Standards' },
 ];
 
@@ -80,32 +76,32 @@ const CAPABILITIES = [
   {
     icon: Thermometer,
     title: 'Thermal Efficiency',
-    desc: 'Multi-chamber uPVC profiles trap air to reduce heat transfer. IDEAL 1000 achieves Uf = 1.6 W/m²K, cutting energy costs year-round.',
+    desc: 'Multi-chamber uPVC profiles trap air to reduce heat transfer, keeping interiors cool in summer and warm in winter — cutting energy bills year-round.',
   },
   {
     icon: Shield,
     title: 'Structural Rigidity',
-    desc: 'Galvanized steel reinforcement (2 mm thick) inside prima-slide profiles provides enhanced rigidity and stability under wind loads up to 2 kPa.',
+    desc: 'Steel reinforcement inside every profile ensures long-term dimensional stability and resistance to warping, even under heavy wind loads.',
   },
   {
     icon: Wind,
     title: 'Wind Load Resistance',
-    desc: 'Prima-slide withstands wind pressure up to 2 kPa with an additional static bar support incorporated into the design.',
+    desc: 'Our sliding systems withstand wind pressure up to 2 kPa with reinforced static bar support — suitable for high-rise and coastal projects.',
   },
   {
     icon: Volume2,
     title: 'Sound Insulation',
-    desc: 'Double and triple-glazed options available. IDEAL 4000 range achieves up to 45 dB sound insulation (class 4).',
+    desc: 'Double and triple-glazed options significantly reduce external noise, creating quieter, more comfortable interiors for homes and offices.',
   },
   {
     icon: Maximize2,
-    title: 'Dimensional Flexibility',
-    desc: 'Prima-slide supports max width 2.2 m × height 2.1 m. Available in 2-track and 3-track configurations for any opening.',
+    title: 'Custom Sizing',
+    desc: 'We fabricate windows to your exact dimensions — up to 2.2 m wide and 2.1 m tall — in 2-track and 3-track configurations.',
   },
   {
     icon: Layers,
-    title: 'Design Versatility',
-    desc: 'Available in woodec (wood-look) and aludec (aluminium-look) surface finishes. Numerous decor foils and colour options.',
+    title: 'Design Options',
+    desc: 'Available in white and a range of wood-look laminations — Walnut, Dark Oak, Mahogany, Golden Oak — to match any interior or exterior style.',
   },
 ];
 
@@ -151,54 +147,99 @@ const WINDOW_TYPES = [
     title: 'uPVC Casement Windows',
     desc: 'Reliable, energy-efficient, and versatile, casement windows offer maximum ventilation and superior security.',
     img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',
+    details: {
+      overview: 'Casement windows are hinged at the side and open outward like a door. They provide excellent ventilation, unobstructed views, and a tight seal when closed — making them one of the most popular choices for homes and offices.',
+      features: ['Maximum ventilation with full opening', 'Multi-point locking for superior security', 'Excellent thermal and acoustic insulation', 'Available in single and double sash', 'Easy to clean from inside', 'Compatible with mosquito mesh'],
+      applications: ['Residential bedrooms & living rooms', 'Commercial offices', 'Schools & institutions'],
+    },
   },
   {
     num: '02',
     title: 'uPVC French Windows',
-    desc: 'Elegant and timeless, French windows bring natural light and a classic touch to your home\'s design.',
+    desc: "Elegant and timeless, French windows bring natural light and a classic touch to your home's design.",
     img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+    details: {
+      overview: 'French windows feature two full-length glass panels that open from the centre, creating a wide, elegant opening. They flood interiors with natural light and provide seamless indoor-outdoor connectivity.',
+      features: ['Double-leaf opening for wide access', 'Floor-to-ceiling glass options', 'Classic & modern design variants', 'Multi-point locking system', 'Weather-tight sealing gaskets', 'Available with transom & sidelights'],
+      applications: ['Balconies & terraces', 'Living rooms', 'Hospitality & hotels'],
+    },
   },
   {
     num: '03',
     title: 'uPVC Sliding Windows',
     desc: 'Sleek and space-saving, sliding windows provide smooth operation and modern aesthetics for any room.',
     img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3pBe9jBFlkTEdFU2gFCqYYZqyhCQ7jahlbJH1vCC9pjTFsPbUFft2mPKx_6ArATke7P3ar8YCFWcjR1SKONNb4HCFp0CXGKtDD-P6vIl8bU40eTTMcICvs4eUGF3sx7uhJXc6Tn-T3aoMevSxcIkahhFxdin3C5E6BWnfeI87H1tMJl3Zt4viRzp1KUXh3m4zfHz5HpBOycAJB4KSrN12uWmQecLiRiZWcM3jQX1VDBFj_ep1Ffx7GH0B1s3TBh-tJsz3mcvYxdc',
+    details: {
+      overview: 'Sliding windows glide horizontally on tracks, requiring no swing space. Our sliding uPVC system offers 2-track and 3-track configurations with wind resistance up to 2 kPa and glazing up to 11 mm.',
+      features: ['2-track & 3-track configurations', 'Wind resistance up to 2 kPa', 'Smooth stainless steel rollers', 'Anti-lift security locks', 'Glazing up to 11 mm', 'Max size 2.2 m × 2.1 m'],
+      applications: ['Apartments & high-rises', 'Commercial buildings', 'Industrial facilities'],
+    },
   },
   {
     num: '04',
     title: 'uPVC Fixed Windows',
     desc: 'Perfect for framing views, fixed windows provide natural light and modern aesthetic without compromising insulation.',
     img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80',
+    details: {
+      overview: 'Fixed windows are non-operable and designed purely for light and views. They offer the best thermal and acoustic performance since there are no moving parts or gaps, making them ideal for large glass facades.',
+      features: ['Maximum glass area for light & views', 'Superior thermal insulation', 'No moving parts — zero maintenance', 'Supports large glazing sizes', 'Can be combined with operable units', 'Ideal for curtain wall systems'],
+      applications: ['Office facades', 'Stairwells & corridors', 'Showrooms & retail'],
+    },
   },
   {
     num: '05',
     title: 'uPVC Bay Windows',
     desc: 'Add elegance and extra space to your home with our stylish and functional bay windows.',
     img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80',
+    details: {
+      overview: 'Bay windows project outward from the main wall, creating a recessed area inside. They dramatically increase natural light, add architectural character, and create cosy window seats or display areas.',
+      features: ['Projects outward for extra interior space', 'Three-panel angled configuration', 'Panoramic views from multiple angles', 'Creates natural window seat area', 'Available in 90° and 135° angles', 'Custom sizes available'],
+      applications: ['Residential living rooms', 'Master bedrooms', 'Dining areas'],
+    },
   },
   {
     num: '06',
     title: "uPVC Tilt 'n' Turn Windows",
     desc: "Innovative and flexible, tilt-and-turn windows offer easy ventilation control and enhanced security.",
     img: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80',
+    details: {
+      overview: "Tilt 'n' Turn windows offer two opening modes with a single handle — tilt inward from the top for secure ventilation, or turn fully open like a casement. This European-style system is ideal for high-rise buildings.",
+      features: ['Two opening modes with one handle', 'Tilt mode for secure ventilation', 'Turn mode for full access & cleaning', 'Child-safe ventilation position', 'Excellent burglar resistance', 'Ideal for high-rise buildings'],
+      applications: ['High-rise apartments', 'Hotels & serviced apartments', 'Healthcare facilities'],
+    },
   },
   {
     num: '07',
     title: 'uPVC Arched Windows',
-    desc: 'Elevate your home\'s aesthetic with beautifully designed arch windows that bring timeless charm.',
+    desc: "Elevate your home's aesthetic with beautifully designed arch windows that bring timeless charm.",
     img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80',
+    details: {
+      overview: 'Arched windows combine the structural benefits of uPVC with classic architectural forms. The curved top adds elegance and grandeur to any facade, available as fixed or with operable lower sections.',
+      features: ['Custom arch profiles to any radius', 'Fixed or operable lower section', 'Seamless curved uPVC extrusion', 'Matches standard window systems', 'Available in all lamination finishes', 'Adds architectural character'],
+      applications: ['Heritage & luxury residences', 'Churches & institutions', 'Premium commercial buildings'],
+    },
   },
   {
     num: '08',
     title: 'uPVC Awning Windows',
     desc: 'Ideal for ventilation, our awning windows offer protection from rain while allowing fresh air.',
     img: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80',
+    details: {
+      overview: 'Awning windows are hinged at the top and open outward from the bottom, creating an awning effect. They can remain open during light rain, providing continuous ventilation without water ingress.',
+      features: ['Opens outward from bottom', 'Ventilation even during rain', 'Top-hinged for water deflection', 'Compact design for small openings', 'Can be stacked with fixed panels', 'Friction stay for position control'],
+      applications: ['Bathrooms & kitchens', 'Basements & low openings', 'Combined with fixed windows'],
+    },
   },
   {
     num: '09',
     title: 'uPVC Ventilator Windows',
     desc: 'Ensure continuous airflow with our durable and efficient ventilators designed for modern homes.',
     img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80',
+    details: {
+      overview: 'uPVC ventilators are compact, purpose-built units designed for continuous background ventilation. They integrate seamlessly into walls or above doors and windows, ensuring fresh air circulation without compromising security.',
+      features: ['Continuous background ventilation', 'Compact & discreet design', 'Insect mesh as standard', 'Adjustable airflow control', 'Integrates with wall or frame', 'Low maintenance uPVC construction'],
+      applications: ['Kitchens & bathrooms', 'Above doors & windows', 'Commercial & industrial spaces'],
+    },
   },
 ];
 // ─────────────────────────────────────────────────────────────────────────────
@@ -207,18 +248,18 @@ const WINDOW_TYPES = [
 const GALLERY = [
   {
     src: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3pBe9jBFlkTEdFU2gFCqYYZqyhCQ7jahlbJH1vCC9pjTFsPbUFft2mPKx_6ArATke7P3ar8YCFWcjR1SKONNb4HCFp0CXGKtDD-P6vIl8bU40eTTMcICvs4eUGF3sx7uhJXc6Tn-T3aoMevSxcIkahhFxdin3C5E6BWnfeI87H1tMJl3Zt4viRzp1KUXh3m4zfHz5HpBOycAJB4KSrN12uWmQecLiRiZWcM3jQX1VDBFj_ep1Ffx7GH0B1s3TBh-tJsz3mcvYxdc',
-    label: 'prima-slide Installation',
-    caption: 'Aluplast prima-slide — robust 2-track sliding system for residential & commercial facades.',
+    label: 'Sliding Window Installation',
+    caption: 'Robust 2-track sliding uPVC system — smooth operation for residential & commercial facades.',
   },
   {
     src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80',
-    label: 'IDEAL 1000 Casement',
-    caption: 'IDEAL 1000 outward open windows — 54 mm 3-chamber system, glazing up to 24 mm.',
+    label: 'Casement Window System',
+    caption: 'Outward open casement windows — 54 mm 3-chamber profile, glazing up to 24 mm.',
   },
   {
     src: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=80',
     label: 'Commercial Project',
-    caption: 'Large-scale commercial installation with prima-slide 3-track configuration.',
+    caption: 'Large-scale commercial installation — 3-track sliding uPVC configuration.',
   },
   {
     src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80',
@@ -356,14 +397,14 @@ export default function UPVC() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <div ref={heroContentRef} className="max-w-2xl">
             <span className="hero-animate text-electric-blue font-semibold tracking-[0.3em] uppercase mb-4 block text-xs">
-              Authorised Fabricator · aluplast India
+              uPVC Windows & Doors · Srikala Projects
             </span>
             <h1 ref={heroTitleRef} className="text-5xl md:text-7xl font-bold text-white mb-6 uppercase tracking-tighter leading-none">
               uPVC Window & Door Systems
             </h1>
             <p className="hero-animate text-lg text-slate-300 mb-10 max-w-lg">
-              We fabricate and install aluplast uPVC window and door systems — prima-slide and IDEAL 1000 —
-              engineered in India for India's diverse climatic conditions.
+              Srikala Projects designs, fabricates and installs premium uPVC windows and doors —
+              built for India's climate, engineered for lasting performance.
             </p>
             <div className="hero-animate flex flex-wrap gap-4">
               <button ref={heroCTARef} onClick={() => navigate('/contact')}
@@ -383,16 +424,16 @@ export default function UPVC() {
         </div>
       </section>
 
-      {/* ── Partner Banner ────────────────────────────────────────────────── */}
+      {/* ── Stats Bar ─────────────────────────────────────────────────────── */}
       <section className="bg-electric-blue text-white py-5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <span className="text-[10px] uppercase tracking-widest text-white/70">Authorised Fabricator of</span>
-            <span className="text-xl font-black tracking-tight">aluplast®</span>
-            <span className="text-[10px] uppercase tracking-widest text-white/70">Kunststoff-Fenstersysteme</span>
+          <div className="flex items-center gap-3">
+            <span className="text-sm font-black tracking-tight uppercase">Srikala Projects</span>
+            <span className="text-white/40">·</span>
+            <span className="text-[10px] uppercase tracking-widest text-white/70">uPVC Division</span>
           </div>
           <div className="flex flex-wrap gap-8">
-            {PARTNER_FACTS.map((f, i) => (
+            {COMPANY_STATS.map((f, i) => (
               <div key={i} className="text-center">
                 <div className="text-lg font-black">{f.value}</div>
                 <div className="text-[10px] uppercase tracking-widest text-white/70">{f.label}</div>
@@ -406,12 +447,13 @@ export default function UPVC() {
       <section className="py-24 bg-white" id="upvc-products">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div ref={productsTitleRef} className="text-center mb-20">
-            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Our Product Range</span>
-            <h2 className="text-4xl font-bold uppercase tracking-widest mb-4">aluplast Systems We Install</h2>
+            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Our Profile Systems</span>
+            <h2 className="text-4xl font-bold uppercase tracking-widest mb-4">uPVC Systems We Fabricate</h2>
             <div className="w-16 h-1 bg-electric-blue mx-auto mb-6" />
             <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-              We are authorised fabricators of aluplast India's "Made in India, Made for India" uPVC window and door systems —
-              designed for India's diverse climatic conditions with stringent quality standards.
+              At Srikala Projects, we fabricate and install premium uPVC window and door systems
+              using high-quality profiles — designed for India's diverse climatic conditions with
+              stringent quality standards.
             </p>
           </div>
 
@@ -426,7 +468,7 @@ export default function UPVC() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
                   <div className="absolute top-6 left-6">
                     <span className="bg-electric-blue text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1">
-                      {product.badge}
+                      {product.tagline}
                     </span>
                   </div>
                   <div className="absolute bottom-6 left-6">
@@ -583,7 +625,7 @@ export default function UPVC() {
       <section className="py-24 bg-slate-950 text-white" id="upvc-capabilities">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div ref={capsTitleRef} className="text-center mb-16">
-            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Why Choose aluplast uPVC</span>
+            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Why Choose Srikala Projects</span>
             <h2 className="text-3xl font-bold uppercase tracking-widest mb-4">Core Capabilities</h2>
             <div className="w-16 h-1 bg-electric-blue mx-auto" />
           </div>
@@ -599,41 +641,42 @@ export default function UPVC() {
         </div>
       </section>
 
-      {/* ── About aluplast Partner Section ────────────────────────────────── */}
+      {/* ── Why Srikala Projects ──────────────────────────────────────────── */}
       <section className="py-24 bg-white" id="upvc-partner">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div ref={partnerRef} className="flex flex-col md:flex-row gap-16 items-center">
             <div className="flex-1">
-              <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Our Technology Partner</span>
+              <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Why Choose Us</span>
               <h2 className="text-4xl font-bold uppercase tracking-tighter mb-6 leading-none">
-                Powered by<br /><span className="text-electric-blue">aluplast®</span>
+                Fabricated &amp; Installed<br /><span className="text-electric-blue">by Srikala Projects</span>
               </h2>
               <p className="text-slate-500 text-lg mb-6 border-l-2 border-electric-blue pl-6 leading-relaxed">
-                aluplast GmbH is one of the leading system providers of PVC windows, main entrance doors, roller shutters
-                and controlled domestic ventilation systems. Founded in 1982, the family-owned company is headquartered
-                in Karlsruhe, Germany with more than 24 production sites and sales offices worldwide.
+                At Srikala Projects, we don't just supply windows — we design, fabricate, and install
+                complete uPVC window and door systems tailored to your project. Every unit is precision-cut
+                and assembled in-house, ensuring quality control at every step.
               </p>
               <p className="text-slate-500 text-base mb-8 leading-relaxed">
-                Their "Made in India, Made for India" uPVC windows and doors are committed to meeting stringent quality
-                standards — known for durability, minimal maintenance, and energy efficiency. Engineered to excel in
-                India's diverse climatic conditions, and compatible with Mivan Construction technology.
+                From single homes to large commercial complexes, our team handles the full process —
+                site measurement, custom fabrication, professional installation, and after-sales support.
+                We use high-quality uPVC profiles engineered for India's diverse climatic conditions.
               </p>
-              <a href="https://www.aluplast.net/in" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-slate-300 px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-slate-950 hover:text-white hover:border-slate-950 transition-all duration-300">
-                Visit aluplast India <ExternalLink className="w-4 h-4" />
-              </a>
+              <button
+                onClick={() => navigate('/contact')}
+                className="inline-flex items-center gap-2 bg-electric-blue text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-slate-950 transition-all duration-300"
+              >
+                Get a Free Quote <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
             <div className="flex-1 grid grid-cols-2 gap-4">
               {[
-                { title: 'prima-slide', sub: '54 mm · Sliding System · 2 kPa wind resistance' },
-                { title: 'IDEAL 1000', sub: '54 mm · 3-Chamber · Up to 24 mm glazing' },
-                { title: 'IDEAL 2000®', sub: '60 mm · Uf = 1.6 W/m²K · Up to 43 dB' },
-                { title: 'IDEAL 4000®', sub: '70 mm · Uf = 1.3 W/m²K · Up to 45 dB' },
+                { title: 'Sliding Windows', sub: '2-track & 3-track · Wind resistance up to 2 kPa' },
+                { title: 'Casement Windows', sub: '3-chamber profile · Glazing up to 24 mm' },
+                { title: 'Fixed Windows', sub: 'Maximum light · Zero maintenance' },
+                { title: 'Custom Sizes', sub: 'Up to 2.2 m × 2.1 m · Any configuration' },
               ].map((p, i) => (
                 <div key={i} className={`p-6 border ${i < 2 ? 'border-electric-blue bg-electric-blue/5' : 'border-slate-100 bg-slate-50'}`}>
-                  <p className="font-black text-slate-900 text-lg mb-1">{p.title}</p>
+                  <p className="font-black text-slate-900 text-base mb-1">{p.title}</p>
                   <p className="text-xs text-slate-500 leading-relaxed">{p.sub}</p>
-                  {i < 2 && <span className="mt-3 inline-block text-[10px] font-bold text-electric-blue uppercase tracking-widest">We Install This</span>}
                 </div>
               ))}
             </div>
@@ -652,8 +695,7 @@ export default function UPVC() {
                 <span className="text-electric-blue">Your Facade?</span>
               </h2>
               <p className="text-slate-400 text-lg leading-relaxed">
-                Talk to our uPVC specialists. We'll help you choose the right aluplast system —
-                prima-slide or IDEAL 1000 — for your project requirements and budget.
+                Talk to our uPVC specialists and get a custom solution tailored to your project requirements and budget.
               </p>
             </div>
             <button onClick={() => navigate('/contact')}
