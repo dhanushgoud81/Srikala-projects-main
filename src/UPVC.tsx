@@ -5,6 +5,7 @@ import {
   ChevronLeft, ChevronRight, Maximize2, Volume2, X, Sun, Droplets, Wrench
 } from 'lucide-react';
 import { PageWrapper } from './components/Shared';
+import UPVCProductDetail from './components/UPVCProductDetail';
 import { useGSAP } from './lib/useGSAP';
 import { scrollReveal, textStagger, ambient } from './lib/animations';
 import { textReveal, magnetic } from './lib/stunningAnimations';
@@ -80,7 +81,7 @@ const PROFILES = [
       'Anti-lift security locks',
       'Low maintenance uPVC construction',
     ],
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3pBe9jBFlkTEdFU2gFCqYYZqyhCQ7jahlbJH1vCC9pjTFsPbUFft2mPKx_6ArATke7P3ar8YCFWcjR1SKONNb4HCFp0CXGKtDD-P6vIl8bU40eTTMcICvs4eUGF3sx7uhJXc6Tn-T3aoMevSxcIkahhFxdin3C5E6BWnfeI87H1tMJl3Zt4viRzp1KUXh3m4zfHz5HpBOycAJB4KSrN12uWmQecLiRiZWcM3jQX1VDBFj_ep1Ffx7GH0B1s3TBh-tJsz3mcvYxdc',
+    img: '/images/profile-sliding.png',
   },
   {
     id: 'casement',
@@ -103,8 +104,54 @@ const PROFILES = [
       'Engineered for Indian climatic conditions',
       'Compatible with Mivan Construction technology',
     ],
-    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80',
+    img: '/images/profile-casement.png',
   },
+  {
+    id: 'villa',
+    name: 'Villa Profile',
+    tagline: '62 mm · Double Sash System',
+    desc: 'Our premium villa frame profile features a unique double-sash chamber engineered to house a glass pane, insect mesh screen, and an integrated structural steel grill, achieving ultimate safety in luxury bungalows.',
+    specs: [
+      { label: 'Construction Depth', value: '62 mm' },
+      { label: 'Profile Chambers', value: '5-Chamber Core' },
+      { label: 'Grill Support', value: 'Integrated Steel' },
+      { label: 'Glazing Thickness', value: 'Up to 24 mm' },
+      { label: 'Mesh Integration', value: 'Dedicated Slot' },
+      { label: 'Monsoon Seal', value: 'Triple EPDM' },
+    ],
+    features: [
+      'Built-in secure structural grill adapters',
+      'Dual independent sashes for mesh & glass sashes',
+      'Advanced 5-chamber noise and thermal core',
+      'EPDM triple compression rain weather-seals',
+      'Highly resistant to tropical wind load dynamics',
+      'Luxurious Timber lamination matching teakwood',
+    ],
+    img: '/images/profile-villa.png',
+  },
+  {
+    id: 'bifold',
+    name: 'Slide & Fold Profile',
+    tagline: '74 mm · Heavy-Duty Multi-Pane',
+    desc: 'Designed for grand openings, our bi-fold profile utilizes an advanced heavy-duty bottom track sliding guide roller system that allows multiple glass panels to fold flat against the wall, creating wide open rooms.',
+    specs: [
+      { label: 'Construction Depth', value: '74 mm' },
+      { label: 'Max Panel Load', value: '120 kg' },
+      { label: 'Glazing Thickness', value: 'Up to 32 mm' },
+      { label: 'Folding Panel Limit', value: 'Up to 7 Panels' },
+      { label: 'Hinge Hardware', value: 'Stainless Steel' },
+      { label: 'Profile System', value: 'Multi-Chamber' },
+    ],
+    features: [
+      'Supports massive grand-opening apertures',
+      'Heavy-duty bottom-hung guide track system',
+      'Fold sashes flat to completely enlarge rooms',
+      'Accommodates heavy double/triple glaze layers',
+      'Smooth architectural sliding guide rollers',
+      'Advanced wind-load structural couplings',
+    ],
+    img: '/images/profile-bifold.png',
+  }
 ];
 
 // ─── Company Stats ────────────────────────────────────────────────────────────
@@ -117,11 +164,11 @@ const COMPANY_STATS = [
 
 // ─── Lamination Options ───────────────────────────────────────────────────────
 const LAMINATIONS = [
-  { name: 'Walnut',           gradient: 'linear-gradient(135deg, #8B4513 0%, #6B3410 40%, #7B3F1E 70%, #9B5523 100%)' },
-  { name: 'Dark Oak',         gradient: 'linear-gradient(135deg, #2C1503 0%, #3B1F0E 40%, #4A2810 70%, #2C1503 100%)' },
-  { name: 'Mahogany',         gradient: 'linear-gradient(135deg, #5C1F2E 0%, #4A1C2C 40%, #3D1525 70%, #5C1F2E 100%)' },
-  { name: 'Golden Oak',       gradient: 'linear-gradient(135deg, #C8832A 0%, #B8732A 40%, #A86320 70%, #C8832A 100%)' },
-  { name: 'Asian Ivory White',gradient: 'linear-gradient(135deg, #FAF7F2 0%, #F5F0E8 50%, #EDE8E0 100%)' },
+  { name: 'Walnut',           bg: '#7c4d30' },
+  { name: 'Dark Oak',         bg: '#352317' },
+  { name: 'Mahogany',         bg: '#57222b' },
+  { name: 'Golden Oak',       bg: '#c58737' },
+  { name: 'Asian Ivory White',bg: '#f7f4ec' },
 ];
 
 // ─── Window Types ─────────────────────────────────────────────────────────────
@@ -260,33 +307,41 @@ function WindowModal({ win, onClose }: { win: typeof WINDOW_TYPES[0]; onClose: (
 
 export default function UPVC() {
   const navigate = useNavigate();
-  const [activeModal, setActiveModal] = useState<typeof WINDOW_TYPES[0] | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const heroImageRef   = useRef<HTMLImageElement>(null);
   const heroOverlayRef = useRef<HTMLDivElement>(null);
   const heroContentRef = useRef<HTMLDivElement>(null);
   const heroTitleRef   = useRef<HTMLHeadingElement>(null);
   const heroCTARef     = useRef<HTMLButtonElement>(null);
-  const ctaRef         = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     if (heroImageRef.current)   ambient.scale(heroImageRef.current, { from: 1, to: 1.12 });
-    if (heroOverlayRef.current) ambient.fade(heroOverlayRef.current, { from: 0.65, to: 0.85 });
+    if (heroOverlayRef.current) ambient.fade(heroOverlayRef.current, { from: 0.7, to: 0.9 });
     if (heroContentRef.current) textStagger.fadeInUp(heroContentRef.current.querySelectorAll('.hero-animate'), { stagger: 0.2, delay: 0.3 });
     if (heroTitleRef.current)   textReveal.splitChars(heroTitleRef.current, { stagger: 0.025, duration: 0.8, ease: 'back.out(1.7)', from: 'bottom' });
     if (heroCTARef.current)     return magnetic.button(heroCTARef.current, 0.3);
-    if (ctaRef.current)         scrollReveal.scaleIn(ctaRef.current, { scale: 0.95, duration: 1 });
   }, []);
+
+  if (selectedProduct) {
+    return (
+      <UPVCProductDetail 
+        productName={selectedProduct} 
+        onBack={() => setSelectedProduct(null)} 
+        onSelectProduct={(name) => setSelectedProduct(name)}
+      />
+    );
+  }
 
   return (
     <PageWrapper>
-      {activeModal && <WindowModal win={activeModal} onClose={() => setActiveModal(null)} />}
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative h-screen w-full flex items-center overflow-hidden -mt-16" id="upvc-hero">
         <img ref={heroImageRef} className="absolute inset-0 w-full h-full object-cover will-change-transform"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3pBe9jBFlkTEdFU2gFCqYYZqyhCQ7jahlbJH1vCC9pjTFsPbUFft2mPKx_6ArATke7P3ar8YCFWcjR1SKONNb4HCFp0CXGKtDD-P6vIl8bU40eTTMcICvs4eUGF3sx7uhJXc6Tn-T3aoMevSxcIkahhFxdin3C5E6BWnfeI87H1tMJl3Zt4viRzp1KUXh3m4zfHz5HpBOycAJB4KSrN12uWmQecLiRiZWcM3jQX1VDBFj_ep1Ffx7GH0B1s3TBh-tJsz3mcvYxdc"
-          alt="UPVC Window Systems" loading="eager" />
+          src="/images/upvc-hero-luxury.png"
+          alt="UPVC Luxury Facade Window Systems" loading="eager" />
         <div ref={heroOverlayRef} className="absolute inset-0 bg-slate-950/70" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <div ref={heroContentRef} className="max-w-2xl">
@@ -324,63 +379,6 @@ export default function UPVC() {
         </div>
       </section>
 
-      {/* ── What is uPVC ──────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-24 bg-white" id="upvc-what">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-12 md:gap-16 items-center">
-          <div className="flex-1">
-            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">About the Material</span>
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tighter mb-6 leading-none">What is uPVC?</h2>
-            <p className="text-slate-500 text-base md:text-lg mb-5 border-l-2 border-electric-blue pl-5 leading-relaxed">
-              uPVC stands for <strong>Unplasticised Polyvinyl Chloride</strong> — a rigid, high-performance plastic material used to manufacture windows, doors, and frames. Unlike regular PVC, uPVC contains no plasticisers, making it harder, stronger, and more durable.
-            </p>
-            <p className="text-slate-500 text-base leading-relaxed mb-5">
-              uPVC profiles are engineered with multiple internal chambers that trap air, creating a natural thermal barrier. Steel reinforcement is inserted inside the profiles for structural strength, while the outer surface is UV-stabilised to resist discolouration and degradation.
-            </p>
-            <p className="text-slate-500 text-base leading-relaxed">
-              The result is a window system that outperforms wood and aluminium in thermal efficiency, sound insulation, security, and longevity — with virtually zero maintenance required.
-            </p>
-          </div>
-          <div className="flex-1 w-full grid grid-cols-2 gap-4">
-            {[
-              { label: 'Material', value: 'Unplasticised PVC' },
-              { label: 'Chambers', value: '3 to 6 chambers' },
-              { label: 'Reinforcement', value: 'Galvanised steel' },
-              { label: 'Thermal Value', value: 'Uf ≤ 1.6 W/m²K' },
-              { label: 'Sound Reduction', value: 'Up to 45 dB' },
-              { label: 'Lifespan', value: '30–50 years' },
-            ].map((s, i) => (
-              <div key={i} className="bg-slate-50 border border-slate-100 px-5 py-4">
-                <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-1">{s.label}</p>
-                <p className="font-black text-slate-900 text-sm">{s.value}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Why uPVC ──────────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-24 bg-slate-950 text-white" id="upvc-why">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-14">
-            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Benefits</span>
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-widest mb-4">Why Choose uPVC?</h2>
-            <div className="w-16 h-1 bg-electric-blue mx-auto mb-6" />
-            <p className="text-slate-400 max-w-2xl mx-auto text-base leading-relaxed">
-              uPVC windows and doors outperform wood and aluminium across every metric — thermal efficiency, security, durability, and cost of ownership.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {WHY_UPVC.map((w, i) => (
-              <div key={i} className="p-6 border border-white/10 hover:border-electric-blue transition-all duration-300 group">
-                <w.icon className="w-7 h-7 text-electric-blue mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h4 className="text-sm font-bold uppercase tracking-tight mb-2">{w.title}</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">{w.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Types of Windows ──────────────────────────────────────────────── */}
       <section className="py-20 md:py-24 bg-slate-50" id="upvc-types">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -392,21 +390,86 @@ export default function UPVC() {
               From casement to sliding, fixed to tilt-and-turn — each type is designed with unique features combining durability, energy efficiency, and modern design.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {WINDOW_TYPES.map((w, i) => (
-              <div key={i} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg border border-slate-100 hover:border-electric-blue/30 transition-all duration-300 group">
-                <div className="relative h-48 overflow-hidden">
-                  <img src={w.img} alt={w.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          <div className="flex flex-col lg:flex-row w-full h-[700px] lg:h-[600px] overflow-hidden rounded-2xl gap-2 shadow-2xl bg-slate-900">
+            {WINDOW_TYPES.map((w, i) => {
+              const isHovered = hoveredIndex === i;
+              const isAnyHovered = hoveredIndex !== null;
+              
+              // On desktop: dynamic flex grow sizer
+              // On mobile: active panel stretches vertically
+              const flexStyle = isHovered 
+                ? 'flex-[4.5]' 
+                : isAnyHovered 
+                  ? 'flex-[0.5]' 
+                  : 'flex-1';
+
+              return (
+                <div
+                  key={i}
+                  onMouseEnter={() => setHoveredIndex(i)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                  onClick={() => setHoveredIndex(isHovered ? null : i)}
+                  className={`relative overflow-hidden transition-all duration-500 ease-out cursor-pointer group h-full ${flexStyle}`}
+                >
+                  {/* Background Image */}
+                  <img 
+                    src={w.img} 
+                    alt={w.title} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
+                  
+                  {/* Ambient overlay shadows (darker on hover for readability) */}
+                  <div className={`absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent transition-opacity duration-500 ${
+                    isHovered ? 'opacity-85' : 'opacity-65'
+                  }`} />
+
+                  {/* Vertical Title (Shown on Desktop when NOT hovered) */}
+                  <div className={`absolute inset-0 hidden lg:flex items-center justify-center transition-all duration-500 ${
+                    isHovered ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
+                  }`}>
+                    <span 
+                      className="text-white text-lg md:text-xl font-extrabold uppercase tracking-widest whitespace-nowrap select-none border-b-2 border-white/40 pb-3"
+                      style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                    >
+                      {w.title}
+                    </span>
+                  </div>
+
+                  {/* Mobile Title (Shown on Small Screens when NOT hovered) */}
+                  <div className={`absolute inset-0 flex lg:hidden items-center justify-center transition-all duration-500 ${
+                    isHovered ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
+                  }`}>
+                    <span className="text-white text-base font-black uppercase tracking-wider select-none border-b border-white/30 pb-1">
+                      {w.title}
+                    </span>
+                  </div>
+
+                  {/* Horizontal Detailed Description Content (Fades in when hovered) */}
+                  <div className={`absolute inset-0 flex flex-col justify-end p-6 md:p-10 transition-all duration-500 ${
+                    isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+                  }`}>
+                    <span className="text-[10px] font-bold text-electric-blue uppercase tracking-[0.25em] block mb-2">
+                      WINDOW TYPE {w.num}
+                    </span>
+                    <h3 className="text-white text-2xl md:text-3xl font-black uppercase tracking-tight mb-3">
+                      {w.title}
+                    </h3>
+                    <p className="text-slate-300 text-xs md:text-sm leading-relaxed mb-6 max-w-md">
+                      {w.desc}
+                    </p>
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedProduct(w.title);
+                      }} 
+                      className="w-fit bg-electric-blue text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:bg-blue-600 transition-colors shadow-lg animate-pulse"
+                    >
+                      KNOW MORE
+                    </button>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <span className="text-slate-400 text-sm font-bold block mb-2">{w.num}</span>
-                  <h3 className="text-base font-bold text-slate-900 mb-2 uppercase tracking-tight">{w.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-5">{w.desc}</p>
-                  <button onClick={() => setActiveModal(w)} className="bg-electric-blue text-white px-5 py-2 text-xs font-bold uppercase tracking-widest rounded hover:bg-blue-700 transition-colors duration-200">Know More</button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -466,52 +529,92 @@ export default function UPVC() {
       {/* ── Lamination ────────────────────────────────────────────────────── */}
       <section className="py-20 md:py-24 bg-slate-50" id="upvc-lamination">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
+          
           <div className="text-center mb-14">
-            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Surface Finishes</span>
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-widest mb-4">Lamination Options</h2>
-            <div className="w-16 h-1 bg-electric-blue mx-auto mb-6" />
-            <p className="text-slate-500 max-w-2xl mx-auto text-base leading-relaxed">
+            <span className="text-[11px] font-bold text-electric-blue uppercase tracking-[0.2em] block mb-2">SURFACE FINISHES</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 uppercase tracking-wide mb-4">LAMINATION OPTIONS</h2>
+            <div className="w-16 h-[3px] bg-electric-blue mx-auto mb-6" />
+            <p className="text-slate-500 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
               We offer a range of lamination &amp; texture options — natural wood finish in Golden Oak, Walnut, Dark Oak, Mahogany, or simply Asian Ivory White.
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-14">
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 max-w-5xl mx-auto justify-center mb-10">
             {LAMINATIONS.map((lam, i) => (
-              <div key={i} className="flex flex-col items-center gap-3 group">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-lg shadow-md group-hover:shadow-xl group-hover:scale-105 transition-all duration-300 border border-black/10" style={{ background: lam.gradient }} />
-                <span className="text-sm font-bold text-slate-800 uppercase tracking-widest text-center">{lam.name}</span>
+              <div key={i} className="flex flex-col items-center gap-4">
+                <div 
+                  className={`w-full aspect-square max-w-[160px] rounded-2xl shadow-md hover:shadow-lg hover:scale-[1.03] transition-all duration-300 ${
+                    lam.name === 'Asian Ivory White' ? 'border border-slate-200/80' : 'border border-black/5'
+                  }`}
+                  style={{ backgroundColor: lam.bg }} 
+                />
+                <span className="text-[10px] font-black text-slate-800 uppercase tracking-widest text-center px-1">
+                  {lam.name}
+                </span>
               </div>
             ))}
           </div>
-          <p className="text-center text-slate-400 text-xs uppercase tracking-widest mt-10">Custom lamination options available on request · Contact us for samples</p>
+
+          <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.15em] mt-12">
+            CUSTOM LAMINATION OPTIONS AVAILABLE ON REQUEST · CONTACT US FOR SAMPLES
+          </p>
+
         </div>
       </section>
 
-      {/* ── Gallery Slider ────────────────────────────────────────────────── */}
-      <section id="upvc-gallery" className="bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-6">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-2">Project Gallery</span>
-              <h2 className="text-3xl font-bold uppercase tracking-widest">Our Work in Action</h2>
-            </div>
-            <div className="w-16 h-1 bg-electric-blue mb-1" />
+      {/* ── What is uPVC ──────────────────────────────────────────────────── */}
+      <section className="py-20 md:py-24 bg-white" id="upvc-what">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+          <div className="flex-1">
+            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">About the Material</span>
+            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tighter mb-6 leading-none">What is uPVC?</h2>
+            <p className="text-slate-500 text-base md:text-lg mb-5 border-l-2 border-electric-blue pl-5 leading-relaxed">
+              uPVC stands for <strong>Unplasticised Polyvinyl Chloride</strong> — a rigid, high-performance plastic material used to manufacture windows, doors, and frames. Unlike regular PVC, uPVC contains no plasticisers, making it harder, stronger, and more durable.
+            </p>
+            <p className="text-slate-500 text-base leading-relaxed mb-5">
+              uPVC profiles are engineered with multiple internal chambers that trap air, creating a natural thermal barrier. Steel reinforcement is inserted inside the profiles for structural strength, while the outer surface is UV-stabilised to resist discolouration and degradation.
+            </p>
+            <p className="text-slate-500 text-base leading-relaxed">
+              The result is a window system that outperforms wood and aluminium in thermal efficiency, sound insulation, security, and longevity — with virtually zero maintenance required.
+            </p>
+          </div>
+          <div className="flex-1 w-full grid grid-cols-2 gap-4">
+            {[
+              { label: 'Material', value: 'Unplasticised PVC' },
+              { label: 'Chambers', value: '3 to 6 chambers' },
+              { label: 'Reinforcement', value: 'Galvanised steel' },
+              { label: 'Thermal Value', value: 'Uf ≤ 1.6 W/m²K' },
+              { label: 'Sound Reduction', value: 'Up to 45 dB' },
+              { label: 'Lifespan', value: '30–50 years' },
+            ].map((s, i) => (
+              <div key={i} className="bg-slate-50 border border-slate-100 px-5 py-4">
+                <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-1">{s.label}</p>
+                <p className="font-black text-slate-900 text-sm">{s.value}</p>
+              </div>
+            ))}
           </div>
         </div>
-        <ImageSlider />
       </section>
 
-      {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-24 px-6" id="upvc-cta">
-        <div ref={ctaRef} className="max-w-7xl mx-auto bg-slate-950 text-white p-8 md:p-20 relative overflow-hidden rounded-sm shadow-2xl">
-          <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none bg-[radial-gradient(circle_at_center,_#2180ff_0%,transparent_70%)]" />
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10">
-            <div className="max-w-xl text-center md:text-left">
-              <h2 className="text-3xl md:text-5xl font-bold uppercase mb-4 md:mb-6 leading-tight">Ready to Upgrade<br /><span className="text-electric-blue">Your Facade?</span></h2>
-              <p className="text-slate-400 text-base md:text-lg leading-relaxed">Talk to our uPVC specialists and get a custom solution tailored to your project requirements and budget.</p>
-            </div>
-            <button onClick={() => navigate('/contact')} className="w-full md:w-auto bg-white text-slate-950 px-8 md:px-12 py-4 md:py-5 text-sm font-bold hover:bg-electric-blue hover:text-white hover:scale-105 transition-all duration-300 uppercase tracking-widest whitespace-nowrap">
-              CONTACT US <ArrowRight className="inline-block ml-2 w-4 h-4" />
-            </button>
+      {/* ── Why uPVC ──────────────────────────────────────────────────────── */}
+      <section className="py-20 md:py-24 bg-slate-950 text-white" id="upvc-why">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-14">
+            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Benefits</span>
+            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-widest mb-4">Why Choose uPVC?</h2>
+            <div className="w-16 h-1 bg-electric-blue mx-auto mb-6" />
+            <p className="text-slate-400 max-w-2xl mx-auto text-base leading-relaxed">
+              uPVC windows and doors outperform wood and aluminium across every metric — thermal efficiency, security, durability, and cost of ownership.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {WHY_UPVC.map((w, i) => (
+              <div key={i} className="p-6 border border-white/10 hover:border-electric-blue transition-all duration-300 group">
+                <w.icon className="w-7 h-7 text-electric-blue mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h4 className="text-sm font-bold uppercase tracking-tight mb-2">{w.title}</h4>
+                <p className="text-xs text-slate-400 leading-relaxed">{w.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
