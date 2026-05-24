@@ -112,11 +112,16 @@ export const textReveal = {
     const { stagger = 0.03, duration = 0.6, ease = 'back.out(1.7)', from = 'bottom' } = options;
     
     const text = element.textContent || '';
-    const chars = text.split('');
+    const words = text.split(' ').filter(w => w.length > 0);
     
-    element.innerHTML = chars
-      .map((char) => `<span class="char" style="display: inline-block;">${char === ' ' ? '&nbsp;' : char}</span>`)
-      .join('');
+    element.innerHTML = words
+      .map((word) => {
+        const wordChars = word.split('').map(char => 
+          `<span class="char inline-block" style="display: inline-block;">${char}</span>`
+        ).join('');
+        return `<span class="inline-block whitespace-nowrap">${wordChars}</span>`;
+      })
+      .join(' ');
 
     const charElements = element.querySelectorAll('.char');
     
