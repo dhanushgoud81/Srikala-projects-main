@@ -447,8 +447,8 @@ export default function UPVC() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <div ref={heroContentRef} className="max-w-2xl">
             <span className="hero-animate text-electric-blue font-semibold tracking-[0.3em] uppercase mb-4 block text-xs">uPVC Windows & Doors · Srikala Projects</span>
-            <h1 ref={heroTitleRef} className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 uppercase tracking-tighter leading-none">uPVC Window & Door Systems</h1>
-            <p className="hero-animate text-base md:text-lg text-slate-300 mb-10 max-w-lg">Srikala Projects designs, fabricates and installs premium uPVC windows and doors — built for India's climate, engineered for lasting performance.</p>
+            <h1 ref={heroTitleRef} className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 uppercase tracking-tighter leading-none">Premium uPVC Window & Door Systems</h1>
+            <p className="hero-animate text-base md:text-lg text-slate-300 mb-10 max-w-2xl">Srikala Projects designs, fabricates, and installs high-performance uPVC windows and doors — expertly crafted for the Indian climate, with superior durability, energy efficiency, and lasting elegance.</p>
             <div className="hero-animate flex flex-wrap gap-3 md:gap-4">
               <button ref={heroCTARef} onClick={() => navigate('/contact')} className="bg-electric-blue text-white px-8 md:px-10 py-3 md:py-4 text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-200">GET QUOTE</button>
               <button onClick={() => document.getElementById('upvc-types')?.scrollIntoView({ behavior: 'smooth' })} className="border-2 border-white/50 text-white px-8 md:px-10 py-3 md:py-4 text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-200">VIEW PRODUCTS</button>
