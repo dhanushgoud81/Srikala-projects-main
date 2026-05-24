@@ -642,7 +642,7 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
         <div className="text-center mb-20">
           <span className="text-xs font-bold text-[#005fb8] uppercase tracking-widest block mb-4">Live Customizer Console</span>
           <h2 className="text-3xl md:text-5xl font-black uppercase tracking-widest mb-4 text-slate-900">
-            Customise Your {detail.title.replace('uPVC ', '')}s
+            Customise Your {detail.title.replace('uPVC ', '')}
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#005fb8] to-blue-500 mx-auto mb-6" />
           <p className="text-slate-500 max-w-2xl mx-auto text-sm leading-relaxed">
