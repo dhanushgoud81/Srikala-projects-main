@@ -432,14 +432,14 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
   };
 
   return (
-    <div ref={containerRef} className="bg-slate-50 min-h-screen pb-24 text-slate-800 select-none overflow-hidden font-sans">
+    <div ref={containerRef} className="bg-slate-50 min-h-screen pb-24 text-slate-800 select-none overflow-x-hidden font-sans">
       
       {/* ─── Product Selection Sticky Header (Solid White on Mobile, Translucent Glass on Desktop) ─── */}
-      <div className="sticky top-16 z-30 bg-white md:bg-white/90 md:backdrop-blur-md border-b border-slate-200/60 py-4 shadow-[0_4px_25px_rgba(0,0,0,0.04)] transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-wrap items-center justify-between gap-6">
+      <div className="sticky top-16 z-30 bg-white md:bg-white/90 md:backdrop-blur-md border-b border-slate-200/60 py-3 md:py-4 shadow-[0_4px_25px_rgba(0,0,0,0.04)] transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-6">
           <button 
             onClick={onBack}
-            className="flex items-center gap-2 text-slate-600 hover:text-[#005fb8] text-xs uppercase font-extrabold tracking-widest transition-all duration-300 active:scale-95 group"
+            className="flex items-center gap-2 text-slate-600 hover:text-[#005fb8] text-xs uppercase font-extrabold tracking-widest transition-all duration-300 active:scale-95 group w-fit"
           >
             <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5 text-[#005fb8]" /> Back to Systems
           </button>
@@ -470,8 +470,8 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
       </div>
 
       {/* ─── Breadcrumb Navigation ────────────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-10 pb-4 anim-header">
-        <div className="text-[10px] uppercase tracking-widest text-slate-400 flex items-center gap-2">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-28 sm:pt-10 pb-4 anim-header">
+        <div className="text-[10px] uppercase tracking-widest text-slate-400 flex flex-wrap items-center gap-1.5 sm:gap-2">
           <span>uPVC Systems</span>
           <span>/</span>
           <span>We Manufacture</span>
