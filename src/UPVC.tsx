@@ -661,7 +661,7 @@ export default function UPVC() {
                   { name: 'aludec umbra grey', bg: '#4b4a45', desc: 'Warm organic grey' },
                   { name: 'aludec basalt grey', bg: '#4b4d50', desc: 'Elegant basalt tone' },
                   { name: 'aludec jet black', bg: '#111215', desc: 'Ultra-matt deep black' },
-                  { name: 'aludec DB703', bg: '#4f5255', desc: 'Metallic iron mica' },
+                  { name: 'aludec DB703', bg: '#4f5255', desc: 'Metallic iron mica', texture: '/images/textures/texture-aludec-db703.png' },
                   { name: 'aludec anthracite grey', bg: '#2f3133', desc: 'Prestige dark charcoal' }
                 ].map((lam, i) => {
                   const isLight = lam.name === 'aludec traffic white';
@@ -669,10 +669,25 @@ export default function UPVC() {
                     <div 
                       key={i} 
                       className="group flex-1 hover:flex-[2.5] relative transition-all duration-500 ease-out cursor-pointer overflow-hidden border-r border-black/5 last:border-r-0 select-none"
-                      style={{ backgroundColor: lam.bg }}
+                      style={lam.texture ? {
+                        backgroundImage: `url(${lam.texture})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      } : {
+                        backgroundColor: lam.bg
+                      }}
                     >
-                      {/* Technical metallic micro-texture overlay */}
+                      {/* Technical metallic micro-texture & sand-blasted grain overlays */}
                       <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
+                      {!lam.texture && (
+                        <div 
+                          className="absolute inset-0 opacity-15 pointer-events-none" 
+                          style={{ 
+                            backgroundImage: 'radial-gradient(rgba(255,255,255,0.15) 0.5px, transparent 0)', 
+                            backgroundSize: '3px 3px' 
+                          }} 
+                        />
+                      )}
                       
                       {/* Vertical color label */}
                       <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-12 pointer-events-none z-10">
@@ -713,27 +728,24 @@ export default function UPVC() {
               {/* Seamless vertical swatches board */}
               <div className="flex w-full h-[320px] md:h-[380px] rounded-2xl overflow-hidden shadow-xl border border-slate-200/60 bg-white">
                 {[
-                  { name: 'sheffield oak alpine', bg: '#cdbeab', desc: 'Pale Scandinavian timber grain' },
-                  { name: 'sheffield oak concrete', bg: '#9f9284', desc: 'Cool concrete grey oak touch' },
-                  { name: 'turner oak toffee', bg: '#b08754', desc: 'Rich honey oak woodgrain' },
-                  { name: 'turner oak malt', bg: '#c5b095', desc: 'Sandy-malt natural wood' }
+                  { name: 'sheffield oak alpine', bg: '#cdbeab', desc: 'Pale Scandinavian timber grain', texture: '/images/textures/texture-sheffield-oak-alpine.png' },
+                  { name: 'sheffield oak concrete', bg: '#9f9284', desc: 'Cool concrete grey oak touch', texture: '/images/textures/texture-sheffield-oak-concrete.png' },
+                  { name: 'turner oak toffee', bg: '#b08754', desc: 'Rich honey oak woodgrain', texture: '/images/textures/texture-turner-oak-toffee.png' },
+                  { name: 'turner oak malt', bg: '#c5b095', desc: 'Sandy-malt natural wood', texture: '/images/textures/texture-turner-oak-malt.png' }
                 ].map((lam, i) => {
                   const isLight = lam.name === 'sheffield oak alpine';
                   return (
                     <div 
                       key={i} 
                       className="group flex-1 hover:flex-[2.5] relative transition-all duration-500 ease-out cursor-pointer overflow-hidden border-r border-black/5 last:border-r-0 select-none"
-                      style={{ backgroundColor: lam.bg }}
+                      style={{ 
+                        backgroundImage: `url(${lam.texture})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
                     >
-                      {/* Woodgrain visual lining overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-black/5 via-transparent to-white/5 opacity-40 pointer-events-none" />
-                      <div 
-                        className="absolute inset-0 opacity-15 pointer-events-none"
-                        style={{
-                          backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px)',
-                          backgroundSize: '4px 100%'
-                        }}
-                      />
+                      {/* Woodgrain visual shading overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/5 opacity-60 pointer-events-none group-hover:opacity-40 transition-opacity duration-500" />
                       
                       {/* Vertical color label */}
                       <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-12 pointer-events-none z-10">
