@@ -61,96 +61,96 @@ const WHY_UPVC = [
 // ─── Profile Types ────────────────────────────────────────────────────────────
 const PROFILES = [
   {
-    id: 'sliding',
-    name: 'Sliding Profile',
-    tagline: '54 mm · 2-Track & 3-Track',
-    desc: 'Our sliding uPVC profile system is built for smooth horizontal operation. Ideal for large openings where swing space is limited. Available in 2-track and 3-track configurations with reinforced steel bar support for wind resistance up to 2 kPa.',
-    specs: [
-      { label: 'Construction Depth', value: '54 mm' },
-      { label: 'Wind Resistance', value: 'Up to 2 kPa' },
-      { label: 'Max Width', value: '2.2 m' },
-      { label: 'Max Height', value: '2.1 m' },
-      { label: 'Glazing Thickness', value: 'Up to 11 mm' },
-      { label: 'Track Options', value: '2-track / 3-track' },
-    ],
-    features: [
-      'Suitable for windows and sliding doors',
-      '2-track and 3-track configurations',
-      'Reinforced steel static bar for rigidity',
-      'Smooth stainless steel rollers',
-      'Anti-lift security locks',
-      'Low maintenance uPVC construction',
-    ],
-    img: '/images/profile-sliding.png',
-  },
-  {
-    id: 'casement',
-    name: 'Casement Profile',
-    tagline: '54 mm · 3-Chamber System',
-    desc: 'Our 3-chamber casement profile is engineered for outward open windows. The multi-chamber design delivers superior thermal performance and accommodates glazing up to 24 mm — ideal for India\'s diverse climatic conditions.',
+    id: 'ideal-1000',
+    name: 'IDEAL 1000',
+    tagline: '54 mm · 3-Chamber Casement',
+    desc: 'The optimal aluplast 3-chamber casement system engineered for Indian tropical conditions. Suited for outward open windows, providing stable construction depth and fully compatible with existing glazing beads.',
     specs: [
       { label: 'Construction Depth', value: '54 mm' },
       { label: 'Profile System', value: '3-Chamber' },
       { label: 'Glazing Thickness', value: 'Up to 24 mm' },
-      { label: 'Application', value: 'Outward Open Windows' },
+      { label: 'Ideal Application', value: 'Outward Open Windows' },
       { label: 'Glazing Beads', value: 'Compatible' },
-      { label: 'Finish', value: 'Tropical White' },
+      { label: 'Country Launch', value: 'Made in India' },
     ],
     features: [
-      '3-chamber system for superior thermal performance',
-      'Best suited for outward open casement windows',
+      '54 mm construction depth for stable outer walls',
       'Accommodates glass up to 24 mm thickness',
-      'Compatible with existing glazing beads',
-      'Engineered for Indian climatic conditions',
-      'Compatible with Mivan Construction technology',
+      'Certified 3-chamber structural insulation system',
+      'Good choice for outward opening casement panes',
+      'Perfect styling with existing architectural glazing beads',
+      'Compatible with Mivan Construction technology guidelines',
     ],
     img: '/images/profile-casement.png',
   },
   {
-    id: 'villa',
-    name: 'Villa Profile',
-    tagline: '62 mm · Double Sash System',
-    desc: 'Our premium villa frame profile features a unique double-sash chamber engineered to house a glass pane, insect mesh screen, and an integrated structural steel grill, achieving ultimate safety in luxury bungalows.',
+    id: 'prima-slide',
+    name: 'prima-slide',
+    tagline: '54 mm · 2 & 3-Track Sliding',
+    desc: 'The specialized aluplast India sliding system built for both windows and doors. Engineered to withstand heavy winds with smooth track performance and extra track slot options.',
     specs: [
-      { label: 'Construction Depth', value: '62 mm' },
-      { label: 'Profile Chambers', value: '5-Chamber Core' },
-      { label: 'Grill Support', value: 'Integrated Steel' },
-      { label: 'Glazing Thickness', value: 'Up to 24 mm' },
-      { label: 'Mesh Integration', value: 'Dedicated Slot' },
-      { label: 'Monsoon Seal', value: 'Triple EPDM' },
+      { label: 'Construction Depth', value: '54 mm' },
+      { label: 'Wind Resistance', value: 'High Wind Loads' },
+      { label: 'Glazing Thickness', value: 'Up to 11 mm' },
+      { label: 'Track Options', value: '2-track & 3-track' },
+      { label: 'Extra Track', value: 'Additional option' },
+      { label: 'System Suitability', value: 'Windows & Doors' },
     ],
     features: [
-      'Built-in secure structural grill adapters',
-      'Dual independent sashes for mesh & glass sashes',
-      'Advanced 5-chamber noise and thermal core',
-      'EPDM triple compression rain weather-seals',
-      'Highly resistant to tropical wind load dynamics',
-      'Luxurious Timber lamination matching teakwood',
+      '54 mm Construction depth for smooth sliding operation',
+      'Available in 2-track and 3-track sliding layouts',
+      'Accommodates glass panes up to 11 mm thickness',
+      'Designed with high static resistance to severe wind load',
+      'Additional track option for mosquito fly mesh profiles',
+      'Engineered specifically for Indian climatic extremes',
     ],
-    img: '/images/profile-villa.png',
+    img: '/images/profile-sliding.png',
   },
   {
-    id: 'bifold',
-    name: 'Slide & Fold Profile',
-    tagline: '74 mm · Heavy-Duty Multi-Pane',
-    desc: 'Designed for grand openings, our bi-fold profile utilizes an advanced heavy-duty bottom track sliding guide roller system that allows multiple glass panels to fold flat against the wall, creating wide open rooms.',
+    id: 'smart-slide',
+    name: 'smart-slide',
+    tagline: '70 mm · Premium Sliding Star',
+    desc: 'The premium German-engineered sliding patio door system. Features innovative concealed hardware technology, a self-closing mechanism, and excellent EPDM continuous sealing.',
     specs: [
-      { label: 'Construction Depth', value: '74 mm' },
-      { label: 'Max Panel Load', value: '120 kg' },
-      { label: 'Glazing Thickness', value: 'Up to 32 mm' },
-      { label: 'Folding Panel Limit', value: 'Up to 7 Panels' },
-      { label: 'Hinge Hardware', value: 'Stainless Steel' },
-      { label: 'Profile System', value: 'Multi-Chamber' },
+      { label: 'Construction Depth', value: '70 mm' },
+      { label: 'Thermal Value', value: 'Uf = 1.4 W/m²K' },
+      { label: 'Glazing Thickness', value: 'Up to 41 mm' },
+      { label: 'Opening Schema', value: 'Schema A + C' },
+      { label: 'Hardware Tech', value: 'Fully Concealed' },
+      { label: 'Adhesive Tech', value: 'Optional Bonding' },
     ],
     features: [
-      'Supports massive grand-opening apertures',
-      'Heavy-duty bottom-hung guide track system',
-      'Fold sashes flat to completely enlarge rooms',
-      'Accommodates heavy double/triple glaze layers',
-      'Smooth architectural sliding guide rollers',
-      'Advanced wind-load structural couplings',
+      '70 mm premium construction depth for grand villas',
+      'Excellent energy efficiency with thermal Uf = 1.4 W/m²K',
+      'Accommodates high-end triple glazing up to 41 mm',
+      'Equipped with convenient self-closing slider tracks',
+      'Continuous EPDM sealing for perfect water and sound barrier',
+      'Optional inside bonding using high-strength adhesive tech',
     ],
     img: '/images/profile-bifold.png',
+  },
+  {
+    id: 'ideal-4000',
+    name: 'IDEAL 4000®',
+    tagline: '70 mm · 5-Chamber Premium',
+    desc: 'The ultimate aluplast heavy-duty casement profile system. Delivers top-tier thermal insulation and sound dampening class up to 45 dB with option for aluskin® aluminum cover shells.',
+    specs: [
+      { label: 'Construction Depth', value: '70 mm' },
+      { label: 'Thermal Core', value: 'Uf = 1.3 W/m²K' },
+      { label: 'Total Value', value: 'Uw = 0.99 W/m²K' },
+      { label: 'Glazing Thickness', value: 'Up to 41 mm' },
+      { label: 'Sound Barrier', value: 'Up to 45 dB (Class 4)' },
+      { label: 'Alu covers', value: 'aluskin® compatible' },
+    ],
+    features: [
+      'Premium 70 mm construction depth with 5 thermal chambers',
+      'Unmatched acoustic insulation dampening up to 45 dB',
+      'Outstanding Uw energy values down to 0.99 W/m²K',
+      'Supports thick structural safety double & triple glass up to 41 mm',
+      'Optional aluskin® clip-on external aluminum covers possible',
+      'Available in numerous premium color and timber decor variations',
+    ],
+    img: '/images/profile-villa.png',
   }
 ];
 
@@ -163,12 +163,21 @@ const COMPANY_STATS = [
 ];
 
 // ─── Lamination Options ───────────────────────────────────────────────────────
-const LAMINATIONS = [
-  { name: 'Walnut',           bg: '#7c4d30' },
-  { name: 'Dark Oak',         bg: '#352317' },
-  { name: 'Mahogany',         bg: '#57222b' },
-  { name: 'Golden Oak',       bg: '#c58737' },
-  { name: 'Asian Ivory White',bg: '#f7f4ec' },
+const ALUDEC_LAMINATIONS = [
+  { name: 'aludec DB703',       bg: '#4f5255', desc: 'Metallic iron mica with sparkles' },
+  { name: 'aludec jet black',   bg: '#111215', desc: 'Ultra-matt deep black finish' },
+  { name: 'aludec window grey', bg: '#8d9296', desc: 'Sleek industrial grey coating' },
+  { name: 'aludec basalt grey', bg: '#4b4d50', desc: 'Elegant volcanic basalt stone' },
+  { name: 'aludec anthracite',  bg: '#2f3133', desc: 'Prestige dark charcoal grey' },
+  { name: 'aludec traffic white',bg: '#f0f2f2', desc: 'Satin powder traffic white' },
+  { name: 'aludec umbra grey',  bg: '#4b4a45', desc: 'Warm organic earthy grey' },
+];
+
+const WOODEC_LAMINATIONS = [
+  { name: 'sheffield oak alpine', bg: '#cdbeab', desc: 'Pale Scandinavian timber grain' },
+  { name: 'sheffield oak concrete',bg: '#9f9284', desc: 'Cool concrete grey oak touch' },
+  { name: 'turner oak toffee',   bg: '#b08754', desc: 'Rich honey oak woodgrain' },
+  { name: 'turner oak malt',     bg: '#c5b095', desc: 'Sandy-malt natural wood aesthetic' },
 ];
 
 // ─── Window Types ─────────────────────────────────────────────────────────────
@@ -527,37 +536,175 @@ export default function UPVC() {
       </section>
 
       {/* ── Lamination ────────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-24 bg-slate-50" id="upvc-lamination">
+      <section className="py-20 md:py-24 bg-slate-50 border-b border-slate-200" id="upvc-lamination">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           
-          <div className="text-center mb-14">
-            <span className="text-[11px] font-bold text-electric-blue uppercase tracking-[0.2em] block mb-2">SURFACE FINISHES</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 uppercase tracking-wide mb-4">LAMINATION OPTIONS</h2>
+          <div className="text-center mb-16">
+            <span className="text-[11px] font-bold text-electric-blue uppercase tracking-[0.2em] block mb-2">aluplast Surface Coatings</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 uppercase tracking-wide mb-4">Lamination Options</h2>
             <div className="w-16 h-[3px] bg-electric-blue mx-auto mb-6" />
             <p className="text-slate-500 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
-              We offer a range of lamination &amp; texture options — natural wood finish in Golden Oak, Walnut, Dark Oak, Mahogany, or simply Asian Ivory White.
+              Experience the dual aesthetic catalogs of aluplast GmbH. Choose between the high-tech, powder-coated look of our aluminium style finishes or the warm, texturized touch of natural woodgrains.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 max-w-5xl mx-auto justify-center mb-10">
-            {LAMINATIONS.map((lam, i) => (
-              <div key={i} className="flex flex-col items-center gap-4">
-                <div 
-                  className={`w-full aspect-square max-w-[160px] rounded-2xl shadow-md hover:shadow-lg hover:scale-[1.03] transition-all duration-300 ${
-                    lam.name === 'Asian Ivory White' ? 'border border-slate-200/80' : 'border border-black/5'
-                  }`}
-                  style={{ backgroundColor: lam.bg }} 
-                />
-                <span className="text-[10px] font-black text-slate-800 uppercase tracking-widest text-center px-1">
-                  {lam.name}
-                </span>
+          <div className="space-y-16 max-w-6xl mx-auto">
+            {/* aludec - aluminium look */}
+            <div>
+              <div className="flex items-center gap-3 mb-6 pb-2 border-b border-slate-200">
+                <span className="px-3 py-1 bg-blue-50 text-electric-blue text-[9px] font-black uppercase tracking-widest rounded-sm">Inspired by Style</span>
+                <h3 className="text-lg font-black text-slate-900 uppercase tracking-wide">aludec® Surface Finishes</h3>
               </div>
-            ))}
+              <p className="text-slate-400 text-xs leading-relaxed mb-8 max-w-2xl">
+                Replicates the exact matte powder-coated texture of premium aluminum shells, combining resource-saving uPVC thermal performance with highly premium aesthetics.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
+                {ALUDEC_LAMINATIONS.map((lam, i) => (
+                  <div key={i} className="flex flex-col items-center gap-3 group">
+                    <div 
+                      className={`w-full aspect-square rounded-xl shadow-sm border border-slate-200 group-hover:shadow-md group-hover:scale-[1.04] transition-all duration-300 relative`}
+                      style={{ backgroundColor: lam.bg }} 
+                    />
+                    <div className="text-center">
+                      <span className="text-[10px] font-black text-slate-800 uppercase tracking-wider block">
+                        {lam.name.replace('aludec ', '')}
+                      </span>
+                      <span className="text-[8px] text-slate-400 font-medium block mt-0.5 leading-tight">
+                        {lam.desc}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* woodec - wood look */}
+            <div>
+              <div className="flex items-center gap-3 mb-6 pb-2 border-b border-slate-200">
+                <span className="px-3 py-1 bg-amber-50 text-amber-700 text-[9px] font-black uppercase tracking-widest rounded-sm">Inspired by Nature</span>
+                <h3 className="text-lg font-black text-slate-900 uppercase tracking-wide">woodec® Woodgrain Finishes</h3>
+              </div>
+              <p className="text-slate-400 text-xs leading-relaxed mb-8 max-w-2xl">
+                Provides an astonishing woodgrain touch, realistic visual depth, and natural grain pattern that is virtually indistinguishable from real timber.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl">
+                {WOODEC_LAMINATIONS.map((lam, i) => (
+                  <div key={i} className="flex flex-col items-center gap-3 group">
+                    <div 
+                      className={`w-full aspect-[4/3] rounded-xl shadow-sm border border-slate-200 group-hover:shadow-md group-hover:scale-[1.04] transition-all duration-300 relative`}
+                      style={{ backgroundColor: lam.bg }} 
+                    />
+                    <div className="text-center">
+                      <span className="text-[10px] font-black text-slate-800 uppercase tracking-wider block">
+                        {lam.name.replace('sheffield ', '').replace('turner ', '')}
+                      </span>
+                      <span className="text-[8px] text-slate-400 font-medium block mt-0.5 leading-tight">
+                        {lam.desc}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.15em] mt-12">
-            CUSTOM LAMINATION OPTIONS AVAILABLE ON REQUEST · CONTACT US FOR SAMPLES
+          <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.15em] mt-16">
+            ALL aluplast SYSTEMS OFFER SUPERIOR UV AND CLIMATE RESISTANCE · SAMPLE SWATCHES AVAILABLE
           </p>
+
+        </div>
+      </section>
+
+      {/* ── aluplast Partnership & Manufacturing Unit Banner ────────────────── */}
+      <section className="py-20 md:py-24 bg-white relative overflow-hidden border-b border-slate-200">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(0,95,184,0.03)_0%,transparent_50%)] pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Column: Corporate & Partnership Content */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Official aluplast Partnership</span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 uppercase tracking-tight mb-6 leading-tight">
+                German Technology <br className="hidden md:inline" />
+                <span className="text-electric-blue">Made for the Indian Climate</span>
+              </h2>
+              <div className="w-16 h-[3px] bg-electric-blue mb-8" />
+              
+              <p className="text-slate-500 text-sm md:text-base leading-relaxed mb-6">
+                Srikala Projects is proud to partner with <strong>aluplast GmbH</strong>, a global leader in uPVC window and door systems. Headquartered in Karlsruhe, Germany and founded in 1982 by Manfred J. Seitz, aluplast operates 24+ production sites worldwide.
+              </p>
+              
+              <p className="text-slate-500 text-sm md:text-base leading-relaxed mb-8">
+                Every aluplast profile we fabricate is extruded using advanced tropicalized formulations at their state-of-the-art extrusion plant in <strong>Savli, Vadodara, Gujarat</strong>. Engineered specifically to withstand the extreme Indian monsoon, intense wind loads, and heavy UV exposure, our systems guarantee long-lasting performance and structural longevity.
+              </p>
+
+              {/* Technical badges grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <div className="bg-slate-50 border border-slate-200/60 p-4 rounded-lg">
+                  <span className="text-slate-400 text-[9px] font-bold uppercase tracking-wider block mb-1">Extrusion Plant</span>
+                  <span className="font-extrabold text-slate-800 text-xs block">Savli GIDC, Gujarat</span>
+                </div>
+                <div className="bg-slate-50 border border-slate-200/60 p-4 rounded-lg">
+                  <span className="text-slate-400 text-[9px] font-bold uppercase tracking-wider block mb-1">Global Heritage</span>
+                  <span className="font-extrabold text-slate-800 text-xs block">Karlsruhe, Germany</span>
+                </div>
+                <div className="bg-slate-50 border border-slate-200/60 p-4 rounded-lg">
+                  <span className="text-slate-400 text-[9px] font-bold uppercase tracking-wider block mb-1">Indian Market</span>
+                  <span className="font-extrabold text-slate-800 text-xs block">Mivan Comp. Profiles</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Factory Image Frame */}
+            <div className="lg:col-span-5 relative group">
+              <div className="absolute -inset-2 bg-gradient-to-tr from-blue-600/10 to-emerald-600/10 rounded-2xl blur-xl group-hover:scale-105 transition-transform duration-500" />
+              <div className="relative bg-white border border-slate-200 p-3 rounded-2xl shadow-xl overflow-hidden">
+                <img 
+                  src="/images/aluplast-factory-savli.png" 
+                  alt="aluplast India Savli Vadodara Extrusion Plant" 
+                  className="w-full h-80 object-cover rounded-xl group-hover:scale-[1.02] transition-transform duration-500"
+                />
+                <div className="absolute inset-x-3 bottom-3 p-4 bg-slate-900/80 backdrop-blur-sm rounded-b-xl border-t border-white/10">
+                  <p className="text-white text-[11px] font-black uppercase tracking-wider">aluplast India Extrusion Plant</p>
+                  <p className="text-white/60 text-[9px] mt-0.5">Plot No. 730-A, GIDC Savli, Vadodara, Gujarat</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Showrooms sub-grid */}
+          <div className="mt-20 pt-16 border-t border-slate-100">
+            <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-8 text-center">Experience Our Products in Person</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div className="bg-slate-50/80 border border-slate-200/60 p-6 rounded-xl flex gap-4 hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center shrink-0 border border-blue-100">
+                  <span className="text-electric-blue font-bold text-sm">DL</span>
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-slate-800 text-xs uppercase tracking-wide mb-1">Delhi Showroom</h4>
+                  <p className="text-slate-500 text-[11px] leading-relaxed mb-2">
+                    Unit no. 29 & 30, Ground Floor, ABW Rectangle One, D-4 Saket, Block M, New Delhi - 110017
+                  </p>
+                  <span className="text-[9px] font-mono text-[#005fb8]">Toll Free: 1800 233 477</span>
+                </div>
+              </div>
+
+              <div className="bg-slate-50/80 border border-slate-200/60 p-6 rounded-xl flex gap-4 hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center shrink-0 border border-emerald-100">
+                  <span className="text-emerald-700 font-bold text-sm">BLR</span>
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-slate-800 text-xs uppercase tracking-wide mb-1">Bengaluru Showroom</h4>
+                  <p className="text-slate-500 text-[11px] leading-relaxed mb-2">
+                    Unit no. 302, 3rd Floor, Eva Mall, 60, Brigade Road, Bengaluru - 560 025
+                  </p>
+                  <span className="text-[9px] font-mono text-emerald-700">Email: info.in@aluplast.net</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
       </section>

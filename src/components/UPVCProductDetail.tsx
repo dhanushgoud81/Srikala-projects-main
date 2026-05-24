@@ -239,39 +239,39 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
   'Sliding Windows': {
     id: 'sliding',
     title: 'uPVC Sliding Windows',
-    desc: 'Glide horizontally on heavy-duty tracks requiring absolutely no interior or exterior swing space. A space-saving engineering marvel engineered for apartments and high-rises.',
+    desc: 'Glide horizontally on heavy-duty tracks requiring absolutely no swing space. Srikala Projects fabricates four high-performance aluplast sliding variants optimized for Indian architectural elevations.',
     img: '/images/sliding-window-render.png',
-    overview: 'uPVC Sliding Windows are fitted with heavy-duty brass/nylon rollers at the bottom for effortless, silent horizontal gliding. Exceptionally space-saving and highly robust, sliding windows are an ideal choice for apartments, high-rises, and offices needing expansive panoramic views with ample natural ventilation. Since the window open horizontally, they require zero swing space, allowing furniture or curtains to be placed right against the window.',
+    overview: 'We offer aluplast\'s complete range of four custom sliding window and door systems: the ultra-premium "smart-slide" villa patio doors featuring continuous EPDM weather-stripping and optional indoor glass bonding; the highly versatile "vario-slide" with stable aluminum interlocks and multi-track layouts; the elegant "easy-slide" equipped with exchangeable gaskets; and the modern "mono-slide" hybrid integrating fixed and sliding sashes on a 60 mm frame. All systems feature synthetic rollers for silent, smooth gliding and robust steel reinforcements.',
     features: [
-      { icon: Move, title: 'Effortless Glide Technology', desc: 'Precision-engineered nylon rollers allow expansive 100kg sashes to slide smoothly with a single finger touch.' },
-      { icon: Thermometer, title: 'Insulated Space Sealing', desc: 'Multi-chamber design traps air to stop tropical thermal transfer, dramatically reducing residential air-con energy bills.' },
-      { icon: Shield, title: 'Intruder Force Shield', desc: 'Multi-point perimeter safety lock brackets secure sashes directly inside structural galvanized steel frame reinforcement.' },
-      { icon: Droplets, title: 'Hurricane Monsoon Tracks', desc: 'Features an upward-angled channel threshold that forces torrential rain and gale winds (up to 2.0 kPa) outward.' }
+      { icon: Move, title: 'smart-slide (Villa Patio Star)', desc: '70 mm construction depth, Uf = 1.4 W/m²K, concealed hardware, self-closing tracks, and optional indoor glass-bonding adhesive technology.' },
+      { icon: Layers, title: 'vario-slide (Multi-Track)', desc: 'Versatile 2-track and 3-track sliding window system supporting 4 to 24 mm double glazing, concealed drainage, and stable aluminum interlocks.' },
+      { icon: Shield, title: 'easy-slide (Exchangeable Gaskets)', desc: '60 mm frame depth sliding system featuring exchangeable gaskets, integrated steel reinforcement, and excellent tropical statics.' },
+      { icon: Droplets, title: 'mono-slide (PVC Interlock)', desc: 'Specialized sliding windows featuring integrated PVC interlocks for hermetic sealing, combining fixed and movable glass elements.' }
     ],
     options: [
-      { name: '4 TRACK, 4 PANEL SLIDING WINDOW', desc: 'Designed for wide openings. Sashes open outward from the center, providing a stunning wide-aperture view.', svgPath: SVG_SLIDING_4PANEL },
-      { name: '1 TRACK WITH INTERMEDIATE', desc: 'A minimalist layout featuring a single sliding sash beside a wide fixed panoramic picture frame with structural safety markings.', svgPath: SVG_SLIDING_1TRACK_INT },
-      { name: '2.5 TRACK x 2 PANEL SLIDING WINDOW WITH MESH/GRILL', desc: 'Features sliding glass panels plus a dedicated track for an insect mesh screen, engineered with premium safety profiles.', svgPath: SVG_SLIDING_2_5TRACK_MESH },
-      { name: '2 TRACK SLIDING WINDOW WITH/WITHOUT MESH/GRILL', desc: 'Classic double-track configuration. Features two sliding panels on standard tracks to maximize daylight.', svgPath: SVG_SLIDING_2TRACK_MESH }
+      { name: 'smart-slide 70mm PREMIUM PATIO DOOR', desc: 'Sleek villa sliding door with schema A & C opening, convenient self-closing, and heavy double glazing up to 41 mm.', svgPath: SVG_SLIDING_4PANEL },
+      { name: 'vario-slide 2/3 TRACK BALCONY UNIT', desc: 'Supports large 4-24 mm insulated glass panels with stable aluminum interlock, perfect for high wind-pressure zones.', svgPath: SVG_SLIDING_2TRACK_MESH },
+      { name: 'easy-slide 2.5 TRACK SLIDER WITH MESH', desc: 'Standard 2-track sliding window coupled with an integrated third track for mosquito insect screens.', svgPath: SVG_SLIDING_2_5TRACK_MESH },
+      { name: 'mono-slide 60mm FIXED & SLIDING COMBO', desc: 'A minimalist single sliding sash beside a wide fixed panoramic picture frame with PVC interlock sealing.', svgPath: SVG_SLIDING_1TRACK_INT }
     ]
   },
   'Casement Windows': {
     id: 'casement',
     title: 'uPVC Casement Windows',
-    desc: 'Hinged at the side and opening outwards like a traditional door, casement windows deliver maximum ventilation, airtight seals, and unmatched thermal performance.',
+    desc: 'Hinged at the side and opening outwards like a traditional door, casement windows deliver maximum ventilation, airtight compression seals, and unmatched thermal insulation.',
     img: '/images/casement-windows.png',
-    overview: 'uPVC Casement Windows are the gold standard for acoustic and thermal insulation. By closing flat against a continuous rubber compression seal and securing with multi-point locks around the entire frame perimeter, they achieve a completely airtight seal. Hinged on heavy-duty friction stays, they open up to a full 90 degrees, catching passing breezes and redirecting fresh air directly into your home.',
+    overview: 'Our premium casement range features aluplast\'s newly launched "IDEAL 1000" and flagship "IDEAL 4000®" multi-chamber systems. Constructed with deep profiles that flat-compress against continuous weather seals, they achieve Srikala Projects\' highest air-tightness and thermal efficiency. Suited for Mivan Construction with lower sill widths, these systems deliver exceptional structural wind load resistance and sound dampening class up to 45 dB.',
     features: [
-      { icon: Compass, title: '90° Maximum Ventilation', desc: 'Hinges swing fully open to custom redirect external cooling winds and sunlight inside your rooms.' },
-      { icon: Volume2, title: 'Acoustic Compression Dampening', desc: 'Premium dual EPDM hollow weather gaskets block up to 40dB of ambient road traffic, city, and airport noises.' },
-      { icon: Shield, title: 'Multi-Point Burglar Defense', desc: 'High-strength shootbolts anchor the sash firmly into the heavy frame at up to 6 distinct secure points.' },
-      { icon: Layers, title: 'Deep Double Glazing Frame', desc: 'Deep 54mm profiles easily support structural double or triple insulated safety glass layers up to 24mm.' }
+      { icon: Compass, title: 'IDEAL 1000 (New Launch)', desc: '54 mm construction depth, 3-chamber tropicalized system designed for outward-open casements, compatible with Mivan and standard glazing beads.' },
+      { icon: Volume2, title: 'IDEAL 4000® (Premium Core)', desc: 'Premium 70 mm construction depth, 5-chamber insulation with Uf = 1.3 W/m²K and outstanding Uw = 0.99 W/m²K for ultimate energy savings.' },
+      { icon: Shield, title: 'Acoustic Dampening Class 4', desc: 'Continuous EPDM double-hollow gaskets and thick glass configurations dampen city road traffic noise by up to 45 dB.' },
+      { icon: Layers, title: 'aluskin® Aluminum Covers', desc: 'Supports optional clip-on external aluminum cover shells, combining uPVC high performance with infinite powder-coated colors.' }
     ],
     options: [
-      { name: 'SINGLE SASH OUTWARD CASEMENT', desc: 'A classic single operable pane opening outward left or right. Excellent for bedrooms and hallways.', svgPath: SVG_CASEMENT_1PANEL },
-      { name: 'DOUBLE SASH FRENCH CASEMENT', desc: 'Two sashes opening outward from the center without a central vertical pillar, leaving a completely unobstructed opening.', svgPath: SVG_CASEMENT_FRENCH },
-      { name: 'TOP HUNG VENTILATOR CASEMENT', desc: 'Hinged on the top and opening outward from the bottom. Allows ventilation even during unexpected rain showers.', svgPath: SVG_CASEMENT_TOPHUNG },
-      { name: 'FIXED CASEMENT WITH OPERABLE PANEL', desc: 'Combines a large non-operable picture pane for constant light with a smaller casement pane for controlled fresh air.', svgPath: SVG_CASEMENT_1PANEL }
+      { name: 'IDEAL 1000 SINGLE OUTWARD WINDOW', desc: 'Outward opening casement pane with 54 mm depth, optimized with lower sills for Mivan structural guidelines.', svgPath: SVG_CASEMENT_1PANEL },
+      { name: 'IDEAL 4000® TRIPLE GLAZED SHIELD', desc: 'Heavy-duty 70 mm casement sash holding double or triple security safety glass up to 41 mm thick.', svgPath: SVG_CASEMENT_1PANEL },
+      { name: 'DOUBLE SASH FRENCH CASEMENT DOOR', desc: 'Two sashes opening outward from the center without a central vertical mullion profile, creating a wide-open passage.', svgPath: SVG_CASEMENT_FRENCH },
+      { name: 'TOP-HUNG TOXIC AIR VENTILATOR', desc: 'Hinged at the top and opening from the bottom, allowing ventilation during heavy rainfall without water entry.', svgPath: SVG_CASEMENT_TOPHUNG }
     ]
   },
   'Arch Windows': {
@@ -279,18 +279,18 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
     title: 'uPVC Arch Windows',
     desc: 'Add timeless architectural elegance and vintage styling to your facade using precision-curved modern profiles without compromising on high insulation.',
     img: '/images/arch-windows.png',
-    overview: 'uPVC Arch Windows combine the historic, elegant beauty of curved arches with the high performance, insulation, and durability of modern uPVC technology. Utilizing state-of-the-art thermal profile bending machines, Srikala Projects creates perfectly uniform, continuous curves. They add premium character, classic style, and an elite luxury touch to bungalows, resort facades, and heritage-style homes.',
+    overview: 'Srikala Projects Curved Arch uPVC Windows are fabricated using specialized aluplast 60 mm (IDEAL 2000®) or 70 mm (IDEAL 4000®) profile structures. Utilizing state-of-the-art temperature-controlled profile bending machines, we achieve perfectly uniform, continuous curves. They support premium aludec and woodec laminations with welded, hermetic airtight joints that eliminate rainwater leakages.',
     features: [
-      { icon: Sparkles, title: 'Bespoke Curving Precision', desc: 'Utilizes high-temperature automated profile bending to achieve perfectly smooth arches of any custom radius.' },
-      { icon: Layers, title: 'Reinforced Curved Core', desc: 'Internal galvanized curved steel inserts guarantee high stability and maintain shape across decades.' },
-      { icon: Hammer, title: 'Classic Heritage Aesthetic', desc: 'Integrates classical visual appeal into modern buildings, instantly boosting facade value.' },
-      { icon: Droplets, title: 'Hermetic Leak Protection', desc: 'Continuously welded curved corners eliminate joint gaps, completely blocking monsoon rainwater.' }
+      { icon: Sparkles, title: 'Bespoke Profile Curving', desc: 'Heated automated bending curves multi-chamber profiles to custom radii while fully preserving structural core integrity.' },
+      { icon: Layers, title: 'Curved Galvanized Reinforcement', desc: 'Fitted with custom bent internal steel cores that guarantee decades of stable architectural geometry.' },
+      { icon: Hammer, title: 'Authentic aludec / woodec Finishes', desc: 'Available in all premium matte aludec aluminum looks and warm textured woodec oak timber textures.' },
+      { icon: Droplets, title: 'Welded Leak Proof Corner Joints', desc: 'Seamlessly welded curved junctions block heavy tropical rainwater and eliminate whistling wind drafts.' }
     ],
     options: [
-      { name: 'FULL SEMI-CIRCULAR ARCH PANEL', desc: 'A gorgeous, completely fixed semi-circle glass panel that floods high ceilings with natural daylight.', svgPath: SVG_ARCH_FULL },
-      { name: 'SEGMENTAL LOW ARCH CURVE', desc: 'A wider, gentler curved arch top. Offers a modern twist on standard classical arches.', svgPath: SVG_ARCH_FULL },
-      { name: 'OPERABLE LOWER CASEMENT ARCH', desc: 'Features a fixed circular arch on the top and an operable outward opening casement window on the bottom.', svgPath: SVG_ARCH_OPERABLE },
-      { name: 'GOTHIC POINTED ARCH DESIGN', desc: 'A premium custom arch ending in a pointed peak, ideal for cathedral, institutional, or classic custom architectures.', svgPath: SVG_ARCH_FULL }
+      { name: 'FULL SEMI-CIRCULAR ARCH FIX', desc: 'A stunning, completely fixed semi-circle glass arch panel that floods double-height ceilings with light.', svgPath: SVG_ARCH_FULL },
+      { name: 'GOTHIC POINTED ARCH PIECE', desc: 'Custom curved pointed arch structure, providing vintage, cathedral-style elegance for premium bungalows.', svgPath: SVG_ARCH_FULL },
+      { name: 'OPERABLE LOWER CASEMENT ARCH', desc: 'Features a beautiful fixed circular arch top and an operable outward opening casement window below for fresh air.', svgPath: SVG_ARCH_OPERABLE },
+      { name: 'SEGMENTAL LOW CURVE ARCH', desc: 'A modern low-profile curved arch window, adding subtle classic styling above standard casement sashes.', svgPath: SVG_ARCH_FULL }
     ]
   },
   'Combination Windows': {
@@ -298,18 +298,18 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
     title: 'uPVC Combination Windows',
     desc: 'Fuse fixed, sliding, and casement panels within a single integrated heavy-duty frame to maximize panoramic light and precise ventilation in wide living spaces.',
     img: '/images/combination-windows.jpg',
-    overview: 'uPVC Combination Windows are highly versatile, customized multi-window layouts built within a single robust outer frame. By coupling fixed picture windows with sliding panes, casements, or top-hung ventilators, they offer infinite options to fit expansive openings. They are particularly popular in double-height living rooms, bay windows, master bedroom walls, and commercial facades.',
+    overview: 'Our combination windows seamlessly couple different aluplast profile systems—such as coupling an IDEAL 1000 casement window with vario-slide sliding tracks or fixed picture panes. These systems are joined using heavy-duty structural coupling mullions reinforced internally with thick steel. Engineered to handle high-wind load pressures, they are ideal for double-height living rooms, bay windows, and large balcony partitions.',
     features: [
-      { icon: Layers, title: 'Multi-Profile Integration', desc: 'Blends sliding sashes, operable casements, and fixed panoramic panes into a single heavy-gauge unit.' },
-      { icon: Compass, title: 'Optimized Thermal Ventilation', desc: 'Allows separate operable panes to be positioned strategically to create highly efficient cross-drafts.' },
-      { icon: Shield, title: 'Heavy-Duty Coupled Joint', desc: 'Structural coupling mullions are internally reinforced to safely handle massive double-height wind pressures.' },
-      { icon: Sparkles, title: 'Tailored Glass Facade', desc: 'Designed specifically to transform expansive flat concrete walls into premium glass visual displays.' }
+      { icon: Layers, title: 'Seamless Profile Coupling', desc: 'Blends different multi-chamber sash profiles (sliding, operable, or fixed) within a single robust framework unit.' },
+      { icon: Compass, title: 'Coupling Steel Reinforcements', desc: 'Internal structural mullions are fitted with thick steel plates to safely handle extreme coastal tropical winds.' },
+      { icon: Shield, title: 'Custom Bay Angle Joints', desc: 'Allows window profiles to couple at 90°, 135° or customized angles to project outward as luxury bay seating.' },
+      { icon: Sparkles, title: 'Optimized Cross Ventilation', desc: 'Operable and fixed panes can be positioned strategically to direct and maximize natural convective airflow.' }
     ],
     options: [
-      { name: 'CASEMENT + FIXED COMBINATION', desc: 'Features a large fixed panoramic pane coupled with operable casement windows on the sides for fresh air.', svgPath: SVG_COMBINATION_CS_FX },
-      { name: 'SLIDING + FIXED COMBINATION', desc: 'A sleek modern configuration combining sliding panels on the bottom with a fixed picture glass panel above.', svgPath: SVG_COMBINATION_CS_FX },
-      { name: 'BAY WINDOW COMBINATION LAYOUT', desc: 'A classic 3-sided projecting window configuration angled at 45 or 90 degrees, enlarging interior floor space.', svgPath: SVG_COMBINATION_CS_FX },
-      { name: 'CASEMENT + AWNING COMBINATION', desc: 'A tall layout with casement windows in the middle and top-hung awning ventilators on top for heat exhaust.', svgPath: SVG_COMBINATION_CS_FX }
+      { name: 'IDEAL 1000 CASEMENT + FIXED PANEL', desc: 'Features a large fixed picture pane coupled with operable side casement sashes, maximizing light and airflow.', svgPath: SVG_COMBINATION_CS_FX },
+      { name: 'vario-slide + FIXED TOP LIGHT', desc: 'Couples a 2-track sliding window on the bottom with a fixed double-glazed transom window on top.', svgPath: SVG_COMBINATION_CS_FX },
+      { name: '90/45 DEGREE COZY BAY WINDOW', desc: 'A 3-sided coupled window unit projecting outward from the building envelope, enlarging the internal floor area.', svgPath: SVG_COMBINATION_CS_FX },
+      { name: 'CASEMENT + TOP HUNG AWNING UNIT', desc: 'A vertical combo with casement sashes below and top-hung ventilators on top to vent out hot indoor air.', svgPath: SVG_COMBINATION_CS_FX }
     ]
   },
   'Tilt and Turn Windows': {
@@ -317,18 +317,18 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
     title: 'uPVC Tilt & Turn Windows',
     desc: 'Representing the peak of European window engineering. A single handle controls two modes: tilt inward for secure draft-free air, or turn inward for full access.',
     img: '/images/tilt-turn-windows.jpg',
-    overview: 'uPVC Tilt and Turn Windows are high-end, premium European systems characterized by an advanced multi-action mechanism. A single modern handle regulates three positions: pointing down locks the window airtight; turning 90° sideways swings the sash fully inward (turn mode) like a door for easy glass cleaning; turning 180° upwards tilts the sash inward from the top (tilt mode) by 10-15 degrees for secure, rain-proof ventilation.',
+    overview: 'Our Tilt and Turn system represents aluplast\'s peak European technology utilizing the IDEAL 4000® 70 mm heavy core. A single heavy-duty handle controls three distinct configurations: pointing down locks the window completely airtight; turning 90° sideways swings the sash fully inward (turn mode) for safe, easy cleaning of external glass; and turning 180° upward tilts the sash inward from the top by 10-15° (tilt mode) for continuous, secure, rain-proof ventilation.',
     features: [
-      { icon: Move, title: 'Dual-Action Mechanical Valve', desc: 'A single heavy handle activates double operations: tilt for draft-free airflow, turn for full access.' },
-      { icon: Shield, title: 'Perimeter Compressive Locks', desc: 'Locking pins around the entire sash circumference are compressed securely into the frame, preventing forced entry.' },
-      { icon: Thermometer, title: 'Ultra Heat Insulation', desc: 'Premium tight compression gaskets deliver Srikala Projects\' highest air-tight energy efficiency and acoustic rating.' },
-      { icon: Eye, title: 'High-Rise Safe Maintenance', desc: 'Window swings fully inward, eliminating the high risk of cleaning external glass panes from the outside.' }
+      { icon: Move, title: 'Dual-Action Mechanical Core', desc: 'A single high-grade hardware handle regulates lock, 90° inward turn opening, and 18° inward tilt ventilation.' },
+      { icon: Shield, title: 'Perimeter Compressive Locking', desc: 'Locking pins compress the sash airtight into the frame along the entire circumference, preventing forced entry.' },
+      { icon: Thermometer, title: 'Maximum Thermal Efficiency', desc: 'Heavy 5-chamber 70 mm profile combined with triple compression gaskets delivers outstanding energy and acoustic ratings.' },
+      { icon: Eye, title: 'Safe High-Rise Glass Maintenance', desc: 'Sash turns fully inward like a door, allowing homeowners to clean external window panes easily and safely from inside.' }
     ],
     options: [
-      { name: 'STANDARD SINGLE TILT & TURN', desc: 'A single, high-performance sash window that tilts or turns inward. The modern standard for luxury apartments.', svgPath: SVG_TILT_TURN_TILT },
-      { name: 'DOUBLE SASH FRENCH TILT & TURN', desc: 'Two sashes opening inward. The primary master sash tilts and turns, while the secondary slave sash turns fully.', svgPath: SVG_TILT_TURN_TILT },
-      { name: 'TILT & TURN WITH FIXED BOTTOM', desc: 'Features a fixed glass sheet on the bottom for safety, and an operable tilt-and-turn pane on top.', svgPath: SVG_TILT_TURN_TILT },
-      { name: 'TILT & TURN WITH SIDE LIGHT', desc: 'A wide system coupling a high-performance tilt-turn sash on one side with a fixed panoramic panel on the other.', svgPath: SVG_TILT_TURN_TILT }
+      { name: 'IDEAL 4000® SINGLE TILT & TURN', desc: 'Premium single-sash system, offering ultimate European comfort and 45 dB noise damping for bedrooms.', svgPath: SVG_TILT_TURN_TILT },
+      { name: 'FRENCH DOUBLE TILT & TURN DOOR', desc: 'Two sashes opening fully inward. The active master sash tilts and turns, while the secondary slave sash turns.', svgPath: SVG_TILT_TURN_TILT },
+      { name: 'TILT & TURN WITH FIXED BOTTOM SILL', desc: 'Features a fixed laminated double glass safety panel below, and an operable tilt-and-turn window on top.', svgPath: SVG_TILT_TURN_TILT },
+      { name: 'TILT & TURN WITH FIXED PICTURE LIGHT', desc: 'Couples a premium operable tilt-and-turn sash with a wide fixed panoramic picture glass on the side.', svgPath: SVG_TILT_TURN_TILT }
     ]
   },
   'Villa Windows': {
@@ -336,29 +336,38 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
     title: 'uPVC Villa Windows',
     desc: 'The ultimate luxury window designed for Indian homes, integrating double sashes, a built-in heavy-duty steel safety grill, and bug screening into a single system.',
     img: '/images/villa-windows.jpg',
-    overview: 'uPVC Villa Windows are luxury window systems specifically engineered to address the unique requirements of premium villas and Indian homes. They are the only systems that seamlessly integrate three critical elements within a single high-strength frame: an outward-opening glass casement sash, an inward-opening high-tensile mesh sash, and a built-in heavy-duty metal safety grill. This delivers complete protection against thieves, mosquitoes, heat, and heavy rain simultaneously.',
+    overview: 'Our uPVC Villa Windows are luxury systems custom-engineered by Srikala Projects for Indian climates and residential needs. We combine three essential systems into one high-strength aluplast profile frame: an outward-opening double-glazed glass casement sash for thermal and sound insulation; a built-in heavy-duty metal safety grill anchored inside the steel reinforcement; and an independent inward-opening high-tensile insect mesh screen.',
     features: [
-      { icon: Shield, title: 'Integrated Security Grill', desc: 'Heavy-gauge steel security bars are anchored directly inside the profile\'s internal steel core.' },
-      { icon: Layers, title: 'Dual Operable Sashes', desc: 'Combines an outward opening weather-sealed glass sash with an independent inward swinging bug screen.' },
-      { icon: Droplets, title: 'Insect & Mosquito Block', desc: 'Keeps out bugs, dust, and debris while allowing a continuous, comfortable breeze inside.' },
-      { icon: Hammer, title: 'Luxurious Timber Lamination', desc: 'Features advanced polymer laminate coatings that perfectly emulate rich teak, golden oak, or mahogany wood grains.' }
+      { icon: Shield, title: 'Built-in Internal Safety Grill', desc: 'Heavy-gauge steel security bars are anchored directly inside the uPVC profile\'s internal galvanized steel core.' },
+      { icon: Layers, title: 'Dual Operable Sashes', desc: 'Features an outward-swinging insulated glass sash coupled with an independent inward-swinging bug screen sash.' },
+      { icon: Droplets, title: 'Continuous EPDM Sealing', desc: 'Fitted with dual-compression EPDM gaskets to prevent water leakage during monsoons while filtering out bugs and dust.' },
+      { icon: Hammer, title: 'Premium woodec Lamination', desc: 'Perfectly emulates golden oak, sheffield oak or turner oak grains, giving a luxurious, natural wood look.' }
     ],
     options: [
-      { name: 'SINGLE SASH VILLA WINDOW SYSTEM', desc: 'Features a single outward glass sash, built-in security grill, and an inward high-tensile bug screen.', svgPath: SVG_VILLA_SYSTEM },
-      { name: 'DOUBLE SASH FRENCH VILLA WINDOW', desc: 'Designed for double-door openings. Sashes open fully, backed by a beautiful integrated security grill.', svgPath: SVG_VILLA_SYSTEM },
-      { name: 'VILLA WINDOW WITH ARCH TOP', desc: 'A stunning custom luxury configuration combining a classical arched fixed top panel with a villa sash below.', svgPath: SVG_VILLA_SYSTEM },
-      { name: 'HIGH-DRAINAGE VILLA WINDOW UNIT', desc: 'Equipped with an advanced water drainage track system to handle extreme, tropical, coastal rainfall storms.', svgPath: SVG_VILLA_SYSTEM }
+      { name: 'SINGLE SASH VILLA WINDOW SYSTEM', desc: 'Features an outward glass sash, built-in security grill, and an inward high-tensile bug screen.', svgPath: SVG_VILLA_SYSTEM },
+      { name: 'DOUBLE SASH FRENCH VILLA DOOR', desc: 'Wide double door opening with inward bug mesh doors and built-in security grill, perfect for veranda openings.', svgPath: SVG_VILLA_SYSTEM },
+      { name: 'VILLA WINDOW WITH CURVED ARCH TOP', desc: 'A highly luxurious curved arch fixed light coupled with an operable villa window below.', svgPath: SVG_VILLA_SYSTEM },
+      { name: 'HIGH-DRAINAGE MONSOON VILLA UNIT', desc: 'Equipped with a specialized stepped threshold and drainage vents to handle severe tropical coastal wind-driven rain.', svgPath: SVG_VILLA_SYSTEM }
     ]
   }
 };
 
 // ─── Customization details ────────────────────────────────────────────────────────
-const COLOR_SWATCHES = [
-  { name: 'Ivory White', hex: '#FAF9F6', desc: 'UV-stabilized pristine modern white' },
-  { name: 'Walnut Finish', hex: '#3d2314', desc: 'Rich, deep brown structural timber' },
-  { name: 'Golden Oak', hex: '#b37d32', desc: 'Warm, honey-golden classic wood' },
-  { name: 'Charcoal Oak', hex: '#262626', desc: 'Contemporary minimalist charcoal' },
-  { name: 'Dark Mahogany', hex: '#521f18', desc: 'Luxurious deep reddish woodgrain' }
+const ALUDEC_SWATCHES = [
+  { name: 'aludec DB703', hex: '#4f5255', desc: 'Metallic textured iron mica grey with micro-sparkles' },
+  { name: 'aludec jet black', hex: '#111215', desc: 'Ultra-matt deep architectural black' },
+  { name: 'aludec window grey', hex: '#8d9296', desc: 'Sleek, medium-light industrial grey' },
+  { name: 'aludec basalt grey', hex: '#4b4d50', desc: 'Elegant dark volcanic basalt tone' },
+  { name: 'aludec anthracite grey', hex: '#2f3133', desc: 'Prestige deep anthracite, matching modern elevations' },
+  { name: 'aludec traffic white', hex: '#f0f2f2', desc: 'Clean, powder-coated satin traffic white' },
+  { name: 'aludec umbra grey', hex: '#4b4a45', desc: 'Earthy, warm mineral grey with organic depth' },
+];
+
+const WOODEC_SWATCHES = [
+  { name: 'sheffield oak alpine', hex: '#cdbeab', desc: 'Pale Scandinavian white-washed oak woodgrain texture' },
+  { name: 'sheffield oak concrete', hex: '#9f9284', desc: 'Modern concrete-infused cool grey woodgrain' },
+  { name: 'turner oak toffee', hex: '#b08754', desc: 'Rich, warm honey-toffee authentic oak grain' },
+  { name: 'turner oak malt', hex: '#c5b095', desc: 'Soft sandy-malt natural timber touch' },
 ];
 
 interface UPVCProductDetailProps {
@@ -370,7 +379,8 @@ interface UPVCProductDetailProps {
 export default function UPVCProductDetail({ productName, onBack, onSelectProduct }: UPVCProductDetailProps) {
   const detail = DETAILED_PRODUCTS[productName] || DETAILED_PRODUCTS['Sliding Windows'];
   const [selectedCustomTab, setSelectedCustomTab] = useState<'lamination' | 'glass' | 'hardware' | 'mesh'>('lamination');
-  const [activeColor, setActiveColor] = useState(COLOR_SWATCHES[0]);
+  const [laminationCategory, setLaminationCategory] = useState<'aludec' | 'woodec'>('aludec');
+  const [activeColor, setActiveColor] = useState(ALUDEC_SWATCHES[0]);
   const [activeGlassLevel, setActiveGlassLevel] = useState<1 | 2 | 3>(2); // 1=Single, 2=DGU, 3=Triple
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -694,31 +704,67 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
             {selectedCustomTab === 'lamination' && (
               <div className="flex flex-col gap-6 h-full justify-between">
                 <div>
-                  <span className="text-[9px] uppercase tracking-widest text-[#005fb8] font-extrabold block mb-2">Category: Lamination finishes</span>
-                  <h4 className="text-xl font-bold uppercase text-slate-900 mb-4">Choose Woodgrain Textures & Coatings</h4>
+                  <div className="flex items-center justify-between gap-4 mb-4 flex-wrap">
+                    <div>
+                      <span className="text-[9px] uppercase tracking-widest text-[#005fb8] font-extrabold block mb-1">Category: aluplast Lamination finishes</span>
+                      <h4 className="text-xl font-bold uppercase text-slate-900">Choose Swatches & Finishes</h4>
+                    </div>
+                    {/* Sub-tabs switcher */}
+                    <div className="flex bg-slate-200/80 p-0.5 rounded-lg border border-slate-300/40 gap-1 text-[10px] uppercase font-bold tracking-wider">
+                      <button 
+                        onClick={() => {
+                          setLaminationCategory('aludec');
+                          setActiveColor(ALUDEC_SWATCHES[0]);
+                        }}
+                        className={`px-3 py-1.5 rounded-md transition-all duration-300 ${
+                          laminationCategory === 'aludec' 
+                            ? 'bg-white text-slate-900 shadow-sm font-black' 
+                            : 'text-slate-500 hover:text-slate-800'
+                        }`}
+                      >
+                        aludec® Style
+                      </button>
+                      <button 
+                        onClick={() => {
+                          setLaminationCategory('woodec');
+                          setActiveColor(WOODEC_SWATCHES[0]);
+                        }}
+                        className={`px-3 py-1.5 rounded-md transition-all duration-300 ${
+                          laminationCategory === 'woodec' 
+                            ? 'bg-white text-slate-900 shadow-sm font-black' 
+                            : 'text-slate-500 hover:text-slate-800'
+                        }`}
+                      >
+                        woodec® Nature
+                      </button>
+                    </div>
+                  </div>
                   <p className="text-slate-500 text-xs leading-relaxed mb-6">
-                    Srikala Projects applies UV-stabilized architectural polymers to achieve natural wood textures. Select a swatch below to preview:
+                    {laminationCategory === 'aludec' 
+                      ? 'Replicates premium, matte powder-coated aluminum shells on uPVC with absolute weather-resistance.' 
+                      : 'Emulates natural wood grain patterns and visual depth with a unique, textured wood feel.'
+                    } Select a swatch below to preview:
                   </p>
 
                   {/* Swatches selector */}
-                  <div className="flex flex-wrap gap-4 mb-8">
-                    {COLOR_SWATCHES.map((swatch, idx) => {
+                  <div className="flex flex-wrap gap-3 mb-6 max-h-[140px] overflow-y-auto pr-2 custom-scrollbar">
+                    {(laminationCategory === 'aludec' ? ALUDEC_SWATCHES : WOODEC_SWATCHES).map((swatch, idx) => {
                       const isSelected = activeColor.name === swatch.name;
                       return (
                         <button
                           key={idx}
                           onClick={() => setActiveColor(swatch)}
-                          className={`flex items-center gap-3 px-4 py-2 border rounded-full text-xs font-bold transition-all duration-300 ${
+                          className={`flex items-center gap-2.5 px-3 py-1.5 border rounded-full text-xs font-bold transition-all duration-300 ${
                             isSelected 
                               ? 'bg-blue-50 border-[#005fb8] text-slate-900 shadow-sm' 
                               : 'bg-white border-slate-200 text-slate-500 hover:text-slate-900 hover:border-slate-350'
                           }`}
                         >
                           <span 
-                            className="w-3.5 h-3.5 rounded-full border border-slate-200 shrink-0" 
+                            className="w-3 h-3 rounded-full border border-slate-200 shrink-0" 
                             style={{ backgroundColor: swatch.hex }}
                           />
-                          {swatch.name}
+                          {swatch.name.replace('aludec ', '').replace('sheffield ', '').replace('turner ', '')}
                         </button>
                       );
                     })}
@@ -728,14 +774,12 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
                 {/* Swatch preview card */}
                 <div className="bg-white border border-slate-200/80 p-5 rounded-lg flex items-center gap-5 shadow-sm">
                   <div 
-                    className="w-16 h-16 rounded-md border border-slate-200/80 shrink-0 shadow-inner flex items-center justify-center"
+                    className="w-16 h-16 rounded-md border border-slate-200/80 shrink-0 shadow-inner flex items-center justify-center relative overflow-hidden"
                     style={{ backgroundColor: activeColor.hex }}
-                  >
-                    {activeColor.hex === '#FAF9F6' && <Sparkles className="w-5 h-5 text-slate-350 animate-spin" />}
-                  </div>
+                  />
                   <div>
                     <h5 className="font-extrabold text-sm text-[#005fb8] uppercase tracking-tight">{activeColor.name} Swatch</h5>
-                    <p className="text-slate-500 text-xs mt-1">{activeColor.desc}</p>
+                    <p className="text-slate-500 text-xs mt-1 leading-relaxed">{activeColor.desc}</p>
                     <p className="text-slate-400 text-[10px] font-mono mt-1">Status: Active Selection · Samples Available</p>
                   </div>
                 </div>
