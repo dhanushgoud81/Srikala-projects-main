@@ -640,64 +640,126 @@ export default function UPVC() {
             </p>
           </div>
 
-          <div className="space-y-16 max-w-6xl mx-auto">
-            {/* aludec - aluminium look */}
-            <div>
-              <div className="flex items-center gap-3 mb-6 pb-2 border-b border-slate-200">
-                <span className="px-3 py-1 bg-blue-50 text-electric-blue text-[9px] font-black uppercase tracking-widest rounded-sm">Inspired by Style</span>
-                <h3 className="text-lg font-black text-slate-900 uppercase tracking-wide">aludec® Surface Finishes</h3>
+          <div className="space-y-20 max-w-6xl mx-auto">
+            
+            {/* aludec - inspired by style */}
+            <div className="flex flex-col gap-6">
+              <div className="border-l-4 border-[#e30613] pl-4">
+                <h3 className="text-2xl font-black uppercase tracking-tight text-slate-800">
+                  <span className="text-[#e30613]">aludec</span> <span className="font-light text-slate-500">inspired by style</span>
+                </h3>
+                <p className="text-slate-500 text-xs md:text-sm mt-2 max-w-4xl leading-relaxed">
+                  Perfect aluminium look and a pleasant feel: aludec offers the high-quality look of an aluminium shell combined with easy processing and a pleasant feel. It has never been easier and more resource-saving to produce a uPVC window in aluminium look!
+                </p>
               </div>
-              <p className="text-slate-400 text-xs leading-relaxed mb-8 max-w-2xl">
-                Replicates the exact matte powder-coated texture of premium aluminum shells, combining resource-saving uPVC thermal performance with highly premium aesthetics.
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
-                {ALUDEC_LAMINATIONS.map((lam, i) => (
-                  <div key={i} className="flex flex-col items-center gap-3 group">
+
+              {/* Seamless vertical swatches board */}
+              <div className="flex w-full h-[320px] md:h-[380px] rounded-2xl overflow-hidden shadow-xl border border-slate-200/60 bg-white">
+                {[
+                  { name: 'aludec traffic white', bg: '#f0f2f2', desc: 'Satin traffic white' },
+                  { name: 'aludec window grey', bg: '#8d9296', desc: 'Sleek industrial grey' },
+                  { name: 'aludec umbra grey', bg: '#4b4a45', desc: 'Warm organic grey' },
+                  { name: 'aludec basalt grey', bg: '#4b4d50', desc: 'Elegant basalt tone' },
+                  { name: 'aludec jet black', bg: '#111215', desc: 'Ultra-matt deep black' },
+                  { name: 'aludec DB703', bg: '#4f5255', desc: 'Metallic iron mica' },
+                  { name: 'aludec anthracite grey', bg: '#2f3133', desc: 'Prestige dark charcoal' }
+                ].map((lam, i) => {
+                  const isLight = lam.name === 'aludec traffic white';
+                  return (
                     <div 
-                      className={`w-full aspect-square rounded-xl shadow-sm border border-slate-200 group-hover:shadow-md group-hover:scale-[1.04] transition-all duration-300 relative`}
-                      style={{ backgroundColor: lam.bg }} 
-                    />
-                    <div className="text-center">
-                      <span className="text-[10px] font-black text-slate-800 uppercase tracking-wider block">
-                        {lam.name.replace('aludec ', '')}
-                      </span>
-                      <span className="text-[8px] text-slate-400 font-medium block mt-0.5 leading-tight">
-                        {lam.desc}
-                      </span>
+                      key={i} 
+                      className="group flex-1 hover:flex-[2.5] relative transition-all duration-500 ease-out cursor-pointer overflow-hidden border-r border-black/5 last:border-r-0 select-none"
+                      style={{ backgroundColor: lam.bg }}
+                    >
+                      {/* Technical metallic micro-texture overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
+                      
+                      {/* Vertical color label */}
+                      <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-12 pointer-events-none z-10">
+                        <span 
+                          className={`text-[9px] md:text-[10px] font-black uppercase tracking-[0.25em] whitespace-nowrap transition-transform duration-500 group-hover:scale-105 ${
+                            isLight ? 'text-slate-800/80 group-hover:text-slate-900' : 'text-white/80 group-hover:text-white'
+                          }`}
+                          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                        >
+                          {lam.name}
+                        </span>
+                      </div>
+
+                      {/* Hover Info cockpit overlay */}
+                      <div className="absolute inset-x-0 bottom-0 p-5 bg-slate-950/80 backdrop-blur-md border-t border-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end z-20">
+                        <span className="text-[7px] font-bold text-electric-blue uppercase tracking-widest block mb-0.5">Surface Coating</span>
+                        <p className="text-white font-extrabold text-xs uppercase tracking-tight truncate">{lam.name.replace('aludec ', '')}</p>
+                        <p className="text-slate-400 text-[8px] mt-0.5 leading-tight">{lam.desc}</p>
+                        <span className="text-white/40 text-[7px] font-mono mt-1.5 block">{lam.bg.toUpperCase()}</span>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
-            {/* woodec - wood look */}
-            <div>
-              <div className="flex items-center gap-3 mb-6 pb-2 border-b border-slate-200">
-                <span className="px-3 py-1 bg-amber-50 text-amber-700 text-[9px] font-black uppercase tracking-widest rounded-sm">Inspired by Nature</span>
-                <h3 className="text-lg font-black text-slate-900 uppercase tracking-wide">woodec® Woodgrain Finishes</h3>
+            {/* woodec - inspired by nature */}
+            <div className="flex flex-col gap-6">
+              <div className="border-l-4 border-[#8a4f30] pl-4">
+                <h3 className="text-2xl font-black uppercase tracking-tight text-slate-800">
+                  <span className="text-[#8a4f30]">woodec</span> <span className="font-light text-slate-500">inspired by nature</span>
+                </h3>
+                <p className="text-slate-500 text-xs md:text-sm mt-2 max-w-4xl leading-relaxed">
+                  An astonishing wood look and a unique feel, combined with all the advantages of a uPVC window: this is what the new, impressive woodec surface for aluplast window and door systems offers. Use this advantage for yourself and your customers!
+                </p>
               </div>
-              <p className="text-slate-400 text-xs leading-relaxed mb-8 max-w-2xl">
-                Provides an astonishing woodgrain touch, realistic visual depth, and natural grain pattern that is virtually indistinguishable from real timber.
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl">
-                {WOODEC_LAMINATIONS.map((lam, i) => (
-                  <div key={i} className="flex flex-col items-center gap-3 group">
+
+              {/* Seamless vertical swatches board */}
+              <div className="flex w-full h-[320px] md:h-[380px] rounded-2xl overflow-hidden shadow-xl border border-slate-200/60 bg-white">
+                {[
+                  { name: 'sheffield oak alpine', bg: '#cdbeab', desc: 'Pale Scandinavian timber grain' },
+                  { name: 'sheffield oak concrete', bg: '#9f9284', desc: 'Cool concrete grey oak touch' },
+                  { name: 'turner oak toffee', bg: '#b08754', desc: 'Rich honey oak woodgrain' },
+                  { name: 'turner oak malt', bg: '#c5b095', desc: 'Sandy-malt natural wood' }
+                ].map((lam, i) => {
+                  const isLight = lam.name === 'sheffield oak alpine';
+                  return (
                     <div 
-                      className={`w-full aspect-[4/3] rounded-xl shadow-sm border border-slate-200 group-hover:shadow-md group-hover:scale-[1.04] transition-all duration-300 relative`}
-                      style={{ backgroundColor: lam.bg }} 
-                    />
-                    <div className="text-center">
-                      <span className="text-[10px] font-black text-slate-800 uppercase tracking-wider block">
-                        {lam.name.replace('sheffield ', '').replace('turner ', '')}
-                      </span>
-                      <span className="text-[8px] text-slate-400 font-medium block mt-0.5 leading-tight">
-                        {lam.desc}
-                      </span>
+                      key={i} 
+                      className="group flex-1 hover:flex-[2.5] relative transition-all duration-500 ease-out cursor-pointer overflow-hidden border-r border-black/5 last:border-r-0 select-none"
+                      style={{ backgroundColor: lam.bg }}
+                    >
+                      {/* Woodgrain visual lining overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-black/5 via-transparent to-white/5 opacity-40 pointer-events-none" />
+                      <div 
+                        className="absolute inset-0 opacity-15 pointer-events-none"
+                        style={{
+                          backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px)',
+                          backgroundSize: '4px 100%'
+                        }}
+                      />
+                      
+                      {/* Vertical color label */}
+                      <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-12 pointer-events-none z-10">
+                        <span 
+                          className={`text-[9px] md:text-[10px] font-black uppercase tracking-[0.25em] whitespace-nowrap transition-transform duration-500 group-hover:scale-105 ${
+                            isLight ? 'text-slate-800/80 group-hover:text-slate-900' : 'text-white/80 group-hover:text-white'
+                          }`}
+                          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                        >
+                          {lam.name}
+                        </span>
+                      </div>
+
+                      {/* Hover Info cockpit overlay */}
+                      <div className="absolute inset-x-0 bottom-0 p-5 bg-slate-950/80 backdrop-blur-md border-t border-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end z-20">
+                        <span className="text-[7px] font-bold text-[#b08754] uppercase tracking-widest block mb-0.5">Woodgrain Surface</span>
+                        <p className="text-white font-extrabold text-xs uppercase tracking-tight truncate">{lam.name.replace('sheffield ', '').replace('turner ', '')}</p>
+                        <p className="text-slate-400 text-[8px] mt-0.5 leading-tight">{lam.desc}</p>
+                        <span className="text-white/40 text-[7px] font-mono mt-1.5 block">{lam.bg.toUpperCase()}</span>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
+
           </div>
 
           <p className="text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.15em] mt-16">
