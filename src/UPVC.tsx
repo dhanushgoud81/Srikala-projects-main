@@ -359,7 +359,7 @@ export default function UPVC() {
             <p className="hero-animate text-base md:text-lg text-slate-300 mb-10 max-w-lg">Srikala Projects designs, fabricates and installs premium uPVC windows and doors — built for India's climate, engineered for lasting performance.</p>
             <div className="hero-animate flex flex-wrap gap-3 md:gap-4">
               <button ref={heroCTARef} onClick={() => navigate('/contact')} className="bg-electric-blue text-white px-8 md:px-10 py-3 md:py-4 text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-200">GET QUOTE</button>
-              <button onClick={() => document.getElementById('upvc-what')?.scrollIntoView({ behavior: 'smooth' })} className="border-2 border-white/50 text-white px-8 md:px-10 py-3 md:py-4 text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-200">LEARN MORE</button>
+              <button onClick={() => document.getElementById('upvc-types')?.scrollIntoView({ behavior: 'smooth' })} className="border-2 border-white/50 text-white px-8 md:px-10 py-3 md:py-4 text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-200">VIEW PRODUCTS</button>
             </div>
           </div>
         </div>
@@ -709,62 +709,7 @@ export default function UPVC() {
         </div>
       </section>
 
-      {/* ── What is uPVC ──────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-24 bg-white" id="upvc-what">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-12 md:gap-16 items-center">
-          <div className="flex-1">
-            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">About the Material</span>
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tighter mb-6 leading-none">What is uPVC?</h2>
-            <p className="text-slate-500 text-base md:text-lg mb-5 border-l-2 border-electric-blue pl-5 leading-relaxed">
-              uPVC stands for <strong>Unplasticised Polyvinyl Chloride</strong> — a rigid, high-performance plastic material used to manufacture windows, doors, and frames. Unlike regular PVC, uPVC contains no plasticisers, making it harder, stronger, and more durable.
-            </p>
-            <p className="text-slate-500 text-base leading-relaxed mb-5">
-              uPVC profiles are engineered with multiple internal chambers that trap air, creating a natural thermal barrier. Steel reinforcement is inserted inside the profiles for structural strength, while the outer surface is UV-stabilised to resist discolouration and degradation.
-            </p>
-            <p className="text-slate-500 text-base leading-relaxed">
-              The result is a window system that outperforms wood and aluminium in thermal efficiency, sound insulation, security, and longevity — with virtually zero maintenance required.
-            </p>
-          </div>
-          <div className="flex-1 w-full grid grid-cols-2 gap-4">
-            {[
-              { label: 'Material', value: 'Unplasticised PVC' },
-              { label: 'Chambers', value: '3 to 6 chambers' },
-              { label: 'Reinforcement', value: 'Galvanised steel' },
-              { label: 'Thermal Value', value: 'Uf ≤ 1.6 W/m²K' },
-              { label: 'Sound Reduction', value: 'Up to 45 dB' },
-              { label: 'Lifespan', value: '30–50 years' },
-            ].map((s, i) => (
-              <div key={i} className="bg-slate-50 border border-slate-100 px-5 py-4">
-                <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-1">{s.label}</p>
-                <p className="font-black text-slate-900 text-sm">{s.value}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── Why uPVC ──────────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-24 bg-slate-950 text-white" id="upvc-why">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-14">
-            <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Benefits</span>
-            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-widest mb-4">Why Choose uPVC?</h2>
-            <div className="w-16 h-1 bg-electric-blue mx-auto mb-6" />
-            <p className="text-slate-400 max-w-2xl mx-auto text-base leading-relaxed">
-              uPVC windows and doors outperform wood and aluminium across every metric — thermal efficiency, security, durability, and cost of ownership.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {WHY_UPVC.map((w, i) => (
-              <div key={i} className="p-6 border border-white/10 hover:border-electric-blue transition-all duration-300 group">
-                <w.icon className="w-7 h-7 text-electric-blue mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h4 className="text-sm font-bold uppercase tracking-tight mb-2">{w.title}</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">{w.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </PageWrapper>
   );
 }
