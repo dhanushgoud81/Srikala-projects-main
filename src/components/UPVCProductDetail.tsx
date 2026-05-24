@@ -434,8 +434,8 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
   return (
     <div ref={containerRef} className="bg-slate-50 min-h-screen pb-24 text-slate-800 select-none overflow-hidden font-sans">
       
-      {/* ─── Product Selection Sticky Header (Light Theme Translucent Glass) ───────── */}
-      <div className="sticky top-16 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200/60 py-4 shadow-[0_4px_25px_rgba(0,0,0,0.04)] transition-all duration-300">
+      {/* ─── Product Selection Sticky Header (Solid White on Mobile, Translucent Glass on Desktop) ─── */}
+      <div className="sticky top-16 z-30 bg-white md:bg-white/90 md:backdrop-blur-md border-b border-slate-200/60 py-4 shadow-[0_4px_25px_rgba(0,0,0,0.04)] transition-all duration-300">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-wrap items-center justify-between gap-6">
           <button 
             onClick={onBack}

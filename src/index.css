@@ -128,3 +128,15 @@ button, a {
   from { transform: translateY(0); }
   to { transform: translateY(calc(-100% - var(--gap))); }
 }
+
+/* Hide scrollbar for Chrome, Safari, Opera and all WebKit browsers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
