@@ -4,19 +4,15 @@ import { Navbar, Footer } from './components/Shared';
 import { ScrollToTop } from './components/ScrollToTop';
 import { AccessibilityWidget } from './components/AccessibilityWidget';
 import Home from './Home';
-import About from './About';
 import Solutions from './Solutions';
-import Clients from './Clients';
 import Contact from './Contact';
 import UPVC from './UPVC';
 import NotFound from './NotFound';
 
 const pageTitles: Record<string, string> = {
   '/':          'Home | Srikala Projects',
-  '/about':     'About Us | Srikala Projects',
   '/solutions': 'Solutions | Srikala Projects',
   '/upvc':      'uPVC Windows & Doors Systems | Srikala Projects',
-  '/clients':   'Clients | Srikala Projects',
   '/contact':   'Contact | Srikala Projects',
 };
 
@@ -36,10 +32,8 @@ export default function App() {
       <main className="flex-grow">
         <Routes>
           <Route path="/"          element={<Home />} />
-          <Route path="/about"     element={<About />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/upvc"      element={<UPVC />} />
-          <Route path="/clients"   element={<Clients />} />
           <Route path="/contact"   element={<Contact />} />
           <Route path="*"          element={<NotFound />} />
         </Routes>

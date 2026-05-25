@@ -7,10 +7,8 @@ import { ReactLenis } from 'lenis/react';
 
 const navItems = [
   { label: 'Home',      path: '/'          },
-  { label: 'About',     path: '/about'     },
   { label: 'Solutions', path: '/solutions' },
   { label: 'uPVC Windows & Doors', path: '/upvc' },
-  { label: 'Clients',   path: '/clients'   },
   { label: 'Contact',   path: '/contact'   },
 ];
 
