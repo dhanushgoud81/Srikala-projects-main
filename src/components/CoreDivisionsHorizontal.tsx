@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 const SERVICES = [
   {
     icon: Square,
-    title: 'UPVC Solutions',
-    desc: 'Energy-efficient window systems for modern architectural aesthetics.',
+    title: 'uPVC Windows & Doors',
+    desc: 'Energy-efficient window and door systems for modern architectural aesthetics.',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
     color: 'bg-slate-900'
   },
@@ -114,7 +114,7 @@ export const CoreDivisionsHorizontal = () => {
               </div>
               <p className="text-slate-300 text-sm leading-relaxed">{service.desc}</p>
               <button
-                onClick={() => navigate(service.title === 'UPVC Solutions' ? '/upvc' : '/solutions')}
+                onClick={() => navigate(service.title === 'uPVC Windows & Doors' ? '/upvc' : '/solutions')}
                 className="w-fit bg-electric-blue text-white px-6 py-3 text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform"
               >
                 Learn More
@@ -142,7 +142,7 @@ export const CoreDivisionsHorizontal = () => {
                     <h3 className="text-5xl font-bold uppercase mb-6 tracking-tighter">{service.title}</h3>
                     <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-lg">{service.desc}</p>
                     <button
-                      onClick={() => navigate(service.title === 'UPVC Solutions' ? '/upvc' : '/solutions')}
+                      onClick={() => navigate(service.title === 'uPVC Windows & Doors' ? '/upvc' : '/solutions')}
                       className="bg-electric-blue text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:scale-105 transition-transform"
                     >
                       Learn More

@@ -15,7 +15,7 @@ const pageTitles: Record<string, string> = {
   '/':          'Home | Srikala Projects',
   '/about':     'About Us | Srikala Projects',
   '/solutions': 'Solutions | Srikala Projects',
-  '/upvc':      'UPVC Solutions | Srikala Projects',
+  '/upvc':      'uPVC Windows & Doors Systems | Srikala Projects',
   '/clients':   'Clients | Srikala Projects',
   '/contact':   'Contact | Srikala Projects',
 };

@@ -9,7 +9,7 @@ const navItems = [
   { label: 'Home',      path: '/'          },
   { label: 'About',     path: '/about'     },
   { label: 'Solutions', path: '/solutions' },
-  { label: 'UPVC',      path: '/upvc'      },
+  { label: 'uPVC Windows & Doors', path: '/upvc' },
   { label: 'Clients',   path: '/clients'   },
   { label: 'Contact',   path: '/contact'   },
 ];
@@ -186,7 +186,7 @@ export const Footer = () => {
           <div>
             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-6">Services</h4>
             <ul className="space-y-3">
-              {['UPVC Solutions', 'Pre-Engineered Buildings', 'Roofing Systems', 'Heavy Fabrication', 'ACP Cladding', 'Structural Glazing'].map((s) => (
+              {['uPVC Windows & Doors', 'Pre-Engineered Buildings', 'Roofing Systems', 'Heavy Fabrication', 'ACP Cladding', 'Structural Glazing'].map((s) => (
                 <li key={s}>
                   <button
                     onClick={() => go('/solutions')}

@@ -14,8 +14,8 @@ import { magnetic, textReveal, scrollEffects } from './lib/stunningAnimations';
 const SERVICES = [
   {
     icon: Square,
-    title: 'UPVC Solutions',
-    desc: 'Energy-efficient window systems for modern architectural aesthetics.',
+    title: 'uPVC Windows & Doors',
+    desc: 'Energy-efficient window and door systems for modern architectural aesthetics.',
     image: '/images/structural-glazing.png', // closest match available
   },
   {
