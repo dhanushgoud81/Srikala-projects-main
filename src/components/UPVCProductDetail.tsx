@@ -12,6 +12,7 @@ export interface WindowDetail {
   title: string;
   desc: string;
   img: string;
+  angles: string[];
   overview: string;
   features: {
     icon: React.ComponentType<any>;
@@ -240,7 +241,8 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
     id: 'sliding',
     title: 'uPVC Sliding Windows',
     desc: 'Glide horizontally on heavy-duty tracks requiring absolutely no swing space. Srikala Projects fabricates four high-performance aluplast sliding variants optimized for Indian architectural elevations.',
-    img: '/images/sliding-window-render.png',
+    img: '/images/product-sliding-windows.png',
+    angles: ['/images/product-sliding-windows.png', '/images/profile-sliding.png', '/images/installed-sliding-windows.png'],
     overview: 'We offer aluplast\'s complete range of four custom sliding window and door systems: the ultra-premium "smart-slide" villa patio doors featuring continuous EPDM weather-stripping and optional indoor glass bonding; the highly versatile "vario-slide" with stable aluminum interlocks and multi-track layouts; the elegant "easy-slide" equipped with exchangeable gaskets; and the modern "mono-slide" hybrid integrating fixed and sliding sashes on a 60 mm frame. All systems feature synthetic rollers for silent, smooth gliding and robust steel reinforcements.',
     features: [
       { icon: Move, title: 'smart-slide (Villa Patio Star)', desc: '70 mm construction depth, Uf = 1.4 W/m²K, concealed hardware, self-closing tracks, and optional indoor glass-bonding adhesive technology.' },
@@ -259,7 +261,8 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
     id: 'casement',
     title: 'uPVC Casement Windows',
     desc: 'Hinged at the side and opening outwards like a traditional door, casement windows deliver maximum ventilation, airtight compression seals, and unmatched thermal insulation.',
-    img: '/images/casement-windows.png',
+    img: '/images/product-casement-windows.png',
+    angles: ['/images/product-casement-windows.png', '/images/profile-casement.png', '/images/installed-casement-windows.png'],
     overview: 'Our premium casement range features aluplast\'s newly launched "IDEAL 1000" and flagship "IDEAL 4000®" multi-chamber systems. Constructed with deep profiles that flat-compress against continuous weather seals, they achieve Srikala Projects\' highest air-tightness and thermal efficiency. Suited for Mivan Construction with lower sill widths, these systems deliver exceptional structural wind load resistance and sound dampening class up to 45 dB.',
     features: [
       { icon: Compass, title: 'IDEAL 1000 (New Launch)', desc: '54 mm construction depth, 3-chamber tropicalized system designed for outward-open casements, compatible with Mivan and standard glazing beads.' },
@@ -278,7 +281,8 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
     id: 'arch',
     title: 'uPVC Arch Windows',
     desc: 'Add timeless architectural elegance and vintage styling to your facade using precision-curved modern profiles without compromising on high insulation.',
-    img: '/images/arch-windows.png',
+    img: '/images/product-arch-windows.png',
+    angles: ['/images/product-arch-windows.png', '/images/profile-ideal-2000.png', '/images/installed-arch-windows.png'],
     overview: 'Srikala Projects Curved Arch uPVC Windows are fabricated using specialized aluplast 60 mm (IDEAL 2000®) or 70 mm (IDEAL 4000®) profile structures. Utilizing state-of-the-art temperature-controlled profile bending machines, we achieve perfectly uniform, continuous curves. They support premium aludec and woodec laminations with welded, hermetic airtight joints that eliminate rainwater leakages.',
     features: [
       { icon: Sparkles, title: 'Bespoke Profile Curving', desc: 'Heated automated bending curves multi-chamber profiles to custom radii while fully preserving structural core integrity.' },
@@ -297,7 +301,8 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
     id: 'combination',
     title: 'uPVC Combination Windows',
     desc: 'Fuse fixed, sliding, and casement panels within a single integrated heavy-duty frame to maximize panoramic light and precise ventilation in wide living spaces.',
-    img: '/images/combination-windows.jpg',
+    img: '/images/product-combination-windows.png',
+    angles: ['/images/product-combination-windows.png', '/images/profile-vario-slide.png', '/images/installed-combination-windows.png'],
     overview: 'Our combination windows seamlessly couple different aluplast profile systems—such as coupling an IDEAL 1000 casement window with vario-slide sliding tracks or fixed picture panes. These systems are joined using heavy-duty structural coupling mullions reinforced internally with thick steel. Engineered to handle high-wind load pressures, they are ideal for double-height living rooms, bay windows, and large balcony partitions.',
     features: [
       { icon: Layers, title: 'Seamless Profile Coupling', desc: 'Blends different multi-chamber sash profiles (sliding, operable, or fixed) within a single robust framework unit.' },
@@ -309,14 +314,15 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
       { name: 'IDEAL 1000 CASEMENT + FIXED PANEL', desc: 'Features a large fixed picture pane coupled with operable side casement sashes, maximizing light and airflow.', svgPath: SVG_COMBINATION_CS_FX },
       { name: 'vario-slide + FIXED TOP LIGHT', desc: 'Couples a 2-track sliding window on the bottom with a fixed double-glazed transom window on top.', svgPath: SVG_COMBINATION_CS_FX },
       { name: '90/45 DEGREE COZY BAY WINDOW', desc: 'A 3-sided coupled window unit projecting outward from the building envelope, enlarging the internal floor area.', svgPath: SVG_COMBINATION_CS_FX },
-      { name: 'CASEMENT + TOP HUNG AWNING UNIT', desc: 'A vertical combo with casement sashes below and top-hung ventilators on top to vent out hot indoor air.', svgPath: SVG_COMBINATION_CS_FX }
+      { name: 'CASEMENT + TOP HUNG AWNING UNIT', desc: 'A vertical combo with sashes below and top-hung ventilators on top to vent out hot indoor air.', svgPath: SVG_COMBINATION_CS_FX }
     ]
   },
   'Tilt and Turn Windows': {
     id: 'tilt-turn',
     title: 'uPVC Tilt & Turn Windows',
     desc: 'Representing the peak of European window engineering. A single handle controls two modes: tilt inward for secure draft-free air, or turn inward for full access.',
-    img: '/images/tilt-turn-windows.jpg',
+    img: '/images/product-tilt-turn-windows.png',
+    angles: ['/images/product-tilt-turn-windows.png', '/images/profile-ideal-4000.png', '/images/installed-tilt-turn-windows.png'],
     overview: 'Our Tilt and Turn system represents aluplast\'s peak European technology utilizing the IDEAL 4000® 70 mm heavy core. A single heavy-duty handle controls three distinct configurations: pointing down locks the window completely airtight; turning 90° sideways swings the sash fully inward (turn mode) for safe, easy cleaning of external glass; and turning 180° upward tilts the sash inward from the top by 10-15° (tilt mode) for continuous, secure, rain-proof ventilation.',
     features: [
       { icon: Move, title: 'Dual-Action Mechanical Core', desc: 'A single high-grade hardware handle regulates lock, 90° inward turn opening, and 18° inward tilt ventilation.' },
@@ -335,7 +341,8 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
     id: 'villa',
     title: 'uPVC Villa Windows',
     desc: 'The ultimate luxury window designed for Indian homes, integrating double sashes, a built-in heavy-duty steel safety grill, and bug screening into a single system.',
-    img: '/images/villa-windows.jpg',
+    img: '/images/product-villa-windows.png',
+    angles: ['/images/product-villa-windows.png', '/images/profile-villa.png', '/images/villa-windows.jpg'],
     overview: 'Our uPVC Villa Windows are luxury systems custom-engineered by Srikala Projects for Indian climates and residential needs. We combine three essential systems into one high-strength aluplast profile frame: an outward-opening double-glazed glass casement sash for thermal and sound insulation; a built-in heavy-duty metal safety grill anchored inside the steel reinforcement; and an independent inward-opening high-tensile insect mesh screen.',
     features: [
       { icon: Shield, title: 'Built-in Internal Safety Grill', desc: 'Heavy-gauge steel security bars are anchored directly inside the uPVC profile\'s internal galvanized steel core.' },
@@ -347,7 +354,7 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
       { name: 'SINGLE SASH VILLA WINDOW SYSTEM', desc: 'Features an outward glass sash, built-in security grill, and an inward high-tensile bug screen.', svgPath: SVG_VILLA_SYSTEM },
       { name: 'DOUBLE SASH FRENCH VILLA DOOR', desc: 'Wide double door opening with inward bug mesh doors and built-in security grill, perfect for veranda openings.', svgPath: SVG_VILLA_SYSTEM },
       { name: 'VILLA WINDOW WITH CURVED ARCH TOP', desc: 'A highly luxurious curved arch fixed light coupled with an operable villa window below.', svgPath: SVG_VILLA_SYSTEM },
-      { name: 'HIGH-DRAINAGE MONSOON VILLA UNIT', desc: 'Equipped with a specialized stepped threshold and drainage vents to handle severe tropical coastal wind-driven rain.', svgPath: SVG_VILLA_SYSTEM }
+      { name: 'HIGH-DRAINAGE MONSOON VILLA UNIT', desc: 'Equipped with a stepped threshold and drainage vents to handle severe tropical coastal wind-driven rain.', svgPath: SVG_VILLA_SYSTEM }
     ]
   }
 };
@@ -383,11 +390,23 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
   const [activeColor, setActiveColor] = useState(ALUDEC_SWATCHES[0]);
   const [activeGlassLevel, setActiveGlassLevel] = useState<1 | 2 | 3>(2); // 1=Single, 2=DGU, 3=Triple
 
+  // 3D Interactive Viewer states
+  const [activeAngleIndex, setActiveAngleIndex] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const dragStartX = useRef(0);
+  const initialAngle = useRef(0);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const heroImageRef = useRef<HTMLImageElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const customRef = useRef<HTMLDivElement>(null);
+
+  // Reset active angle when product changes
+  useEffect(() => {
+    setActiveAngleIndex(0);
+  }, [productName]);
 
   // Trigger smooth scroll to top and GSAP reveal animations when product changes
   useEffect(() => {
@@ -418,6 +437,79 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
 
     return () => ctx.revert();
   }, [productName]);
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+    dragStartX.current = e.clientX;
+    initialAngle.current = activeAngleIndex;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    if (isDragging) {
+      const deltaX = e.clientX - dragStartX.current;
+      // Change angle for every 80px of horizontal drag
+      const threshold = 80;
+      const shift = Math.round(deltaX / threshold);
+      let nextAngle = (initialAngle.current - shift) % 3;
+      if (nextAngle < 0) nextAngle += 3;
+      if (nextAngle !== activeAngleIndex) {
+        setActiveAngleIndex(nextAngle);
+      }
+      // Apply a dynamic drag rotation feel (up to 20 deg)
+      setTilt({
+        x: 0,
+        y: (deltaX % threshold) / threshold * 20
+      });
+    } else {
+      const xc = rect.width / 2;
+      const yc = rect.height / 2;
+      const rotX = -((y - yc) / yc) * 12;
+      const rotY = ((x - xc) / xc) * 12;
+      setTilt({ x: rotX, y: rotY });
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    setTilt({ x: 0, y: 0 });
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    setTilt({ x: 0, y: 0 });
+  };
+
+  // Mobile Touch support
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+    dragStartX.current = e.touches[0].clientX;
+    initialAngle.current = activeAngleIndex;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    const deltaX = e.touches[0].clientX - dragStartX.current;
+    const threshold = 80;
+    const shift = Math.round(deltaX / threshold);
+    let nextAngle = (initialAngle.current - shift) % 3;
+    if (nextAngle < 0) nextAngle += 3;
+    if (nextAngle !== activeAngleIndex) {
+      setActiveAngleIndex(nextAngle);
+    }
+    setTilt({
+      x: 0,
+      y: (deltaX % threshold) / threshold * 20
+    });
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    setTilt({ x: 0, y: 0 });
+  };
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -490,38 +582,59 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
           
           {/* Left Column: Visual Showcase (Large image + ambient glass glow) */}
           <div className="lg:col-span-5 w-full flex flex-col gap-8">
-            <div className="relative bg-white border border-slate-200/80 p-10 shadow-[0_15px_40px_rgba(0,0,0,0.03)] rounded-2xl flex items-center justify-center aspect-square overflow-hidden group">
-              
+            <div 
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseLeave}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              className="relative bg-white border border-slate-200/80 p-10 shadow-[0_15px_40px_rgba(0,0,0,0.03)] rounded-2xl flex items-center justify-center aspect-square overflow-hidden group cursor-grab active:cursor-grabbing select-none"
+              style={{ perspective: 1000 }}
+            >
               {/* Soft warm solar insulation glow backdrop */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,95,184,0.03)_0%,transparent_60%)] animate-pulse" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,95,184,0.03)_0%,transparent_60%)] animate-pulse pointer-events-none" />
               
               <img 
                 ref={heroImageRef}
-                src={detail.img} 
+                src={detail.angles ? detail.angles[activeAngleIndex] : detail.img} 
                 alt={detail.title} 
-                className="w-full h-full object-contain max-h-[360px] transition-transform duration-700 group-hover:scale-[1.03]"
+                className="w-full h-full object-contain max-h-[360px] pointer-events-none will-change-transform"
+                style={{
+                  transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isDragging ? 1.05 : 1})`,
+                  transition: isDragging ? 'none' : 'transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1)',
+                }}
               />
               
-              {/* Quality overlay badge */}
-              <div className="absolute bottom-4 left-4 bg-slate-900/90 backdrop-blur-sm text-[8px] font-black tracking-widest px-3.5 py-2 uppercase rounded-full border border-white/5 text-white flex items-center gap-2 shadow-md">
-                <Move className="w-3 h-3 text-cyan-400" /> Premium 3D Render
+              {/* Interactive Cockpit HUD Status Overlay */}
+              <div className="absolute bottom-4 left-4 bg-slate-900/90 backdrop-blur-sm text-[8px] font-black tracking-widest px-3.5 py-2 uppercase rounded-full border border-white/5 text-white flex items-center gap-2 shadow-md pointer-events-none transition-all duration-300">
+                <Move className={`w-3 h-3 text-cyan-400 ${isDragging ? 'animate-ping' : ''}`} />
+                {isDragging ? 'Dragging to Rotate...' : 'Interactive 3D Render - Drag to Spin'}
               </div>
             </div>
             
             {/* Gallery angles */}
             <div className="grid grid-cols-3 gap-4 anim-fade-up">
-              {[detail.img, detail.img, detail.img].map((imgSrc, i) => (
-                <div 
-                  key={i} 
-                  className={`bg-white border rounded-xl p-4 flex items-center justify-center cursor-pointer transition-all duration-300 ${
-                    i === 0 
-                      ? 'border-[#005fb8] ring-2 ring-[#005fb8]/10 scale-[1.02]' 
-                      : 'border-slate-200/80 hover:border-slate-350'
-                  }`}
-                >
-                  <img src={imgSrc} alt="Render angle" className="w-12 h-12 object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                </div>
-              ))}
+              {(detail.angles || [detail.img, detail.img, detail.img]).map((imgSrc, i) => {
+                const labels = ['Front View', 'CAD Profile', 'Installed View'];
+                return (
+                  <div 
+                    key={i} 
+                    onClick={() => setActiveAngleIndex(i)}
+                    className={`bg-white border rounded-xl p-3 flex flex-col items-center justify-center cursor-pointer transition-all duration-300 ${
+                      i === activeAngleIndex 
+                        ? 'border-[#005fb8] ring-2 ring-[#005fb8]/10 scale-[1.02]' 
+                        : 'border-slate-200/80 hover:border-slate-350 hover:bg-slate-50'
+                    }`}
+                  >
+                    <img src={imgSrc} alt={labels[i]} className="w-12 h-12 object-contain opacity-80 hover:opacity-100 transition-opacity mb-1 pointer-events-none" />
+                    <span className={`text-[7px] font-black uppercase tracking-wider ${i === activeAngleIndex ? 'text-[#005fb8]' : 'text-slate-400'}`}>
+                      {labels[i]}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
