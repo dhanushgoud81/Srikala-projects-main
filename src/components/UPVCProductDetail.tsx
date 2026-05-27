@@ -967,55 +967,36 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
 
       {/* ─── Specifications & Sizing Section ─── */}
       {detail.variants && detail.variants.length > 0 && (
-        <section className="bg-slate-50 border-t border-slate-200 py-24 relative overflow-hidden">
-          {/* Subtle blueprint grid overlay */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,95,184,0.02)_0%,transparent_50%)] pointer-events-none" />
-          
-          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-            <div className="text-center mb-20">
-              <span className="text-xs font-bold text-[#005fb8] uppercase tracking-widest block mb-4">
-                Variants & Technical Specs
-              </span>
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-slate-900 mb-4">
-                Systems & Sizing Specifications
-              </h2>
-              <PrecisionRulerAccent className="my-6" />
-              <p className="text-slate-500 max-w-2xl mx-auto text-sm leading-relaxed">
-                Review the structural parameters, wall thicknesses, reinforcement profiles, and dimension boundaries for each {detail.title.toLowerCase().replace('upvc ', '')} variant.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-24">
+        <section className="bg-white border-t border-slate-200 py-20 relative overflow-hidden">
+          <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="flex flex-col gap-20">
               {detail.variants.map((variant, idx) => {
                 const isEven = idx % 2 === 1;
                 return (
                   <div key={idx} className="flex flex-col">
                     <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-20`}>
                       
-                      {/* Left/Content: Text & Specifications Table */}
+                      {/* Left/Content: Text & Sizing Table */}
                       <div className="w-full md:w-1/2 flex flex-col justify-center">
-                        <span className="text-xs font-extrabold text-[#005fb8] uppercase tracking-widest block mb-2">
-                          Variant 0{idx + 1}
-                        </span>
-                        <h3 className="text-2xl md:text-3.5xl font-black uppercase tracking-tight text-slate-900 mb-4">
+                        <h3 className="text-[28px] md:text-[34px] font-bold text-[#1e5288] tracking-tight mb-3">
                           {variant.name}
                         </h3>
-                        <p className="text-slate-500 text-sm md:text-base leading-relaxed mb-8">
+                        <p className="text-slate-655 text-sm md:text-[14.5px] leading-relaxed mb-6">
                           {variant.desc}
                         </p>
 
                         {/* Specifications Table */}
-                        <div className="w-full border border-slate-200 rounded-xl overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.02)]">
+                        <div className="w-full border border-slate-300 rounded-[6px] overflow-hidden">
                           <table className="w-full border-collapse text-left bg-white text-xs md:text-sm">
                             <thead>
-                              <tr className="bg-gradient-to-r from-[#005fb8] to-blue-600 text-white font-extrabold uppercase tracking-widest text-[10px] md:text-[11px] border-b border-slate-200">
-                                <th className="px-6 py-4 w-7/12">Parameter</th>
-                                <th className="px-6 py-4 w-5/12">Specifications</th>
+                              <tr className="bg-[#005fb8] text-white font-semibold uppercase tracking-wider text-[11px] md:text-[12px]">
+                                <th className="px-5 py-3.5 w-7/12 font-bold">Parameter</th>
+                                <th className="px-5 py-3.5 w-5/12 font-bold">Specifications</th>
                               </tr>
                             </thead>
-                            <tbody className="divide-y divide-slate-100">
+                            <tbody className="divide-y divide-slate-200">
                               {variant.specs.map((spec, sIdx) => {
-                                // Smart split to render premium parameters with subtitles
+                                // Smart split to render parameter names with subtitles
                                 const parts = spec.parameter.split(' (');
                                 const mainParam = parts[0];
                                 const subParam = parts[1] ? parts[1].replace(')', '') : null;
@@ -1023,19 +1004,19 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
                                 return (
                                   <tr 
                                     key={sIdx} 
-                                    className={`transition-colors duration-200 ${sIdx % 2 === 1 ? 'bg-slate-50/40' : 'bg-white'} hover:bg-slate-50`}
+                                    className={`transition-colors duration-200 ${sIdx % 2 === 1 ? 'bg-slate-100/50' : 'bg-white'}`}
                                   >
-                                    <td className="px-6 py-4">
-                                      <div className="font-extrabold text-slate-800 text-xs sm:text-[13px]">
+                                    <td className="px-5 py-4">
+                                      <div className="text-slate-800 text-xs sm:text-[13px] font-medium">
                                         {mainParam}
                                       </div>
                                       {subParam && (
-                                        <div className="text-[10px] text-slate-500 font-medium mt-0.5 leading-tight">
+                                        <div className="text-[11px] text-slate-500 font-normal mt-0.5 leading-tight">
                                           {subParam}
                                         </div>
                                       )}
                                     </td>
-                                    <td className="px-6 py-4 font-mono font-bold text-slate-700 text-xs sm:text-[13px] bg-slate-50/10">
+                                    <td className="px-5 py-4 text-slate-800 text-xs sm:text-[13px] font-semibold">
                                       {spec.specification}
                                     </td>
                                   </tr>
@@ -1045,43 +1026,30 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
                           </table>
                         </div>
 
-                        {/* Size Limits Tag */}
+                        {/* Size Limits Tag under the table */}
                         {variant.sizeLimits && (
-                          <div className="mt-6 flex items-center gap-2.5 text-xs font-mono font-bold text-slate-600 bg-slate-100/90 border border-slate-200/60 px-4 py-2.5 rounded-lg w-fit shadow-inner">
-                            <Layers className="w-4 h-4 text-[#005fb8] shrink-0" />
-                            <span>Size Boundaries:</span>
-                            <span className="text-[#005fb8] font-black tracking-wider">{variant.sizeLimits}</span>
+                          <div className="mt-3.5 text-slate-500 text-[11.5px] font-semibold tracking-wide">
+                            {variant.sizeLimits}
                           </div>
                         )}
                       </div>
 
                       {/* Right/Visual: High-Fidelity Rendering Image */}
                       <div className="w-full md:w-1/2 flex justify-center">
-                        <div className="w-full max-w-[420px] aspect-square bg-white border border-slate-200/70 p-8 rounded-2xl shadow-[0_15px_45px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_60px_rgba(0,95,184,0.05)] transition-all duration-500 group flex items-center justify-center relative overflow-hidden">
-                          {/* Inner blueprint glow */}
-                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,95,184,0.015)_0%,transparent_75%)] pointer-events-none group-hover:scale-110 transition-transform duration-700" />
+                        <div className="w-full max-w-[360px] aspect-square flex items-center justify-center">
                           <img 
                             src={variant.image} 
                             alt={variant.name} 
-                            className="max-h-[300px] w-auto object-contain select-none pointer-events-none transform group-hover:scale-105 transition-all duration-500 ease-out"
+                            className="max-h-[300px] w-auto object-contain select-none pointer-events-none drop-shadow-[0_15px_25px_rgba(0,0,0,0.08)] transform hover:scale-[1.02] transition-transform duration-300"
                           />
                         </div>
                       </div>
 
                     </div>
 
-                    {/* Alternating Coral/Rose Brochure Dashed Divider */}
+                    {/* Brochure-style Red/Coral Dashed Divider line */}
                     {idx < detail.variants.length - 1 && (
-                      <div className="relative my-20">
-                        <div className="absolute inset-0 flex items-center" aria-hidden="true">
-                          <div className="w-full border-t border-dashed border-rose-300/60"></div>
-                        </div>
-                        <div className="relative flex justify-center">
-                          <span className="bg-slate-50 px-4 text-[10px] font-mono text-rose-450 tracking-[0.2em] uppercase font-bold">
-                            Brochure Spec Transition
-                          </span>
-                        </div>
-                      </div>
+                      <div className="my-16 border-t-2 border-dashed border-red-300/80 w-full" />
                     )}
 
                   </div>
