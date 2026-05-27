@@ -49,40 +49,7 @@ const SERVICES = [
 ];
 
 export const CoreDivisionsHorizontal = () => {
-  const ulRef = useRef<HTMLUListElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!ulRef.current || !sectionRef.current) return;
-    
-    const items = ulRef.current.querySelectorAll('li');
-
-    const controls = animate(
-      ulRef.current,
-      {
-        transform: ['none', `translateX(-${items.length - 1}00vw)`],
-      } as any,
-      { ease: spring() as any }
-    );
-    
-    scroll(controls, { target: sectionRef.current });
-
-    const segmentLength = 1 / items.length;
-    items.forEach((item, i) => {
-      const header = item.querySelector('h2.bg-text');
-
-      if (header) {
-        scroll(animate([header] as any, { x: [800, -800] } as any), {
-          target: sectionRef.current!,
-          offset: [
-            [i * segmentLength, 1],
-            [(i + 1) * segmentLength, 0],
-          ],
-        });
-      }
-    });
-  }, []);
 
   return (
     <div className="bg-white">
@@ -92,72 +59,61 @@ export const CoreDivisionsHorizontal = () => {
             <div className="w-20 h-1 bg-electric-blue mx-auto mb-6 md:mb-8" />
             <p className='text-base md:text-xl text-slate-500 font-medium text-center max-w-2xl mx-auto leading-relaxed'>
               Specialized engineering divisions delivering turnkey solutions for complex structural requirements.
-              <span className="hidden md:inline"> Scroll to explore! 👇</span>
             </p>
         </div>
       </header>
 
-      {/* ── Mobile: vertical card grid ──────────────────────────────────── */}
-      <div className="md:hidden bg-white">
+      {/* ── Standard Vertical Alternating Divisions List ── */}
+      <div className="flex flex-col w-full">
         {SERVICES.map((service, index) => {
           const Icon = service.icon;
-          return (
-            <div key={index} className={`${service.color} px-6 py-10 flex flex-col gap-6`}>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">
-                  <Icon className="w-6 h-6 text-electric-blue" />
-                </div>
-                <h3 className="text-2xl font-bold uppercase tracking-tighter text-white">{service.title}</h3>
-              </div>
-              <div className="w-full h-48 rounded-lg overflow-hidden shadow-xl">
-                <img src={service.image} alt={service.title} className="w-full h-full object-cover" loading="lazy" />
-              </div>
-              <p className="text-slate-300 text-sm leading-relaxed">{service.desc}</p>
-              <button
-                onClick={() => navigate(service.title === 'uPVC Windows & Doors' ? '/upvc' : '/solutions')}
-                className="w-fit bg-electric-blue text-white px-6 py-3 text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform"
-              >
-                Learn More
-              </button>
-            </div>
-          );
-        })}
-      </div>
+          const isEven = index % 2 === 0;
 
-      {/* ── Desktop: horizontal scroll ──────────────────────────────────── */}
-      <section ref={sectionRef} className='hidden md:block h-[600vh] relative'>
-        <ul ref={ulRef} className='flex sticky top-0'>
-          {SERVICES.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <li key={index} className={`h-screen w-screen ${service.color} flex flex-col justify-center overflow-hidden items-center shrink-0 relative`}>
-                <h2 className='bg-text text-[8vw] font-black tracking-tighter uppercase whitespace-nowrap text-white/5 absolute top-1/4 select-none pointer-events-none'>
-                  {service.title}
-                </h2>
-                <div className="relative z-10 w-full max-w-7xl mx-auto px-12 flex flex-row items-center gap-12 mt-20">
-                  <div className="flex-1 text-white text-left">
-                    <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-8">
-                      <Icon className="w-8 h-8 text-electric-blue" />
+          return (
+            <section 
+              key={index} 
+              className={`w-full py-20 md:py-28 ${service.color} overflow-hidden relative flex items-center min-h-[50vh]`}
+            >
+              {/* Background large text outline */}
+              <h2 className='hidden md:block absolute text-[8vw] font-black tracking-tighter uppercase whitespace-nowrap text-white/5 top-1/2 -translate-y-1/2 left-10 select-none pointer-events-none z-0'>
+                {service.title}
+              </h2>
+
+              <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
+                <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-16`}>
+                  
+                  {/* Text Content Block */}
+                  <div className="w-full md:w-1/2 text-white text-left flex flex-col justify-center">
+                    <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center mb-6">
+                      <Icon className="w-7 h-7 text-electric-blue" />
                     </div>
-                    <h3 className="text-5xl font-bold uppercase mb-6 tracking-tighter">{service.title}</h3>
-                    <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-lg">{service.desc}</p>
+                    <h3 className="text-3xl md:text-4xl font-extrabold uppercase mb-4 tracking-tighter">{service.title}</h3>
+                    <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 max-w-lg">{service.desc}</p>
                     <button
                       onClick={() => navigate(service.title === 'uPVC Windows & Doors' ? '/upvc' : '/solutions')}
-                      className="bg-electric-blue text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:scale-105 transition-transform"
+                      className="bg-electric-blue text-white px-8 py-3.5 text-xs font-bold uppercase tracking-widest hover:bg-blue-600 transition-colors w-fit shadow-lg active:scale-95 duration-200"
                     >
                       Learn More
                     </button>
                   </div>
-                  <div className="flex-1 w-full relative h-[60vh] rounded-lg overflow-hidden shadow-2xl">
-                    <img src={service.image} alt={service.title} className='w-full h-full object-cover hover:scale-105 transition-transform duration-700' />
-                    <div className="absolute inset-0 bg-slate-950/30 mix-blend-multiply pointer-events-none" />
+
+                  {/* Image Block */}
+                  <div className="w-full md:w-1/2 relative h-[250px] md:h-[400px] rounded-xl overflow-hidden shadow-2xl group">
+                    <img 
+                      src={service.image} 
+                      alt={service.title} 
+                      className='w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105' 
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-slate-950/20 mix-blend-multiply pointer-events-none" />
                   </div>
+
                 </div>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+              </div>
+            </section>
+          );
+        })}
+      </div>
     </div>
   );
 };
