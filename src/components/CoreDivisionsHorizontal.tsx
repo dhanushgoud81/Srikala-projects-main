@@ -54,7 +54,7 @@ export const CoreDivisionsHorizontal = () => {
   return (
     <div className="bg-baumeister-charcoal relative">
       {/* 1. Header is rendered first with relative layout and lower z-index */}
-      <header className='text-white relative z-10 w-full bg-baumeister-charcoal grid place-content-center pt-36 md:pt-48 pb-16 md:pb-24 border-b border-white/5'>
+      <header className='text-white relative z-10 w-full bg-baumeister-charcoal grid place-content-center pt-60 md:pt-80 pb-16 md:pb-24 border-b border-white/5'>
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
             <h2 className="text-3xl md:text-5xl font-oswald font-bold uppercase mb-4 tracking-tighter">Our Core Divisions</h2>
             <div className="w-20 h-1 bg-baumeister-yellow mx-auto mb-6 md:mb-8" />
