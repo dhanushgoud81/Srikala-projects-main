@@ -461,24 +461,7 @@ export default function UPVC() {
         </div>
       </section>
 
-      {/* ── Stats Bar ─────────────────────────────────────────────────────── */}
-      <section className="bg-electric-blue text-white py-5">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-black tracking-tight uppercase">Srikala Projects</span>
-            <span className="text-white/40">·</span>
-            <span className="text-[10px] uppercase tracking-widest text-white/70">uPVC Division</span>
-          </div>
-          <div className="flex flex-wrap gap-6 md:gap-8">
-            {COMPANY_STATS.map((f, i) => (
-              <div key={i} className="text-center">
-                <div className="text-base md:text-lg font-black">{f.value}</div>
-                <div className="text-[10px] uppercase tracking-widest text-white/70">{f.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* ── Types of Windows ──────────────────────────────────────────────── */}
       <section className="py-20 md:py-24 bg-slate-50" id="upvc-types">
