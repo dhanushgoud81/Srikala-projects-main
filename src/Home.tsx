@@ -265,16 +265,17 @@ export default function Home() {
         <div ref={heroOverlayRef} className="absolute inset-0 bg-slate-950/70 z-0" />
 
         {/* Left & Right Manual Slide Navigation Controls */}
+        {/* Left & Right Manual Slide Navigation Controls */}
         <button 
           onClick={() => setCurrentImageIndex((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
-          className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:bg-white hover:text-slate-950 hover:border-white transition-all duration-300 font-mono text-xl rounded-sm group active:scale-95 shadow-md bg-slate-950/20 backdrop-blur-sm"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-14 flex items-center justify-center text-white bg-slate-950/75 hover:bg-baumeister-yellow hover:text-slate-950 transition-all duration-300 font-mono text-lg rounded-none group active:scale-95 shadow-lg border-y border-r border-white/5"
           aria-label="Previous Slide"
         >
           <span className="transform group-hover:-translate-x-0.5 transition-transform">←</span>
         </button>
         <button 
           onClick={() => setCurrentImageIndex((prev) => (prev + 1) % HERO_SLIDES.length)}
-          className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:bg-white hover:text-slate-950 hover:border-white transition-all duration-300 font-mono text-xl rounded-sm group active:scale-95 shadow-md bg-slate-950/20 backdrop-blur-sm"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-14 flex items-center justify-center text-white bg-slate-950/75 hover:bg-baumeister-yellow hover:text-slate-950 transition-all duration-300 font-mono text-lg rounded-none group active:scale-95 shadow-lg border-y border-l border-white/5"
           aria-label="Next Slide"
         >
           <span className="transform group-hover:translate-x-0.5 transition-transform">→</span>
@@ -289,11 +290,11 @@ export default function Home() {
             >
               <h1
                 ref={heroTitleRef}
-                className="text-4xl sm:text-5xl md:text-[68px] font-black text-white mb-5 md:mb-7 uppercase tracking-tight leading-[0.95]"
+                className="text-4xl sm:text-6xl md:text-[76px] font-oswald font-bold text-white mb-5 md:mb-7 uppercase tracking-tight leading-[1]"
               >
                 {HERO_SLIDES[currentImageIndex].title}
               </h1>
-              <p className="text-base md:text-[17.5px] text-slate-300 mb-8 md:mb-12 max-w-xl leading-relaxed">
+              <p className="text-base md:text-[17.5px] text-slate-350 mb-8 md:mb-12 max-w-xl leading-relaxed">
                 {HERO_SLIDES[currentImageIndex].desc}
               </p>
             </div>
@@ -302,15 +303,15 @@ export default function Home() {
               <button
                 ref={heroCTARef}
                 onClick={() => navigate('/contact')}
-                className="relative bg-electric-blue text-white px-7 md:px-10 py-3.5 md:py-4 text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-200 overflow-hidden"
+                className="rounded-none bg-baumeister-yellow text-slate-950 font-oswald font-bold tracking-widest px-8 md:px-10 py-4 text-xs uppercase hover:bg-white hover:text-slate-950 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg flex items-center gap-2.5"
               >
-                GET QUOTE
+                GET QUOTE <ArrowRight className="w-3.5 h-3.5" />
               </button>
               <button
                 onClick={() => navigate('/solutions')}
-                className="border-2 border-white/50 backdrop-blur-sm text-white px-7 md:px-10 py-3.5 md:py-4 text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-200"
+                className="rounded-none border-2 border-white/70 backdrop-blur-sm text-white font-oswald font-bold tracking-widest px-8 md:px-10 py-4 text-xs uppercase hover:bg-white hover:text-slate-950 hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-2.5 bg-transparent"
               >
-                EXPLORE SERVICES
+                EXPLORE SERVICES <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
@@ -321,23 +322,23 @@ export default function Home() {
           {[
             {
               src: '/images/pre-engineered.png',
-              title: 'Pre-Engineered Buildings',
-              desc: 'High-strength structural steel warehouses & PEB frame projects.',
+              title: 'High standard',
+              desc: 'High-strength structural steel warehouses & PEB frame projects engineered to lasted standard specifications.',
             },
             {
               src: '/images/heavy-fabrication.png',
-              title: 'Heavy Fabrication',
-              desc: 'Precision structural steel blocks, custom welding, & plate frameworks.',
+              title: 'Reconstruction',
+              desc: 'Precision structural steel blocks, custom welding, & complex frame restorations.',
             },
             {
               src: '/images/structural-glazing.png',
-              title: 'Structural Glazing',
-              desc: 'Architectural glass wall facades & modern luxury uPVC systems.',
+              title: 'Execution',
+              desc: 'Sophisticated architectural glass facades & premium high-performance weather-tight uPVC systems.',
             }
           ].map((card, idx) => (
             <div 
               key={idx}
-              className="bg-white border-[7px] border-white shadow-[0_15px_35px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
+              className="bg-white border-[7px] border-white shadow-[0_15px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_22px_50px_rgba(0,0,0,0.15)] hover:-translate-y-3 transition-all duration-500 group cursor-pointer"
             >
               <div className="overflow-hidden aspect-[4/3] relative bg-slate-100">
                 <img 
@@ -347,11 +348,11 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-slate-950/5 group-hover:bg-slate-950/0 transition-colors duration-300" />
               </div>
-              <div className="p-5 text-left bg-white border-t border-slate-100/60">
-                <h4 className="font-extrabold text-slate-800 text-xs sm:text-[13px] uppercase tracking-wider group-hover:text-electric-blue transition-colors">
+              <div className="p-6 text-center bg-white">
+                <h4 className="font-oswald font-bold text-slate-900 text-sm sm:text-base uppercase tracking-widest group-hover:text-baumeister-yellow transition-colors duration-300">
                   {card.title}
                 </h4>
-                <p className="text-slate-550 text-[11px] font-medium leading-relaxed mt-1">
+                <p className="text-slate-500 text-[11.5px] font-medium leading-relaxed mt-2 px-2">
                   {card.desc}
                 </p>
               </div>
