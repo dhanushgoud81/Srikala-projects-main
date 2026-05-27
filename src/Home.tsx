@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Shield, Rocket, Truck, Verified, Square, Box, Factory, Layers, Grid3X3 } from 'lucide-react';
 import { PageWrapper } from './components/Shared';
@@ -7,10 +7,19 @@ import { ProjectStack } from './components/ProjectStack';
 import { CoreDivisionsHorizontal } from './components/CoreDivisionsHorizontal';
 import { ScrollReadingText } from './components/ScrollReadingText';
 import { useGSAP } from './lib/useGSAP';
+import gsap from 'gsap';
 import { parallax, ambient, scrollReveal, textStagger, animationUtils } from './lib/animations';
 import { magnetic, textReveal, scrollEffects } from './lib/stunningAnimations';
 
 // ─── Static data outside component (no re-creation on render) ────────────────
+const HERO_IMAGES = [
+  '/images/home.jpeg',
+  '/images/pre-engineered.png',
+  '/images/heavy-fabrication.png',
+  '/images/structural-glazing.png',
+  '/images/upvc-hero-luxury.png'
+];
+
 const SERVICES = [
   {
     icon: Square,
@@ -67,7 +76,7 @@ const STATS = [
 export default function Home() {
   const navigate = useNavigate();
 
-  const heroImageRef    = useRef<HTMLImageElement>(null);
+  const heroImageRef    = useRef<HTMLDivElement>(null);
   const heroContentRef  = useRef<HTMLDivElement>(null);
   const heroOverlayRef  = useRef<HTMLDivElement>(null);
   const heroTitleRef    = useRef<HTMLHeadingElement>(null);
@@ -78,10 +87,19 @@ export default function Home() {
   const pillarsRef      = useRef<HTMLDivElement>(null);
   const ctaRef          = useRef<HTMLDivElement>(null);
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   useGSAP(() => {
     // Background layer
     if (heroImageRef.current) {
-      ambient.scale(heroImageRef.current, { from: 1, to: 1.15 });
+      gsap.fromTo(heroImageRef.current, { opacity: 0 }, { opacity: 1, duration: 1.5, ease: 'power2.out' });
     }
 
     // Overlay fade
@@ -147,13 +165,37 @@ export default function Home() {
     <PageWrapper>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative h-screen w-full flex items-center overflow-hidden -mt-16" id="hero">
-        <img
-          ref={heroImageRef}
-          className="absolute inset-0 w-full h-full object-cover will-change-transform"
-          src="/images/home.jpeg"
-          alt="Industrial Facility"
-          loading="eager"
-        />
+        
+        <style>{`
+          @keyframes kenburns {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.08) translate(0.5%, -0.5%); }
+            100% { transform: scale(1) translate(0, 0); }
+          }
+        `}</style>
+
+        {/* Dynamic Image Slideshow with Parallax/Ken-Burns Zoom */}
+        <div ref={heroImageRef} className="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none">
+          {HERO_IMAGES.map((src, idx) => {
+            const isActive = idx === currentImageIndex;
+            return (
+              <img
+                key={src}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${
+                  isActive ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{
+                  animation: isActive ? 'kenburns 24s ease-in-out infinite' : 'none',
+                  willChange: 'opacity, transform',
+                }}
+                src={src}
+                alt="Srikala Engineering Project Facade"
+                loading={idx === 0 ? "eager" : "lazy"}
+              />
+            );
+          })}
+        </div>
+
         <div ref={heroOverlayRef} className="absolute inset-0 bg-slate-950/70" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
