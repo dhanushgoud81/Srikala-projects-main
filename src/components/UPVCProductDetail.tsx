@@ -25,6 +25,16 @@ export interface WindowDetail {
     desc: string;
     svgPath: React.ReactNode;
   }[];
+  variants?: {
+    name: string;
+    desc: string;
+    image: string;
+    sizeLimits: string;
+    specs: {
+      parameter: string;
+      specification: string;
+    }[];
+  }[];
 }
 
 // ─── CAD Blueprint Schematics (Clean Light CAD Blueprint Theme) ───────────────────
@@ -261,15 +271,11 @@ const SVG_VILLA_SYSTEM = (
       <line x1="50" y1="10" x2="50" y2="70" />
       <line x1="62" y1="10" x2="62" y2="70" />
       <line x1="75" y1="10" x2="75" y2="70" />
-      <line x1="15" y1="25" x2="85" y2="25" />
-      <line x1="15" y1="40" x2="85" y2="40" />
-      <line x1="15" y1="55" x2="85" y2="55" />
     </g>
-    <rect x="20" y="14" width="60" height="52" rx="0.5" className="stroke-slate-800 stroke-[1.5]" />
+    <rect x="20" y="15" width="60" height="50" rx="0.5" className="stroke-slate-800" />
   </svg>
 );
 
-// ─── Specs database ───────────────────────────────────────────────────────────────
 export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
   'Sliding Windows': {
     id: 'sliding',
@@ -289,6 +295,20 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
       { name: 'vario-slide 2/3 TRACK BALCONY UNIT', desc: 'Supports large 4-24 mm insulated glass panels with stable aluminum interlock, perfect for high wind-pressure zones.', svgPath: SVG_SLIDING_2TRACK_MESH },
       { name: 'easy-slide 2.5 TRACK SLIDER WITH MESH', desc: 'Standard 2-track sliding window coupled with an integrated third track for mosquito insect screens.', svgPath: SVG_SLIDING_2_5TRACK_MESH },
       { name: 'mono-slide 60mm FIXED & SLIDING COMBO', desc: 'A minimalist single sliding sash beside a wide fixed panoramic picture frame with PVC interlock sealing.', svgPath: SVG_SLIDING_1TRACK_INT }
+    ],
+    variants: [
+      {
+        name: 'Sliding Windows',
+        desc: 'Sleek and space-saving, sliding windows provide smooth operation and modern aesthetics for any room.',
+        image: '/images/product-sliding-windows.png',
+        sizeLimits: 'Min : H: 1.5ft x W: 3ft (2 Panels)',
+        specs: [
+          { parameter: 'Track Options', specification: '2, 2.5 and 3 track' },
+          { parameter: 'Profile Wall Thickness (Increases Profile Strength)', specification: '2.3 mm (+/- 0.2) mm' },
+          { parameter: 'GI Reinforcement Thickness (Provides Window Strength)', specification: '1.2 mm - 2 mm' },
+          { parameter: 'Max. Glass Thickness (Enhances Sound Proofing)', specification: '5-18; 4-24; 4-12' }
+        ]
+      }
     ]
   },
   'Casement Windows': {
@@ -309,6 +329,30 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
       { name: 'IDEAL 4000® TRIPLE GLAZED SHIELD', desc: 'Heavy-duty 70 mm casement sash holding double or triple security safety glass up to 41 mm thick.', svgPath: SVG_CASEMENT_1PANEL },
       { name: 'DOUBLE SASH FRENCH CASEMENT DOOR', desc: 'Two sashes opening outward from the center without a central vertical mullion profile, creating a wide-open passage.', svgPath: SVG_CASEMENT_FRENCH },
       { name: 'TOP-HUNG TOXIC AIR VENTILATOR', desc: 'Hinged at the top and opening from the bottom, allowing ventilation during heavy rainfall without water entry.', svgPath: SVG_CASEMENT_TOPHUNG }
+    ],
+    variants: [
+      {
+        name: 'Casement Window',
+        desc: 'Reliable, energy-efficient, and versatile, casement windows offer maximum ventilation and superior security.',
+        image: '/images/product-casement-windows.png',
+        sizeLimits: 'Min : W: 1.5ft x H: 1.5ft | Max : W: 2 x H: 5ft',
+        specs: [
+          { parameter: 'Profile Wall Thickness (Increases Profile Strength)', specification: '2.3 mm (+/- 0.2) mm' },
+          { parameter: 'GI Reinforcement Thickness (Provides Window Strength)', specification: '1.5mm' },
+          { parameter: 'Max. Glass Thickness (Enhances Sound Proofing)', specification: '4mm–26 mm; 4mm–39mm' }
+        ]
+      },
+      {
+        name: 'Awning Windows',
+        desc: 'Ideal for ventilation, our awning windows offer protection from rain while allowing fresh air.',
+        image: '/images/awning-window-render.png',
+        sizeLimits: 'Min : W: 1.5ft x H: 1.5ft | Max : W: 3ft x H: 2.3ft',
+        specs: [
+          { parameter: 'Profile Wall Thickness (Increases Profile Strength)', specification: '2.3 mm (+/- 0.2) mm' },
+          { parameter: 'GI Reinforcement Thickness (Provides Window Strength)', specification: '1.5mm' },
+          { parameter: 'Max. Glass Thickness (Enhances Sound Proofing)', specification: '4mm–26 mm; 4mm–39mm' }
+        ]
+      }
     ]
   },
   'Arch Windows': {
@@ -329,6 +373,19 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
       { name: 'GOTHIC POINTED ARCH PIECE', desc: 'Custom curved pointed arch structure, providing vintage, cathedral-style elegance for premium bungalows.', svgPath: SVG_ARCH_FULL },
       { name: 'OPERABLE LOWER CASEMENT ARCH', desc: 'Features a beautiful fixed circular arch top and an operable outward opening casement window below for fresh air.', svgPath: SVG_ARCH_OPERABLE },
       { name: 'SEGMENTAL LOW CURVE ARCH', desc: 'A modern low-profile curved arch window, adding subtle classic styling above standard casement sashes.', svgPath: SVG_ARCH_FULL }
+    ],
+    variants: [
+      {
+        name: 'Fixed Curved Arch',
+        desc: 'Seamless circular or segmental fixed frames flooding double-height spaces with warm natural light.',
+        image: '/images/product-arch-windows.png',
+        sizeLimits: 'Min : R: 1.5ft | Max : W: 6ft x H: 6ft',
+        specs: [
+          { parameter: 'Profile Wall Thickness (Increases Profile Strength)', specification: '2.5 mm (+/- 0.2) mm' },
+          { parameter: 'GI Reinforcement (Provides Pre-bent Strength)', specification: '1.5mm custom pre-curved' },
+          { parameter: 'Max. Glass Thickness (Enhances Sound Proofing)', specification: '4mm–24mm DGU' }
+        ]
+      }
     ]
   },
   'Combination Windows': {
@@ -349,6 +406,19 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
       { name: 'vario-slide + FIXED TOP LIGHT', desc: 'Couples a 2-track sliding window on the bottom with a fixed double-glazed transom window on top.', svgPath: SVG_COMBINATION_CS_FX },
       { name: '90/45 DEGREE COZY BAY WINDOW', desc: 'A 3-sided coupled window unit projecting outward from the building envelope, enlarging the internal floor area.', svgPath: SVG_COMBINATION_CS_FX },
       { name: 'CASEMENT + TOP HUNG AWNING UNIT', desc: 'A vertical combo with sashes below and top-hung ventilators on top to vent out hot indoor air.', svgPath: SVG_COMBINATION_CS_FX }
+    ],
+    variants: [
+      {
+        name: 'Combination Systems',
+        desc: 'Fuse fixed, sliding, and casement panels within a single integrated heavy-duty frame to maximize light and ventilation.',
+        image: '/images/product-combination-windows.png',
+        sizeLimits: 'Min : W: 3ft x H: 3ft | Max : W: 8ft x H: 6ft',
+        specs: [
+          { parameter: 'Profile Wall Thickness (Increases Profile Strength)', specification: '2.3 mm (+/- 0.2) mm' },
+          { parameter: 'Joint Reinforcement (Heavy-Duty Connecting stays)', specification: 'Internal galvanized steel coupling plates' },
+          { parameter: 'Max. Glass Thickness (Enhances Sound Proofing)', specification: '4mm–35mm DGU / TGU' }
+        ]
+      }
     ]
   },
   'Tilt and Turn Windows': {
@@ -356,7 +426,7 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
     title: 'uPVC Tilt & Turn Windows',
     desc: 'Representing the peak of European window engineering. A single handle controls two modes: tilt inward for secure draft-free air, or turn inward for full access.',
     img: '/images/product-tilt-turn-windows.png',
-    angles: ['/images/product-tilt-turn-windows.png', '/images/profile-ideal-4000.png', '/images/installed-tilt-turn-windows.png'],
+    angles: ['/images/product-tilt-turn-windows.png', '/images/profile-ideal-4000.png', '/installed-tilt-turn-windows.png'],
     overview: 'Our Tilt and Turn system represents aluplast\'s peak European technology utilizing the IDEAL 4000® 70 mm heavy core. A single heavy-duty handle controls three distinct configurations: pointing down locks the window completely airtight; turning 90° sideways swings the sash fully inward (turn mode) for safe, easy cleaning of external glass; and turning 180° upward tilts the sash inward from the top by 10-15° (tilt mode) for continuous, secure, rain-proof ventilation.',
     features: [
       { icon: Move, title: 'Dual-Action Mechanical Core', desc: 'A single high-grade hardware handle regulates lock, 90° inward turn opening, and 18° inward tilt ventilation.' },
@@ -369,6 +439,20 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
       { name: 'FRENCH DOUBLE TILT & TURN DOOR', desc: 'Two sashes opening fully inward. The active master sash tilts and turns, while the secondary slave sash turns.', svgPath: SVG_TILT_TURN_TILT },
       { name: 'TILT & TURN WITH FIXED BOTTOM SILL', desc: 'Features a fixed laminated double glass safety panel below, and an operable tilt-and-turn window on top.', svgPath: SVG_TILT_TURN_TILT },
       { name: 'TILT & TURN WITH FIXED PICTURE LIGHT', desc: 'Couples a premium operable tilt-and-turn sash with a wide fixed panoramic picture glass on the side.', svgPath: SVG_TILT_TURN_TILT }
+    ],
+    variants: [
+      {
+        name: 'Tilt & Turn Window',
+        desc: 'Peak European engineering. Tilt mode inward for secure ventilation or turn mode inward for full cleaning access.',
+        image: '/images/product-tilt-turn-windows.png',
+        sizeLimits: 'Min : W: 1.8ft x H: 1.8ft | Max : W: 3.5ft x H: 6ft',
+        specs: [
+          { parameter: 'Construction Depth (Thermal chambers)', specification: '70 mm premium 5-chamber' },
+          { parameter: 'Profile Wall Thickness (Increases Profile Strength)', specification: '2.8 mm (+/- 0.2) mm' },
+          { parameter: 'Locking Mechanism (Burglar Resistant stays)', specification: 'Perimeter Compressive Multi-Point Locking' },
+          { parameter: 'Max. Glass Thickness (Enhances Sound Proofing)', specification: 'Up to 41 mm triple glass' }
+        ]
+      }
     ]
   },
   'Villa Windows': {
@@ -389,6 +473,20 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
       { name: 'DOUBLE SASH FRENCH VILLA DOOR', desc: 'Wide double door opening with inward bug mesh doors and built-in security grill, perfect for veranda openings.', svgPath: SVG_VILLA_SYSTEM },
       { name: 'VILLA WINDOW WITH CURVED ARCH TOP', desc: 'A highly luxurious curved arch fixed light coupled with an operable villa window below.', svgPath: SVG_VILLA_SYSTEM },
       { name: 'HIGH-DRAINAGE MONSOON VILLA UNIT', desc: 'Equipped with a stepped threshold and drainage vents to handle severe tropical coastal wind-driven rain.', svgPath: SVG_VILLA_SYSTEM }
+    ],
+    variants: [
+      {
+        name: 'Villa Security Window',
+        desc: 'High-security window combining a double-glazed sash, a built-in safety grill, and bug mesh in one frame.',
+        image: '/images/product-villa-windows.png',
+        sizeLimits: 'Min : W: 2ft x H: 3ft | Max : W: 5ft x H: 5ft',
+        specs: [
+          { parameter: 'Profile System (Multi-sash composite)', specification: 'Srikala Premium Villa Core' },
+          { parameter: 'GI Reinforcement (Provides Grill Anchoring stays)', specification: '1.8mm heavy-duty internal steel' },
+          { parameter: 'Security Grill (Integrates Burglar Proofing)', specification: '10mm solid steel bars' },
+          { parameter: 'Insect Screen Mesh (Filters out Bugs)', specification: 'SS304 marine grade steel' }
+        ]
+      }
     ]
   }
 };
@@ -866,6 +964,133 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
           </div>
         </div>
       </section>
+
+      {/* ─── Specifications & Sizing Section ─── */}
+      {detail.variants && detail.variants.length > 0 && (
+        <section className="bg-slate-50 border-t border-slate-200 py-24 relative overflow-hidden">
+          {/* Subtle blueprint grid overlay */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,95,184,0.02)_0%,transparent_50%)] pointer-events-none" />
+          
+          <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="text-center mb-20">
+              <span className="text-xs font-bold text-[#005fb8] uppercase tracking-widest block mb-4">
+                Variants & Technical Specs
+              </span>
+              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-slate-900 mb-4">
+                Systems & Sizing Specifications
+              </h2>
+              <PrecisionRulerAccent className="my-6" />
+              <p className="text-slate-500 max-w-2xl mx-auto text-sm leading-relaxed">
+                Review the structural parameters, wall thicknesses, reinforcement profiles, and dimension boundaries for each {detail.title.toLowerCase().replace('upvc ', '')} variant.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-24">
+              {detail.variants.map((variant, idx) => {
+                const isEven = idx % 2 === 1;
+                return (
+                  <div key={idx} className="flex flex-col">
+                    <div className={`flex flex-col ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-20`}>
+                      
+                      {/* Left/Content: Text & Specifications Table */}
+                      <div className="w-full md:w-1/2 flex flex-col justify-center">
+                        <span className="text-xs font-extrabold text-[#005fb8] uppercase tracking-widest block mb-2">
+                          Variant 0{idx + 1}
+                        </span>
+                        <h3 className="text-2xl md:text-3.5xl font-black uppercase tracking-tight text-slate-900 mb-4">
+                          {variant.name}
+                        </h3>
+                        <p className="text-slate-500 text-sm md:text-base leading-relaxed mb-8">
+                          {variant.desc}
+                        </p>
+
+                        {/* Specifications Table */}
+                        <div className="w-full border border-slate-200 rounded-xl overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.02)]">
+                          <table className="w-full border-collapse text-left bg-white text-xs md:text-sm">
+                            <thead>
+                              <tr className="bg-gradient-to-r from-[#005fb8] to-blue-600 text-white font-extrabold uppercase tracking-widest text-[10px] md:text-[11px] border-b border-slate-200">
+                                <th className="px-6 py-4 w-7/12">Parameter</th>
+                                <th className="px-6 py-4 w-5/12">Specifications</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-100">
+                              {variant.specs.map((spec, sIdx) => {
+                                // Smart split to render premium parameters with subtitles
+                                const parts = spec.parameter.split(' (');
+                                const mainParam = parts[0];
+                                const subParam = parts[1] ? parts[1].replace(')', '') : null;
+
+                                return (
+                                  <tr 
+                                    key={sIdx} 
+                                    className={`transition-colors duration-200 ${sIdx % 2 === 1 ? 'bg-slate-50/40' : 'bg-white'} hover:bg-slate-50`}
+                                  >
+                                    <td className="px-6 py-4">
+                                      <div className="font-extrabold text-slate-800 text-xs sm:text-[13px]">
+                                        {mainParam}
+                                      </div>
+                                      {subParam && (
+                                        <div className="text-[10px] text-slate-500 font-medium mt-0.5 leading-tight">
+                                          {subParam}
+                                        </div>
+                                      )}
+                                    </td>
+                                    <td className="px-6 py-4 font-mono font-bold text-slate-700 text-xs sm:text-[13px] bg-slate-50/10">
+                                      {spec.specification}
+                                    </td>
+                                  </tr>
+                                );
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+
+                        {/* Size Limits Tag */}
+                        {variant.sizeLimits && (
+                          <div className="mt-6 flex items-center gap-2.5 text-xs font-mono font-bold text-slate-600 bg-slate-100/90 border border-slate-200/60 px-4 py-2.5 rounded-lg w-fit shadow-inner">
+                            <Layers className="w-4 h-4 text-[#005fb8] shrink-0" />
+                            <span>Size Boundaries:</span>
+                            <span className="text-[#005fb8] font-black tracking-wider">{variant.sizeLimits}</span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Right/Visual: High-Fidelity Rendering Image */}
+                      <div className="w-full md:w-1/2 flex justify-center">
+                        <div className="w-full max-w-[420px] aspect-square bg-white border border-slate-200/70 p-8 rounded-2xl shadow-[0_15px_45px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_60px_rgba(0,95,184,0.05)] transition-all duration-500 group flex items-center justify-center relative overflow-hidden">
+                          {/* Inner blueprint glow */}
+                          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,95,184,0.015)_0%,transparent_75%)] pointer-events-none group-hover:scale-110 transition-transform duration-700" />
+                          <img 
+                            src={variant.image} 
+                            alt={variant.name} 
+                            className="max-h-[300px] w-auto object-contain select-none pointer-events-none transform group-hover:scale-105 transition-all duration-500 ease-out"
+                          />
+                        </div>
+                      </div>
+
+                    </div>
+
+                    {/* Alternating Coral/Rose Brochure Dashed Divider */}
+                    {idx < detail.variants.length - 1 && (
+                      <div className="relative my-20">
+                        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+                          <div className="w-full border-t border-dashed border-rose-300/60"></div>
+                        </div>
+                        <div className="relative flex justify-center">
+                          <span className="bg-slate-50 px-4 text-[10px] font-mono text-rose-450 tracking-[0.2em] uppercase font-bold">
+                            Brochure Spec Transition
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ─── Bottom Section: Premium Customization Console (Configurator cockpit) ─── */}
       <section ref={customRef} className="max-w-7xl mx-auto px-6 md:px-12 py-24 mt-10">
