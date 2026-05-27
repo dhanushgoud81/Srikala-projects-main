@@ -53,8 +53,19 @@ export const CoreDivisionsHorizontal = () => {
 
   return (
     <div className="bg-baumeister-charcoal relative">
-      {/* Overlapping Cards placed at the top boundary */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-6 z-30 pointer-events-auto">
+      {/* 1. Header is rendered first with relative layout and lower z-index */}
+      <header className='text-white relative z-10 w-full bg-baumeister-charcoal grid place-content-center pt-36 md:pt-48 pb-16 md:pb-24 border-b border-white/5'>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
+            <h2 className="text-3xl md:text-5xl font-oswald font-bold uppercase mb-4 tracking-tighter">Our Core Divisions</h2>
+            <div className="w-20 h-1 bg-baumeister-yellow mx-auto mb-6 md:mb-8" />
+            <p className='text-base md:text-xl text-slate-400 font-medium text-center max-w-2xl mx-auto leading-relaxed'>
+              Specialized engineering divisions delivering turnkey solutions for complex structural requirements.
+            </p>
+        </div>
+      </header>
+
+      {/* 2. Overlapping Cards container rendered after header with higher z-index (z-40) for perfect stacking context */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-6 z-40 pointer-events-auto">
         {[
           {
             src: '/images/pre-engineered.png',
@@ -99,16 +110,6 @@ export const CoreDivisionsHorizontal = () => {
           </div>
         ))}
       </div>
-
-      <header className='text-white relative w-full bg-baumeister-charcoal grid place-content-center pt-36 md:pt-48 pb-16 md:pb-24 border-b border-white/5'>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-            <h2 className="text-3xl md:text-5xl font-oswald font-bold uppercase mb-4 tracking-tighter">Our Core Divisions</h2>
-            <div className="w-20 h-1 bg-baumeister-yellow mx-auto mb-6 md:mb-8" />
-            <p className='text-base md:text-xl text-slate-400 font-medium text-center max-w-2xl mx-auto leading-relaxed'>
-              Specialized engineering divisions delivering turnkey solutions for complex structural requirements.
-            </p>
-        </div>
-      </header>
 
       {/* ── Standard Vertical Alternating Divisions List ── */}
       <div className="flex flex-col w-full">
