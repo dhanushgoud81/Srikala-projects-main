@@ -446,7 +446,6 @@ export default function UPVC() {
         <div ref={heroOverlayRef} className="absolute inset-0 bg-slate-950/70" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <div ref={heroContentRef} className="max-w-2xl">
-            <span className="hero-animate text-slate-400 font-semibold tracking-[0.3em] uppercase mb-4 block text-xs">uPVC Windows & Doors · Srikala Projects</span>
             <h1 ref={heroTitleRef} className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 uppercase tracking-tighter leading-none">Premium uPVC Window & Door Systems</h1>
             <p className="hero-animate text-base md:text-lg text-slate-300 mb-10 max-w-2xl">Srikala Projects designs, fabricates, and installs high-performance uPVC windows and doors — expertly crafted for the Indian climate, with superior durability, energy efficiency, and lasting elegance.</p>
             <div className="hero-animate flex flex-wrap gap-3 md:gap-4">
