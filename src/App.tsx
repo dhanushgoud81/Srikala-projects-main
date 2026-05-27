@@ -3,7 +3,6 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { Navbar, Footer } from './components/Shared';
 import { ScrollToTop } from './components/ScrollToTop';
 import { AccessibilityWidget } from './components/AccessibilityWidget';
-import { CADMouseFollower } from './components/CADMouseFollower';
 import { WhatsAppWidget } from './components/WhatsAppWidget';
 import Home from './Home';
 import Solutions from './Solutions';
@@ -43,7 +42,6 @@ export default function App() {
 
       <ScrollToTop />
       <AccessibilityWidget />
-      <CADMouseFollower />
       <WhatsAppWidget />
 
       <Footer />
