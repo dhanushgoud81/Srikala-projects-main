@@ -52,7 +52,54 @@ export const CoreDivisionsHorizontal = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-baumeister-charcoal">
+    <div className="bg-baumeister-charcoal relative">
+      {/* Overlapping Cards placed at the top boundary */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-6 z-30 pointer-events-auto">
+        {[
+          {
+            src: '/images/pre-engineered.png',
+            title: 'High standard',
+            desc: 'High-strength structural steel warehouses & PEB frame projects engineered to lasted standard specifications.',
+            path: '/solutions'
+          },
+          {
+            src: '/images/heavy-fabrication.png',
+            title: 'Reconstruction',
+            desc: 'Precision structural steel blocks, custom welding, & complex frame restorations.',
+            path: '/solutions'
+          },
+          {
+            src: '/images/structural-glazing.png',
+            title: 'Execution',
+            desc: 'Sophisticated architectural glass facades & premium high-performance weather-tight uPVC systems.',
+            path: '/upvc'
+          }
+        ].map((card, idx) => (
+          <div 
+            key={idx}
+            onClick={() => { navigate(card.path); window.scrollTo(0, 0); }}
+            className="bg-white border-[7px] border-white shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:shadow-[0_22px_50px_rgba(0,0,0,0.2)] hover:-translate-y-3 transition-all duration-500 group cursor-pointer"
+          >
+            <div className="overflow-hidden aspect-[4/3] relative bg-slate-100">
+              <img 
+                src={card.src} 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
+                alt={card.title}
+              />
+              <div className="absolute inset-0 bg-slate-950/5 group-hover:bg-slate-950/0 transition-colors duration-300" />
+            </div>
+            <div className="p-6 text-center bg-white">
+              <h4 className="font-oswald font-bold text-slate-900 text-sm sm:text-base uppercase tracking-widest group-hover:text-baumeister-yellow transition-colors duration-300">
+                {card.title}
+              </h4>
+              <p className="text-slate-500 text-[11.5px] font-medium leading-relaxed mt-2 px-2">
+                {card.desc}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
       <header className='text-white relative w-full bg-baumeister-charcoal grid place-content-center pt-36 md:pt-48 pb-16 md:pb-24 border-b border-white/5'>
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
             <h2 className="text-3xl md:text-5xl font-oswald font-bold uppercase mb-4 tracking-tighter">Our Core Divisions</h2>
