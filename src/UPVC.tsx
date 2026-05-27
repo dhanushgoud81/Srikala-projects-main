@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { PageWrapper } from './components/Shared';
 import UPVCProductDetail from './components/UPVCProductDetail';
+import { PrecisionRulerAccent } from './components/PrecisionRulerAccent';
 import { useGSAP } from './lib/useGSAP';
 import { scrollReveal, textStagger, ambient } from './lib/animations';
 import { textReveal, magnetic } from './lib/stunningAnimations';
@@ -485,7 +486,7 @@ export default function UPVC() {
           <div className="text-center mb-14">
             <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Our Range</span>
             <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-widest mb-4">We Manufacture All Types of uPVC Windows</h2>
-            <div className="w-16 h-1 bg-electric-blue mx-auto mb-6" />
+            <PrecisionRulerAccent className="my-6" />
             <p className="text-slate-500 max-w-2xl mx-auto text-base leading-relaxed">
               From casement to sliding, fixed to tilt-and-turn — each type is designed with unique features combining durability, energy efficiency, and modern design.
             </p>
@@ -580,7 +581,7 @@ export default function UPVC() {
           <div className="text-center mb-14">
             <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Profile Systems</span>
             <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-widest mb-4">Types of uPVC Profiles</h2>
-            <div className="w-16 h-1 bg-electric-blue mx-auto mb-6" />
+            <PrecisionRulerAccent className="my-6" />
             <p className="text-slate-500 max-w-2xl mx-auto text-base leading-relaxed">
               The profile is the backbone of every uPVC window. We fabricate using two primary profile systems — each engineered for specific applications and performance requirements.
             </p>
@@ -633,7 +634,7 @@ export default function UPVC() {
           <div className="text-center mb-16">
             <span className="text-[11px] font-bold text-electric-blue uppercase tracking-[0.2em] block mb-2">aluplast Surface Coatings</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 uppercase tracking-wide mb-4">Lamination Options</h2>
-            <div className="w-16 h-[3px] bg-electric-blue mx-auto mb-6" />
+            <PrecisionRulerAccent className="my-6" />
             <p className="text-slate-500 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
               Experience the dual aesthetic catalogs of aluplast GmbH. Choose between the high-tech, powder-coated look of our aluminium style finishes or the warm, texturized touch of natural woodgrains.
             </p>

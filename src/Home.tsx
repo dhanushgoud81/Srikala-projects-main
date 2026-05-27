@@ -6,6 +6,7 @@ import { DivisionCard } from './components/DivisionCard';
 import { ProjectStack } from './components/ProjectStack';
 import { CoreDivisionsHorizontal } from './components/CoreDivisionsHorizontal';
 import { ScrollReadingText } from './components/ScrollReadingText';
+import { PrecisionRulerAccent } from './components/PrecisionRulerAccent';
 import { useGSAP } from './lib/useGSAP';
 import gsap from 'gsap';
 import { parallax, ambient, scrollReveal, textStagger, animationUtils } from './lib/animations';
@@ -265,7 +266,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div ref={pillarsTitleRef} className="text-center mb-12 md:mb-16">
             <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-widest mb-4">Precision Pillars</h2>
-            <div className="w-16 h-1 bg-electric-blue mx-auto" />
+            <PrecisionRulerAccent />
           </div>
           <div ref={pillarsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {PILLARS.map((pillar, idx) => (
