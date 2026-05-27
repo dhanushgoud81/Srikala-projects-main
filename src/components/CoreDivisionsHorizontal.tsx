@@ -53,7 +53,7 @@ export const CoreDivisionsHorizontal = () => {
 
   return (
     <div className="bg-white">
-      <header className='text-slate-950 relative w-full bg-white grid place-content-center py-16 md:py-24 border-b border-slate-100'>
+      <header className='text-slate-950 relative w-full bg-white grid place-content-center pt-36 md:pt-48 pb-16 md:pb-24 border-b border-slate-100'>
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
             <h2 className="text-3xl md:text-5xl font-bold uppercase mb-4 tracking-tighter">Our Core Divisions</h2>
             <div className="w-20 h-1 bg-electric-blue mx-auto mb-6 md:mb-8" />

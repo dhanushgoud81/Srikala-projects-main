@@ -15,12 +15,32 @@ import { magnetic, textReveal, scrollEffects } from './lib/stunningAnimations';
 gsap.registerPlugin(ScrollTrigger);
 
 // ─── Static data outside component (no re-creation on render) ────────────────
-const HERO_IMAGES = [
-  '/images/home.jpeg',
-  '/images/pre-engineered.png',
-  '/images/heavy-fabrication.png',
-  '/images/structural-glazing.png',
-  '/images/upvc-hero-luxury.png'
+const HERO_SLIDES = [
+  {
+    image: '/images/home.jpeg',
+    title: 'BUILDING THE FUTURE',
+    desc: 'Precision-engineered steel structures and structural frameworks for the modern industrial landscape.'
+  },
+  {
+    image: '/images/pre-engineered.png',
+    title: 'PRE-ENGINEERED BUILDINGS',
+    desc: 'Optimized PEB structural frames designed for maximum space utilization and robust load statics.'
+  },
+  {
+    image: '/images/heavy-fabrication.png',
+    title: 'HEAVY FABRICATION',
+    desc: 'Precision fabrication and welding of heavy industrial steel blocks and complex girders.'
+  },
+  {
+    image: '/images/structural-glazing.png',
+    title: 'STRUCTURAL GLAZING',
+    desc: 'High-performance glass facades and structural glazing solutions that combine aesthetics with strength.'
+  },
+  {
+    image: '/images/upvc-hero-luxury.png',
+    title: 'LUXURY uPVC SYSTEMS',
+    desc: 'Premium uPVC window and door systems fabricated to standard international weather tightness.'
+  }
 ];
 
 const SERVICES = [
@@ -94,8 +114,8 @@ export default function Home() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 6000);
+      setCurrentImageIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 7000);
     return () => clearInterval(timer);
   }, []);
 
@@ -203,7 +223,7 @@ export default function Home() {
   return (
     <PageWrapper>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative h-screen w-full flex items-center overflow-hidden -mt-16" id="hero">
+      <section className="relative h-screen w-full flex items-center -mt-16 bg-slate-950" id="hero">
         
         <style>{`
           @keyframes kenburns {
@@ -211,15 +231,22 @@ export default function Home() {
             50% { transform: scale(1.08) translate(0.5%, -0.5%); }
             100% { transform: scale(1) translate(0, 0); }
           }
+          @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          .animate-slide-up {
+            animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+          }
         `}</style>
 
         {/* Dynamic Image Slideshow with Parallax/Ken-Burns Zoom */}
-        <div ref={heroImageRef} className="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none">
-          {HERO_IMAGES.map((src, idx) => {
+        <div ref={heroImageRef} className="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-0">
+          {HERO_SLIDES.map((slide, idx) => {
             const isActive = idx === currentImageIndex;
             return (
               <img
-                key={src}
+                key={slide.image}
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${
                   isActive ? 'opacity-100' : 'opacity-0'
                 }`}
@@ -227,7 +254,7 @@ export default function Home() {
                   animation: isActive ? 'kenburns 24s ease-in-out infinite' : 'none',
                   willChange: 'opacity, transform',
                 }}
-                src={src}
+                src={slide.image}
                 alt="Srikala Engineering Project Facade"
                 loading={idx === 0 ? "eager" : "lazy"}
               />
@@ -235,31 +262,53 @@ export default function Home() {
           })}
         </div>
 
-        <div ref={heroOverlayRef} className="absolute inset-0 bg-slate-950/70" />
+        <div ref={heroOverlayRef} className="absolute inset-0 bg-slate-950/70 z-0" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
-          <div ref={heroContentRef} className="max-w-2xl">
-            <h1
-              ref={heroTitleRef}
-              className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 md:mb-6 uppercase tracking-tighter leading-none"
+        {/* Left & Right Manual Slide Navigation Controls */}
+        <button 
+          onClick={() => setCurrentImageIndex((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
+          className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:bg-white hover:text-slate-950 hover:border-white transition-all duration-300 font-mono text-xl rounded-sm group active:scale-95 shadow-md bg-slate-950/20 backdrop-blur-sm"
+          aria-label="Previous Slide"
+        >
+          <span className="transform group-hover:-translate-x-0.5 transition-transform">←</span>
+        </button>
+        <button 
+          onClick={() => setCurrentImageIndex((prev) => (prev + 1) % HERO_SLIDES.length)}
+          className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:bg-white hover:text-slate-950 hover:border-white transition-all duration-300 font-mono text-xl rounded-sm group active:scale-95 shadow-md bg-slate-950/20 backdrop-blur-sm"
+          aria-label="Next Slide"
+        >
+          <span className="transform group-hover:translate-x-0.5 transition-transform">→</span>
+        </button>
+
+        {/* Hero Slider Content with state-keyed transitions */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pt-10">
+          <div ref={heroContentRef} className="max-w-3xl text-left">
+            <div 
+              key={currentImageIndex} 
+              className="animate-slide-up"
             >
-              Engineering Strength. Building Future.
-            </h1>
-            <p className="hero-animate text-base md:text-lg text-slate-300 mb-8 md:mb-10 max-w-lg">
-              Precision-engineered solutions for the modern industrial landscape. We specialize in
-              high-performance structures designed to withstand the test of time.
-            </p>
-            <div className="hero-animate flex flex-wrap gap-3 md:gap-4">
+              <h1
+                ref={heroTitleRef}
+                className="text-4xl sm:text-5xl md:text-[68px] font-black text-white mb-5 md:mb-7 uppercase tracking-tight leading-[0.95]"
+              >
+                {HERO_SLIDES[currentImageIndex].title}
+              </h1>
+              <p className="text-base md:text-[17.5px] text-slate-300 mb-8 md:mb-12 max-w-xl leading-relaxed">
+                {HERO_SLIDES[currentImageIndex].desc}
+              </p>
+            </div>
+            
+            <div className="hero-animate flex flex-wrap gap-3 md:gap-4 mt-4">
               <button
                 ref={heroCTARef}
                 onClick={() => navigate('/contact')}
-                className="relative bg-electric-blue text-white px-7 md:px-10 py-3 md:py-4 text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-200 overflow-hidden"
+                className="relative bg-electric-blue text-white px-7 md:px-10 py-3.5 md:py-4 text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform duration-200 overflow-hidden"
               >
                 GET QUOTE
               </button>
               <button
                 onClick={() => navigate('/solutions')}
-                className="border-2 border-white/50 backdrop-blur-sm text-white px-7 md:px-10 py-3 md:py-4 text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-200"
+                className="border-2 border-white/50 backdrop-blur-sm text-white px-7 md:px-10 py-3.5 md:py-4 text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-200"
               >
                 EXPLORE SERVICES
               </button>
@@ -267,11 +316,49 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
-          <span className="text-[10px] uppercase tracking-widest">Scroll</span>
-          <div className="w-px h-10 bg-white/20 animate-pulse" />
+        {/* ─── Bottom Section Overlapping Cards ─── */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-full max-w-7xl px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-6 z-30 pointer-events-auto">
+          {[
+            {
+              src: '/images/pre-engineered.png',
+              title: 'Pre-Engineered Buildings',
+              desc: 'High-strength structural steel warehouses & PEB frame projects.',
+            },
+            {
+              src: '/images/heavy-fabrication.png',
+              title: 'Heavy Fabrication',
+              desc: 'Precision structural steel blocks, custom welding, & plate frameworks.',
+            },
+            {
+              src: '/images/structural-glazing.png',
+              title: 'Structural Glazing',
+              desc: 'Architectural glass wall facades & modern luxury uPVC systems.',
+            }
+          ].map((card, idx) => (
+            <div 
+              key={idx}
+              className="bg-white border-[7px] border-white shadow-[0_15px_35px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
+            >
+              <div className="overflow-hidden aspect-[4/3] relative bg-slate-100">
+                <img 
+                  src={card.src} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
+                  alt={card.title}
+                />
+                <div className="absolute inset-0 bg-slate-950/5 group-hover:bg-slate-950/0 transition-colors duration-300" />
+              </div>
+              <div className="p-5 text-left bg-white border-t border-slate-100/60">
+                <h4 className="font-extrabold text-slate-800 text-xs sm:text-[13px] uppercase tracking-wider group-hover:text-electric-blue transition-colors">
+                  {card.title}
+                </h4>
+                <p className="text-slate-550 text-[11px] font-medium leading-relaxed mt-1">
+                  {card.desc}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
+
       </section>
 
       {/* ── Core Divisions ───────────────────────────────────────────────── */}
