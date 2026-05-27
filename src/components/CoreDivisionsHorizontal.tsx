@@ -74,10 +74,7 @@ export const CoreDivisionsHorizontal = () => {
               key={index} 
               className={`w-full py-20 md:py-28 ${service.color} overflow-hidden relative flex items-center min-h-[50vh]`}
             >
-              {/* Background large text outline */}
-              <h2 className='hidden md:block absolute text-[8vw] font-black tracking-tighter uppercase whitespace-nowrap text-white/5 top-1/2 -translate-y-1/2 left-10 select-none pointer-events-none z-0'>
-                {service.title}
-              </h2>
+
 
               <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
                 <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-16`}>
