@@ -253,6 +253,46 @@ export default function Home() {
           .animate-slide-up {
             animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
           }
+
+          /* Optimize for shorter viewport heights to prevent card collision */
+          @media (max-height: 800px) {
+            #hero {
+              padding-top: 6rem !important;
+            }
+            #hero h1 {
+              font-size: 2.75rem !important;
+              margin-bottom: 0.75rem !important;
+              line-height: 1.1 !important;
+            }
+            #hero p {
+              font-size: 0.9rem !important;
+              margin-bottom: 1.5rem !important;
+              max-width: 500px !important;
+            }
+            #hero button {
+              padding: 0.75rem 1.5rem !important;
+              font-size: 11px !important;
+            }
+          }
+
+          @media (max-height: 680px) {
+            #hero {
+              padding-top: 5rem !important;
+            }
+            #hero h1 {
+              font-size: 2.25rem !important;
+              margin-bottom: 0.5rem !important;
+            }
+            #hero p {
+              font-size: 0.85rem !important;
+              margin-bottom: 1rem !important;
+              max-width: 450px !important;
+            }
+            #hero button {
+              padding: 0.65rem 1.25rem !important;
+              font-size: 10.5px !important;
+            }
+          }
         `}</style>
 
         {/* Dynamic Image Slideshow with Parallax/Ken-Burns Zoom (Three-Layered Paper-Dragging reveal) */}
