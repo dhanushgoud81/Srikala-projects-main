@@ -7,6 +7,7 @@ import {
 import { PageWrapper } from './components/Shared';
 import UPVCProductDetail from './components/UPVCProductDetail';
 import { PrecisionRulerAccent } from './components/PrecisionRulerAccent';
+import { PrecisionFactory3D } from './components/PrecisionFactory3D';
 import { useGSAP } from './lib/useGSAP';
 import { scrollReveal, textStagger, ambient } from './lib/animations';
 import { textReveal, magnetic } from './lib/stunningAnimations';
@@ -557,6 +558,9 @@ export default function UPVC() {
           </div>
         </div>
       </section>
+
+      {/* ── Smart Manufacturing Flow ────────────────────────────────────── */}
+      <PrecisionFactory3D />
 
       {/* ── Profile Types ─────────────────────────────────────────────────── */}
       <section className="py-20 md:py-24 bg-white" id="upvc-profiles">
