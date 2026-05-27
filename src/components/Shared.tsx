@@ -103,7 +103,7 @@ export const Navbar = () => {
             <Factory className="text-[#1b1c1e] w-5 h-5" />
           </div>
           <span className="text-xl font-oswald font-bold tracking-tight text-white uppercase sm:block hidden">
-            SRIKALA <span className="text-baumeister-yellow group-hover:text-white transition-colors duration-300">PROJECTS</span>
+            <span className="text-baumeister-yellow group-hover:text-white transition-colors duration-300">SRIKALA</span> PROJECTS
           </span>
         </button>
 
@@ -118,7 +118,7 @@ export const Navbar = () => {
                 'after:content-[""] after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:bg-baumeister-yellow after:transition-all after:duration-300',
                 pathname === item.path
                   ? 'text-baumeister-yellow after:w-full'
-                  : 'text-slate-350 hover:text-baumeister-yellow after:w-0 hover:after:w-full'
+                  : 'text-white hover:text-baumeister-yellow after:w-0 hover:after:w-full'
               )}
             >
               {item.label}

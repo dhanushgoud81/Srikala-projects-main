@@ -50,8 +50,6 @@
   --radius-md: 0.375rem;
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
-
-  --spacing-xl: 80px;
 }
 
 @layer base {

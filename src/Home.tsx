@@ -294,7 +294,7 @@ export default function Home() {
               >
                 {HERO_SLIDES[currentImageIndex].title}
               </h1>
-              <p className="text-base md:text-[17.5px] text-slate-350 mb-8 md:mb-12 max-w-xl leading-relaxed">
+              <p className="w-full max-w-[600px] text-base md:text-[17.5px] text-slate-200 mb-8 md:mb-12 leading-relaxed">
                 {HERO_SLIDES[currentImageIndex].desc}
               </p>
             </div>
