@@ -254,34 +254,103 @@ export default function Home() {
           }
         `}</style>
 
-        {/* Dynamic Image Slideshow with Parallax/Ken-Burns Zoom */}
+        {/* Dynamic Image Slideshow with Parallax/Ken-Burns Zoom (Three-Layered Paper-Dragging reveal) */}
         <div ref={heroImageRef} className="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-0">
           {HERO_SLIDES.map((slide, idx) => {
             const isActive = idx === currentImageIndex;
             const isPrev   = idx === prevImageIndex;
             
-            let translationClass = 'translate-x-full opacity-0 z-0';
+            // Calculate advanced tactile paper-dragging styles
+            let outerTransform = 'translateX(100%)';
+            let outerOpacity = 0;
+            let outerZIndex = 0;
+            let outerShadow = 'none';
+            let outerBorderRight = 'none';
+            let outerBorderLeft = 'none';
+            let innerTransform = 'translateX(-100%)';
+
+            const hasPrev = prevImageIndex !== -1;
+
             if (isActive) {
-              translationClass = 'translate-x-0 opacity-100 z-10';
-            } else if (isPrev) {
-              translationClass = direction === 'next' ? '-translate-x-full opacity-0 z-0' : 'translate-x-full opacity-0 z-0';
+              outerTransform = 'translateX(0%)';
+              outerOpacity = 1;
+              outerZIndex = 20;
+              innerTransform = 'translateX(0%)';
+              
+              if (direction === 'next') {
+                // Dragging paper from left to right (enters from left)
+                outerShadow = '20px 0 50px rgba(0, 0, 0, 0.95), 10px 0 20px rgba(0, 0, 0, 0.7), 5px 0 10px rgba(0, 0, 0, 0.4)';
+                outerBorderRight = '1px solid rgba(255, 255, 255, 0.25)';
+              } else {
+                // Dragging paper from right to left (enters from right)
+                outerShadow = '-20px 0 50px rgba(0, 0, 0, 0.95), -10px 0 20px rgba(0, 0, 0, 0.7), -5px 0 10px rgba(0, 0, 0, 0.4)';
+                outerBorderLeft = '1px solid rgba(255, 255, 255, 0.25)';
+              }
+            } else if (isPrev && hasPrev) {
+              outerOpacity = 1; // Keep visible while animating out
+              outerZIndex = 10; // Underneath active slide
+              
+              if (direction === 'next') {
+                // Exits to the right (following the left-to-right sweep)
+                outerTransform = 'translateX(100%)';
+                innerTransform = 'translateX(-100%)';
+              } else {
+                // Exits to the left (following the right-to-left sweep)
+                outerTransform = 'translateX(-100%)';
+                innerTransform = 'translateX(100%)';
+              }
             } else {
-              translationClass = idx > currentImageIndex ? 'translate-x-full opacity-0 z-0' : '-translate-x-full opacity-0 z-0';
+              // Idle slides are pre-positioned offscreen depending on direction
+              outerZIndex = 0;
+              outerOpacity = 0;
+              if (direction === 'next') {
+                outerTransform = 'translateX(-100%)';
+                innerTransform = 'translateX(100%)';
+              } else {
+                outerTransform = 'translateX(100%)';
+                innerTransform = 'translateX(-100%)';
+              }
             }
 
             return (
-              <img
+              <div
                 key={slide.image}
-                className={`absolute inset-0 w-full h-full object-cover transform transition-all duration-[1200ms] ease-out ${translationClass}`}
+                className="absolute inset-0 w-full h-full overflow-hidden"
                 style={{
-                  transition: 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease-in-out',
-                  animation: isActive ? 'kenburns 24s ease-in-out infinite' : 'none',
-                  willChange: 'opacity, transform',
+                  transform: outerTransform,
+                  opacity: outerOpacity,
+                  zIndex: outerZIndex,
+                  boxShadow: outerShadow,
+                  borderRight: outerBorderRight,
+                  borderLeft: outerBorderLeft,
+                  transition: !hasPrev 
+                    ? 'none' 
+                    : 'transform 1500ms cubic-bezier(0.16, 1, 0.3, 1), opacity 1500ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 1500ms ease-out',
                 }}
-                src={slide.image}
-                alt="Srikala Engineering Project Facade"
-                loading={idx === 0 ? "eager" : "lazy"}
-              />
+              >
+                {/* Middle Counter-Parallax Mask */}
+                <div
+                  className="w-full h-full overflow-hidden"
+                  style={{
+                    transform: innerTransform,
+                    transition: !hasPrev 
+                      ? 'none' 
+                      : 'transform 1500ms cubic-bezier(0.16, 1, 0.3, 1)',
+                  }}
+                >
+                  {/* Inner Image with Ken-Burns Zoom */}
+                  <img
+                    className="w-full h-full object-cover scale-110"
+                    style={{
+                      animation: isActive ? 'kenburns 24s ease-in-out infinite' : 'none',
+                      willChange: 'opacity, transform',
+                    }}
+                    src={slide.image}
+                    alt="Srikala Engineering Project Facade"
+                    loading={idx === 0 ? "eager" : "lazy"}
+                  />
+                </div>
+              </div>
             );
           })}
         </div>
