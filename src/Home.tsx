@@ -238,7 +238,7 @@ export default function Home() {
   return (
     <PageWrapper>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative h-screen w-full flex items-start pt-20 sm:pt-32 md:pt-40 bg-slate-950" id="hero">
+      <section className="relative h-screen w-full flex items-start pt-20 sm:pt-32 md:pt-40 -mt-16 lg:-mt-26 bg-slate-950" id="hero">
         
         <style>{`
           @keyframes kenburns {
