@@ -7,7 +7,6 @@ import {
 import { PageWrapper } from './components/Shared';
 import UPVCProductDetail from './components/UPVCProductDetail';
 import { PrecisionRulerAccent } from './components/PrecisionRulerAccent';
-import { PrecisionFactory3D } from './components/PrecisionFactory3D';
 import { useGSAP } from './lib/useGSAP';
 import { scrollReveal, textStagger, ambient } from './lib/animations';
 import { textReveal, magnetic } from './lib/stunningAnimations';
@@ -408,6 +407,145 @@ function WindowModal({ win, onClose }: { win: typeof WINDOW_TYPES[0]; onClose: (
   );
 }
 
+interface WindowTypeColumnProps {
+  w: typeof WINDOW_TYPES[0];
+  i: number;
+  hoveredIndex: number | null;
+  setHoveredIndex: (idx: number | null) => void;
+  setSelectedProduct: (name: string) => void;
+}
+
+const WindowTypeColumn: React.FC<WindowTypeColumnProps> = ({
+  w,
+  i,
+  hoveredIndex,
+  setHoveredIndex,
+  setSelectedProduct,
+}) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 });
+
+  const isHovered = hoveredIndex === i;
+  const isAnyHovered = hoveredIndex !== null;
+
+  const flexStyle = isHovered 
+    ? 'flex-[4.5]' 
+    : isAnyHovered 
+      ? 'flex-[0.5]' 
+      : 'flex-1';
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isHovered) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const xc = rect.width / 2;
+    const yc = rect.height / 2;
+
+    const rotX = -((y - yc) / yc) * 8; 
+    const rotY = ((x - xc) / xc) * 8;
+
+    setTilt({ x: rotX, y: rotY });
+    setGlare({
+      x: (x / rect.width) * 100,
+      y: (y / rect.height) * 100,
+      opacity: 0.2
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+    setTilt({ x: 0, y: 0 });
+    setGlare(prev => ({ ...prev, opacity: 0 }));
+  };
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseEnter={() => setHoveredIndex(i)}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onClick={() => setHoveredIndex(isHovered ? null : i)}
+      className={`types-column opacity-0 scale-95 translate-y-12 relative overflow-hidden transition-all duration-500 ease-out cursor-pointer group h-full ${flexStyle}`}
+      style={{
+        perspective: 1000,
+        transformStyle: 'preserve-3d',
+        transform: isHovered ? `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)` : 'none',
+        transition: tilt.x === 0 && tilt.y === 0 ? 'transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), flex 0.5s ease-out' : 'flex 0.5s ease-out',
+        willChange: 'transform, flex'
+      }}
+    >
+      {/* Glare effect overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-30"
+        style={{
+          background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(0, 95, 184, 0.25) 0%, transparent 60%)`,
+          opacity: isHovered ? glare.opacity : 0
+        }}
+      />
+
+      {/* Background Image */}
+      <img 
+        src={w.img} 
+        alt={w.title} 
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+      />
+      
+      {/* Ambient overlay shadows (darker on hover for readability) */}
+      <div className={`absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent transition-opacity duration-500 ${
+        isHovered ? 'opacity-85' : 'opacity-65'
+      }`} />
+
+      {/* Vertical Title (Shown on Desktop when NOT hovered) */}
+      <div className={`absolute inset-0 hidden lg:flex items-center justify-center transition-all duration-500 ${
+        isHovered ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
+      }`}>
+        <span 
+          className="text-white text-lg md:text-xl font-extrabold uppercase tracking-widest whitespace-nowrap select-none border-b-2 border-white/40 pb-3"
+          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+        >
+          {w.title}
+        </span>
+      </div>
+
+      {/* Mobile Title (Shown on Small Screens when NOT hovered) */}
+      <div className={`absolute inset-0 flex lg:hidden items-center justify-center transition-all duration-500 ${
+        isHovered ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
+      }`}>
+        <span className="text-white text-base font-black uppercase tracking-wider select-none border-b border-white/30 pb-1">
+          {w.title}
+        </span>
+      </div>
+
+      {/* Horizontal Detailed Description Content (Fades in when hovered) */}
+      <div className={`absolute inset-0 flex flex-col justify-end p-6 md:p-10 transition-all duration-500 ${
+        isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+      }`}>
+        <span className="text-[10px] font-bold text-electric-blue uppercase tracking-[0.25em] block mb-2">
+          WINDOW TYPE {w.num}
+        </span>
+        <h3 className="text-white text-2xl md:text-3xl font-black uppercase tracking-tight mb-3">
+          {w.title}
+        </h3>
+        <p className="text-slate-300 text-xs md:text-sm leading-relaxed mb-6 max-w-md">
+          {w.desc}
+        </p>
+        <button 
+          onClick={(e) => {
+            e.stopPropagation();
+            setSelectedProduct(w.title);
+          }} 
+          className="w-fit bg-electric-blue text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:bg-blue-600 transition-colors shadow-lg animate-pulse"
+        >
+          KNOW MORE
+        </button>
+      </div>
+    </div>
+  );
+};
+
 export default function UPVC() {
   const navigate = useNavigate();
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
@@ -419,12 +557,59 @@ export default function UPVC() {
   const heroTitleRef   = useRef<HTMLHeadingElement>(null);
   const heroCTARef     = useRef<HTMLButtonElement>(null);
 
+  const scanSectionRef = useRef<HTMLDivElement>(null);
+  const scanLineRef    = useRef<HTMLDivElement>(null);
+  const dotGridRef     = useRef<HTMLDivElement>(null);
+
   useGSAP(() => {
     if (heroImageRef.current)   ambient.scale(heroImageRef.current, { from: 1, to: 1.12 });
     if (heroOverlayRef.current) ambient.fade(heroOverlayRef.current, { from: 0.7, to: 0.9 });
     if (heroContentRef.current) textStagger.fadeInUp(heroContentRef.current.querySelectorAll('.hero-animate'), { stagger: 0.2, delay: 0.3 });
     if (heroTitleRef.current)   textReveal.splitChars(heroTitleRef.current, { stagger: 0.025, duration: 0.8, ease: 'back.out(1.7)', from: 'bottom' });
-    if (heroCTARef.current)     return magnetic.button(heroCTARef.current, 0.3);
+    if (heroCTARef.current)     magnetic.button(heroCTARef.current, 0.3);
+
+    // Laser Scroll Scanner & Snap-to-Grid Coordinate Entrance Timeline
+    if (scanSectionRef.current && scanLineRef.current) {
+      const columns = scanSectionRef.current.querySelectorAll('.types-column');
+      
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: scanSectionRef.current,
+          start: 'top 70%',
+          toggleActions: 'play none none none',
+        }
+      });
+
+      // 1. Draw in the fine technical dot-matrix blueprint grid backdrop
+      if (dotGridRef.current) {
+        tl.fromTo(dotGridRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.8, ease: 'power2.out' }
+        );
+      }
+
+      // 2. Sweeps down the full-width glowing electric-blue laser line
+      tl.fromTo(scanLineRef.current,
+        { top: '0%', opacity: 0 },
+        { top: '100%', opacity: 1, duration: 1.6, ease: 'power2.inOut' },
+        '-=0.6'
+      )
+      .to(scanLineRef.current, { opacity: 0, duration: 0.25 }, '-=0.2');
+
+      // 3. Staggered reveal and snap-to-grid entrance of window cards
+      tl.fromTo(columns,
+        { opacity: 0, scale: 0.92, y: 50 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          stagger: 0.12,
+          duration: 1.0,
+          ease: 'back.out(1.5)', // structural spring-back magnetic bounce
+        },
+        '-=1.4' // sync to animate as the scanner sweeps past
+      );
+    }
   }, []);
 
   if (selectedProduct) {
@@ -465,8 +650,26 @@ export default function UPVC() {
 
 
       {/* ── Types of Windows ──────────────────────────────────────────────── */}
-      <section className="py-20 md:py-24 bg-slate-50" id="upvc-types">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <section ref={scanSectionRef} className="py-20 md:py-24 bg-slate-50 relative overflow-hidden" id="upvc-types">
+        {/* Fine technical dot-matrix blueprint grid backdrop */}
+        <div 
+          ref={dotGridRef}
+          className="absolute inset-0 pointer-events-none opacity-0 z-0" 
+          style={{
+            backgroundImage: 'radial-gradient(rgba(0, 95, 184, 0.12) 1px, transparent 1px)',
+            backgroundSize: '24px 24px',
+          }}
+        />
+        {/* Glowing electric-blue blueprint scanner line */}
+        <div 
+          ref={scanLineRef} 
+          className="absolute left-0 w-full h-[3px] bg-electric-blue z-30 pointer-events-none opacity-0"
+          style={{
+            top: '0%',
+            boxShadow: '0 0 12px #005fb8, 0 0 24px rgba(0, 95, 184, 0.8), 0 0 36px rgba(0, 95, 184, 0.4)',
+          }}
+        />
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="text-center mb-14">
             <span className="text-xs font-bold text-electric-blue uppercase tracking-widest block mb-4">Our Range</span>
             <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-widest mb-4">We Manufacture All Types of uPVC Windows</h2>
@@ -475,92 +678,20 @@ export default function UPVC() {
               From casement to sliding, fixed to tilt-and-turn — each type is designed with unique features combining durability, energy efficiency, and modern design.
             </p>
           </div>
-          <div className="flex flex-col lg:flex-row w-full h-[700px] lg:h-[600px] overflow-hidden rounded-2xl gap-2 shadow-2xl bg-slate-900">
-            {WINDOW_TYPES.map((w, i) => {
-              const isHovered = hoveredIndex === i;
-              const isAnyHovered = hoveredIndex !== null;
-              
-              // On desktop: dynamic flex grow sizer
-              // On mobile: active panel stretches vertically
-              const flexStyle = isHovered 
-                ? 'flex-[4.5]' 
-                : isAnyHovered 
-                  ? 'flex-[0.5]' 
-                  : 'flex-1';
-
-              return (
-                <div
-                  key={i}
-                  onMouseEnter={() => setHoveredIndex(i)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  onClick={() => setHoveredIndex(isHovered ? null : i)}
-                  className={`relative overflow-hidden transition-all duration-500 ease-out cursor-pointer group h-full ${flexStyle}`}
-                >
-                  {/* Background Image */}
-                  <img 
-                    src={w.img} 
-                    alt={w.title} 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                  />
-                  
-                  {/* Ambient overlay shadows (darker on hover for readability) */}
-                  <div className={`absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent transition-opacity duration-500 ${
-                    isHovered ? 'opacity-85' : 'opacity-65'
-                  }`} />
-
-                  {/* Vertical Title (Shown on Desktop when NOT hovered) */}
-                  <div className={`absolute inset-0 hidden lg:flex items-center justify-center transition-all duration-500 ${
-                    isHovered ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
-                  }`}>
-                    <span 
-                      className="text-white text-lg md:text-xl font-extrabold uppercase tracking-widest whitespace-nowrap select-none border-b-2 border-white/40 pb-3"
-                      style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-                    >
-                      {w.title}
-                    </span>
-                  </div>
-
-                  {/* Mobile Title (Shown on Small Screens when NOT hovered) */}
-                  <div className={`absolute inset-0 flex lg:hidden items-center justify-center transition-all duration-500 ${
-                    isHovered ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
-                  }`}>
-                    <span className="text-white text-base font-black uppercase tracking-wider select-none border-b border-white/30 pb-1">
-                      {w.title}
-                    </span>
-                  </div>
-
-                  {/* Horizontal Detailed Description Content (Fades in when hovered) */}
-                  <div className={`absolute inset-0 flex flex-col justify-end p-6 md:p-10 transition-all duration-500 ${
-                    isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
-                  }`}>
-                    <span className="text-[10px] font-bold text-electric-blue uppercase tracking-[0.25em] block mb-2">
-                      WINDOW TYPE {w.num}
-                    </span>
-                    <h3 className="text-white text-2xl md:text-3xl font-black uppercase tracking-tight mb-3">
-                      {w.title}
-                    </h3>
-                    <p className="text-slate-300 text-xs md:text-sm leading-relaxed mb-6 max-w-md">
-                      {w.desc}
-                    </p>
-                    <button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedProduct(w.title);
-                      }} 
-                      className="w-fit bg-electric-blue text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:bg-blue-600 transition-colors shadow-lg animate-pulse"
-                    >
-                      KNOW MORE
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="relative z-10 flex flex-col lg:flex-row w-full h-[700px] lg:h-[600px] overflow-hidden rounded-2xl gap-2 shadow-2xl bg-slate-900">
+            {WINDOW_TYPES.map((w, i) => (
+              <WindowTypeColumn
+                key={i}
+                w={w}
+                i={i}
+                hoveredIndex={hoveredIndex}
+                setHoveredIndex={setHoveredIndex}
+                setSelectedProduct={setSelectedProduct}
+              />
+            ))}
           </div>
         </div>
       </section>
-
-      {/* ── Smart Manufacturing Flow ────────────────────────────────────── */}
-      <PrecisionFactory3D />
 
       {/* ── Profile Types ─────────────────────────────────────────────────── */}
       <section className="py-20 md:py-24 bg-white" id="upvc-profiles">
