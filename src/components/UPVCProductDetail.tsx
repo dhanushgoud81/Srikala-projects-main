@@ -35,6 +35,39 @@ const CAD_GRID_PATTERN_LIGHT = (
   </defs>
 );
 
+const HOTSPOTS = [
+  {
+    id: 1,
+    title: 'EPDM WEATHER GASKETS',
+    desc: 'Double compression seals certified EN 12208 for 100% wind & rainwater tightness.',
+    top: '38%',
+    left: '26%',
+    tagTop: '18%',
+    tagLeft: '22%',
+    linePath: 'M 26 38 L 22 18'
+  },
+  {
+    id: 2,
+    title: 'DOUBLE GLAZED UNIT',
+    desc: '24mm Argon filled glass chambers supporting sound attenuation up to 45 dB.',
+    top: '28%',
+    left: '58%',
+    tagTop: '12%',
+    tagLeft: '72%',
+    linePath: 'M 58 28 L 72 12'
+  },
+  {
+    id: 3,
+    title: 'MULTI-CHAMBER PROFILE',
+    desc: 'Patented aluplast tropicalised uPVC core achieving thermal value Uf = 1.3 W/m²K.',
+    top: '64%',
+    left: '42%',
+    tagTop: '82%',
+    tagLeft: '50%',
+    linePath: 'M 42 64 L 50 82'
+  }
+];
+
 const SVG_SLIDING_4PANEL = (
   <svg viewBox="0 0 100 80" className="w-full h-full stroke-slate-400 fill-none stroke-[1.2]">
     {CAD_GRID_PATTERN_LIGHT}
@@ -394,6 +427,7 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
   const [activeAngleIndex, setActiveAngleIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
   const dragStartX = useRef(0);
   const initialAngle = useRef(0);
 
@@ -406,6 +440,7 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
   // Reset active angle when product changes
   useEffect(() => {
     setActiveAngleIndex(0);
+    setActiveHotspot(null);
   }, [productName]);
 
   // Trigger smooth scroll to top and GSAP reveal animations when product changes
@@ -593,6 +628,16 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
               className="relative bg-white border border-slate-200/80 p-10 shadow-[0_15px_40px_rgba(0,0,0,0.03)] rounded-2xl flex items-center justify-center aspect-square overflow-hidden group cursor-grab active:cursor-grabbing select-none"
               style={{ perspective: 1000 }}
             >
+              <style>{`
+                @keyframes drawPath {
+                  to { stroke-dashoffset: 0; }
+                }
+                @keyframes fadeCard {
+                  from { opacity: 0; transform: translate(-50%, -40%); }
+                  to { opacity: 1; transform: translate(-50%, -50%); }
+                }
+              `}</style>
+
               {/* Soft warm solar insulation glow backdrop */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,95,184,0.03)_0%,transparent_60%)] animate-pulse pointer-events-none" />
               
@@ -606,11 +651,82 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
                   transition: isDragging ? 'none' : 'transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1)',
                 }}
               />
+
+              {/* Pulsing CAD hotspots with draw-in SVG leader lines */}
+              {HOTSPOTS.map((spot) => {
+                const isActive = activeHotspot === spot.id;
+                return (
+                  <React.Fragment key={spot.id}>
+                    {/* Pulsing Hotspot Target Button */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation(); // prevent rotation triggering
+                        setActiveHotspot(isActive ? null : spot.id);
+                      }}
+                      className="absolute w-6 h-6 -translate-x-1/2 -translate-y-1/2 z-20 group/spot cursor-pointer"
+                      style={{ top: spot.top, left: spot.left }}
+                      aria-label={`Inspect ${spot.title}`}
+                    >
+                      <span className="absolute inset-0 rounded-full bg-[#005fb8]/30 animate-ping" />
+                      <span className={`absolute inset-1 rounded-full flex items-center justify-center border text-[9px] font-black transition-all ${
+                        isActive 
+                          ? 'bg-[#005fb8] text-white border-white scale-110 shadow-lg' 
+                          : 'bg-white text-[#005fb8] border-[#005fb8]/35 group-hover/spot:scale-110'
+                      }`}>
+                        +
+                      </span>
+                    </button>
+
+                    {/* Leader Line SVG */}
+                    {isActive && (
+                      <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
+                        {/* Shadow line */}
+                        <path
+                          d={spot.linePath.replace(/([0-9]+)/g, '$1%')}
+                          fill="none"
+                          stroke="rgba(0, 0, 0, 0.08)"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                        />
+                        {/* Active blue line */}
+                        <path
+                          d={spot.linePath.replace(/([0-9]+)/g, '$1%')}
+                          fill="none"
+                          stroke="#005fb8"
+                          strokeWidth="1.25"
+                          strokeLinecap="round"
+                          strokeDasharray="100"
+                          strokeDashoffset="100"
+                          style={{
+                            animation: 'drawPath 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards'
+                          }}
+                        />
+                      </svg>
+                    )}
+
+                    {/* Floating Spec Tag Card */}
+                    {isActive && (
+                      <div
+                        className="absolute z-20 w-48 bg-slate-950/95 backdrop-blur-md border border-white/10 p-3 rounded-lg shadow-xl text-left pointer-events-auto -translate-x-1/2 -translate-y-1/2 select-none"
+                        style={{ 
+                          top: spot.tagTop, 
+                          left: spot.tagLeft,
+                          animation: 'fadeCard 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards'
+                        }}
+                      >
+                        <span className="text-[7px] font-black text-cyan-450 uppercase tracking-[0.2em] block mb-0.5">CAD SPECIFICATION</span>
+                        <h5 className="text-white font-extrabold text-[9px] uppercase tracking-wide leading-tight mb-1">{spot.title}</h5>
+                        <p className="text-slate-400 text-[8px] leading-normal">{spot.desc}</p>
+                      </div>
+                    )}
+                  </React.Fragment>
+                );
+              })}
               
               {/* Interactive Cockpit HUD Status Overlay */}
               <div className="absolute bottom-4 left-4 bg-slate-900/90 backdrop-blur-sm text-[8px] font-black tracking-widest px-3.5 py-2 uppercase rounded-full border border-white/5 text-white flex items-center gap-2 shadow-md pointer-events-none transition-all duration-300">
                 <Move className={`w-3 h-3 text-cyan-400 ${isDragging ? 'animate-ping' : ''}`} />
-                {isDragging ? 'Dragging to Rotate...' : 'Interactive 3D Render - Drag to Spin'}
+                {isDragging ? 'Dragging to Rotate...' : activeHotspot !== null ? 'CAD Spec Active - Click + to Close' : 'Interactive 3D Render - Drag to Spin'}
               </div>
             </div>
             
@@ -721,11 +837,12 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
               {detail.options.map((option, i) => (
                 <div 
                   key={i} 
-                  className="min-w-[280px] md:min-w-[310px] flex-shrink-0 flex flex-col items-center gap-4 bg-white border border-slate-200/80 hover:border-[#005fb8]/30 p-6 rounded-sm shadow-[0_8px_30px_rgba(0,0,0,0.02)] transition-all duration-300 group"
+                  className="min-w-[280px] md:min-w-[310px] flex-shrink-0 flex flex-col items-center gap-4 bg-white/65 backdrop-blur-md border border-slate-200/60 hover:border-[#005fb8]/40 p-6 rounded-sm shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_45px_rgba(0,95,184,0.05)] transition-all duration-500 group"
                   style={{ scrollSnapAlign: 'start' }}
                 >
-                  {/* Schematic card container (Light CAD grid background) */}
-                  <div className="w-full h-48 bg-slate-50 border border-slate-100 flex items-center justify-center rounded-sm relative overflow-hidden select-none">
+                  {/* Schematic card container (Light CAD blueprint dot grid background) */}
+                  <div className="w-full h-48 bg-slate-50/50 border border-slate-200/50 flex items-center justify-center rounded-sm relative overflow-hidden select-none"
+                       style={{ backgroundImage: 'radial-gradient(#005fb8 0.75px, transparent 0.75px)', backgroundSize: '12px 12px' }}>
                     {option.svgPath}
                   </div>
                   {/* Centered bold capitalized text */}

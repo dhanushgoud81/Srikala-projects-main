@@ -3,6 +3,7 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { Navbar, Footer } from './components/Shared';
 import { ScrollToTop } from './components/ScrollToTop';
 import { AccessibilityWidget } from './components/AccessibilityWidget';
+import { CADMouseFollower } from './components/CADMouseFollower';
 import Home from './Home';
 import Solutions from './Solutions';
 import Contact from './Contact';
@@ -41,6 +42,7 @@ export default function App() {
 
       <ScrollToTop />
       <AccessibilityWidget />
+      <CADMouseFollower />
 
       <Footer />
     </div>
