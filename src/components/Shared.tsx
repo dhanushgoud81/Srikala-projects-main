@@ -287,14 +287,11 @@ export const Footer = () => {
 };
 
 export const PageWrapper = ({ children }: { children: React.ReactNode }) => {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // No-op
-  }, []);
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
 
   return (
-    <div ref={wrapperRef} className="min-h-screen pt-16 lg:pt-26">
+    <div className={cn("min-h-screen", isHome ? "pt-0" : "pt-16 lg:pt-26")}>
       {children}
     </div>
   );
