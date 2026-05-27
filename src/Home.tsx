@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Shield, Rocket, Truck, Verified, Square, Box, Factory, Layers, Grid3X3 } from 'lucide-react';
 import { PageWrapper } from './components/Shared';
 import { DivisionCard } from './components/DivisionCard';
-import { ProjectStack } from './components/ProjectStack';
 import { CoreDivisionsHorizontal } from './components/CoreDivisionsHorizontal';
 import { ScrollReadingText } from './components/ScrollReadingText';
 import { PrecisionRulerAccent } from './components/PrecisionRulerAccent';
@@ -258,8 +257,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Featured Projects Carousel ────────────────────────────────────── */}
-      <ProjectStack />
+
 
       {/* ── Precision Pillars ────────────────────────────────────────────── */}
       <section className="py-24 bg-white" id="pillars">
