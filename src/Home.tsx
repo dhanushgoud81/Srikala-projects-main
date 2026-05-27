@@ -8,8 +8,11 @@ import { ScrollReadingText } from './components/ScrollReadingText';
 import { PrecisionRulerAccent } from './components/PrecisionRulerAccent';
 import { useGSAP } from './lib/useGSAP';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { parallax, ambient, scrollReveal, textStagger, animationUtils } from './lib/animations';
 import { magnetic, textReveal, scrollEffects } from './lib/stunningAnimations';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // ─── Static data outside component (no re-creation on render) ────────────────
 const HERO_IMAGES = [
@@ -97,20 +100,56 @@ export default function Home() {
   }, []);
 
   useGSAP(() => {
-    // Background layer
+    // Pinned Hero Section scroll reveal effect (replicating Baumeister Qode Slider)
+    ScrollTrigger.create({
+      trigger: '#hero',
+      start: 'top top',
+      end: 'bottom top',
+      pin: true,
+      pinSpacing: false,
+    });
+
+    // Parallax & Fade timeline scrubbed on scroll
+    const heroTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      }
+    });
+
     if (heroImageRef.current) {
+      // Intended exit opacity fade
       gsap.fromTo(heroImageRef.current, { opacity: 0 }, { opacity: 1, duration: 1.5, ease: 'power2.out' });
+      
+      heroTl.to(heroImageRef.current, {
+        yPercent: 20,
+        scale: 0.96,
+        ease: 'none'
+      }, 0);
     }
 
     // Overlay fade
     if (heroOverlayRef.current) {
       ambient.fade(heroOverlayRef.current, { from: 0.7, to: 0.9 });
+      
+      heroTl.to(heroOverlayRef.current, {
+        opacity: 0.95,
+        ease: 'none'
+      }, 0);
     }
 
     // Hero content stagger
     if (heroContentRef.current) {
       const els = heroContentRef.current.querySelectorAll('.hero-animate');
       textStagger.fadeInUp(els, { stagger: 0.2, delay: 0.3 });
+      
+      heroTl.to(heroContentRef.current, {
+        y: -125,
+        opacity: 0,
+        ease: 'none'
+      }, 0);
     }
 
     // Character-by-character title
