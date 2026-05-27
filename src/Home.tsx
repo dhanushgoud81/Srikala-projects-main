@@ -158,9 +158,6 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <div ref={heroContentRef} className="max-w-2xl">
-            <span className="hero-animate text-electric-blue font-semibold tracking-[0.3em] uppercase mb-4 block text-xs">
-              Engineered for Excellence
-            </span>
             <h1
               ref={heroTitleRef}
               className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 md:mb-6 uppercase tracking-tighter leading-none"
