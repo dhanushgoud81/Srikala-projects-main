@@ -57,7 +57,7 @@ export const CoreDivisionsHorizontal = () => {
       <header className='text-white relative z-10 w-full bg-baumeister-charcoal grid place-content-center pt-60 md:pt-80 pb-16 md:pb-24 border-b border-white/5'>
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
             <h2 className="text-3xl md:text-5xl font-oswald font-bold uppercase mb-4 tracking-tighter">Our Core Divisions</h2>
-            <div className="w-20 h-1 bg-baumeister-yellow mx-auto mb-6 md:mb-8" />
+            <div className="w-20 h-1 bg-electric-blue mx-auto mb-6 md:mb-8" />
             <p className='text-base md:text-xl text-slate-400 font-medium text-center max-w-2xl mx-auto leading-relaxed'>
               Specialized engineering divisions delivering turnkey solutions for complex structural requirements.
             </p>
@@ -100,7 +100,7 @@ export const CoreDivisionsHorizontal = () => {
               <div className="absolute inset-0 bg-slate-950/5 group-hover:bg-slate-950/0 transition-colors duration-300" />
             </div>
             <div className="p-6 text-center bg-white">
-              <h4 className="font-oswald font-bold text-slate-900 text-sm sm:text-base uppercase tracking-widest group-hover:text-baumeister-yellow transition-colors duration-300">
+              <h4 className="font-oswald font-bold text-slate-900 text-sm sm:text-base uppercase tracking-widest group-hover:text-electric-blue transition-colors duration-300">
                 {card.title}
               </h4>
               <p className="text-slate-500 text-[11.5px] font-medium leading-relaxed mt-2 px-2">
@@ -130,13 +130,13 @@ export const CoreDivisionsHorizontal = () => {
                   {/* Text Content Block */}
                   <div className="w-full md:w-1/2 text-white text-left flex flex-col justify-center">
                     <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center mb-6">
-                      <Icon className="w-7 h-7 text-baumeister-yellow" />
+                      <Icon className="w-7 h-7 text-electric-blue" />
                     </div>
                     <h3 className="text-3xl md:text-4xl font-oswald font-extrabold uppercase mb-4 tracking-tighter">{service.title}</h3>
                     <p className="text-sm md:text-base text-slate-350 leading-relaxed mb-8 max-w-lg">{service.desc}</p>
                     <button
                       onClick={() => navigate(service.title === 'uPVC Windows & Doors' ? '/upvc' : '/solutions')}
-                      className="bg-baumeister-yellow text-slate-950 px-8 py-3.5 text-xs font-oswald font-bold uppercase tracking-widest hover:bg-white hover:text-slate-950 transition-colors w-fit shadow-lg active:scale-95 duration-200 rounded-none"
+                      className="bg-electric-blue text-white px-8 py-3.5 text-xs font-oswald font-bold uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-colors w-fit shadow-lg active:scale-95 duration-200 rounded-none"
                     >
                       Learn More
                     </button>

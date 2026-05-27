@@ -292,14 +292,14 @@ export default function Home() {
         {/* Left & Right Manual Slide Navigation Controls */}
         <button 
           onClick={prevSlide}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-14 flex items-center justify-center text-white bg-slate-950/75 hover:bg-baumeister-yellow hover:text-slate-950 transition-all duration-300 font-mono text-lg rounded-none group active:scale-95 shadow-lg border-y border-r border-white/5"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-14 flex items-center justify-center text-white bg-slate-950/75 hover:bg-electric-blue hover:text-white transition-all duration-300 font-mono text-lg rounded-none group active:scale-95 shadow-lg border-y border-r border-white/5"
           aria-label="Previous Slide"
         >
           <span className="transform group-hover:-translate-x-0.5 transition-transform">←</span>
         </button>
         <button 
           onClick={nextSlide}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-14 flex items-center justify-center text-white bg-slate-950/75 hover:bg-baumeister-yellow hover:text-slate-950 transition-all duration-300 font-mono text-lg rounded-none group active:scale-95 shadow-lg border-y border-l border-white/5"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-14 flex items-center justify-center text-white bg-slate-950/75 hover:bg-electric-blue hover:text-white transition-all duration-300 font-mono text-lg rounded-none group active:scale-95 shadow-lg border-y border-l border-white/5"
           aria-label="Next Slide"
         >
           <span className="transform group-hover:translate-x-0.5 transition-transform">→</span>
@@ -327,13 +327,13 @@ export default function Home() {
               <button
                 ref={heroCTARef}
                 onClick={() => navigate('/contact')}
-                className="rounded-none bg-baumeister-yellow text-slate-950 font-oswald font-bold tracking-widest px-8 md:px-10 py-4 text-xs uppercase hover:bg-white hover:text-slate-950 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg flex items-center gap-2.5"
+                className="rounded-none bg-electric-blue text-white font-oswald font-bold tracking-widest px-8 md:px-10 py-4 text-xs uppercase hover:bg-blue-600 hover:text-white hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg flex items-center gap-2.5"
               >
                 GET QUOTE <ArrowRight className="w-3.5 h-3.5" />
               </button>
               <button
                 onClick={() => navigate('/solutions')}
-                className="rounded-none border-2 border-white/70 backdrop-blur-sm text-white font-oswald font-bold tracking-widest px-8 md:px-10 py-4 text-xs uppercase hover:bg-white hover:text-slate-950 hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-2.5 bg-transparent"
+                className="rounded-none border-2 border-white/70 backdrop-blur-sm text-white font-oswald font-bold tracking-widest px-8 md:px-10 py-4 text-xs uppercase hover:bg-electric-blue hover:border-electric-blue hover:scale-105 active:scale-95 transition-all duration-200 flex items-center gap-2.5 bg-transparent"
               >
                 EXPLORE SERVICES <ArrowRight className="w-3.5 h-3.5" />
               </button>

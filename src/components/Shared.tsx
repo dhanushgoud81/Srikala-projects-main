@@ -52,17 +52,17 @@ export const Navbar = () => {
           {/* Left contact specs */}
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 pr-6 border-r border-white/10 text-slate-350 select-none">
-              <MapPin className="text-baumeister-yellow w-3.5 h-3.5" />
+              <MapPin className="text-electric-blue w-3.5 h-3.5" />
               <span>77 Engineering Blvd, Chicago, IL 60601</span>
             </div>
             <div className="flex items-center gap-2 pr-6 border-r border-white/10">
-              <Phone className="text-baumeister-yellow w-3.5 h-3.5" />
+              <Phone className="text-electric-blue w-3.5 h-3.5" />
               <a href="tel:+18005557737" className="hover:text-white transition-colors duration-200">
                 +1 (800) 555-PRECISION
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="text-baumeister-yellow w-3.5 h-3.5" />
+              <Mail className="text-electric-blue w-3.5 h-3.5" />
               <a href="mailto:eng@industrial-precision.com" className="hover:text-white transition-colors duration-200 lowercase">
                 eng@industrial-precision.com
               </a>
@@ -72,14 +72,14 @@ export const Navbar = () => {
           {/* Right socials & region map */}
           <div className="flex items-center gap-5">
             <div className="flex items-center gap-3.5 text-slate-400">
-              <a href="#" aria-label="Facebook Link" className="hover:text-baumeister-yellow transition-colors"><Facebook className="w-3.5 h-3.5" /></a>
-              <a href="#" aria-label="Twitter Link" className="hover:text-baumeister-yellow transition-colors"><Twitter className="w-3.5 h-3.5" /></a>
-              <a href="#" aria-label="LinkedIn Link" className="hover:text-baumeister-yellow transition-colors"><Linkedin className="w-3.5 h-3.5" /></a>
-              <a href="#" aria-label="Instagram Link" className="hover:text-baumeister-yellow transition-colors"><Instagram className="w-3.5 h-3.5" /></a>
+              <a href="#" aria-label="Facebook Link" className="hover:text-electric-blue transition-colors"><Facebook className="w-3.5 h-3.5" /></a>
+              <a href="#" aria-label="Twitter Link" className="hover:text-electric-blue transition-colors"><Twitter className="w-3.5 h-3.5" /></a>
+              <a href="#" aria-label="LinkedIn Link" className="hover:text-electric-blue transition-colors"><Linkedin className="w-3.5 h-3.5" /></a>
+              <a href="#" aria-label="Instagram Link" className="hover:text-electric-blue transition-colors"><Instagram className="w-3.5 h-3.5" /></a>
             </div>
             <div className="w-[1px] h-3 bg-white/15" />
             <div className="flex items-center gap-2 text-slate-300">
-              <Globe className="text-baumeister-yellow w-4 h-4 animate-pulse" />
+              <Globe className="text-electric-blue w-4 h-4 animate-pulse" />
               <span className="font-bold">US</span>
             </div>
           </div>
@@ -99,11 +99,11 @@ export const Navbar = () => {
           className="flex items-center gap-3.5 group"
           aria-label="Go to homepage"
         >
-          <div className="w-9 h-9 bg-baumeister-yellow flex items-center justify-center rounded-none shadow-md group-hover:scale-105 transition-transform duration-300">
-            <Factory className="text-[#1b1c1e] w-5 h-5" />
+          <div className="w-9 h-9 bg-electric-blue flex items-center justify-center rounded-none shadow-md group-hover:scale-105 transition-transform duration-300">
+            <Factory className="text-white w-5 h-5" />
           </div>
           <span className="text-xl font-oswald font-bold tracking-tight text-white uppercase sm:block hidden">
-            <span className="text-baumeister-yellow group-hover:text-white transition-colors duration-300">SRIKALA</span> PROJECTS
+            <span className="text-electric-blue group-hover:text-white transition-colors duration-300">SRIKALA</span> PROJECTS
           </span>
         </button>
 
@@ -115,10 +115,10 @@ export const Navbar = () => {
               onClick={() => go(item.path)}
               className={cn(
                 'relative font-oswald font-bold uppercase tracking-widest text-xs transition-colors duration-200 py-1.5',
-                'after:content-[""] after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:bg-baumeister-yellow after:transition-all after:duration-300',
+                'after:content-[""] after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:bg-electric-blue after:transition-all after:duration-300',
                 pathname === item.path
-                  ? 'text-baumeister-yellow after:w-full'
-                  : 'text-white hover:text-baumeister-yellow after:w-0 hover:after:w-full'
+                  ? 'text-electric-blue after:w-full'
+                  : 'text-white hover:text-electric-blue after:w-0 hover:after:w-full'
               )}
             >
               {item.label}
@@ -130,7 +130,7 @@ export const Navbar = () => {
         <div className="flex items-center gap-4">
           <button
             onClick={() => go('/contact')}
-            className="hidden sm:block bg-baumeister-yellow text-slate-950 px-6 py-2.5 uppercase tracking-widest font-oswald font-bold text-xs hover:bg-white hover:text-slate-950 hover:scale-105 active:scale-95 transition-all duration-200 rounded-none shadow-sm"
+            className="hidden sm:block bg-electric-blue text-white px-6 py-2.5 uppercase tracking-widest font-oswald font-bold text-xs hover:bg-blue-600 hover:text-white hover:scale-105 active:scale-95 transition-all duration-200 rounded-none shadow-sm"
           >
             GET QUOTE
           </button>
@@ -157,7 +157,7 @@ export const Navbar = () => {
                 onClick={() => go(item.path)}
                 className={cn(
                   'font-oswald font-bold uppercase tracking-widest text-sm text-left py-1',
-                  pathname === item.path ? 'text-baumeister-yellow' : 'text-slate-350'
+                  pathname === item.path ? 'text-electric-blue' : 'text-slate-350'
                 )}
               >
                 {item.label}
@@ -165,7 +165,7 @@ export const Navbar = () => {
             ))}
             <button
               onClick={() => go('/contact')}
-              className="bg-baumeister-yellow text-slate-950 px-6 py-3 uppercase tracking-widest font-oswald font-bold text-xs text-center rounded-none shadow-md"
+              className="bg-electric-blue text-white px-6 py-3 uppercase tracking-widest font-oswald font-bold text-xs text-center rounded-none shadow-md"
             >
               GET QUOTE
             </button>
@@ -194,11 +194,11 @@ export const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <button onClick={() => go('/')} className="flex items-center gap-3 mb-4 group text-left">
-              <div className="w-8 h-8 bg-baumeister-yellow rounded-none flex items-center justify-center">
-                <Factory className="text-slate-950 w-4 h-4" />
+              <div className="w-8 h-8 bg-electric-blue rounded-none flex items-center justify-center">
+                <Factory className="text-white w-4 h-4" />
               </div>
               <span className="text-white font-oswald font-bold uppercase tracking-wider text-sm">
-                SRIKALA <span className="text-baumeister-yellow group-hover:text-white transition-colors duration-300">PROJECTS</span>
+                SRIKALA <span className="text-electric-blue group-hover:text-white transition-colors duration-300">PROJECTS</span>
               </span>
             </button>
             <p className="text-slate-500 text-sm leading-relaxed">
@@ -214,7 +214,7 @@ export const Footer = () => {
                 <li key={item.path}>
                   <button
                     onClick={() => go(item.path)}
-                    className="relative text-slate-500 hover:text-baumeister-yellow transition-colors text-sm after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 hover:after:w-full after:h-[1px] after:bg-baumeister-yellow after:transition-all after:duration-300"
+                    className="relative text-slate-500 hover:text-electric-blue transition-colors text-sm after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 hover:after:w-full after:h-[1px] after:bg-electric-blue after:transition-all after:duration-300"
                   >
                     {item.label}
                   </button>
@@ -231,7 +231,7 @@ export const Footer = () => {
                 <li key={s}>
                   <button
                     onClick={() => go('/solutions')}
-                    className="relative text-slate-500 hover:text-baumeister-yellow transition-colors text-sm text-left w-fit after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 hover:after:w-full after:h-[1px] after:bg-baumeister-yellow after:transition-all after:duration-300"
+                    className="relative text-slate-500 hover:text-electric-blue transition-colors text-sm text-left w-fit after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 hover:after:w-full after:h-[1px] after:bg-electric-blue after:transition-all after:duration-300"
                   >
                     {s}
                   </button>
@@ -246,13 +246,13 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <p className="text-[10px] text-slate-650 uppercase tracking-widest mb-1">Phone</p>
-                <a href="tel:+18005557737" className="text-slate-450 hover:text-baumeister-yellow transition-colors text-sm font-medium">
+                <a href="tel:+18005557737" className="text-slate-450 hover:text-electric-blue transition-colors text-sm font-medium">
                   +1 (800) 555-PRECISION
                 </a>
               </li>
               <li>
                 <p className="text-[10px] text-slate-650 uppercase tracking-widest mb-1">Email</p>
-                <a href="mailto:eng@industrial-precision.com" className="text-slate-450 hover:text-baumeister-yellow transition-colors text-sm font-medium">
+                <a href="mailto:eng@industrial-precision.com" className="text-slate-450 hover:text-electric-blue transition-colors text-sm font-medium">
                   eng@industrial-precision.com
                 </a>
               </li>
@@ -274,7 +274,7 @@ export const Footer = () => {
               <a
                 key={link}
                 href="#"
-                className="text-[10px] uppercase tracking-wider text-slate-600 hover:text-baumeister-yellow transition-colors"
+                className="text-[10px] uppercase tracking-wider text-slate-600 hover:text-electric-blue transition-colors"
               >
                 {link}
               </a>
