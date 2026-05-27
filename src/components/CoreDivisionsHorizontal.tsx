@@ -65,7 +65,7 @@ export const CoreDivisionsHorizontal = () => {
       </header>
 
       {/* 2. Overlapping Cards container rendered after header with higher z-index (z-40) for perfect stacking context */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-6 z-40 pointer-events-auto">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl px-6 md:px-12 flex flex-row overflow-x-auto no-scrollbar snap-x snap-mandatory md:grid md:grid-cols-3 gap-6 z-40 pointer-events-auto">
         {[
           {
             src: '/images/pre-engineered.png',
@@ -89,7 +89,7 @@ export const CoreDivisionsHorizontal = () => {
           <div 
             key={idx}
             onClick={() => { navigate(card.path); window.scrollTo(0, 0); }}
-            className="bg-white border-[7px] border-white shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:shadow-[0_22px_50px_rgba(0,0,0,0.2)] hover:-translate-y-3 transition-all duration-500 group cursor-pointer"
+            className="bg-white border-[7px] border-white shadow-[0_15px_40px_rgba(0,0,0,0.12)] hover:shadow-[0_22px_50px_rgba(0,0,0,0.2)] hover:-translate-y-3 transition-all duration-500 group cursor-pointer shrink-0 w-[82vw] sm:w-[45vw] md:w-auto snap-center"
           >
             <div className="overflow-hidden aspect-[4/3] relative bg-slate-100">
               <img 

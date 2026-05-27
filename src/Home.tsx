@@ -238,7 +238,7 @@ export default function Home() {
   return (
     <PageWrapper>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative h-screen w-full flex items-start pt-32 md:pt-40 bg-slate-950" id="hero">
+      <section className="relative h-screen w-full flex items-start pt-20 sm:pt-32 md:pt-40 bg-slate-950" id="hero">
         
         <style>{`
           @keyframes kenburns {
@@ -416,7 +416,7 @@ export default function Home() {
         </button>
 
         {/* Hero Slider Content with state-keyed transitions */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pt-10">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pt-4 sm:pt-10">
           <div ref={heroContentRef} className="max-w-3xl text-left">
             <div 
               key={currentImageIndex} 
@@ -428,7 +428,7 @@ export default function Home() {
               >
                 {HERO_SLIDES[currentImageIndex].title}
               </h1>
-              <p className="w-full max-w-[600px] text-base md:text-[17.5px] text-slate-200 mb-8 md:mb-12 leading-relaxed">
+              <p className="w-full max-w-[600px] text-sm sm:text-base md:text-[17.5px] text-slate-200 mb-6 sm:mb-8 md:mb-12 leading-relaxed">
                 {HERO_SLIDES[currentImageIndex].desc}
               </p>
             </div>
