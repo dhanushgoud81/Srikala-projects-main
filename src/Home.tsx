@@ -111,13 +111,27 @@ export default function Home() {
   const ctaRef          = useRef<HTMLDivElement>(null);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [prevImageIndex, setPrevImageIndex] = useState(-1);
+  const [direction, setDirection] = useState<'next' | 'prev'>('next');
+
+  const nextSlide = () => {
+    setDirection('next');
+    setPrevImageIndex(currentImageIndex);
+    setCurrentImageIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+  };
+
+  const prevSlide = () => {
+    setDirection('prev');
+    setPrevImageIndex(currentImageIndex);
+    setCurrentImageIndex((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+      nextSlide();
     }, 7000);
     return () => clearInterval(timer);
-  }, []);
+  }, [currentImageIndex]);
 
   useGSAP(() => {
     // Pinned Hero Section scroll reveal effect (replicating Baumeister Qode Slider)
@@ -144,8 +158,8 @@ export default function Home() {
       gsap.fromTo(heroImageRef.current, { opacity: 0 }, { opacity: 1, duration: 1.5, ease: 'power2.out' });
       
       heroTl.to(heroImageRef.current, {
-        yPercent: 20,
-        scale: 0.96,
+        yPercent: -15,
+        scale: 1.06,
         ease: 'none'
       }, 0);
     }
@@ -244,13 +258,23 @@ export default function Home() {
         <div ref={heroImageRef} className="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-0">
           {HERO_SLIDES.map((slide, idx) => {
             const isActive = idx === currentImageIndex;
+            const isPrev   = idx === prevImageIndex;
+            
+            let translationClass = 'translate-x-full opacity-0 z-0';
+            if (isActive) {
+              translationClass = 'translate-x-0 opacity-100 z-10';
+            } else if (isPrev) {
+              translationClass = direction === 'next' ? '-translate-x-full opacity-0 z-0' : 'translate-x-full opacity-0 z-0';
+            } else {
+              translationClass = idx > currentImageIndex ? 'translate-x-full opacity-0 z-0' : '-translate-x-full opacity-0 z-0';
+            }
+
             return (
               <img
                 key={slide.image}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${
-                  isActive ? 'opacity-100' : 'opacity-0'
-                }`}
+                className={`absolute inset-0 w-full h-full object-cover transform transition-all duration-[1200ms] ease-out ${translationClass}`}
                 style={{
+                  transition: 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease-in-out',
                   animation: isActive ? 'kenburns 24s ease-in-out infinite' : 'none',
                   willChange: 'opacity, transform',
                 }}
@@ -267,14 +291,14 @@ export default function Home() {
         {/* Left & Right Manual Slide Navigation Controls */}
         {/* Left & Right Manual Slide Navigation Controls */}
         <button 
-          onClick={() => setCurrentImageIndex((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
+          onClick={prevSlide}
           className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-14 flex items-center justify-center text-white bg-slate-950/75 hover:bg-baumeister-yellow hover:text-slate-950 transition-all duration-300 font-mono text-lg rounded-none group active:scale-95 shadow-lg border-y border-r border-white/5"
           aria-label="Previous Slide"
         >
           <span className="transform group-hover:-translate-x-0.5 transition-transform">←</span>
         </button>
         <button 
-          onClick={() => setCurrentImageIndex((prev) => (prev + 1) % HERO_SLIDES.length)}
+          onClick={nextSlide}
           className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-14 flex items-center justify-center text-white bg-slate-950/75 hover:bg-baumeister-yellow hover:text-slate-950 transition-all duration-300 font-mono text-lg rounded-none group active:scale-95 shadow-lg border-y border-l border-white/5"
           aria-label="Next Slide"
         >
