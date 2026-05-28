@@ -111,6 +111,87 @@ export const CoreDivisionsHorizontal = () => {
         ))}
       </div>
 
+      {/* ── 3. Core Business Pillars Overview Grid ── */}
+      <section className="py-20 bg-baumeister-dark border-b border-white/5 relative z-10" id="business-pillars">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          
+          <div className="text-center mb-12 md:mb-16">
+            <span className="font-mono text-xs text-electric-blue tracking-widest font-bold uppercase">
+              [ Core Business Focus ]
+            </span>
+            <h3 className="text-2xl md:text-3xl font-oswald font-extrabold text-white uppercase mt-2 tracking-tight">
+              Our Primary Business Pillars
+            </h3>
+            <div className="w-12 h-[2px] bg-electric-blue mx-auto mt-4" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            
+            {/* Pillar A: Heavy Industrial Steel */}
+            <div className="bg-[#18191b] p-8 md:p-10 border border-white/5 relative hover:border-electric-blue/40 transition-all duration-300 flex flex-col justify-between">
+              {/* Technical corner brackets */}
+              <div className="absolute top-0 left-0 w-2 h-[1px] bg-electric-blue/50" />
+              <div className="absolute top-0 left-0 w-[1px] h-2 bg-electric-blue/50" />
+              <div className="absolute bottom-0 right-0 w-2 h-[1px] bg-electric-blue/50" />
+              <div className="absolute bottom-0 right-0 w-[1px] h-2 bg-electric-blue/50" />
+
+              <div>
+                <span className="font-mono text-[10px] text-slate-500 tracking-wider uppercase">[ PILLAR 01 / HEAVY ENGINEERING ]</span>
+                <h4 className="text-xl font-oswald font-bold text-white uppercase tracking-wider mt-2 mb-4">
+                  Industrial Steel & PEB Infrastructure
+                </h4>
+                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                  Turnkey structural steel infrastructure for high-capacity industrial factories, warehouses, logistics hubs, and heavy manufacturing sheds. Fabricated to strict international static load specifications.
+                </p>
+              </div>
+
+              <div className="border-t border-white/5 pt-4">
+                <span className="text-[10.5px] uppercase font-bold tracking-widest text-electric-blue">Sub-Divisions:</span>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {['Pre-Engineered Buildings', 'Heavy Fabrication', 'Roofing Systems'].map((sub) => (
+                    <span key={sub} className="bg-white/5 border border-white/10 px-2.5 py-1 text-[10px] font-mono text-slate-300">
+                      {sub}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Pillar B: Architectural Envelopes */}
+            <div className="bg-[#18191b] p-8 md:p-10 border border-white/5 relative hover:border-electric-blue/40 transition-all duration-300 flex flex-col justify-between">
+              {/* Technical corner brackets */}
+              <div className="absolute top-0 left-0 w-2 h-[1px] bg-electric-blue/50" />
+              <div className="absolute top-0 left-0 w-[1px] h-2 bg-electric-blue/50" />
+              <div className="absolute bottom-0 right-0 w-2 h-[1px] bg-electric-blue/50" />
+              <div className="absolute bottom-0 right-0 w-[1px] h-2 bg-electric-blue/50" />
+
+              <div>
+                <span className="font-mono text-[10px] text-slate-500 tracking-wider uppercase">[ PILLAR 02 / ENVELOPE SYSTEMS ]</span>
+                <h4 className="text-xl font-oswald font-bold text-white uppercase tracking-wider mt-2 mb-4">
+                  Architectural Envelope & Fenestration
+                </h4>
+                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                  German-engineered luxury uPVC window & door systems, structural glass facade curtain walls, spider glazing, and ACP cladding systems combining visual elegance with advanced wind resistance.
+                </p>
+              </div>
+
+              <div className="border-t border-white/5 pt-4">
+                <span className="text-[10.5px] uppercase font-bold tracking-widest text-electric-blue">Sub-Divisions:</span>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {['uPVC Windows & Doors', 'Structural Glazing', 'ACP Cladding'].map((sub) => (
+                    <span key={sub} className="bg-white/5 border border-white/10 px-2.5 py-1 text-[10px] font-mono text-slate-300">
+                      {sub}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
       {/* ── Standard Vertical Alternating Divisions List ── */}
       <div className="flex flex-col w-full">
         {SERVICES.map((service, index) => {

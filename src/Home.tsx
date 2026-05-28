@@ -4,6 +4,7 @@ import { ArrowRight, Shield, Rocket, Truck, Verified, Square, Box, Factory, Laye
 import { PageWrapper } from './components/Shared';
 import { DivisionCard } from './components/DivisionCard';
 import { CoreDivisionsHorizontal } from './components/CoreDivisionsHorizontal';
+import { CorporateOverview } from './components/CorporateOverview';
 import { ScrollReadingText } from './components/ScrollReadingText';
 import { PrecisionRulerAccent } from './components/PrecisionRulerAccent';
 import { useGSAP } from './lib/useGSAP';
@@ -18,28 +19,28 @@ gsap.registerPlugin(ScrollTrigger);
 const HERO_SLIDES = [
   {
     image: '/images/home.jpeg',
-    title: 'BUILDING THE FUTURE',
-    desc: 'Precision-engineered steel structures and structural frameworks for the modern industrial landscape.'
+    title: 'SRIKALA PROJECTS',
+    desc: 'Elite Industrial Pre-Engineered Buildings & Premium Architectural uPVC Fenestration. We engineer high-strength steel structures and custom weather-tight window & door systems for modern industrial and residential sectors.'
   },
   {
     image: '/images/pre-engineered.png',
     title: 'PRE-ENGINEERED BUILDINGS',
-    desc: 'Optimized PEB structural frames designed for maximum space utilization and robust load statics.'
+    desc: 'High-strength structural steel warehouses, PEB industrial sheds, and multi-story structural steel frames designed for maximum space utilization and robust load statics.'
   },
   {
     image: '/images/heavy-fabrication.png',
     title: 'HEAVY FABRICATION',
-    desc: 'Precision fabrication and welding of heavy industrial steel blocks and complex girders.'
+    desc: 'Precision heavy steel fabrication, custom welding, and block assembly of critical industrial components, heavy overhead crane girders, and complex structural trusses.'
   },
   {
     image: '/images/structural-glazing.png',
-    title: 'STRUCTURAL GLAZING',
-    desc: 'High-performance glass facades and structural glazing solutions that combine aesthetics with strength.'
+    title: 'STRUCTURAL GLAZING & FAÇADES',
+    desc: 'High-performance glass facades, unitized curtain walls, spider glazing, and architectural structural glass engineered to combine visual elegance with high wind load resistance.'
   },
   {
     image: '/images/upvc-hero-luxury.png',
-    title: 'LUXURY uPVC SYSTEMS',
-    desc: 'Premium uPVC window and door systems fabricated to standard international weather tightness.'
+    title: 'LUXURY uPVC WINDOWS & DOORS',
+    desc: 'German-engineered, high-performance uPVC window and door systems fabricated to standard international weather tightness, acoustic insulation, and thermal efficiency.'
   }
 ];
 
@@ -83,16 +84,16 @@ const SERVICES = [
 ];
 
 const PILLARS = [
-  { icon: Verified, title: 'Quality Assurance',  desc: 'ISO certified manufacturing processes ensuring zero-defect outputs.' },
-  { icon: Shield,   title: 'Tested Durability',  desc: 'Materials engineered to resist corrosion and structural fatigue.' },
-  { icon: Rocket,   title: 'Innovation Driven',  desc: 'Continuous R&D in structural engineering for efficient solutions.' },
-  { icon: Truck,    title: 'Timely Delivery',    desc: 'Lean logistics frameworks ensuring on-time project completion.' },
+  { icon: Verified, title: 'ISO 9001:2015 QA',  desc: 'ISO-certified manufacturing plants with lean automated assembly lines and zero-defect quality thresholds.' },
+  { icon: Shield,   title: 'Tested Durability',  desc: 'Structural steel components engineered and static-tested to resist extreme wind forces, seismic actions, and corrosion.' },
+  { icon: Rocket,   title: 'German Profiles & CNC',  desc: 'Precision uPVC profile lamination and fully automated CNC drilling to achieve perfect acoustics and weather tightness.' },
+  { icon: Truck,    title: 'Lean Infrastructure',  desc: 'Optimized logistics and structural pre-engineering to achieve rapid on-time installation of complex industrial buildings.' },
 ];
 
 const STATS = [
   { val: 500, label: 'Projects Completed' },
-  { val: 200, label: 'Global Clients'     },
-  { val: 25,  label: 'Years Excellence'   },
+  { val: 200, label: 'Corporate Clients'  },
+  { val: 25,  label: 'Years of Excellence' },
 ];
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -451,6 +452,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Corporate Overview ───────────────────────────────────────────── */}
+      <CorporateOverview />
 
       {/* ── Core Divisions ───────────────────────────────────────────────── */}
       <CoreDivisionsHorizontal />
