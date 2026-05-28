@@ -133,19 +133,17 @@ export const CoreDivisionsHorizontal = () => {
                   }}
                   loading="lazy"
                 />
-                {/* Dark Vignette Gradient Overlay for Text Legibility */}
+                {/* Dark Vignette Gradient Overlay for Text Legibility - Always left-to-right to support left text alignment */}
                 <div 
                   className="absolute inset-0 transition-opacity duration-500"
                   style={{
-                    background: isEven 
-                      ? 'linear-gradient(to right, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.82) 45%, rgba(15,23,42,0.3) 100%)'
-                      : 'linear-gradient(to left, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.82) 45%, rgba(15,23,42,0.3) 100%)'
+                    background: 'linear-gradient(to right, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.82) 45%, rgba(15,23,42,0.3) 100%)'
                   }}
                 />
               </div>
 
               <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
-                <div className={`flex w-full ${isEven ? 'justify-start' : 'justify-end'}`}>
+                <div className="flex w-full justify-start">
                   
                   {/* Plain Text Content Block - Fades in on hovering anywhere on the section */}
                   <div className="w-full md:w-[48%] text-white text-left flex flex-col justify-center transition-opacity duration-700 ease-out opacity-0 group-hover:opacity-100 z-10">
