@@ -9,7 +9,7 @@ import gsap from 'gsap';
 // 1. Enter your real email address below in MY_EMAIL.
 // 2. The very first time you submit this form, FormSubmit will send you a single
 //    activation email. Click the link in it, and your form will be 100% active!
-const MY_EMAIL = 'dhanushgoud81@gmail.com'; 
+const MY_EMAIL = 'ssrikalaprojects@gmail.com'; 
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${MY_EMAIL}`;
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -153,6 +153,8 @@ export default function Contact() {
               onSubmit={handleSubmit}
               className="grid grid-cols-1 md:grid-cols-2 gap-12"
             >
+              {/* FormSubmit carbon copy (CC) to send to secondary email address */}
+              <input type="hidden" name="_cc" value="sales@srikalaprojects.com" />
               <div className="relative group">
                 <input
                   type="text"
