@@ -26,7 +26,7 @@ export const WhatsAppWidget = () => {
   return (
     <a
       ref={widgetRef}
-      href="https://wa.me/919876543210?text=Hi%20Srikala%20Projects%2C%20I'm%20interested%20in%20your%20uPVC%20Windows%20%26%20Doors%20solutions.%20Could%20you%20please%20share%20more%20details%3F"
+      href="https://wa.me/919866089771?text=Hi%20Srikala%20Projects%2C%20I'm%20interested%20in%20your%20uPVC%20Windows%20%26%20Doors%20solutions.%20Could%20you%20please%20share%20more%20details%3F"
       target="_blank"
       rel="noopener noreferrer"
       style={{ scale: 0, opacity: 0 }}
