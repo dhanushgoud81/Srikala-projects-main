@@ -789,10 +789,9 @@ export default function UPVC() {
                       className="group flex-1 hover:flex-[2.5] relative transition-all duration-500 ease-out cursor-pointer overflow-hidden border-r border-black/5 last:border-r-0 select-none"
                       style={{
                         backgroundColor: lam.bg,
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.28'/%3E%3C/svg%3E"), url(${lam.texture})`,
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E"), url(${lam.texture})`,
                         backgroundSize: 'auto, cover',
                         backgroundPosition: 'center, center',
-                        backgroundBlendMode: 'overlay',
                       }}
                     >
                       {/* Technical metallic micro-texture & sand-blasted grain overlays */}
