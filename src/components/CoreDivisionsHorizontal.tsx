@@ -176,37 +176,40 @@ export const CoreDivisionsHorizontal = () => {
                       <span className="w-[1.5px] h-1.5 bg-white/25" />
                     </div>
 
-                    {/* Animated rotating tech radar scan ring around Icon - revealed on hover */}
-                    <div className="relative mb-6 z-10 w-fit group/icon">
-                      <div className="absolute -inset-1.5 border border-dashed border-electric-blue/30 rounded-none animate-[spin_20s_linear_infinite] opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
-                      <div className="absolute -inset-3 border border-electric-blue/15 rounded-none opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 scale-95 group-hover/card:scale-100" />
-                      <div className="w-14 h-14 bg-electric-blue/10 group-hover/card:bg-electric-blue/15 flex items-center justify-center border border-white/10 group-hover/card:border-electric-blue/20 relative z-10 transition-all duration-700">
-                        <Icon className="w-7 h-7 text-electric-blue" />
+                    {/* Content wrapper - fades in text, icon, and button on hover */}
+                    <div className="opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 ease-out relative z-10 flex flex-col justify-center">
+                      {/* Animated rotating tech radar scan ring around Icon - revealed on hover */}
+                      <div className="relative mb-6 z-10 w-fit group/icon">
+                        <div className="absolute -inset-1.5 border border-dashed border-electric-blue/30 rounded-none animate-[spin_20s_linear_infinite] opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
+                        <div className="absolute -inset-3 border border-electric-blue/15 rounded-none opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 scale-95 group-hover/card:scale-100" />
+                        <div className="w-14 h-14 bg-electric-blue/10 group-hover/card:bg-electric-blue/15 flex items-center justify-center border border-white/10 group-hover/card:border-electric-blue/20 relative z-10 transition-all duration-700">
+                          <Icon className="w-7 h-7 text-electric-blue" />
+                        </div>
                       </div>
-                    </div>
 
-                    <h3 className="text-3xl md:text-4xl font-oswald font-extrabold uppercase mb-4 tracking-tighter group-hover/card:text-electric-blue transition-colors duration-300 relative z-10 text-white">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 max-w-lg relative z-10">
-                      {service.desc}
-                    </p>
+                      <h3 className="text-3xl md:text-4xl font-oswald font-extrabold uppercase mb-4 tracking-tighter group-hover/card:text-electric-blue transition-colors duration-300 relative z-10 text-white">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 max-w-lg relative z-10">
+                        {service.desc}
+                      </p>
 
-                    {/* State-of-the-art interactive "Blueprint Sweep" Action Button */}
-                    <button
-                      onClick={() => navigate(service.title === 'uPVC Windows & Doors' ? '/upvc' : '/solutions')}
-                      className="relative group/btn overflow-hidden rounded-none border border-electric-blue/40 px-7 py-3.5 text-[10px] font-oswald font-bold uppercase tracking-[0.2em] text-white transition-all w-fit select-none shadow-lg active:scale-[0.98] duration-150 z-10"
-                    >
-                      {/* Dynamic slide background color sweep */}
-                      <div className="absolute inset-y-0 left-0 w-0 bg-electric-blue group-hover/btn:w-full transition-all duration-500 ease-out z-0" />
-                      
-                      <span className="relative z-10 flex items-center gap-3">
-                        EXPLORE DIVISION
-                        <span className="relative flex items-center justify-center w-5 h-5 border border-white/20 rounded-none group-hover/btn:border-white/50 group-hover/btn:rotate-45 transition-all duration-500 bg-white/5 font-mono text-sm leading-none pt-[1px] text-white">
-                          →
+                      {/* State-of-the-art interactive "Blueprint Sweep" Action Button */}
+                      <button
+                        onClick={() => navigate(service.title === 'uPVC Windows & Doors' ? '/upvc' : '/solutions')}
+                        className="relative group/btn overflow-hidden rounded-none border border-electric-blue/40 px-7 py-3.5 text-[10px] font-oswald font-bold uppercase tracking-[0.2em] text-white transition-all w-fit select-none shadow-lg active:scale-[0.98] duration-150 z-10"
+                      >
+                        {/* Dynamic slide background color sweep */}
+                        <div className="absolute inset-y-0 left-0 w-0 bg-electric-blue group-hover/btn:w-full transition-all duration-500 ease-out z-0" />
+                        
+                        <span className="relative z-10 flex items-center gap-3">
+                          EXPLORE DIVISION
+                          <span className="relative flex items-center justify-center w-5 h-5 border border-white/20 rounded-none group-hover/btn:border-white/50 group-hover/btn:rotate-45 transition-all duration-500 bg-white/5 font-mono text-sm leading-none pt-[1px] text-white">
+                            →
+                          </span>
                         </span>
-                      </span>
-                    </button>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
