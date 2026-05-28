@@ -148,12 +148,12 @@ export const CoreDivisionsHorizontal = () => {
                 <div className={`flex w-full ${isEven ? 'justify-start' : 'justify-end'}`}>
                   
                   {/* Text Content Block with Architectural Blueprint Borders & Corner Brackets */}
-                  <div className="w-full md:w-[48%] text-white text-left flex flex-col justify-center backdrop-blur-[4px] bg-slate-950/40 p-8 md:p-12 border border-white/10 shadow-[0_30px_70px_rgba(0,0,0,0.55)] relative overflow-hidden group/card hover:border-electric-blue/20 transition-all duration-500">
+                  <div className="w-full md:w-[48%] text-slate-900 text-left flex flex-col justify-center backdrop-blur-[6px] bg-white/95 p-8 md:p-12 border border-slate-200/50 shadow-[0_30px_70px_rgba(0,0,0,0.25)] relative overflow-hidden group/card hover:border-electric-blue/30 transition-all duration-500">
                     {/* Dynamic blueprint dot grid backdrop */}
                     <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#2180ff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none z-0" />
                     
                     {/* Technical division serial notation */}
-                    <span className="absolute top-4 right-4 font-mono text-[9px] tracking-[0.25em] text-slate-500 select-none">DIV // 0{index + 1}</span>
+                    <span className="absolute top-4 right-4 font-mono text-[9px] tracking-[0.25em] text-slate-400 select-none">DIV // 0{index + 1}</span>
 
                     {/* Blueprint tech corner accents */}
                     <div className="absolute top-0 left-0 w-3 h-[1px] bg-electric-blue" />
@@ -161,54 +161,53 @@ export const CoreDivisionsHorizontal = () => {
                     <div className="absolute bottom-0 right-0 w-3 h-[1px] bg-electric-blue" />
                     <div className="absolute bottom-0 right-0 w-[1px] h-3 bg-electric-blue" />
                     
-                    <div className="absolute top-0 right-0 w-3 h-[1px] bg-white/15" />
-                    <div className="absolute top-0 right-0 w-[1px] h-3 bg-white/15" />
-                    <div className="absolute bottom-0 left-0 w-3 h-[1px] bg-white/15" />
-                    <div className="absolute bottom-0 left-0 w-[1px] h-3 bg-white/15" />
+                    <div className="absolute top-0 right-0 w-3 h-[1px] bg-slate-900/10" />
+                    <div className="absolute top-0 right-0 w-[1px] h-3 bg-slate-900/10" />
+                    <div className="absolute bottom-0 left-0 w-3 h-[1px] bg-slate-900/10" />
+                    <div className="absolute bottom-0 left-0 w-[1px] h-3 bg-slate-900/10" />
 
                     {/* Fine technical blueprint ruler tick marks */}
-                    <div className="absolute bottom-0 left-8 right-8 h-[1.5px] bg-white/5 flex justify-between pointer-events-none select-none">
-                      <span className="w-[1.5px] h-1.5 bg-white/25" />
-                      <span className="w-[1.5px] h-1 bg-white/10" />
-                      <span className="w-[1.5px] h-1 bg-white/10" />
-                      <span className="w-[1.5px] h-1 bg-white/10" />
-                      <span className="w-[1.5px] h-1 bg-white/10" />
-                      <span className="w-[1.5px] h-1.5 bg-white/25" />
+                    <div className="absolute bottom-0 left-8 right-8 h-[1.5px] bg-slate-900/5 flex justify-between pointer-events-none select-none">
+                      <span className="w-[1.5px] h-1.5 bg-slate-900/20" />
+                      <span className="w-[1.5px] h-1 bg-slate-900/10" />
+                      <span className="w-[1.5px] h-1 bg-slate-900/10" />
+                      <span className="w-[1.5px] h-1 bg-slate-900/10" />
+                      <span className="w-[1.5px] h-1 bg-slate-900/10" />
+                      <span className="w-[1.5px] h-1.5 bg-slate-900/20" />
                     </div>
 
                     {/* Animated rotating tech radar scan ring around Icon */}
                     <div className="relative mb-6 z-10 w-fit group/icon">
                       <div className="absolute -inset-1.5 border border-dashed border-electric-blue/30 rounded-none animate-[spin_20s_linear_infinite]" />
                       <div className="absolute -inset-3 border border-electric-blue/10 rounded-none opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 scale-95 group-hover/card:scale-100" />
-                      <div className="w-14 h-14 bg-electric-blue/15 flex items-center justify-center border border-electric-blue/30 relative z-10">
+                      <div className="w-14 h-14 bg-electric-blue/10 flex items-center justify-center border border-electric-blue/20 relative z-10">
                         <Icon className="w-7 h-7 text-electric-blue" />
                       </div>
                     </div>
 
-                    <h3 className="text-3xl md:text-4xl font-oswald font-extrabold uppercase mb-4 tracking-tighter group-hover/card:text-electric-blue transition-colors duration-300 relative z-10">
+                    <h3 className="text-3xl md:text-4xl font-oswald font-extrabold uppercase mb-4 tracking-tighter group-hover/card:text-electric-blue transition-colors duration-300 relative z-10 text-slate-900">
                       {service.title}
                     </h3>
-                    <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 max-w-lg relative z-10">
+                    <p className="text-sm md:text-base text-slate-600 font-medium leading-relaxed mb-8 max-w-lg relative z-10">
                       {service.desc}
                     </p>
 
                     {/* State-of-the-art interactive "Blueprint Sweep" Action Button */}
                     <button
                       onClick={() => navigate(service.title === 'uPVC Windows & Doors' ? '/upvc' : '/solutions')}
-                      className="relative group/btn overflow-hidden rounded-none border border-electric-blue/40 px-7 py-3.5 text-[10px] font-oswald font-bold uppercase tracking-[0.2em] text-white transition-all w-fit select-none shadow-lg active:scale-[0.98] duration-150 z-10"
+                      className="relative group/btn overflow-hidden rounded-none border border-electric-blue/40 px-7 py-3.5 text-[10px] font-oswald font-bold uppercase tracking-[0.2em] text-slate-900 hover:text-white transition-all w-fit select-none shadow-lg active:scale-[0.98] duration-150 z-10"
                     >
                       {/* Dynamic slide background color sweep */}
                       <div className="absolute inset-y-0 left-0 w-0 bg-electric-blue group-hover/btn:w-full transition-all duration-500 ease-out z-0" />
                       
                       <span className="relative z-10 flex items-center gap-3">
                         EXPLORE DIVISION
-                        <span className="relative flex items-center justify-center w-5 h-5 border border-white/20 rounded-none group-hover/btn:border-white/50 group-hover/btn:rotate-45 transition-all duration-500 bg-white/5 font-mono text-sm leading-none pt-[1px]">
+                        <span className="relative flex items-center justify-center w-5 h-5 border border-slate-950/10 rounded-none group-hover/btn:border-white/50 group-hover/btn:rotate-45 transition-all duration-500 bg-slate-950/5 font-mono text-sm leading-none pt-[1px] text-slate-900 group-hover/btn:text-white">
                           →
                         </span>
                       </span>
                     </button>
                   </div>
-
                 </div>
               </div>
             </section>
