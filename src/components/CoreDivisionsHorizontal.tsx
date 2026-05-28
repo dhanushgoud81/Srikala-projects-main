@@ -124,25 +124,25 @@ export const CoreDivisionsHorizontal = () => {
                       {service.category}
                     </span>
 
-                    {/* Massive bold heading with highlighted word in yellow matching example screenshot */}
+                    {/* Massive bold heading with highlighted word in Electric Blue matching corporate guidelines */}
                     <h3 className="text-4xl sm:text-5xl md:text-[64px] font-oswald font-black uppercase mb-4 tracking-tighter leading-[1.05] text-white">
                       {service.titlePre}{' '}
-                      <span className="text-[#fbb900]">{service.titleHighlight}</span>
+                      <span className="text-electric-blue">{service.titleHighlight}</span>
                       {service.titlePost ? ` ${service.titlePost}` : ''}
                     </h3>
 
-                    {/* Yellow horizontal thick underline bar matching example screenshot */}
-                    <div className="w-16 h-[3px] bg-[#fbb900] my-6" />
+                    {/* Electric Blue horizontal thick underline bar matching corporate guidelines */}
+                    <div className="w-16 h-[3px] bg-electric-blue my-6" />
 
                     {/* Highly legible paragraph description */}
                     <p className="text-sm md:text-[15px] text-slate-200 leading-relaxed mb-8 max-w-lg">
                       {service.desc}
                     </p>
 
-                    {/* Solid yellow Explore button matching example screenshot */}
+                    {/* Solid Electric Blue Explore button matching corporate guidelines */}
                     <button
                       onClick={() => navigate(service.title === 'uPVC Windows & Doors' ? '/upvc' : '/solutions')}
-                      className="rounded-none bg-[#fbb900] px-8 py-4 text-[11px] font-oswald font-bold uppercase tracking-[0.2em] text-white hover:bg-white hover:text-slate-950 transition-colors duration-300 w-fit select-none shadow-lg active:scale-[0.98] duration-150 flex items-center gap-3"
+                      className="rounded-none bg-electric-blue px-8 py-4 text-[11px] font-oswald font-bold uppercase tracking-[0.2em] text-white hover:bg-white hover:text-slate-950 transition-colors duration-300 w-fit select-none shadow-lg active:scale-[0.98] duration-150 flex items-center gap-3"
                     >
                       <span>EXPLORE DIVISION</span>
                       <span className="font-mono text-sm leading-none">→</span>
