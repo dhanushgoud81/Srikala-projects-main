@@ -267,10 +267,10 @@ const ALUDEC_LAMINATIONS = [
 ];
 
 const WOODEC_LAMINATIONS = [
-  { name: 'sheffield oak alpine', bg: '#cdbeab', desc: 'Pale Scandinavian timber grain' },
-  { name: 'sheffield oak concrete',bg: '#9f9284', desc: 'Cool concrete grey oak touch' },
-  { name: 'turner oak toffee',   bg: '#b08754', desc: 'Rich honey oak woodgrain' },
-  { name: 'turner oak malt',     bg: '#c5b095', desc: 'Sandy-malt natural wood aesthetic' },
+  { name: 'sheffield oak alpine', bg: '#cdbeab', desc: 'Pale Scandinavian timber grain', texture: '/images/textures/texture-woodec-sheffield-oak-alpine.jpg' },
+  { name: 'sheffield oak concrete',bg: '#9f9284', desc: 'Cool concrete grey oak touch', texture: '/images/textures/texture-woodec-sheffield-oak-concrete.jpg' },
+  { name: 'turner oak toffee',   bg: '#b08754', desc: 'Rich honey oak woodgrain', texture: '/images/textures/texture-woodec-turner-oak-toffee.jpg' },
+  { name: 'turner oak malt',     bg: '#c5b095', desc: 'Sandy-malt natural wood aesthetic', texture: '/images/textures/texture-woodec-turner-oak-malt.jpg' },
 ];
 
 // ─── Window Types ─────────────────────────────────────────────────────────────
@@ -836,10 +836,10 @@ export default function UPVC() {
               {/* Seamless vertical swatches board */}
               <div className="flex w-full h-[320px] md:h-[380px] rounded-2xl overflow-hidden shadow-xl border border-slate-200/60 bg-white">
                 {[
-                  { name: 'sheffield oak alpine', bg: '#cdbeab', desc: 'Pale Scandinavian timber grain', texture: '/images/textures/texture-sheffield-oak-alpine.png' },
-                  { name: 'sheffield oak concrete', bg: '#9f9284', desc: 'Cool concrete grey oak touch', texture: '/images/textures/texture-sheffield-oak-concrete.png' },
-                  { name: 'turner oak toffee', bg: '#b08754', desc: 'Rich honey oak woodgrain', texture: '/images/textures/texture-turner-oak-toffee.png' },
-                  { name: 'turner oak malt', bg: '#c5b095', desc: 'Sandy-malt natural wood', texture: '/images/textures/texture-turner-oak-malt.png' }
+                  { name: 'sheffield oak alpine', bg: '#cdbeab', desc: 'Pale Scandinavian timber grain', texture: '/images/textures/texture-woodec-sheffield-oak-alpine.jpg' },
+                  { name: 'sheffield oak concrete', bg: '#9f9284', desc: 'Cool concrete grey oak touch', texture: '/images/textures/texture-woodec-sheffield-oak-concrete.jpg' },
+                  { name: 'turner oak toffee', bg: '#b08754', desc: 'Rich honey oak woodgrain', texture: '/images/textures/texture-woodec-turner-oak-toffee.jpg' },
+                  { name: 'turner oak malt', bg: '#c5b095', desc: 'Sandy-malt natural wood', texture: '/images/textures/texture-woodec-turner-oak-malt.jpg' }
                 ].map((lam, i) => {
                   const isLight = lam.name === 'sheffield oak alpine';
                   return (
