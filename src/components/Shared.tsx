@@ -62,14 +62,14 @@ export const Navbar = () => {
             </a>
             <div className="flex items-center gap-2 pr-6 border-r border-white/10">
               <Phone className="text-electric-blue w-3.5 h-3.5" />
-              <a href="tel:+18005557737" className="hover:text-white transition-colors duration-200">
-                +1 (800) 555-PRECISION
+              <a href="tel:+919866089771" className="hover:text-white transition-colors duration-200">
+                +91 98660 89771
               </a>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="text-electric-blue w-3.5 h-3.5" />
-              <a href="mailto:eng@industrial-precision.com" className="hover:text-white transition-colors duration-200 lowercase">
-                eng@industrial-precision.com
+              <a href="mailto:sales@srikalaprojects.com" className="hover:text-white transition-colors duration-200 lowercase">
+                sales@srikalaprojects.com
               </a>
             </div>
           </div>
@@ -251,14 +251,14 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <p className="text-[10px] text-slate-650 uppercase tracking-widest mb-1">Phone</p>
-                <a href="tel:+18005557737" className="text-slate-450 hover:text-electric-blue transition-colors text-sm font-medium">
-                  +1 (800) 555-PRECISION
+                <a href="tel:+919866089771" className="text-slate-450 hover:text-electric-blue transition-colors text-sm font-medium">
+                  +91 98660 89771
                 </a>
               </li>
               <li>
                 <p className="text-[10px] text-slate-650 uppercase tracking-widest mb-1">Email</p>
-                <a href="mailto:eng@industrial-precision.com" className="text-slate-450 hover:text-electric-blue transition-colors text-sm font-medium">
-                  eng@industrial-precision.com
+                <a href="mailto:sales@srikalaprojects.com" className="text-slate-450 hover:text-electric-blue transition-colors text-sm font-medium">
+                  sales@srikalaprojects.com
                 </a>
               </li>
               <li>

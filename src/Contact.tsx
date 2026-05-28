@@ -75,8 +75,8 @@ export default function Contact() {
           <div className="lg:col-span-5 flex flex-col gap-4">
             <div className="glass-card p-12 flex flex-col gap-12 h-full hover:shadow-xl hover:-translate-y-1 transition-all">
               {[
-                { icon: Phone,  label: 'Direct Line',         val: '+1 (800) 555-PRECISION',          sub: 'Available Mon–Fri, 08:00–18:00 EST',    href: 'tel:+18005557737' },
-                { icon: Mail,   label: 'Project Inquiries',   val: 'eng@industrial-precision.com',    sub: 'Fast-track response within 12 hours',   href: 'mailto:eng@industrial-precision.com' },
+                { icon: Phone,  label: 'Direct Line',         val: '+91 98660 89771',                 sub: 'Mon–Sat, 09:00–18:00 IST',              href: 'tel:+919866089771' },
+                { icon: Mail,   label: 'Project Inquiries',   val: 'sales@srikalaprojects.com',       sub: 'Fast-track response within 12 hours',   href: 'mailto:sales@srikalaprojects.com' },
                 { icon: MapPin, label: 'Manufacturing & Office', val: 'Srikala Projects',             sub: 'Mamidipally, Hyderabad, Telangana - 501359', href: 'https://maps.app.goo.gl/8CgULSLTmw5RoYWv7' },
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-6">
