@@ -111,87 +111,6 @@ export const CoreDivisionsHorizontal = () => {
         ))}
       </div>
 
-      {/* ── 3. Core Business Pillars Overview Grid ── */}
-      <section className="py-20 bg-baumeister-dark border-b border-white/5 relative z-10" id="business-pillars">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          
-          <div className="text-center mb-12 md:mb-16">
-            <span className="font-mono text-xs text-electric-blue tracking-widest font-bold uppercase">
-              [ Core Business Focus ]
-            </span>
-            <h3 className="text-2xl md:text-3xl font-oswald font-extrabold text-white uppercase mt-2 tracking-tight">
-              Our Primary Business Pillars
-            </h3>
-            <div className="w-12 h-[2px] bg-electric-blue mx-auto mt-4" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            
-            {/* Pillar A: Heavy Industrial Steel */}
-            <div className="bg-[#18191b] p-8 md:p-10 border border-white/5 relative hover:border-electric-blue/40 transition-all duration-300 flex flex-col justify-between">
-              {/* Technical corner brackets */}
-              <div className="absolute top-0 left-0 w-2 h-[1px] bg-electric-blue/50" />
-              <div className="absolute top-0 left-0 w-[1px] h-2 bg-electric-blue/50" />
-              <div className="absolute bottom-0 right-0 w-2 h-[1px] bg-electric-blue/50" />
-              <div className="absolute bottom-0 right-0 w-[1px] h-2 bg-electric-blue/50" />
-
-              <div>
-                <span className="font-mono text-[10px] text-slate-500 tracking-wider uppercase">[ PILLAR 01 / HEAVY ENGINEERING ]</span>
-                <h4 className="text-xl font-oswald font-bold text-white uppercase tracking-wider mt-2 mb-4">
-                  Industrial Steel & PEB Infrastructure
-                </h4>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-                  Turnkey structural steel infrastructure for high-capacity industrial factories, warehouses, logistics hubs, and heavy manufacturing sheds. Fabricated to strict international static load specifications.
-                </p>
-              </div>
-
-              <div className="border-t border-white/5 pt-4">
-                <span className="text-[10.5px] uppercase font-bold tracking-widest text-electric-blue">Sub-Divisions:</span>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {['Pre-Engineered Buildings', 'Heavy Fabrication', 'Roofing Systems'].map((sub) => (
-                    <span key={sub} className="bg-white/5 border border-white/10 px-2.5 py-1 text-[10px] font-mono text-slate-300">
-                      {sub}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Pillar B: Architectural Envelopes */}
-            <div className="bg-[#18191b] p-8 md:p-10 border border-white/5 relative hover:border-electric-blue/40 transition-all duration-300 flex flex-col justify-between">
-              {/* Technical corner brackets */}
-              <div className="absolute top-0 left-0 w-2 h-[1px] bg-electric-blue/50" />
-              <div className="absolute top-0 left-0 w-[1px] h-2 bg-electric-blue/50" />
-              <div className="absolute bottom-0 right-0 w-2 h-[1px] bg-electric-blue/50" />
-              <div className="absolute bottom-0 right-0 w-[1px] h-2 bg-electric-blue/50" />
-
-              <div>
-                <span className="font-mono text-[10px] text-slate-500 tracking-wider uppercase">[ PILLAR 02 / ENVELOPE SYSTEMS ]</span>
-                <h4 className="text-xl font-oswald font-bold text-white uppercase tracking-wider mt-2 mb-4">
-                  Architectural Envelope & Fenestration
-                </h4>
-                <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-                  German-engineered luxury uPVC window & door systems, structural glass facade curtain walls, spider glazing, and ACP cladding systems combining visual elegance with advanced wind resistance.
-                </p>
-              </div>
-
-              <div className="border-t border-white/5 pt-4">
-                <span className="text-[10.5px] uppercase font-bold tracking-widest text-electric-blue">Sub-Divisions:</span>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {['uPVC Windows & Doors', 'Structural Glazing', 'ACP Cladding'].map((sub) => (
-                    <span key={sub} className="bg-white/5 border border-white/10 px-2.5 py-1 text-[10px] font-mono text-slate-300">
-                      {sub}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
       {/* ── Standard Vertical Alternating Divisions List ── */}
       <div className="flex flex-col w-full">
         {SERVICES.map((service, index) => {
@@ -229,28 +148,64 @@ export const CoreDivisionsHorizontal = () => {
                 <div className={`flex w-full ${isEven ? 'justify-start' : 'justify-end'}`}>
                   
                   {/* Text Content Block with Architectural Blueprint Borders & Corner Brackets */}
-                  <div className="w-full md:w-[48%] text-white text-left flex flex-col justify-center backdrop-blur-[3px] bg-slate-950/20 p-8 md:p-12 border border-white/5 shadow-2xl relative">
+                  <div className="w-full md:w-[48%] text-white text-left flex flex-col justify-center backdrop-blur-[4px] bg-slate-950/40 p-8 md:p-12 border border-white/10 shadow-[0_30px_70px_rgba(0,0,0,0.55)] relative overflow-hidden group/card hover:border-electric-blue/20 transition-all duration-500">
+                    {/* Dynamic blueprint dot grid backdrop */}
+                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#2180ff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none z-0" />
+                    
+                    {/* Technical division serial notation */}
+                    <span className="absolute top-4 right-4 font-mono text-[9px] tracking-[0.25em] text-slate-500 select-none">DIV // 0{index + 1}</span>
+
                     {/* Blueprint tech corner accents */}
                     <div className="absolute top-0 left-0 w-3 h-[1px] bg-electric-blue" />
                     <div className="absolute top-0 left-0 w-[1px] h-3 bg-electric-blue" />
                     <div className="absolute bottom-0 right-0 w-3 h-[1px] bg-electric-blue" />
                     <div className="absolute bottom-0 right-0 w-[1px] h-3 bg-electric-blue" />
                     
-                    <div className="absolute top-0 right-0 w-3 h-[1px] bg-white/10" />
-                    <div className="absolute top-0 right-0 w-[1px] h-3 bg-white/10" />
-                    <div className="absolute bottom-0 left-0 w-3 h-[1px] bg-white/10" />
-                    <div className="absolute bottom-0 left-0 w-[1px] h-3 bg-white/10" />
+                    <div className="absolute top-0 right-0 w-3 h-[1px] bg-white/15" />
+                    <div className="absolute top-0 right-0 w-[1px] h-3 bg-white/15" />
+                    <div className="absolute bottom-0 left-0 w-3 h-[1px] bg-white/15" />
+                    <div className="absolute bottom-0 left-0 w-[1px] h-3 bg-white/15" />
 
-                    <div className="w-14 h-14 bg-electric-blue/15 flex items-center justify-center mb-6 border border-electric-blue/20">
-                      <Icon className="w-7 h-7 text-electric-blue" />
+                    {/* Fine technical blueprint ruler tick marks */}
+                    <div className="absolute bottom-0 left-8 right-8 h-[1.5px] bg-white/5 flex justify-between pointer-events-none select-none">
+                      <span className="w-[1.5px] h-1.5 bg-white/25" />
+                      <span className="w-[1.5px] h-1 bg-white/10" />
+                      <span className="w-[1.5px] h-1 bg-white/10" />
+                      <span className="w-[1.5px] h-1 bg-white/10" />
+                      <span className="w-[1.5px] h-1 bg-white/10" />
+                      <span className="w-[1.5px] h-1.5 bg-white/25" />
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-oswald font-extrabold uppercase mb-4 tracking-tighter">{service.title}</h3>
-                    <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 max-w-lg">{service.desc}</p>
+
+                    {/* Animated rotating tech radar scan ring around Icon */}
+                    <div className="relative mb-6 z-10 w-fit group/icon">
+                      <div className="absolute -inset-1.5 border border-dashed border-electric-blue/30 rounded-none animate-[spin_20s_linear_infinite]" />
+                      <div className="absolute -inset-3 border border-electric-blue/10 rounded-none opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 scale-95 group-hover/card:scale-100" />
+                      <div className="w-14 h-14 bg-electric-blue/15 flex items-center justify-center border border-electric-blue/30 relative z-10">
+                        <Icon className="w-7 h-7 text-electric-blue" />
+                      </div>
+                    </div>
+
+                    <h3 className="text-3xl md:text-4xl font-oswald font-extrabold uppercase mb-4 tracking-tighter group-hover/card:text-electric-blue transition-colors duration-300 relative z-10">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 max-w-lg relative z-10">
+                      {service.desc}
+                    </p>
+
+                    {/* State-of-the-art interactive "Blueprint Sweep" Action Button */}
                     <button
                       onClick={() => navigate(service.title === 'uPVC Windows & Doors' ? '/upvc' : '/solutions')}
-                      className="bg-electric-blue text-white px-8 py-3.5 text-xs font-oswald font-bold uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all w-fit shadow-lg active:scale-95 duration-200 rounded-none border border-electric-blue/20"
+                      className="relative group/btn overflow-hidden rounded-none border border-electric-blue/40 px-7 py-3.5 text-[10px] font-oswald font-bold uppercase tracking-[0.2em] text-white transition-all w-fit select-none shadow-lg active:scale-[0.98] duration-150 z-10"
                     >
-                      Learn More
+                      {/* Dynamic slide background color sweep */}
+                      <div className="absolute inset-y-0 left-0 w-0 bg-electric-blue group-hover/btn:w-full transition-all duration-500 ease-out z-0" />
+                      
+                      <span className="relative z-10 flex items-center gap-3">
+                        EXPLORE DIVISION
+                        <span className="relative flex items-center justify-center w-5 h-5 border border-white/20 rounded-none group-hover/btn:border-white/50 group-hover/btn:rotate-45 transition-all duration-500 bg-white/5 font-mono text-sm leading-none pt-[1px]">
+                          →
+                        </span>
+                      </span>
                     </button>
                   </div>
 
