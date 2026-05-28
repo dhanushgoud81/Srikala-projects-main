@@ -318,15 +318,7 @@ export default function Solutions() {
                     {s.desc}
                   </p>
 
-                  {/* Engineered Specs Cockpit Grid */}
-                  <div className="grid grid-cols-2 gap-px bg-slate-200/80 border border-slate-200/80 rounded-xl overflow-hidden mb-8 shadow-sm">
-                    {s.specs.map((sp, i) => (
-                      <div key={i} className="bg-white px-5 py-3.5">
-                        <p className="text-[9px] uppercase tracking-widest text-slate-400 font-bold mb-1">{sp.label}</p>
-                        <p className="font-extrabold text-slate-800 text-xs tracking-tight">{sp.value}</p>
-                      </div>
-                    ))}
-                  </div>
+
 
                   {/* Core Features list */}
                   <ul className="space-y-3.5 mb-10">
