@@ -120,37 +120,57 @@ export const CoreDivisionsHorizontal = () => {
           return (
             <section 
               key={index} 
-              className={`w-full py-20 md:py-28 ${service.color} overflow-hidden relative flex items-center min-h-[50vh]`}
+              className="w-full py-24 md:py-36 overflow-hidden relative flex items-center min-h-[55vh] border-b border-white/5"
             >
-
+              {/* Full-Width Background Image */}
+              <div className="absolute inset-0 w-full h-full overflow-hidden select-none pointer-events-none z-0">
+                <img 
+                  src={service.image} 
+                  alt={service.title} 
+                  className="w-full h-full object-cover transition-transform duration-[2000ms] ease-out hover:scale-105" 
+                  style={{
+                    filter: 'brightness(0.6)',
+                  }}
+                  loading="lazy"
+                />
+                {/* Dark Vignette Gradient Overlay for Text Legibility */}
+                <div 
+                  className="absolute inset-0 transition-opacity duration-500"
+                  style={{
+                    background: isEven 
+                      ? 'linear-gradient(to right, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.82) 45%, rgba(15,23,42,0.3) 100%)'
+                      : 'linear-gradient(to left, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.82) 45%, rgba(15,23,42,0.3) 100%)'
+                  }}
+                />
+              </div>
 
               <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
-                <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-16`}>
+                <div className={`flex w-full ${isEven ? 'justify-start' : 'justify-end'}`}>
                   
-                  {/* Text Content Block */}
-                  <div className="w-full md:w-1/2 text-white text-left flex flex-col justify-center">
-                    <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center mb-6">
+                  {/* Text Content Block with Architectural Blueprint Borders & Corner Brackets */}
+                  <div className="w-full md:w-[48%] text-white text-left flex flex-col justify-center backdrop-blur-[3px] bg-slate-950/20 p-8 md:p-12 border border-white/5 shadow-2xl relative">
+                    {/* Blueprint tech corner accents */}
+                    <div className="absolute top-0 left-0 w-3 h-[1px] bg-electric-blue" />
+                    <div className="absolute top-0 left-0 w-[1px] h-3 bg-electric-blue" />
+                    <div className="absolute bottom-0 right-0 w-3 h-[1px] bg-electric-blue" />
+                    <div className="absolute bottom-0 right-0 w-[1px] h-3 bg-electric-blue" />
+                    
+                    <div className="absolute top-0 right-0 w-3 h-[1px] bg-white/10" />
+                    <div className="absolute top-0 right-0 w-[1px] h-3 bg-white/10" />
+                    <div className="absolute bottom-0 left-0 w-3 h-[1px] bg-white/10" />
+                    <div className="absolute bottom-0 left-0 w-[1px] h-3 bg-white/10" />
+
+                    <div className="w-14 h-14 bg-electric-blue/15 flex items-center justify-center mb-6 border border-electric-blue/20">
                       <Icon className="w-7 h-7 text-electric-blue" />
                     </div>
                     <h3 className="text-3xl md:text-4xl font-oswald font-extrabold uppercase mb-4 tracking-tighter">{service.title}</h3>
-                    <p className="text-sm md:text-base text-slate-350 leading-relaxed mb-8 max-w-lg">{service.desc}</p>
+                    <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 max-w-lg">{service.desc}</p>
                     <button
                       onClick={() => navigate(service.title === 'uPVC Windows & Doors' ? '/upvc' : '/solutions')}
-                      className="bg-electric-blue text-white px-8 py-3.5 text-xs font-oswald font-bold uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-colors w-fit shadow-lg active:scale-95 duration-200 rounded-none"
+                      className="bg-electric-blue text-white px-8 py-3.5 text-xs font-oswald font-bold uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all w-fit shadow-lg active:scale-95 duration-200 rounded-none border border-electric-blue/20"
                     >
                       Learn More
                     </button>
-                  </div>
-
-                  {/* Image Block */}
-                  <div className="w-full md:w-1/2 relative h-[250px] md:h-[400px] rounded-xl overflow-hidden shadow-2xl group">
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className='w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105' 
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-slate-950/20 mix-blend-multiply pointer-events-none" />
                   </div>
 
                 </div>
