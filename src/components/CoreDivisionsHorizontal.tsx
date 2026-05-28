@@ -7,44 +7,62 @@ const SERVICES = [
   {
     icon: Square,
     title: 'uPVC Windows & Doors',
-    desc: 'Energy-efficient window and door systems for modern architectural aesthetics.',
+    titlePre: 'uPVC',
+    titleHighlight: 'Windows',
+    titlePost: '& Doors',
+    desc: 'Energy-efficient, multi-chambered German uPVC window and door systems structurally engineered for luxurious lasting beauty.',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
-    color: 'bg-slate-900'
+    category: 'FENESTRATION DIVISION'
   },
   {
     icon: Factory,
     title: 'Pre-Engineered Buildings',
-    desc: 'Optimized PEB structural frames for maximum internal space utilization.',
+    titlePre: 'Pre-Engineered',
+    titleHighlight: 'Buildings',
+    titlePost: '',
+    desc: 'High-strength structural steel warehouses, PEB industrial sheds, and multi-story structural steel frames designed for maximum volumetric efficiency.',
     image: '/images/pre-engineered.png',
-    color: 'bg-slate-800'
+    category: 'STEEL INFRASTRUCTURE'
   },
   {
     icon: Box,
     title: 'Roofing Systems',
-    desc: 'Advanced industrial roofing solutions with superior thermal insulation.',
+    titlePre: 'Roofing',
+    titleHighlight: 'Systems',
+    titlePost: '',
+    desc: 'Advanced industrial roofing solutions with stand-seam leak-proof tech and high solar reflectivity.',
     image: '/images/roofing-system.png',
-    color: 'bg-slate-900'
+    category: 'ENVIRONMENTAL SHIELDING'
   },
   {
     icon: Factory,
     title: 'Heavy Fabrication',
-    desc: 'Precision steel fabrication for critical infrastructure components.',
+    titlePre: 'Heavy Steel',
+    titleHighlight: 'Fabrication',
+    titlePost: '',
+    desc: 'Precision heavy steel fabrication, custom welding, and block assembly of critical industrial trusses and overhead crane girders.',
     image: '/images/heavy-fabrication.png',
-    color: 'bg-slate-800'
+    category: 'INDUSTRIAL STEEL'
   },
   {
     icon: Layers,
     title: 'ACP Cladding',
-    desc: 'High-grade aluminum composite panels for exterior environmental protection.',
+    titlePre: 'ACP',
+    titleHighlight: 'Cladding',
+    titlePost: 'Systems',
+    desc: 'High-grade aluminum composite panels for exterior facade protection, featuring class A2 fire-retardant cores.',
     image: '/images/acp.png',
-    color: 'bg-slate-900'
+    category: 'FACADE DIVISION'
   },
   {
     icon: Grid3X3,
     title: 'Structural Glazing',
-    desc: 'Sophisticated glass facade solutions that combine integrity with transparency.',
+    titlePre: 'Structural',
+    titleHighlight: 'Glazing',
+    titlePost: '',
+    desc: 'Sophisticated architectural glass facades and high-performance weather-tight curtain walls.',
     image: '/images/structural-glazing.png',
-    color: 'bg-slate-800'
+    category: 'ARCHITECTURAL GLAZING'
   },
 ];
 
@@ -146,34 +164,35 @@ export const CoreDivisionsHorizontal = () => {
                 <div className="flex w-full justify-start">
                   
                   {/* Plain Text Content Block - Always visible on mobile, fades in on hover on desktop */}
-                  <div className="w-full md:w-[48%] text-white text-left flex flex-col justify-center transition-opacity duration-700 ease-out opacity-100 md:opacity-0 md:group-hover:opacity-100 z-10">
+                  <div className="w-full md:w-[60%] text-white text-left flex flex-col justify-center transition-opacity duration-700 ease-out opacity-100 md:opacity-0 md:group-hover:opacity-100 z-10">
                     
-                    {/* Clean Icon Render */}
-                    <div className="mb-6">
-                      <Icon className="w-9 h-9 text-electric-blue" />
-                    </div>
+                    {/* Small category tag exactly matching example screenshot */}
+                    <span className="font-oswald font-bold text-[11px] tracking-[0.25em] text-slate-400 uppercase mb-3 block">
+                      {service.category}
+                    </span>
 
-                    <h3 className="text-3xl md:text-4xl font-oswald font-extrabold uppercase mb-4 tracking-tighter group-hover:text-electric-blue transition-colors duration-500 text-white">
-                      {service.title}
+                    {/* Massive bold heading with highlighted word in yellow matching example screenshot */}
+                    <h3 className="text-4xl sm:text-5xl md:text-[64px] font-oswald font-black uppercase mb-4 tracking-tighter leading-[1.05] text-white">
+                      {service.titlePre}{' '}
+                      <span className="text-[#fbb900]">{service.titleHighlight}</span>
+                      {service.titlePost ? ` ${service.titlePost}` : ''}
                     </h3>
-                    <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-8 max-w-lg">
+
+                    {/* Yellow horizontal thick underline bar matching example screenshot */}
+                    <div className="w-16 h-[3px] bg-[#fbb900] my-6" />
+
+                    {/* Highly legible paragraph description */}
+                    <p className="text-sm md:text-[15px] text-slate-200 leading-relaxed mb-8 max-w-lg">
                       {service.desc}
                     </p>
 
-                    {/* State-of-the-art interactive "Blueprint Sweep" Action Button */}
+                    {/* Solid yellow Explore button matching example screenshot */}
                     <button
                       onClick={() => navigate(service.title === 'uPVC Windows & Doors' ? '/upvc' : '/solutions')}
-                      className="relative group/btn overflow-hidden rounded-none border border-electric-blue/40 px-7 py-3.5 text-[10px] font-oswald font-bold uppercase tracking-[0.2em] text-white transition-all w-fit select-none shadow-lg active:scale-[0.98] duration-150"
+                      className="rounded-none bg-[#fbb900] px-8 py-4 text-[11px] font-oswald font-bold uppercase tracking-[0.2em] text-white hover:bg-white hover:text-slate-950 transition-colors duration-300 w-fit select-none shadow-lg active:scale-[0.98] duration-150 flex items-center gap-3"
                     >
-                      {/* Dynamic slide background color sweep */}
-                      <div className="absolute inset-y-0 left-0 w-0 bg-electric-blue group-hover/btn:w-full transition-all duration-500 ease-out z-0" />
-                      
-                      <span className="relative z-10 flex items-center gap-3">
-                        EXPLORE DIVISION
-                        <span className="relative flex items-center justify-center w-5 h-5 border border-white/20 rounded-none group-hover/btn:border-white/50 group-hover/btn:rotate-45 transition-all duration-500 bg-white/5 font-mono text-sm leading-none pt-[1px] text-white">
-                          →
-                        </span>
-                      </span>
+                      <span>EXPLORE DIVISION</span>
+                      <span className="font-mono text-sm leading-none">→</span>
                     </button>
                   </div>
                 </div>
