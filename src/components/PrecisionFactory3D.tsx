@@ -203,8 +203,8 @@ export const PrecisionFactory3D = () => {
                 <path d="M 120 215 L 180 180 L 180 245 L 120 280 Z" fill="url(#clayRight)" stroke="#cbd5e1" strokeWidth="0.5" />
                 {/* Top face */}
                 <path d="M 120 150 L 180 180 L 120 215 L 60 180 Z" fill="url(#clayTop)" stroke="#cbd5e1" strokeWidth="0.5" />
-                {/* Glowing neon amber window interior */}
-                <path d="M 135 220 L 165 203 L 165 230 L 135 248 Z" fill="#b08754" opacity="0.85" className="animate-pulse" />
+                {/* Glowing neon blue window interior */}
+                <path d="M 135 220 L 165 203 L 165 230 L 135 248 Z" fill="#2180ff" opacity="0.85" className="animate-pulse" />
               </g>
 
               {/* 2. Laser Fusion Welder Station (Conveyor Gate arch, x=400, y=360) */}

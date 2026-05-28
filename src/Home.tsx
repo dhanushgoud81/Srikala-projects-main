@@ -238,7 +238,7 @@ export default function Home() {
   return (
     <PageWrapper>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative h-screen w-full pt-20 sm:pt-32 md:pt-40 bg-slate-950" id="hero">
+      <section className="relative h-screen w-full flex flex-col justify-center bg-slate-950" id="hero">
         
         <style>{`
           @keyframes kenburns {
@@ -256,9 +256,6 @@ export default function Home() {
 
           /* Optimize for shorter viewport heights to prevent card collision */
           @media (max-height: 800px) {
-            #hero {
-              padding-top: 6rem !important;
-            }
             #hero h1 {
               font-size: 2.75rem !important;
               margin-bottom: 0.75rem !important;
@@ -276,9 +273,6 @@ export default function Home() {
           }
 
           @media (max-height: 680px) {
-            #hero {
-              padding-top: 5rem !important;
-            }
             #hero h1 {
               font-size: 2.25rem !important;
               margin-bottom: 0.5rem !important;
@@ -416,7 +410,7 @@ export default function Home() {
         </button>
 
         {/* Hero Slider Content with state-keyed transitions */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pt-4 sm:pt-10">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <div ref={heroContentRef} className="max-w-3xl text-left">
             <div 
               key={currentImageIndex} 
