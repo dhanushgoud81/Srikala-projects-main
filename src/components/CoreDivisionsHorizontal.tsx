@@ -100,15 +100,15 @@ export const CoreDivisionsHorizontal = () => {
                   alt={service.title} 
                   className="w-full h-full object-cover transition-transform duration-[2000ms] ease-out hover:scale-105" 
                   style={{
-                    filter: 'brightness(0.6)',
+                    filter: 'none',
                   }}
                   loading="lazy"
                 />
-                {/* Dark Vignette Gradient Overlay for Text Legibility - Always left-to-right to support left text alignment */}
+                {/* Pure black text protection vignette - no blue filter, natural image colors on the right */}
                 <div 
                   className="absolute inset-0 transition-opacity duration-500"
                   style={{
-                    background: 'linear-gradient(to right, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.82) 45%, rgba(15,23,42,0.3) 100%)'
+                    background: 'linear-gradient(to right, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0) 85%)'
                   }}
                 />
               </div>
