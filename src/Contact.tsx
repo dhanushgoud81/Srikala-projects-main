@@ -4,9 +4,13 @@ import { PageWrapper } from './components/Shared';
 import { useGSAP } from './lib/useGSAP';
 import gsap from 'gsap';
 
-// ─── Replace YOUR_FORM_ID with your Formspree form ID ────────────────────────
-// Sign up free at https://formspree.io → New Form → copy the ID from the action URL
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+// ─── FREE EMAIL CONTACT FORM CONFIGURATION ───────────────────────────────────
+// To receive form submissions for FREE directly to your inbox, we use FormSubmit.co.
+// 1. Enter your real email address below in MY_EMAIL.
+// 2. The very first time you submit this form, FormSubmit will send you a single
+//    activation email. Click the link in it, and your form will be 100% active!
+const MY_EMAIL = 'dhanushgoud81@gmail.com'; 
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${MY_EMAIL}`;
 // ─────────────────────────────────────────────────────────────────────────────
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
@@ -30,7 +34,7 @@ export default function Contact() {
 
     try {
       const data = new FormData(formRef.current);
-      const res  = await fetch(FORMSPREE_ENDPOINT, {
+      const res  = await fetch(FORM_ENDPOINT, {
         method:  'POST',
         body:    data,
         headers: { Accept: 'application/json' },
