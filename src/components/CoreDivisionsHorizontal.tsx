@@ -145,8 +145,8 @@ export const CoreDivisionsHorizontal = () => {
               <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
                 <div className="flex w-full justify-start">
                   
-                  {/* Plain Text Content Block - Fades in on hovering anywhere on the section */}
-                  <div className="w-full md:w-[48%] text-white text-left flex flex-col justify-center transition-opacity duration-700 ease-out opacity-0 group-hover:opacity-100 z-10">
+                  {/* Plain Text Content Block - Always visible on mobile, fades in on hover on desktop */}
+                  <div className="w-full md:w-[48%] text-white text-left flex flex-col justify-center transition-opacity duration-700 ease-out opacity-100 md:opacity-0 md:group-hover:opacity-100 z-10">
                     
                     {/* Clean Icon Render */}
                     <div className="mb-6">
