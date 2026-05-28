@@ -77,7 +77,7 @@ export default function Contact() {
               {[
                 { icon: Phone,  label: 'Direct Line',         val: '+1 (800) 555-PRECISION',          sub: 'Available Mon–Fri, 08:00–18:00 EST',    href: 'tel:+18005557737' },
                 { icon: Mail,   label: 'Project Inquiries',   val: 'eng@industrial-precision.com',    sub: 'Fast-track response within 12 hours',   href: 'mailto:eng@industrial-precision.com' },
-                { icon: MapPin, label: 'Global Headquarters', val: '77 Engineering Blvd, Suite 400',  sub: 'Industrial District, Chicago, IL 60601', href: null },
+                { icon: MapPin, label: 'Manufacturing & Office', val: 'Srikala Projects',             sub: 'Mamidipally, Hyderabad, Telangana - 501359', href: 'https://maps.app.goo.gl/8CgULSLTmw5RoYWv7' },
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-6">
                   <div className="w-14 h-14 bg-slate-900 flex items-center justify-center shrink-0">
@@ -86,7 +86,12 @@ export default function Contact() {
                   <div>
                     <p className="text-[10px] font-bold text-slate-400 mb-1 uppercase tracking-widest">{item.label}</p>
                     {item.href ? (
-                      <a href={item.href} className="text-2xl font-bold text-primary tracking-tight leading-tight mb-1 hover:text-electric-blue transition-colors block">
+                      <a 
+                        href={item.href} 
+                        target={item.href.startsWith('http') ? '_blank' : undefined}
+                        rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="text-2xl font-bold text-primary tracking-tight leading-tight mb-1 hover:text-electric-blue transition-colors block"
+                      >
                         {item.val}
                       </a>
                     ) : (
@@ -99,25 +104,30 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 bg-slate-100 border border-outline-variant relative overflow-hidden h-[400px] lg:h-auto min-h-[500px]">
+          <a 
+            href="https://maps.app.goo.gl/8CgULSLTmw5RoYWv7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lg:col-span-7 bg-slate-100 border border-outline-variant relative overflow-hidden h-[400px] lg:h-auto min-h-[500px] block group cursor-pointer"
+          >
             <img
-              className="absolute inset-0 w-full h-full object-cover grayscale brightness-75 contrast-125 opacity-40"
+              className="absolute inset-0 w-full h-full object-cover grayscale brightness-75 contrast-125 opacity-40 group-hover:scale-105 transition-transform duration-700"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0BvcQiSss8vl7npI6jlu0BsJ1tBX07IDr89NBz6gKhTe_rW_Re5D4yUrC83KPdtHa32e-BPLCdFMs_xHbPuJXo6WIROmtxysw0EC73CTaclJjNjHSpG-9iC-8ZuJLAfq_QxnJ0C32e_I0XFFnCevOFW93yqTgJpck8f_R9u_y08MMVyZranz4E63gV7HS0RQJqPOlAAjK32a7v1k3r9tTxdhDDTApPajp_fjOVFi0T-Co2psh_xyJ_vsC2-BbRT589DWHq_b2kPY"
-              alt="Map Location"
+              alt="Hyderabad Map Location"
               loading="lazy"
             />
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="bg-slate-950 text-white px-8 py-6 border border-white/10 shadow-2xl backdrop-blur-xl">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="bg-slate-950/90 text-white px-8 py-6 border border-white/10 shadow-2xl backdrop-blur-xl group-hover:bg-electric-blue transition-colors duration-300">
                 <div className="flex items-center gap-4">
-                  <MapPin className="text-electric-blue w-8 h-8 fill-electric-blue" />
+                  <MapPin className="text-electric-blue w-8 h-8 fill-electric-blue group-hover:text-white group-hover:fill-white transition-colors duration-300" />
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">HQ Location</p>
-                    <p className="font-black text-xl tracking-tight">CHICAGO INDUSTRIAL CENTER</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-white/80 transition-colors duration-300">Manufacturing Unit</p>
+                    <p className="font-black text-xl tracking-tight uppercase">Hyderabad, India</p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
 
         {/* Form */}

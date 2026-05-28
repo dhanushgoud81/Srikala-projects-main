@@ -51,10 +51,15 @@ export const Navbar = () => {
         <div className="flex justify-between items-center max-w-7xl mx-auto px-6 md:px-12 h-full">
           {/* Left contact specs */}
           <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 pr-6 border-r border-white/10 text-slate-350 select-none">
+            <a 
+              href="https://maps.app.goo.gl/8CgULSLTmw5RoYWv7" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-2 pr-6 border-r border-white/10 text-slate-350 hover:text-white transition-colors duration-200"
+            >
               <MapPin className="text-electric-blue w-3.5 h-3.5" />
-              <span>77 Engineering Blvd, Chicago, IL 60601</span>
-            </div>
+              <span>Hyderabad, Telangana, India</span>
+            </a>
             <div className="flex items-center gap-2 pr-6 border-r border-white/10">
               <Phone className="text-electric-blue w-3.5 h-3.5" />
               <a href="tel:+18005557737" className="hover:text-white transition-colors duration-200">
@@ -258,7 +263,15 @@ export const Footer = () => {
               </li>
               <li>
                 <p className="text-[10px] text-slate-650 uppercase tracking-widest mb-1">Address</p>
-                <p className="text-slate-450 text-sm">77 Engineering Blvd, Suite 400,<br />Chicago, IL 60601</p>
+                <a 
+                  href="https://maps.app.goo.gl/8CgULSLTmw5RoYWv7" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-slate-450 hover:text-electric-blue transition-colors text-sm block leading-relaxed"
+                >
+                  Srikala Projects, Mamidipally,<br />
+                  Hyderabad, Telangana, India - 501359
+                </a>
               </li>
             </ul>
           </div>
