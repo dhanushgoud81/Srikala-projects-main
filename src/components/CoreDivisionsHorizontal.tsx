@@ -148,26 +148,26 @@ export const CoreDivisionsHorizontal = () => {
                 <div className={`flex w-full ${isEven ? 'justify-start' : 'justify-end'}`}>
                   
                   {/* Text Content Block with Architectural Blueprint Borders & Corner Brackets */}
-                  <div className="w-full md:w-[48%] text-white text-left flex flex-col justify-center backdrop-blur-md bg-slate-950/65 p-8 md:p-12 border border-white/10 shadow-[0_30px_70px_rgba(0,0,0,0.55)] relative overflow-hidden group/card hover:border-electric-blue/30 transition-all duration-500">
-                    {/* Dynamic blueprint dot grid backdrop */}
-                    <div className="absolute inset-0 opacity-[0.07] bg-[radial-gradient(#2180ff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none z-0" />
+                  <div className="w-full md:w-[48%] text-white text-left flex flex-col justify-center transition-all duration-700 ease-out backdrop-blur-none hover:backdrop-blur-md bg-slate-950/0 hover:bg-slate-950/65 p-8 md:p-12 border border-transparent hover:border-white/10 shadow-none hover:shadow-[0_30px_70px_rgba(0,0,0,0.55)] relative overflow-hidden group/card">
+                    {/* Dynamic blueprint dot grid backdrop - revealed on hover */}
+                    <div className="absolute inset-0 opacity-0 group-hover/card:opacity-[0.07] bg-[radial-gradient(#2180ff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none z-0 transition-opacity duration-700" />
                     
-                    {/* Technical division serial notation */}
-                    <span className="absolute top-4 right-4 font-mono text-[9px] tracking-[0.25em] text-slate-500 select-none">DIV // 0{index + 1}</span>
+                    {/* Technical division serial notation - revealed on hover */}
+                    <span className="absolute top-4 right-4 font-mono text-[9px] tracking-[0.25em] text-slate-500 select-none opacity-0 group-hover/card:opacity-100 transition-opacity duration-700">DIV // 0{index + 1}</span>
 
-                    {/* Blueprint tech corner accents */}
-                    <div className="absolute top-0 left-0 w-3 h-[1px] bg-electric-blue" />
-                    <div className="absolute top-0 left-0 w-[1px] h-3 bg-electric-blue" />
-                    <div className="absolute bottom-0 right-0 w-3 h-[1px] bg-electric-blue" />
-                    <div className="absolute bottom-0 right-0 w-[1px] h-3 bg-electric-blue" />
+                    {/* Blueprint tech corner accents - revealed on hover */}
+                    <div className="absolute top-0 left-0 w-3 h-[1px] bg-electric-blue opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute top-0 left-0 w-[1px] h-3 bg-electric-blue opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute bottom-0 right-0 w-3 h-[1px] bg-electric-blue opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute bottom-0 right-0 w-[1px] h-3 bg-electric-blue opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
                     
-                    <div className="absolute top-0 right-0 w-3 h-[1px] bg-white/15" />
-                    <div className="absolute top-0 right-0 w-[1px] h-3 bg-white/15" />
-                    <div className="absolute bottom-0 left-0 w-3 h-[1px] bg-white/15" />
-                    <div className="absolute bottom-0 left-0 w-[1px] h-3 bg-white/15" />
+                    <div className="absolute top-0 right-0 w-3 h-[1px] bg-white/15 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute top-0 right-0 w-[1px] h-3 bg-white/15 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute bottom-0 left-0 w-3 h-[1px] bg-white/15 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute bottom-0 left-0 w-[1px] h-3 bg-white/15 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
 
-                    {/* Fine technical blueprint ruler tick marks */}
-                    <div className="absolute bottom-0 left-8 right-8 h-[1.5px] bg-white/5 flex justify-between pointer-events-none select-none">
+                    {/* Fine technical blueprint ruler tick marks - revealed on hover */}
+                    <div className="absolute bottom-0 left-8 right-8 h-[1.5px] bg-white/5 flex justify-between pointer-events-none select-none opacity-0 group-hover/card:opacity-100 transition-opacity duration-700">
                       <span className="w-[1.5px] h-1.5 bg-white/25" />
                       <span className="w-[1.5px] h-1 bg-white/10" />
                       <span className="w-[1.5px] h-1 bg-white/10" />
@@ -176,11 +176,11 @@ export const CoreDivisionsHorizontal = () => {
                       <span className="w-[1.5px] h-1.5 bg-white/25" />
                     </div>
 
-                    {/* Animated rotating tech radar scan ring around Icon */}
+                    {/* Animated rotating tech radar scan ring around Icon - revealed on hover */}
                     <div className="relative mb-6 z-10 w-fit group/icon">
-                      <div className="absolute -inset-1.5 border border-dashed border-electric-blue/30 rounded-none animate-[spin_20s_linear_infinite]" />
-                      <div className="absolute -inset-3 border border-electric-blue/10 rounded-none opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 scale-95 group-hover/card:scale-100" />
-                      <div className="w-14 h-14 bg-electric-blue/15 flex items-center justify-center border border-electric-blue/20 relative z-10">
+                      <div className="absolute -inset-1.5 border border-dashed border-electric-blue/30 rounded-none animate-[spin_20s_linear_infinite] opacity-0 group-hover/card:opacity-100 transition-opacity duration-700" />
+                      <div className="absolute -inset-3 border border-electric-blue/15 rounded-none opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 scale-95 group-hover/card:scale-100" />
+                      <div className="w-14 h-14 bg-electric-blue/10 group-hover/card:bg-electric-blue/15 flex items-center justify-center border border-white/10 group-hover/card:border-electric-blue/20 relative z-10 transition-all duration-700">
                         <Icon className="w-7 h-7 text-electric-blue" />
                       </div>
                     </div>
