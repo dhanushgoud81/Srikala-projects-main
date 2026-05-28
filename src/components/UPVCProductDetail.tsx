@@ -493,13 +493,13 @@ export const DETAILED_PRODUCTS: Record<string, WindowDetail> = {
 
 // ─── Customization details ────────────────────────────────────────────────────────
 const ALUDEC_SWATCHES = [
-  { name: 'aludec DB703', hex: '#4f5255', desc: 'Metallic textured iron mica grey with micro-sparkles' },
-  { name: 'aludec jet black', hex: '#111215', desc: 'Ultra-matt deep architectural black' },
-  { name: 'aludec window grey', hex: '#8d9296', desc: 'Sleek, medium-light industrial grey' },
-  { name: 'aludec basalt grey', hex: '#4b4d50', desc: 'Elegant dark volcanic basalt tone' },
-  { name: 'aludec anthracite grey', hex: '#2f3133', desc: 'Prestige deep anthracite, matching modern elevations' },
-  { name: 'aludec traffic white', hex: '#f0f2f2', desc: 'Clean, powder-coated satin traffic white' },
-  { name: 'aludec umbra grey', hex: '#4b4a45', desc: 'Earthy, warm mineral grey with organic depth' },
+  { name: 'aludec DB703', hex: '#434749', desc: 'Metallic iron mica with fine sparkles' },
+  { name: 'aludec jet black', hex: '#0e0f11', desc: 'Ultra-matt deep architectural black' },
+  { name: 'aludec window grey', hex: '#8c8e90', desc: 'Sleek industrial window grey' },
+  { name: 'aludec basalt grey', hex: '#3a3f41', desc: 'Elegant dark volcanic basalt stone' },
+  { name: 'aludec anthracite grey', hex: '#2b2d30', desc: 'Prestige deep dark anthracite' },
+  { name: 'aludec traffic white', hex: '#e8e9eb', desc: 'Satin powder-coated traffic white' },
+  { name: 'aludec umbra grey', hex: '#463f3a', desc: 'Warm organic earthy umbra grey' },
 ];
 
 const WOODEC_SWATCHES = [
@@ -1186,7 +1186,11 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
                         >
                           <span 
                             className="w-3 h-3 rounded-full border border-slate-200 shrink-0" 
-                            style={{ backgroundColor: swatch.hex }}
+                            style={{ 
+                              backgroundColor: swatch.hex,
+                              backgroundImage: laminationCategory === 'aludec' ? `url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.22'/%3E%3C/svg%3E")` : undefined,
+                              backgroundBlendMode: 'overlay',
+                            }}
                           />
                           {swatch.name.replace('aludec ', '').replace('sheffield ', '').replace('turner ', '')}
                         </button>
@@ -1199,7 +1203,11 @@ export default function UPVCProductDetail({ productName, onBack, onSelectProduct
                 <div className="bg-white border border-slate-200/80 p-5 rounded-lg flex items-center gap-5 shadow-sm">
                   <div 
                     className="w-16 h-16 rounded-md border border-slate-200/80 shrink-0 shadow-inner flex items-center justify-center relative overflow-hidden"
-                    style={{ backgroundColor: activeColor.hex }}
+                    style={{ 
+                      backgroundColor: activeColor.hex,
+                      backgroundImage: laminationCategory === 'aludec' ? `url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.22'/%3E%3C/svg%3E")` : undefined,
+                      backgroundBlendMode: 'overlay',
+                    }}
                   />
                   <div>
                     <h5 className="font-extrabold text-sm text-[#005fb8] uppercase tracking-tight">{activeColor.name} Swatch</h5>

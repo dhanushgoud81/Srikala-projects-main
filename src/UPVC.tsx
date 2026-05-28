@@ -774,38 +774,27 @@ export default function UPVC() {
               {/* Seamless vertical swatches board */}
               <div className="flex w-full h-[320px] md:h-[380px] rounded-2xl overflow-hidden shadow-xl border border-slate-200/60 bg-white">
                 {[
-                  { name: 'aludec traffic white', bg: '#f0f2f2', desc: 'Satin traffic white' },
-                  { name: 'aludec window grey', bg: '#8d9296', desc: 'Sleek industrial grey' },
-                  { name: 'aludec umbra grey', bg: '#4b4a45', desc: 'Warm organic grey' },
-                  { name: 'aludec basalt grey', bg: '#4b4d50', desc: 'Elegant basalt tone' },
-                  { name: 'aludec jet black', bg: '#111215', desc: 'Ultra-matt deep black' },
-                  { name: 'aludec DB703', bg: '#4f5255', desc: 'Metallic iron mica', texture: '/images/textures/texture-aludec-db703.png' },
-                  { name: 'aludec anthracite grey', bg: '#2f3133', desc: 'Prestige dark charcoal' }
+                  { name: 'aludec traffic white', bg: '#e8e9eb', desc: 'Satin powder-coated traffic white' },
+                  { name: 'aludec window grey', bg: '#8c8e90', desc: 'Sleek industrial window grey' },
+                  { name: 'aludec umbra grey', bg: '#463f3a', desc: 'Warm organic earthy umbra grey' },
+                  { name: 'aludec basalt grey', bg: '#3a3f41', desc: 'Elegant dark volcanic basalt stone' },
+                  { name: 'aludec jet black', bg: '#0e0f11', desc: 'Ultra-matt deep architectural black' },
+                  { name: 'aludec DB703', bg: '#434749', desc: 'Metallic iron mica with fine sparkles' },
+                  { name: 'aludec anthracite grey', bg: '#2b2d30', desc: 'Prestige deep dark anthracite' }
                 ].map((lam, i) => {
                   const isLight = lam.name === 'aludec traffic white';
                   return (
                     <div 
                       key={i} 
                       className="group flex-1 hover:flex-[2.5] relative transition-all duration-500 ease-out cursor-pointer overflow-hidden border-r border-black/5 last:border-r-0 select-none"
-                      style={lam.texture ? {
-                        backgroundImage: `url(${lam.texture})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                      } : {
-                        backgroundColor: lam.bg
+                      style={{
+                        backgroundColor: lam.bg,
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 150 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.16'/%3E%3C/svg%3E")`,
+                        backgroundBlendMode: 'overlay',
                       }}
                     >
                       {/* Technical metallic micro-texture & sand-blasted grain overlays */}
                       <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
-                      {!lam.texture && (
-                        <div 
-                          className="absolute inset-0 opacity-15 pointer-events-none" 
-                          style={{ 
-                            backgroundImage: 'radial-gradient(rgba(255,255,255,0.15) 0.5px, transparent 0)', 
-                            backgroundSize: '3px 3px' 
-                          }} 
-                        />
-                      )}
                       
                       {/* Vertical color label */}
                       <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-12 pointer-events-none z-10">
