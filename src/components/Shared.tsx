@@ -250,24 +250,24 @@ export const Footer = () => {
             <h4 className="text-white font-oswald font-bold uppercase tracking-widest text-xs mb-6">Contact</h4>
             <ul className="space-y-4">
               <li>
-                <p className="text-[10px] text-slate-650 uppercase tracking-widest mb-1">Phone</p>
-                <a href="tel:+919866089771" className="text-slate-450 hover:text-electric-blue transition-colors text-sm font-medium">
+                <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Phone</p>
+                <a href="tel:+919866089771" className="text-slate-300 hover:text-electric-blue transition-colors text-sm font-medium">
                   +91 98660 89771
                 </a>
               </li>
               <li>
-                <p className="text-[10px] text-slate-650 uppercase tracking-widest mb-1">Email</p>
-                <a href="mailto:sales@srikalaprojects.com" className="text-slate-450 hover:text-electric-blue transition-colors text-sm font-medium">
+                <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Email</p>
+                <a href="mailto:sales@srikalaprojects.com" className="text-slate-300 hover:text-electric-blue transition-colors text-sm font-medium">
                   sales@srikalaprojects.com
                 </a>
               </li>
               <li>
-                <p className="text-[10px] text-slate-650 uppercase tracking-widest mb-1">Address</p>
+                <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Address</p>
                 <a 
                   href="https://maps.app.goo.gl/8CgULSLTmw5RoYWv7" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-slate-450 hover:text-electric-blue transition-colors text-sm block leading-relaxed"
+                  className="text-slate-300 hover:text-electric-blue transition-colors text-sm block leading-relaxed"
                 >
                   Srikala Projects, Mamidipally,<br />
                   Hyderabad, Telangana, India - 501359
