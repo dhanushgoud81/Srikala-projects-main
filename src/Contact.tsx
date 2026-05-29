@@ -111,8 +111,8 @@ export default function Contact() {
             className="lg:col-span-7 bg-slate-100 border border-outline-variant relative overflow-hidden h-[400px] lg:h-auto min-h-[500px] block group cursor-pointer"
           >
             <img
-              className="absolute inset-0 w-full h-full object-cover grayscale brightness-75 contrast-125 opacity-40 group-hover:scale-105 transition-transform duration-700"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0BvcQiSss8vl7npI6jlu0BsJ1tBX07IDr89NBz6gKhTe_rW_Re5D4yUrC83KPdtHa32e-BPLCdFMs_xHbPuJXo6WIROmtxysw0EC73CTaclJjNjHSpG-9iC-8ZuJLAfq_QxnJ0C32e_I0XFFnCevOFW93yqTgJpck8f_R9u_y08MMVyZranz4E63gV7HS0RQJqPOlAAjK32a7v1k3r9tTxdhDDTApPajp_fjOVFi0T-Co2psh_xyJ_vsC2-BbRT589DWHq_b2kPY"
+              className="absolute inset-0 w-full h-full object-cover brightness-90 opacity-85 group-hover:scale-105 transition-transform duration-700"
+              src="/images/location-map.png"
               alt="Hyderabad Map Location"
               loading="lazy"
             />
