@@ -32,13 +32,17 @@ export const Navbar = () => {
     window.scrollTo(0, 0);
   };
 
+  const isHome = pathname === '/';
+
   return (
     <header
       className={cn(
         'fixed top-0 w-full z-50 border-b transition-all duration-500',
         scrolled
           ? 'bg-baumeister-charcoal/95 backdrop-blur-lg border-white/20 shadow-2xl'
-          : 'bg-baumeister-charcoal/40 border-white/10'
+          : isHome
+            ? 'bg-baumeister-charcoal/40 border-white/10'
+            : 'bg-baumeister-charcoal border-white/10'
       )}
     >
       {/* ─── 1. Header Top Bar (Utility Details) ─── */}
