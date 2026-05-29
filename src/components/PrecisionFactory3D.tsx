@@ -320,7 +320,7 @@ export const PrecisionFactory3D = () => {
                     className={`w-full flex items-center gap-4 p-4 rounded-xl border text-left transition-all duration-300 ${
                       isActive
                         ? 'bg-slate-900 border-slate-950 text-white shadow-lg translate-x-2'
-                        : 'bg-slate-50 border-slate-200/75 text-slate-600 hover:bg-slate-100 hover:border-slate-350 hover:text-slate-900'
+                        : 'bg-slate-50 border-slate-200/75 text-slate-600 hover:bg-slate-100 hover:border-slate-300 hover:text-slate-900'
                     }`}
                   >
                     <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border transition-all ${

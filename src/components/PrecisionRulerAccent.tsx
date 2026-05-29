@@ -60,13 +60,13 @@ export const PrecisionRulerAccent = ({ className = "my-6" }: { className?: strin
       />
       {/* Fractional tick marks resembling micro-measurements */}
       <div ref={ticksRef} className="flex justify-between w-24 px-1.5 opacity-90">
-        <span className="w-px h-1 bg-slate-350" />
-        <span className="w-px h-1.5 bg-slate-450" />
-        <span className="w-px h-1 bg-slate-350" />
+        <span className="w-px h-1 bg-slate-300" />
+        <span className="w-px h-1.5 bg-slate-400" />
+        <span className="w-px h-1 bg-slate-300" />
         <span className="w-px h-2 bg-[#005fb8]" />
-        <span className="w-px h-1 bg-slate-350" />
-        <span className="w-px h-1.5 bg-slate-450" />
-        <span className="w-px h-1 bg-slate-350" />
+        <span className="w-px h-1 bg-slate-300" />
+        <span className="w-px h-1.5 bg-slate-400" />
+        <span className="w-px h-1 bg-slate-300" />
       </div>
     </div>
   );

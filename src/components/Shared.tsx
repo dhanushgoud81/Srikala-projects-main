@@ -55,7 +55,7 @@ export const Navbar = () => {
               href="https://maps.app.goo.gl/8CgULSLTmw5RoYWv7" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex items-center gap-2 pr-6 border-r border-white/10 text-slate-350 hover:text-white transition-colors duration-200"
+              className="flex items-center gap-2 pr-6 border-r border-white/10 text-slate-300 hover:text-white transition-colors duration-200"
             >
               <MapPin className="text-electric-blue w-3.5 h-3.5" />
               <span>Hyderabad, Telangana, India</span>
@@ -101,15 +101,14 @@ export const Navbar = () => {
         {/* Brand Logo */}
         <button
           onClick={() => go('/')}
-          className="flex items-center gap-3.5 group"
+          className="flex items-center gap-3 group"
           aria-label="Go to homepage"
         >
-          <div className="w-9 h-9 bg-electric-blue flex items-center justify-center rounded-none shadow-md group-hover:scale-105 transition-transform duration-300">
-            <Factory className="text-white w-5 h-5" />
-          </div>
-          <span className="text-xl font-oswald font-bold tracking-tight text-white uppercase sm:block hidden">
-            <span className="text-electric-blue group-hover:text-white transition-colors duration-300">SRIKALA</span> PROJECTS
-          </span>
+          <img 
+            src="/images/LOGO.png" 
+            alt="Srikala Projects Logo" 
+            className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+          />
         </button>
 
         {/* Desktop Menu Navigation Links */}
@@ -162,7 +161,7 @@ export const Navbar = () => {
                 onClick={() => go(item.path)}
                 className={cn(
                   'font-oswald font-bold uppercase tracking-widest text-sm text-left py-1',
-                  pathname === item.path ? 'text-electric-blue' : 'text-slate-350'
+                  pathname === item.path ? 'text-electric-blue' : 'text-slate-300'
                 )}
               >
                 {item.label}
@@ -199,12 +198,11 @@ export const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <button onClick={() => go('/')} className="flex items-center gap-3 mb-4 group text-left">
-              <div className="w-8 h-8 bg-electric-blue rounded-none flex items-center justify-center">
-                <Factory className="text-white w-4 h-4" />
-              </div>
-              <span className="text-white font-oswald font-bold uppercase tracking-wider text-sm">
-                SRIKALA <span className="text-electric-blue group-hover:text-white transition-colors duration-300">PROJECTS</span>
-              </span>
+              <img 
+                src="/images/LOGO.png" 
+                alt="Srikala Projects Logo" 
+                className="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+              />
             </button>
             <p className="text-slate-500 text-sm leading-relaxed">
               Four decades of defining industrial standards through precision and structural integrity.
