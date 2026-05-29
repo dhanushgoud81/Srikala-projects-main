@@ -449,6 +449,58 @@ export default function Home() {
       {/* ── Core Divisions ───────────────────────────────────────────────── */}
       <CoreDivisionsHorizontal />
 
+      {/* ── Corporate Overview (Showcasing logo2) ───────────────────────── */}
+      <section className="py-24 bg-white text-slate-950 overflow-hidden" id="about-corporate">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            
+            {/* Left Column: High-Fidelity 3D Metallic Logo Card */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-start">
+              <div className="relative group p-8 bg-slate-950 rounded-2xl shadow-2xl border border-slate-800 flex justify-center items-center overflow-hidden w-full max-w-md aspect-[4/3] transition-all duration-500 hover:scale-[1.02] hover:shadow-electric-blue/10">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#2180ff_0%,transparent_70%)] opacity-20 pointer-events-none group-hover:scale-125 transition-transform duration-1000" />
+                <img 
+                  src="/images/logo2.png" 
+                  alt="Srikala Projects Premium Identity" 
+                  className="w-full max-w-[320px] h-auto object-contain z-10 filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            </div>
+
+            {/* Right Column: Corporate Description */}
+            <div className="lg:col-span-7 space-y-6">
+              <span className="text-electric-blue text-xs uppercase tracking-widest font-bold font-sans">
+                Corporate Identity
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold font-oswald uppercase tracking-tight leading-tight">
+                Pioneering <span className="text-electric-blue">Industrial Engineering</span> Solutions
+              </h2>
+              <PrecisionRulerAccent />
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed">
+                For over four decades, Srikala Projects has stood at the vanguard of heavy steel fabrication, pre-engineered structural frames, and luxury uPVC window systems. Our new unified corporate emblem represents our deep-seated commitment to structural integrity, engineering innovation, and absolute precision.
+              </p>
+              <p className="text-slate-500 text-sm md:text-base leading-relaxed">
+                Every division—from complex structural glazing facade statics to heavy industrial PEB structures—is engineered under strict ISO certification, utilizing state-of-the-art automated manufacturing workflows to turn architectural concepts into timeless landmarks.
+              </p>
+              <div className="pt-4 flex flex-wrap gap-6 text-sm text-slate-800 font-bold uppercase tracking-widest">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 bg-electric-blue rounded-full" />
+                  <span>ISO 9001:2015</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 bg-electric-blue rounded-full" />
+                  <span>Precision Crafted</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 bg-electric-blue rounded-full" />
+                  <span>Engineered to Last</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ── Stats ────────────────────────────────────────────────────────── */}
       <section className="py-24 bg-slate-950 text-white overflow-hidden" id="stats">
         <div className="max-w-7xl mx-auto px-6 md:px-12" ref={statsRef}>
