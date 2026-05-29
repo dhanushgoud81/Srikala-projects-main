@@ -265,12 +265,7 @@ export default function Solutions() {
             </nav>
           </div>
 
-          <div className="hidden lg:block pt-8 border-t border-slate-100 mt-10">
-            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-relaxed">
-              Srikala Projects Ltd.<br />
-              ISO 9001:2015 Certified
-            </p>
-          </div>
+
         </aside>
 
         {/* ── Main Content Grid ────────────────────────────────────────── */}
