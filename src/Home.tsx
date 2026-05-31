@@ -237,6 +237,49 @@ export default function Home() {
 
   return (
     <PageWrapper>
+      {/* LocalBusiness Structured Schema for Google E-E-A-T & Local Map Packs */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "Srikala Projects",
+          "image": "https://srikalaprojects.com/images/logo_3_transparent.png",
+          "@id": "https://srikalaprojects.com/#organization",
+          "url": "https://srikalaprojects.com/",
+          "telephone": "+919866089771", 
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Srikala Projects, Mamidipally",
+            "addressLocality": "Hyderabad",
+            "addressRegion": "Telangana",
+            "postalCode": "501359",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 17.2285, 
+            "longitude": 78.5024
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/srikalaprojects",
+            "https://www.linkedin.com/company/srikalaprojects"
+          ]
+        })}
+      </script>
+
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative h-screen w-full flex flex-col justify-center bg-slate-950" id="hero">
         
@@ -449,19 +492,19 @@ export default function Home() {
       {/* ── Core Divisions ───────────────────────────────────────────────── */}
       <CoreDivisionsHorizontal />
 
-      {/* ── Corporate Overview (Showcasing logo2) ───────────────────────── */}
+      {/* ── Corporate Overview (Showcasing logo_3_transparent.png) ───────────────────────── */}
       <section className="py-24 bg-white text-slate-950 overflow-hidden" id="about-corporate">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
             
             {/* Left Column: High-Fidelity 3D Metallic Logo Card */}
             <div className="lg:col-span-5 flex justify-center lg:justify-start">
-              <div className="relative group p-8 bg-slate-950 rounded-2xl shadow-2xl border border-slate-800 flex justify-center items-center overflow-hidden w-full max-w-md aspect-[4/3] transition-all duration-500 hover:scale-[1.02] hover:shadow-electric-blue/10">
+              <div className="relative group p-5 bg-slate-950 rounded-2xl shadow-2xl border border-slate-800 flex justify-center items-center overflow-hidden w-full max-w-md aspect-[4/3] transition-all duration-500 hover:scale-[1.02] hover:shadow-electric-blue/10">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#2180ff_0%,transparent_70%)] opacity-20 pointer-events-none group-hover:scale-125 transition-transform duration-1000" />
                 <img 
-                  src="/images/logo2.png" 
+                  src="/images/logo_3_transparent.png" 
                   alt="Srikala Projects Premium Identity" 
-                  className="w-full max-w-[320px] h-auto object-contain z-10 filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105"
+                  className="w-full max-w-[380px] h-auto object-contain z-10 filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             </div>

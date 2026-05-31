@@ -624,6 +624,25 @@ export default function UPVC() {
 
   return (
     <PageWrapper>
+      {/* Product & Brand Rich Snippets Schema for aluplast uPVC Profiles & Systems */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "aluplast uPVC Window & Door Systems",
+          "image": "https://srikalaprojects.com/images/upvc-hero-luxury.png",
+          "description": "High-performance uPVC profile systems engineered with classic German aluplast technology, offering up to 45 dB noise insulation and high wind load resistance.",
+          "brand": {
+            "@type": "Brand",
+            "name": "aluplast"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "INR",
+            "itemCondition": "https://schema.org/NewCondition"
+          }
+        })}
+      </script>
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative h-screen w-full flex items-center overflow-hidden -mt-16" id="upvc-hero">

@@ -11,10 +11,10 @@ import UPVC from './UPVC';
 import NotFound from './NotFound';
 
 const pageTitles: Record<string, string> = {
-  '/':          'Home | Srikala Projects',
-  '/solutions': 'Solutions | Srikala Projects',
-  '/upvc':      'uPVC Windows & Doors Systems | Srikala Projects',
-  '/contact':   'Contact | Srikala Projects',
+  '/':          'Srikala Projects | Premium Industrial Engineering & Luxury uPVC Systems',
+  '/solutions': 'Pre-Engineered Buildings & Heavy Fabrication Solutions | Srikala Projects',
+  '/upvc':      'Luxury uPVC Windows & Doors Systems | Srikala Projects',
+  '/contact':   'Get a Quote & Contact Engineering Experts | Srikala Projects',
 };
 
 export default function App() {

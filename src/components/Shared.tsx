@@ -109,9 +109,9 @@ export const Navbar = () => {
           aria-label="Go to homepage"
         >
           <img 
-            src="/images/logo2.png" 
+            src="/images/logo_3_transparent.png" 
             alt="Srikala Projects Logo" 
-            className="h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+            className="h-14 md:h-17 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
           />
         </button>
 
@@ -203,9 +203,9 @@ export const Footer = () => {
           <div className="md:col-span-1">
             <button onClick={() => go('/')} className="flex items-center gap-3 mb-4 group text-left">
               <img 
-                src="/images/logo2.png" 
+                src="/images/logo_3_transparent.png" 
                 alt="Srikala Projects Logo" 
-                className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+                className="h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
               />
             </button>
             <p className="text-slate-500 text-sm leading-relaxed">
