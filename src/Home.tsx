@@ -89,11 +89,6 @@ const PILLARS = [
   { icon: Truck,    title: 'Timely Delivery',    desc: 'Lean logistics frameworks ensuring on-time project completion.' },
 ];
 
-const STATS = [
-  { val: 500, label: 'Projects Completed' },
-  { val: 200, label: 'Global Clients'     },
-  { val: 25,  label: 'Years Excellence'   },
-];
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -105,7 +100,6 @@ export default function Home() {
   const heroTitleRef    = useRef<HTMLHeadingElement>(null);
   const heroCTARef      = useRef<HTMLButtonElement>(null);
   const divisionsTitleRef = useRef<HTMLDivElement>(null);
-  const statsRef        = useRef<HTMLDivElement>(null);
   const pillarsTitleRef = useRef<HTMLDivElement>(null);
   const pillarsRef      = useRef<HTMLDivElement>(null);
   const ctaRef          = useRef<HTMLDivElement>(null);
@@ -207,16 +201,6 @@ export default function Home() {
       scrollReveal.fadeInUp(divisionsTitleRef.current);
     }
 
-    // Stats
-    if (statsRef.current) {
-      const statItems = statsRef.current.querySelectorAll('.stat-item');
-      textStagger.fadeInUp(statItems, { stagger: 0.2 });
-
-      statsRef.current.querySelectorAll('.stat-number').forEach((num) => {
-        const value = parseInt(num.getAttribute('data-value') ?? '0');
-        animationUtils.counter(num as HTMLElement, { target: value, duration: 2, suffix: '+', start: 'top 80%' });
-      });
-    }
 
     // Pillars title
     if (pillarsTitleRef.current) {
@@ -243,7 +227,7 @@ export default function Home() {
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "name": "Srikala Projects",
-          "image": "https://srikalaprojects.com/images/logo_3_transparent.png",
+          "image": "https://srikalaprojects.com/images/logo2.jpg",
           "@id": "https://srikalaprojects.com/#organization",
           "url": "https://srikalaprojects.com/",
           "telephone": "+919866089771", 
@@ -502,7 +486,7 @@ export default function Home() {
               <div className="relative group p-5 bg-slate-950 rounded-2xl shadow-2xl border border-slate-800 flex justify-center items-center overflow-hidden w-full max-w-md aspect-[4/3] transition-all duration-500 hover:scale-[1.02] hover:shadow-electric-blue/10">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#2180ff_0%,transparent_70%)] opacity-20 pointer-events-none group-hover:scale-125 transition-transform duration-1000" />
                 <img 
-                  src="/images/logo_3_transparent.png" 
+                  src="/images/logo2.jpg" 
                   alt="Srikala Projects Premium Identity" 
                   className="w-full max-w-[380px] h-auto object-contain z-10 filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105"
                 />
@@ -540,25 +524,6 @@ export default function Home() {
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* ── Stats ────────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-slate-950 text-white overflow-hidden" id="stats">
-        <div className="max-w-7xl mx-auto px-6 md:px-12" ref={statsRef}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
-            {STATS.map((stat, idx) => (
-              <div key={idx} className="stat-item border-l-2 border-electric-blue pl-6">
-                <div
-                  className="stat-number text-5xl md:text-6xl font-bold mb-2"
-                  data-value={stat.val}
-                >
-                  {stat.val}+
-                </div>
-                <div className="text-[10px] uppercase tracking-widest text-slate-500">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
