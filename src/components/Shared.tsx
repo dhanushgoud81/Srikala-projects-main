@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
-import { Factory, Menu, X, Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram, Globe } from 'lucide-react';
+import { Factory, Menu, X, Phone, Mail, MapPin, Facebook, Instagram, Globe } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const navItems = [
@@ -81,15 +81,17 @@ export const Navbar = () => {
           {/* Right socials & region map */}
           <div className="flex items-center gap-5">
             <div className="flex items-center gap-3.5 text-slate-400">
-              <a href="#" aria-label="Facebook Link" className="hover:text-electric-blue transition-colors"><Facebook className="w-3.5 h-3.5" /></a>
-              <a href="#" aria-label="Twitter Link" className="hover:text-electric-blue transition-colors"><Twitter className="w-3.5 h-3.5" /></a>
-              <a href="#" aria-label="LinkedIn Link" className="hover:text-electric-blue transition-colors"><Linkedin className="w-3.5 h-3.5" /></a>
-              <a href="#" aria-label="Instagram Link" className="hover:text-electric-blue transition-colors"><Instagram className="w-3.5 h-3.5" /></a>
+              <a href="https://www.facebook.com/p/Srikala-projects-100054633062340/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-electric-blue transition-colors"><Facebook className="w-3.5 h-3.5" /></a>
+              <a href="https://www.instagram.com/srikala_projects?igsh=MWsxbWN1Ympqd3djMA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-electric-blue transition-colors"><Instagram className="w-3.5 h-3.5" /></a>
+              <a href="https://m.indiamart.com/srikalaprojects/" target="_blank" rel="noopener noreferrer" aria-label="IndiaMART" className="flex items-center gap-1 hover:text-electric-blue transition-colors">
+                <Globe className="w-3.5 h-3.5" />
+                <span className="text-[10px] font-bold uppercase tracking-wider">IndiaMART</span>
+              </a>
             </div>
             <div className="w-[1px] h-3 bg-white/15" />
             <div className="flex items-center gap-2 text-slate-300">
               <Globe className="text-electric-blue w-4 h-4 animate-pulse" />
-              <span className="font-bold">US</span>
+              <span className="font-bold">IN</span>
             </div>
           </div>
         </div>
@@ -208,9 +210,21 @@ export const Footer = () => {
                 className="h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
               />
             </button>
-            <p className="text-slate-500 text-sm leading-relaxed">
+            <p className="text-slate-500 text-sm leading-relaxed mb-5">
               Four decades of defining industrial standards through precision and structural integrity.
             </p>
+            <div className="flex items-center gap-4">
+              <a href="https://www.facebook.com/p/Srikala-projects-100054633062340/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-slate-500 hover:text-electric-blue transition-colors">
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a href="https://www.instagram.com/srikala_projects?igsh=MWsxbWN1Ympqd3djMA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-slate-500 hover:text-electric-blue transition-colors">
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a href="https://m.indiamart.com/srikalaprojects/" target="_blank" rel="noopener noreferrer" aria-label="IndiaMART" className="flex items-center gap-1.5 text-slate-500 hover:text-electric-blue transition-colors">
+                <Globe className="w-4 h-4" />
+                <span className="text-[11px] font-bold uppercase tracking-wider">IndiaMART</span>
+              </a>
+            </div>
           </div>
 
           {/* Navigation */}
