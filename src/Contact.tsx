@@ -77,7 +77,7 @@ export default function Contact() {
               {[
                 { icon: Phone,  label: 'Direct Line',         val: '+91 98660 89771',                 sub: 'Mon–Sat, 09:00–18:00 IST',              href: 'tel:+919866089771' },
                 { icon: Mail,   label: 'Project Inquiries',   val: 'sales@srikalaprojects.com',       sub: 'Fast-track response within 12 hours',   href: 'mailto:sales@srikalaprojects.com' },
-                { icon: MapPin, label: 'Manufacturing & Office', val: 'Srikala Projects',             sub: 'Mamidipally, Hyderabad, Telangana - 501359', href: 'https://maps.app.goo.gl/8CgULSLTmw5RoYWv7' },
+                { icon: MapPin, label: 'Manufacturing & Office', val: 'Srikala Projects',             sub: 'Near Mankal Kaman, Sry No.319/A/1B/1C, Mankal, Tukkuguda, Maheshwaram Mandal, Ranga Reddy, Telangana - 501359', href: 'https://maps.app.goo.gl/8CgULSLTmw5RoYWv7' },
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-6">
                   <div className="w-14 h-14 bg-slate-900 flex items-center justify-center shrink-0">

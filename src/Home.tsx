@@ -233,8 +233,8 @@ export default function Home() {
           "telephone": "+919866089771", 
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Srikala Projects, Mamidipally",
-            "addressLocality": "Hyderabad",
+            "streetAddress": "Near Mankal Kaman, Sry No.319/A/1B/1C, Mankal, Tukkuguda",
+            "addressLocality": "Maheshwaram Mandal, Ranga Reddy",
             "addressRegion": "Telangana",
             "postalCode": "501359",
             "addressCountry": "IN"

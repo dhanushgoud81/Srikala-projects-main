@@ -62,7 +62,7 @@ export const Navbar = () => {
               className="flex items-center gap-2 pr-6 border-r border-white/10 text-slate-300 hover:text-white transition-colors duration-200"
             >
               <MapPin className="text-electric-blue w-3.5 h-3.5" />
-              <span>Hyderabad, Telangana, India</span>
+              <span>Maheshwaram Mandal, Ranga Reddy, Telangana</span>
             </a>
             <div className="flex items-center gap-2 pr-6 border-r border-white/10">
               <Phone className="text-electric-blue w-3.5 h-3.5" />
@@ -285,8 +285,9 @@ export const Footer = () => {
                   rel="noopener noreferrer" 
                   className="text-slate-300 hover:text-electric-blue transition-colors text-sm block leading-relaxed"
                 >
-                  Srikala Projects, Mamidipally,<br />
-                  Hyderabad, Telangana, India - 501359
+                  Near Mankal Kaman, Sry No.319/A/1B/1C,<br />
+                  Mankal, Tukkuguda, Maheshwaram Mandal,<br />
+                  Ranga Reddy, Telangana - 501359
                 </a>
               </li>
             </ul>
