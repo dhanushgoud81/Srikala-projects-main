@@ -28,7 +28,7 @@ export interface GalleryManifest {
 const GITHUB_OWNER = 'dhanushgoud81';
 const GITHUB_REPO = 'Srikala-projects-main';
 const GITHUB_BRANCH = 'main';
-const CACHE_KEY = 'srikala_galleries_cache';
+const CACHE_KEY = 'srikala_galleries_cache_v2';
 const CACHE_TTL_MS = 3 * 60 * 1000; // 3 minutes cache to avoid GitHub rate limits
 
 const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif', '.gif', '.svg']);
@@ -180,19 +180,19 @@ async function parseGitHubGalleries(items: GitHubContentItem[], branch: string):
       const photos: GalleryPhoto[] = imageFiles.map((file, idx) => {
         const ext = getFileExtension(file.name);
         const rawTitle = file.name.slice(0, -ext.length);
-        // Use fast GitHub Raw CDN for the image
-        const cdnUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${branch}/public/galleries/${encodeURIComponent(dir.name)}/${encodeURIComponent(file.name)}`;
+        // Use clean website domain path so GitHub repo is never exposed to visitors
+        const imagePath = `/galleries/${encodeURIComponent(dir.name)}/${encodeURIComponent(file.name)}`;
         
         return {
           id: `${folderSlug}-${idx + 1}`,
           filename: file.name,
-          path: cdnUrl,
+          path: imagePath,
           title: toTitleCase(rawTitle),
           isCover: file.name === coverItem.name,
         };
       });
 
-      const coverUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${branch}/public/galleries/${encodeURIComponent(dir.name)}/${encodeURIComponent(coverItem.name)}`;
+      const coverUrl = `/galleries/${encodeURIComponent(dir.name)}/${encodeURIComponent(coverItem.name)}`;
 
       galleries.push({
         id: folderSlug,
