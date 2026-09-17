@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowRight, Shield, Rocket, Truck, Verified, Square, Box, Factory, Layers, Grid3X3 } from 'lucide-react';
+import { ArrowRight, Shield, Rocket, Truck, Verified, Square, Box, Factory, Layers, Grid3X3, Images } from 'lucide-react';
 import { PageWrapper } from './components/Shared';
 import { DivisionCard } from './components/DivisionCard';
 import { CoreDivisionsHorizontal } from './components/CoreDivisionsHorizontal';
@@ -11,6 +11,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { parallax, ambient, scrollReveal, textStagger, animationUtils } from './lib/animations';
 import { magnetic, textReveal, scrollEffects } from './lib/stunningAnimations';
+import { getGalleries, Gallery } from './lib/galleryService';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -107,6 +108,13 @@ export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [prevImageIndex, setPrevImageIndex] = useState(-1);
   const [direction, setDirection] = useState<'next' | 'prev'>('next');
+  const [previewGalleries, setPreviewGalleries] = useState<Gallery[]>([]);
+
+  useEffect(() => {
+    getGalleries(false).then((res) => {
+      setPreviewGalleries(res.galleries);
+    });
+  }, []);
 
   const nextSlide = () => {
     setDirection('next');
@@ -552,6 +560,66 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Visual Archive Showcase ────────────────────────────────────────── */}
+      {previewGalleries.length > 0 && (
+        <section className="py-24 bg-slate-950 text-white relative overflow-hidden border-t border-white/10" id="home-gallery-preview">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+              <div>
+                <span className="text-electric-blue text-xs uppercase tracking-widest font-bold font-sans">
+                  Photographic Portfolio
+                </span>
+                <h2 className="text-3xl md:text-5xl font-bold font-oswald uppercase tracking-tight leading-tight mt-2">
+                  Project <span className="text-electric-blue">Galleries</span>
+                </h2>
+                <PrecisionRulerAccent />
+              </div>
+              <button
+                onClick={() => navigate('/gallery')}
+                className="w-fit flex items-center gap-2 bg-transparent hover:bg-electric-blue text-white border border-white/20 hover:border-electric-blue px-6 py-3 font-oswald text-xs uppercase tracking-widest transition-all"
+              >
+                VIEW ALL GALLERIES <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {previewGalleries.slice(0, 3).map((gallery) => (
+                <div
+                  key={gallery.id}
+                  onClick={() => navigate('/gallery')}
+                  className="group relative bg-slate-900 rounded-sm overflow-hidden border border-white/10 shadow-2xl cursor-pointer hover:border-electric-blue transition-all duration-500"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <img
+                      src={gallery.coverImage}
+                      alt={gallery.title}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+                    <div className="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md px-2.5 py-1 text-[11px] font-mono font-bold text-white border border-white/20 flex items-center gap-1.5">
+                      <Images className="w-3.5 h-3.5 text-electric-blue" />
+                      <span>{gallery.count} photos</span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold font-oswald uppercase tracking-tight text-white group-hover:text-electric-blue transition-colors">
+                      {gallery.title}
+                    </h3>
+                    <p className="text-xs text-slate-400 mt-2 line-clamp-2 leading-relaxed">
+                      {gallery.description}
+                    </p>
+                    <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-electric-blue font-bold uppercase tracking-wider">
+                      <span>Explore Gallery</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <section className="py-24 px-6" id="home-cta">

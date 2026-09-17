@@ -8,12 +8,14 @@ import Home from './Home';
 import Solutions from './Solutions';
 import Contact from './Contact';
 import UPVC from './UPVC';
+import Gallery from './Gallery';
 import NotFound from './NotFound';
 
 const pageTitles: Record<string, string> = {
   '/':          'Srikala Projects | Premium Industrial Engineering & Luxury uPVC Systems',
   '/solutions': 'Pre-Engineered Buildings & Heavy Fabrication Solutions | Srikala Projects',
   '/upvc':      'Luxury uPVC Windows & Doors Systems | Srikala Projects',
+  '/gallery':   'Visual Projects Archive & Gallery | Srikala Projects',
   '/contact':   'Get a Quote & Contact Engineering Experts | Srikala Projects',
 };
 
@@ -35,6 +37,7 @@ export default function App() {
           <Route path="/"          element={<Home />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/upvc"      element={<UPVC />} />
+          <Route path="/gallery"   element={<Gallery />} />
           <Route path="/contact"   element={<Contact />} />
           <Route path="*"          element={<NotFound />} />
         </Routes>

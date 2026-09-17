@@ -8,6 +8,7 @@ const navItems = [
   { label: 'Home',      path: '/'          },
   { label: 'Solutions', path: '/solutions' },
   { label: 'uPVC Windows & Doors', path: '/upvc' },
+  { label: 'Gallery',   path: '/gallery'   },
   { label: 'Contact',   path: '/contact'   },
 ];
 

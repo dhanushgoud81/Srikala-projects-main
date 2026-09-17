@@ -1,0 +1,98 @@
+{
+  "generatedAt": "2026-09-17T08:46:06.875Z",
+  "source": "local-filesystem",
+  "totalGalleries": 2,
+  "totalPhotos": 10,
+  "galleries": [
+    {
+      "id": "commercial-facades",
+      "folderName": "Commercial-Facades",
+      "title": "Commercial Facades",
+      "description": "High-performance structural glazing facades, pre-engineered steel frames, and architectural cladding engineered for commercial landmarks.",
+      "coverImage": "/galleries/Commercial-Facades/01-structural-glass-curtain.jpg",
+      "count": 5,
+      "photos": [
+        {
+          "id": "commercial-facades-1",
+          "filename": "01-structural-glass-curtain.jpg",
+          "path": "/galleries/Commercial-Facades/01-structural-glass-curtain.jpg",
+          "title": "Structural Glass Curtain",
+          "isCover": true
+        },
+        {
+          "id": "commercial-facades-2",
+          "filename": "02-heavy-industrial-frame.jpg",
+          "path": "/galleries/Commercial-Facades/02-heavy-industrial-frame.jpg",
+          "title": "Heavy Industrial Frame",
+          "isCover": false
+        },
+        {
+          "id": "commercial-facades-3",
+          "filename": "03-pre-engineered-warehouse.jpg",
+          "path": "/galleries/Commercial-Facades/03-pre-engineered-warehouse.jpg",
+          "title": "Pre Engineered Warehouse",
+          "isCover": false
+        },
+        {
+          "id": "commercial-facades-4",
+          "filename": "04-aluminum-composite-cladding.jpg",
+          "path": "/galleries/Commercial-Facades/04-aluminum-composite-cladding.jpg",
+          "title": "Aluminum Composite Cladding",
+          "isCover": false
+        },
+        {
+          "id": "commercial-facades-5",
+          "filename": "05-industrial-roofing-system.jpg",
+          "path": "/galleries/Commercial-Facades/05-industrial-roofing-system.jpg",
+          "title": "Industrial Roofing System",
+          "isCover": false
+        }
+      ]
+    },
+    {
+      "id": "luxury-villas",
+      "folderName": "Luxury-Villas",
+      "title": "Luxury Villas",
+      "description": "Bespoke luxury villa installations featuring panoramic multi-track sliding glass doors and architectural arches engineered for timeless residences.",
+      "coverImage": "/galleries/Luxury-Villas/01-villa-panoramic-window.jpg",
+      "count": 5,
+      "photos": [
+        {
+          "id": "luxury-villas-1",
+          "filename": "01-villa-panoramic-window.jpg",
+          "path": "/galleries/Luxury-Villas/01-villa-panoramic-window.jpg",
+          "title": "Villa Panoramic Window",
+          "isCover": true
+        },
+        {
+          "id": "luxury-villas-2",
+          "filename": "02-installed-sliding-doors.jpg",
+          "path": "/galleries/Luxury-Villas/02-installed-sliding-doors.jpg",
+          "title": "Installed Sliding Doors",
+          "isCover": false
+        },
+        {
+          "id": "luxury-villas-3",
+          "filename": "03-arch-elevation-window.jpg",
+          "path": "/galleries/Luxury-Villas/03-arch-elevation-window.jpg",
+          "title": "Arch Elevation Window",
+          "isCover": false
+        },
+        {
+          "id": "luxury-villas-4",
+          "filename": "04-installed-tilt-and-turn.jpg",
+          "path": "/galleries/Luxury-Villas/04-installed-tilt-and-turn.jpg",
+          "title": "Installed Tilt And Turn",
+          "isCover": false
+        },
+        {
+          "id": "luxury-villas-5",
+          "filename": "05-smart-slide-patio.jpg",
+          "path": "/galleries/Luxury-Villas/05-smart-slide-patio.jpg",
+          "title": "Smart Slide Patio",
+          "isCover": false
+        }
+      ]
+    }
+  ]
+}
