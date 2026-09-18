@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { PageWrapper } from './components/Shared';
-import { PrecisionRulerAccent } from './components/PrecisionRulerAccent';
 import { GalleryLightbox } from './components/GalleryLightbox';
 import { getGalleries, Gallery, GalleryPhoto } from './lib/galleryService';
 import { 
   Layers, 
   Images, 
   ArrowUpRight, 
-  CheckCircle2, 
   Eye, 
   Search
 } from 'lucide-react';
@@ -95,60 +93,6 @@ export default function GalleryPage() {
 
   return (
     <PageWrapper>
-      {/* ── Page Hero Header ───────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-slate-950 text-white overflow-hidden border-b border-white/10">
-        {/* Background Gradients */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-electric-blue/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-10 w-80 h-80 bg-blue-900/10 rounded-full blur-2xl pointer-events-none" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-2.5 h-2.5 bg-electric-blue rounded-full animate-pulse" />
-                <span className="text-electric-blue font-mono uppercase tracking-[0.25em] text-xs font-bold">
-                  Dynamic Project Showcase
-                </span>
-              </div>
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold font-oswald uppercase tracking-tight leading-tight">
-                Visual <span className="text-electric-blue">Archive</span>
-              </h1>
-              <PrecisionRulerAccent />
-              <p className="mt-4 text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
-                Explore our comprehensive photographic portfolio of luxury uPVC systems, pre-engineered buildings, and structural engineering landmarks.
-              </p>
-            </div>
-
-            {/* Client-Facing Portfolio Summary Card */}
-            <div className="bg-slate-900/90 border border-white/15 p-5 rounded-sm backdrop-blur-md max-w-xs w-full shadow-2xl">
-              <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-3">
-                <span className="text-electric-blue font-mono text-xs font-bold uppercase tracking-widest">
-                  Portfolio Index
-                </span>
-                <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] uppercase font-bold tracking-wider rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                  <CheckCircle2 className="w-3 h-3" />
-                  Verified
-                </span>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex justify-between items-baseline">
-                  <span className="text-xs text-slate-400">Total Galleries:</span>
-                  <span className="text-white font-bold font-mono text-sm">{galleries.length} Collections</span>
-                </div>
-                <div className="flex justify-between items-baseline">
-                  <span className="text-xs text-slate-400">Project Photos:</span>
-                  <span className="text-electric-blue font-bold font-mono text-sm">{totalPhotosCount} High-Res Images</span>
-                </div>
-                <div className="flex justify-between items-baseline pt-1 border-t border-white/5">
-                  <span className="text-[11px] text-slate-500">Standards:</span>
-                  <span className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">ISO 9001:2015</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── Main Gallery Section ─────────────────────────────────────────── */}
       <section className="py-16 md:py-24 bg-surface min-h-screen text-primary" id="gallery-grid">
