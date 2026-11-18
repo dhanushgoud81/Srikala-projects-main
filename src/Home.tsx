@@ -238,7 +238,7 @@ export default function Home() {
           "image": "https://srikalaprojects.com/images/logo2.jpg",
           "@id": "https://srikalaprojects.com/#organization",
           "url": "https://srikalaprojects.com/",
-          "telephone": "+919866089771", 
+          "telephone": "+918179856996",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Near Mankal Kaman, Sry No.319/A/1B/1C, Mankal, Tukkuguda",

@@ -67,8 +67,8 @@ export const Navbar = () => {
             </a>
             <div className="flex items-center gap-2 pr-6 border-r border-white/10">
               <Phone className="text-electric-blue w-3.5 h-3.5" />
-              <a href="tel:+919866089771" className="hover:text-white transition-colors duration-200">
-                +91 98660 89771
+              <a href="tel:+918179856996" className="hover:text-white transition-colors duration-200">
+                +91 81798 56996
               </a>
             </div>
             <div className="flex items-center gap-2">
@@ -268,8 +268,8 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-1">Phone</p>
-                <a href="tel:+919866089771" className="text-slate-300 hover:text-electric-blue transition-colors text-sm font-medium">
-                  +91 98660 89771
+                <a href="tel:+918179856996" className="text-slate-300 hover:text-electric-blue transition-colors text-sm font-medium">
+                  +91 81798 56996
                 </a>
               </li>
               <li>
